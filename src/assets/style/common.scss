@@ -1,0 +1,19 @@
+@import "./transition.scss";
+
+.layout-container {
+  background-color: #fff;
+  width: 100%;
+  height: 100%;
+}
+
+.flex {
+  display: flex;
+}
+.center {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+a {
+  text-decoration: none;
+}
