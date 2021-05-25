@@ -59,9 +59,9 @@ export default defineComponent({
     watch(menuList, (newVal) => {
       tabsHook.setItem(newVal)
     })
-    watch(route, (newVal) => {
-      addMenu(newVal)
-      initMenu(newVal)
+    router.afterEach(() => {
+      addMenu(route)
+      initMenu(route)
     })
 
     // 全屏

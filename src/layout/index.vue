@@ -69,8 +69,8 @@ export default defineComponent({
     return {
       isCollapse,
       hideMenu,
-      key,
-      contentFullScreen
+      contentFullScreen,
+      key
     }
   }
 });

@@ -3,7 +3,7 @@
  * @params hideMenu: 是否隐藏当前路由结点不在导航中展示
  * @params alwayShow: 只有一个子路由时是否总是展示菜单，默认false
  */
-import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router'
+import { createRouter, createWebHashHistory } from 'vue-router'
 import NProgress from '/@/utils/system/nprogress'
 import { systemTitle } from '/@/config/index.ts'
 
