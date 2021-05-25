@@ -1,9 +1,9 @@
 <template>
   <div class="tags-view-item" :class="active? 'active' : ''">
     <router-link :to="menu.path">
-      {{ menu.meta.title }}
+      {{ $t(menu.meta.title) }}
     </router-link>
-    <i class="el-icon-close" @click.stop="closeTab" v-if="!menu.meta.hideClose" alt="删除"></i>
+    <i class="el-icon-close" @click.stop="closeTab" v-if="!menu.meta.hideClose" :alt="$t('message.common.del')"></i>
   </div>
 </template>
 

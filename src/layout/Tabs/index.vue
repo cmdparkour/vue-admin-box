@@ -47,7 +47,7 @@ export default defineComponent({
     const allRoutes = router.options.routes
     const defaultMenu = {
       path: '/dashboard',
-      meta: { title: '首页', hideClose: true }
+      meta: { title: 'message.menu.index', hideClose: true }
     }
     const contentFullScreen = computed(() => store.state.app.contentFullScreen)
 

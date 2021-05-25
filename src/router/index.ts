@@ -4,8 +4,9 @@
  * @params alwayShow: 只有一个子路由时是否总是展示菜单，默认false
  */
 import { createRouter, createWebHashHistory } from 'vue-router'
+import i18n from '/@/locale'
 import NProgress from '/@/utils/system/nprogress'
-import { systemTitle } from '/@/config/index.ts'
+import { changeTitle } from '/@/utils/system/title'
 
 // 引入modules
 import Dashboard from './modules/dashboard'
@@ -18,6 +19,8 @@ let modules: object[] = [
   ...System
 ]
 
+const { t } = i18n.global
+
 const routes: any = modules
 
 const router = createRouter({
@@ -27,7 +30,7 @@ const router = createRouter({
 
 router.beforeEach((to, _from, next) => {
   NProgress.start();
-  to.meta.title ? (document.title = `${to.meta.title}-${systemTitle}`) : ""; // 动态title
+  to.meta.title ? (changeTitle(to.meta.title)) : ""; // 动态title
   next()
   // whiteList.indexOf(to.path) !== -1 || storageSession.getItem("info")
   //   ? next()

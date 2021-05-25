@@ -10,7 +10,8 @@
     <div class="right-box">
       <!-- 快捷功能按钮 -->
       <div class="function-list">
-        <full-screen />
+        <div class="function-list-item"><Full-screen /></div>
+        <div class="function-list-item"><Word /></div>
       </div>
       <!-- 用户信息 -->
       <div class="user-info">
@@ -34,12 +35,14 @@
 import { defineComponent, computed } from 'vue'
 import { useStore } from 'vuex'
 import { useRouter, useRoute } from 'vue-router'
-import fullScreen from './functionList/fullscreen.vue'
+import FullScreen from './functionList/fullscreen.vue'
+import Word from './functionList/word.vue'
 import Breadcrumb from './Breadcrumb.vue'
 export default defineComponent({
   components: {
-    fullScreen,
-    Breadcrumb
+    FullScreen,
+    Breadcrumb,
+    Word
   },
   setup() {
     const store = useStore()
@@ -89,6 +92,13 @@ export default defineComponent({
     justify-content: center;
     align-items: center;
     .function-list{
+      display: flex;
+      .function-list-item {
+        width: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
       :deep i {
         cursor: pointer;
         &:hover {

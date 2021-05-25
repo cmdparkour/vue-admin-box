@@ -3,7 +3,7 @@
     <el-submenu v-if="showMenuType === 2" :index="menu.path">
       <template #title>
         <i class="el-icon-location" v-if="menu.meta.icon"></i>
-        <span>{{ menu.meta.title }}</span>
+        <span>{{ $t(menu.meta.title) }}</span>
       </template>
       <el-menu-item-group>
         <menu-item v-for="(item, key) in menu.children" :key="key" :menu="item" />
@@ -12,13 +12,13 @@
     <app-link v-else-if="showMenuType === 1" :to="pathResolve">
       <el-menu-item :index="pathResolve">
         <i class="el-icon-menu" v-if="menu.children[0].meta.icon"></i>
-        <template #title>{{ menu.children[0].meta.title }}</template>
+        <template #title>{{ $t(menu.children[0].meta.title) }}</template>
       </el-menu-item>
     </app-link>
     <app-link v-else :to="pathResolve">
       <el-menu-item :index="pathResolve">
       <i class="el-icon-menu" v-if="menu.meta.icon"></i>
-      <template #title>{{ menu.meta.title }}</template>
+      <template #title>{{ $t(menu.meta.title) }}</template>
       </el-menu-item>
     </app-link>
   </template>

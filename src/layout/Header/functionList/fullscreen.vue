@@ -1,7 +1,7 @@
 <template>
   <div>
     <el-tooltip class="item" effect="dark" :content="isFullscreen ? '退出全屏':'全屏'" placement="bottom">
-      <i class="el-icon-full-screen" @click="toggle"></i>
+      <i class="sfont" :class="isFullscreen ? 'system-quanping':'system-quanping1'" @click="toggle"></i>
     </el-tooltip>
   </div>
 </template>

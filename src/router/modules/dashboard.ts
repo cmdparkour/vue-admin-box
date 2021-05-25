@@ -9,7 +9,7 @@ const route = [
       {
         path: 'dashboard',
         component: () => import('/@/views/main/dashboard/index.vue'),
-        meta: { title: '首页', icon: 'el-icon-menu' }
+        meta: { title: 'message.menu.index', icon: 'el-icon-menu' }
       }
     ]
   }

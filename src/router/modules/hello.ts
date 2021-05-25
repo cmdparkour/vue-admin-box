@@ -9,7 +9,7 @@ const route = [
       {
         path: 'helloc',
         component: () => import('/@/views/main/dashboard/index.vue'),
-        meta: { title: '测试', icon: 'el-icon-menu' }
+        meta: { title: 'message.menu.test', icon: 'el-icon-menu' }
       }
     ]
   }
