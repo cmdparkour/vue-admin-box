@@ -24,10 +24,12 @@ export default function Presistent({ key, modules, modulesKeys }: Socket) {
     const sessionOldState = JSON.parse(sessionStorage.getItem(key) || '{}')
     let oldState: Modules = {}
     Object.assign(oldState, localOldState, sessionOldState)
-    for (const oldKey in oldState) {
-      modules[oldKey] = oldState[oldKey]
+    if (Object.keys(oldState).length > 0) {
+      for (const oldKey in oldState) {
+        modules[oldKey] = oldState[oldKey]
+      }
+      store.replaceState(modules)
     }
-    store.replaceState(modules)
     store.subscribe((mutation: Mutation, state: any) => {
       // 判断是否需要缓存数据至localStorage
       if (modulesKeys.local.length > 0) {
