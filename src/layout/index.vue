@@ -2,14 +2,14 @@
   <el-container style="height: 100vh">
     <div class="mask" v-show="!isCollapse && !contentFullScreen" @click="hideMenu"></div>
     <el-aside :width="isCollapse ? '60px' : '250px'" :class="isCollapse ? 'hide-aside': 'show-side'" v-show="!contentFullScreen">
-      <Logo />
+      <Logo v-if="showLogo" />
       <Menu />
     </el-aside>
     <el-container>
       <el-header v-show="!contentFullScreen">
         <Header />
       </el-header>
-      <Tabs />
+      <Tabs v-show="showTabs" />
       <el-main>
         <router-view :key="key" v-slot="{ Component }">
           <transition appear name="fade-transform" mode="out-in">
@@ -46,6 +46,8 @@ export default defineComponent({
     // computed
     const isCollapse = computed(() => store.state.app.isCollapse)
     const contentFullScreen = computed(() => store.state.app.contentFullScreen)
+    const showLogo = computed(() => store.state.app.showLogo)
+    const showTabs = computed(() => store.state.app.showTabs)
     // 页面宽度变化监听后执行的方法
     const resizeHandler = () => {
       if (document.body.clientWidth <= 1000 && !isCollapse.value) {
@@ -70,7 +72,9 @@ export default defineComponent({
       isCollapse,
       hideMenu,
       contentFullScreen,
-      key
+      key,
+      showLogo,
+      showTabs
     }
   }
 });

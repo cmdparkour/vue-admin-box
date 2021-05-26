@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div style="height: 2000px;">
     首页个锤子
   </div>
 </template>

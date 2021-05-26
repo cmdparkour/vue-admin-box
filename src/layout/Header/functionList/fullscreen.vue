@@ -1,8 +1,6 @@
 <template>
-  <div>
-    <el-tooltip class="item" effect="dark" :content="isFullscreen ? '退出全屏':'全屏'" placement="bottom">
-      <i class="sfont" :class="isFullscreen ? 'system-quanping':'system-quanping1'" @click="toggle"></i>
-    </el-tooltip>
+  <div :title="isFullscreen ? '退出全屏':'全屏'">
+    <i class="sfont" :class="isFullscreen ? 'system-quanping':'system-quanping1'" @click="toggle"></i>
   </div>
 </template>
 
@@ -22,5 +20,15 @@ export default defineComponent({
 })
 </script>
 
-<style>
+<style lang="scss" scoped>
+  i {
+    cursor: pointer;
+    font-size: 18px;
+    &:hover {
+      background: rgba(0,0,0,.025);
+    }
+    &:focus {
+      outline: none;
+    }
+  }
 </style>

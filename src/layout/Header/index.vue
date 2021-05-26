@@ -12,6 +12,8 @@
       <div class="function-list">
         <div class="function-list-item"><Full-screen /></div>
         <div class="function-list-item"><Word /></div>
+        <div class="function-list-item"><Theme /></div>
+        <div class="function-list-item"><Github /></div>
       </div>
       <!-- 用户信息 -->
       <div class="user-info">
@@ -37,12 +39,17 @@ import { useStore } from 'vuex'
 import { useRouter, useRoute } from 'vue-router'
 import FullScreen from './functionList/fullscreen.vue'
 import Word from './functionList/word.vue'
+import Github from './functionList/github.vue'
+import Theme from './functionList/theme.vue'
 import Breadcrumb from './Breadcrumb.vue'
+
 export default defineComponent({
   components: {
     FullScreen,
     Breadcrumb,
-    Word
+    Word,
+    Github,
+    Theme
   },
   setup() {
     const store = useStore()
@@ -65,7 +72,8 @@ export default defineComponent({
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 100%;
+    height: 60px;
+    background-color: #fff;
   }
   .left-box {
     height: 100%;
@@ -98,15 +106,6 @@ export default defineComponent({
         display: flex;
         justify-content: center;
         align-items: center;
-      }
-      :deep i {
-        cursor: pointer;
-        &:hover {
-          background: rgba(0,0,0,.025);
-        }
-        &:focus {
-          outline: none;
-        }
       }
     }
     .user-info {

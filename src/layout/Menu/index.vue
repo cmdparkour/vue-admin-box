@@ -51,10 +51,5 @@ export default defineComponent({
       margin-left: 0px;
       paddding: 0 15px;
     }
-    :deep .el-submenu__title, :deep .el-menu-item{
-      // &:hover {
-      //   background-color: #263445 !important;
-      // }
-    }
   }
 </style>
