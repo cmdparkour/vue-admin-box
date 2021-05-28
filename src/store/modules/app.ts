@@ -11,11 +11,6 @@ const state = () => ({
   showTabs: true, // 是否显示导航历史
 })
 
-// actions
-const actions = {
-
-}
-
 // mutations
 const mutations = {
   isCollapseChange(state: any, type: boolean) {
@@ -30,6 +25,11 @@ const mutations = {
   stateChange(state: any, option: Option) {
     state[option.name] = option.value
   }
+}
+
+// actions
+const actions = {
+
 }
 
 export default {

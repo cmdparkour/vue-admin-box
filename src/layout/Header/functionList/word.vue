@@ -22,7 +22,7 @@
 import { defineComponent } from 'vue'
 import { useRoute } from 'vue-router'
 import { useI18n } from 'vue-i18n'
-import { changeTitle } from '/@/utils/system/title'
+import { changeTitle } from '@/utils/system/title'
 export default defineComponent({
   setup() {
     const { locale, t } = useI18n()

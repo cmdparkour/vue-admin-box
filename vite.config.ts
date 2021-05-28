@@ -1,5 +1,6 @@
-import { defineConfig } from 'vite'
+import { ConfigEnv, UserConfigExport } from 'vite'
 import vue from '@vitejs/plugin-vue'
+import { viteMockServe } from 'vite-plugin-mock'
 import { resolve } from 'path'
 
 const pathResolve = (dir: string): any => {
@@ -7,13 +8,19 @@ const pathResolve = (dir: string): any => {
 }
 
 const alias: Record<string, string> = {
-  '/@': pathResolve("src")
+  '@': pathResolve("src")
 }
 
 // https://vitejs.dev/config/
-export default defineConfig({
+export default ({ command }: ConfigEnv): UserConfigExport =>({
   resolve: {
     alias
   },
-  plugins: [vue()]
+  plugins: [
+    vue(),
+    viteMockServe({
+      mockPath: 'mock',
+      localEnabled: command === 'serve'
+    })
+  ]
 })

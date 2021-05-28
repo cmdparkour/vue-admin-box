@@ -20,8 +20,8 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import four from "/@/assets/images/404.png"
-import four_cloud from "/@/assets/images/404_cloud.png"
+import four from "@/assets/images/404.png"
+import four_cloud from "@/assets/images/404_cloud.png"
 export default defineComponent({
   setup() {
     return {

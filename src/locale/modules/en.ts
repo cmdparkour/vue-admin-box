@@ -1,7 +1,10 @@
 const lang = {
   language: 'English',
   system: {
-    title: 'backendsystem'
+    title: 'backendsystem',
+    login: 'login',
+    userName: 'userName',
+    password: 'password'
   },
   common: {
     search: 'search',

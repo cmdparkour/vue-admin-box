@@ -4,9 +4,10 @@
  * @params alwayShow: 只有一个子路由时是否总是展示菜单，默认false
  */
 import { createRouter, createWebHashHistory } from 'vue-router'
-import i18n from '/@/locale'
-import NProgress from '/@/utils/system/nprogress'
-import { changeTitle } from '/@/utils/system/title'
+import store from '@/store'
+import i18n from '@/locale'
+import NProgress from '@/utils/system/nprogress'
+import { changeTitle } from '@/utils/system/title'
 
 // 引入modules
 import Dashboard from './modules/dashboard'
@@ -28,13 +29,14 @@ const router = createRouter({
   routes
 })
 
+const whiteList = ['/login']
+
 router.beforeEach((to, _from, next) => {
   NProgress.start();
   to.meta.title ? (changeTitle(to.meta.title)) : ""; // 动态title
-  next()
-  // whiteList.indexOf(to.path) !== -1 || storageSession.getItem("info")
-  //   ? next()
-  //   : next("/login"); // 全部重定向到登录页
+  whiteList.indexOf(to.path) !== -1 || store.state.user.token
+    ? next()
+    : next("/login"); // 全部重定向到登录页
 });
 
 router.afterEach(() => {

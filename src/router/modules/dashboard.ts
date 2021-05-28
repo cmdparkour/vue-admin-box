@@ -1,4 +1,4 @@
-import Layout from '/@/layout/index.vue'
+import Layout from '@/layout/index.vue'
 const route = [
   {
     path: '/',
@@ -8,7 +8,7 @@ const route = [
     children: [
       {
         path: 'dashboard',
-        component: () => import('/@/views/main/dashboard/index.vue'),
+        component: () => import('@/views/main/dashboard/index.vue'),
         meta: { title: 'message.menu.index', icon: 'el-icon-menu' }
       }
     ]

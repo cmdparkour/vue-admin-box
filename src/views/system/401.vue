@@ -17,7 +17,7 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import first from "/@/assets/images/401.gif"
+import first from "@/assets/images/401.gif"
 export default defineComponent({
   setup() {
     return {

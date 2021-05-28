@@ -8,7 +8,7 @@
 <script lang="ts">
 import { defineComponent, computed } from 'vue'
 import { useStore } from 'vuex'
-import { systemTitle } from '/@/config'
+import { systemTitle } from '@/config'
 export default defineComponent({
   setup() {
     const store = useStore()

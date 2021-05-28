@@ -1,7 +1,10 @@
 const lang = {
   language: '中文',
   system: {
-    title: '后台管理系统'
+    title: '后台管理系统',
+    login: '登录',
+    userName: '用户名',
+    password: '密码'
   },
   common: {
     search: '搜索',
