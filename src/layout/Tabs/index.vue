@@ -17,9 +17,9 @@
         <template #dropdown>
           <el-dropdown-menu>
             <el-dropdown-item icon="el-icon-refresh-left" @click="pageReload">重新加载</el-dropdown-item>
-            <el-dropdown-item icon="el-icon-circle-close">关闭当前标签</el-dropdown-item>
-            <el-dropdown-item icon="el-icon-circle-close">关闭其他标签</el-dropdown-item>
-            <el-dropdown-item icon="el-icon-circle-close">关闭所有标签</el-dropdown-item>
+            <el-dropdown-item icon="el-icon-circle-close" :disabled="currentDisabled" @click="closeCurrentRoute">关闭当前标签</el-dropdown-item>
+            <el-dropdown-item icon="el-icon-circle-close" :disabled="menuList.length <= 1" @click="closeOtherRoute">关闭其他标签</el-dropdown-item>
+            <el-dropdown-item icon="el-icon-circle-close" :disabled="menuList.length <= 1" @click="closeAllRoute">关闭所有标签</el-dropdown-item>
           </el-dropdown-menu>
         </template>
       </el-dropdown>
@@ -32,7 +32,7 @@
 
 <script lang="ts">
 import Item from './item.vue'
-import { defineComponent, computed, unref, watch, reactive } from 'vue'
+import { defineComponent, computed, unref, watch, reactive, ref } from 'vue'
 import { useStore } from 'vuex'
 import { useRoute, useRouter } from 'vue-router'
 import tabsHook from './tabsHook.ts'
@@ -50,9 +50,10 @@ export default defineComponent({
       meta: { title: 'message.menu.index', hideClose: true }
     }
     const contentFullScreen = computed(() => store.state.app.contentFullScreen)
+    const currentDisabled = computed(() => route.path === defaultMenu.path)
 
     let activeMenu = reactive({ path: '' })
-    let menuList = reactive(tabsHook.getItem())
+    let menuList = ref(tabsHook.getItem())
     if (menuList.length === 0) { // 判断之前有没有调用过
       addMenu(defaultMenu)
     } 
@@ -77,17 +78,37 @@ export default defineComponent({
       });
     }
 
+    // 关闭当前标签，首页不关闭
+    function closeCurrentRoute() {
+      if (route.path !== defaultMenu.path) {
+        delMenu(route)
+      }
+    }
+    // 关闭除了当前标签之外的所有标签
+    function closeOtherRoute() {
+      menuList.value = [defaultMenu]
+      if (route.path !== defaultMenu.path) {
+        addMenu(route)
+      }
+    }
+
+    // 关闭所有的标签，除了首页
+    function closeAllRoute() {
+      menuList.value = [defaultMenu]
+      router.push(defaultMenu.path)
+    }
+
     // 添加新的菜单项
-    function addMenu(menu: object) {
+    function addMenu(menu) {
       let { path, meta } = menu
       if (meta.hideTabs) {
         return
       }
-      let hasMenu = menuList.some((obj) => {
+      let hasMenu = menuList.value.some((obj) => {
         return obj.path === path
       })
       if (!hasMenu) {
-        menuList.push({
+        menuList.value.push({
           path,
           meta
         })
@@ -99,8 +120,9 @@ export default defineComponent({
       if (menu.path === activeMenu.path) {
         router.push(defaultMenu.path)
       }
-      menuList.splice(menuList.findIndex(item => item.path === menu.path), 1)
-      
+      if (!menu.meta.hideClose) {
+        menuList.value.splice(menuList.value.findIndex(item => item.path === menu.path), 1)
+      }
     }
 
     // 初始化activeMenu
@@ -117,7 +139,11 @@ export default defineComponent({
       // 菜单相关
       menuList,
       activeMenu,
-      delMenu
+      delMenu,
+      closeCurrentRoute,
+      closeOtherRoute,
+      closeAllRoute,
+      currentDisabled
     }
   }
 })

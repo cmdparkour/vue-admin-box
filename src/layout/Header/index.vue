@@ -10,10 +10,10 @@
     <div class="right-box">
       <!-- 快捷功能按钮 -->
       <div class="function-list">
-        <div class="function-list-item"><Full-screen /></div>
+        <div class="function-list-item hidden-sm-and-down"><Full-screen /></div>
         <div class="function-list-item"><Word /></div>
-        <div class="function-list-item"><Theme /></div>
-        <div class="function-list-item"><Github /></div>
+        <div class="function-list-item hidden-sm-and-down"><Theme /></div>
+        <div class="function-list-item hidden-sm-and-down"><Github /></div>
       </div>
       <!-- 用户信息 -->
       <div class="user-info">
