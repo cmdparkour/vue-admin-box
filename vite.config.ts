@@ -26,7 +26,7 @@ export default ({ command }: ConfigEnv): UserConfigExport => {
         prodEnabled: command !== 'serve' && prodMock,
         watchFiles: true,
         injectCode: `
-          import { setupProdMockServer } from './mockProdServer';
+          import { setupProdMockServer } from '../mockProdServer';
           setupProdMockServer();
         `,
         logger: true,
