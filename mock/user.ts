@@ -38,8 +38,8 @@ export default [
   {
     url: `/mock/user/info`,
     method: 'post',
-    response: ({ query }) => {
-      const { token } = query
+    response: ({ body }) => {
+      const { token } = body
       const info = users.find(user => {
         return user.token === token
       }).info
@@ -63,23 +63,12 @@ export default [
   {
     url: `/mock/user/loginOut`,
     method: 'post',
-    response: ({ headers }) => {
-      const { token } = headers
-      const info = users.find(user => user.token === token).info
-      if (info) {
-        return {
-          code: 200,
-          data: {},
-          msg: 'success'
-        };
-      } else {
-        return {
-          code: 403,
-          data: {},
-          msg: '无访问权限'
-        };
-      }
-      
+    response: () => {
+      return {
+        code: 200,
+        data: {},
+        msg: 'success'
+      };
     }
   },
 ] as MockMethod[]
