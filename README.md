@@ -42,7 +42,7 @@ vue-admin-box是一个免费并且开源的中后台管理系统模板。使用�
 1. 获取源码资源包
 
    ```
-   git clone https://github.com/xiaoxian521/vue-pure-admin.git
+   git clone https://github.com/xiaoxian521/vue-admin-box.git
    ```
 
    
