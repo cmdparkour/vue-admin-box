@@ -61,7 +61,7 @@ export default [
     }
   },
   {
-    url: `/mock/user/loginOut`,
+    url: `/mock/user/out`,
     method: 'post',
     response: () => {
       return {

@@ -23,7 +23,7 @@ export function getInfoApi(data) {
 // 退出登录Api
 export function loginOutApi() {
   return request({
-    url: '/user/loginOut',
+    url: '/user/out',
     method: 'post',
     baseURL: '/mock'
   })
