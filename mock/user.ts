@@ -38,9 +38,11 @@ export default [
   {
     url: `/mock/user/info`,
     method: 'post',
-    response: ({ headers }) => {
-      const { token } = headers
-      const info = users.find(user => user.token === token).info
+    response: ({ query }) => {
+      const { token } = query
+      const info = users.find(user => {
+        return user.token === token
+      }).info
       if (info) {
         return {
           code: 200,

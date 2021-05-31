@@ -34,7 +34,7 @@ const actions = {
       loginApi(params)
       .then(res => {
         commit('tokenChange', res.data.token)
-        dispatch('getInfo')
+        dispatch('getInfo', { token: res.data.token })
         .then(infoRes => {
           resolve(res.data.token)
         })
@@ -42,9 +42,9 @@ const actions = {
     })
   },
   // get user info after user logined
-  getInfo({ commit }: ActionContext<State, State>) {
+  getInfo({ commit }: ActionContext<State, State>, params: any) {
     return new Promise((resolve, reject) => {
-      getInfoApi()
+      getInfoApi(params)
       .then(res => {
         commit('infoChange', res.data.info)
         resolve(res.data.info)
