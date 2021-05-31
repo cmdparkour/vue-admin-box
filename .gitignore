@@ -4,3 +4,5 @@ dist
 dist-ssr
 *.local
 yarn.lock
+yarn-error.log
+.vscode

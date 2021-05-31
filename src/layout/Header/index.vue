@@ -24,7 +24,7 @@
           <template #dropdown>
             <el-dropdown-menu>
               <el-dropdown-item>修改密码</el-dropdown-item>
-              <el-dropdown-item>退出登录</el-dropdown-item>
+              <el-dropdown-item @click="loginOut">退出登录</el-dropdown-item>
             </el-dropdown-menu>
           </template>
         </el-dropdown>
@@ -56,12 +56,19 @@ export default defineComponent({
     const router = useRouter()
     const route = useRoute()
     const isCollapse = computed(() => store.state.app.isCollapse)
+    // isCollapse change to hide/show the sidebar
     const opendStateChange = () => {
       store.commit('app/isCollapseChange', !isCollapse.value)
     }
+
+    // login out the system
+    const loginOut = () => {
+      store.dispatch('user/loginOut')
+    }
     return {
       isCollapse,
-      opendStateChange
+      opendStateChange,
+      loginOut
     }
   }
 })

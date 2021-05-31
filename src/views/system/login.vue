@@ -92,7 +92,9 @@ export default defineComponent({
         .then(() => {
           ElMessage.success({
             message: '登录成功',
-            type: 'success'
+            type: 'success',
+            showClose: true,
+            duration: 1000
           })
           router.push(route.query.redirect || '/')
         })

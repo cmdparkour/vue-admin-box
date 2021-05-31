@@ -1,25 +1,19 @@
-import axios , { AxiosError, AxiosRequestConfig, AxiosResponse } from 'axios'
+import axios , { AxiosError, AxiosRequestConfig, AxiosResponse, AxiosInstance } from 'axios'
 import store from '@/store'
 import { ElMessage } from 'element-plus'
+const baseURL: any = import.meta.env.VITE_BASE_URL
 
-const service: any = axios.create({
-  baseURL: '/dev-api',
+const service: AxiosInstance = axios.create({
+  baseURL: baseURL,
   timeout: 5000
 })
 
-type MyConfig = AxiosRequestConfig & {type: string}
-
 // 请求前的统一处理
 service.interceptors.request.use(
-  (config: MyConfig) => {
-    // 前置处理
-    if (config.type === 'form') {
-      config.headers['Content-Type'] = 'application/x-www-form-urlencoded; charset=UTF-8'
-    }
-
+  (config: AxiosRequestConfig) => {
     // JWT鉴权处理
-    if (store.getters.token) {
-      config.headers['Authorization'] = 'Bearer ' + store.getters.token
+    if (store.getters['user/token']) {
+      config.headers['token'] = store.state.user.token
     }
 
     return config

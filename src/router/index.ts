@@ -34,9 +34,12 @@ const whiteList = ['/login']
 router.beforeEach((to, _from, next) => {
   NProgress.start();
   to.meta.title ? (changeTitle(to.meta.title)) : ""; // 动态title
-  whiteList.indexOf(to.path) !== -1 || store.state.user.token
-    ? next()
-    : next("/login"); // 全部重定向到登录页
+  if (whiteList.indexOf(to.path) !== -1 || store.state.user.info.name) {
+    next()
+  } else {
+    next("/login"); // 全部重定向到登录页
+    to.meta.title ? (changeTitle(to.meta.title)) : ""; // 动态title
+  }
 });
 
 router.afterEach(() => {

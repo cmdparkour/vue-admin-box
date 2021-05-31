@@ -12,15 +12,25 @@ const alias: Record<string, string> = {
 }
 
 // https://vitejs.dev/config/
-export default ({ command }: ConfigEnv): UserConfigExport =>({
-  resolve: {
-    alias
-  },
-  plugins: [
-    vue(),
-    viteMockServe({
-      mockPath: 'mock',
-      localEnabled: command === 'serve'
-    })
-  ]
-})
+export default ({ command }: ConfigEnv): UserConfigExport => {
+  const prodMock = true;
+  return {
+    resolve: {
+      alias
+    },
+    plugins: [
+      vue(),
+      viteMockServe({
+        mockPath: 'mock',
+        localEnabled: command === 'serve',
+        prodEnabled: command !== 'serve' && prodMock,
+        watchFiles: true,
+        injectCode: `
+          import { setupProdMockServer } from './mockProdServer';
+          setupProdMockServer();
+        `,
+        logger: true,
+      }),
+    ]
+  };
+}
