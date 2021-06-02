@@ -4,7 +4,13 @@ const lang = {
     title: 'backendsystem',
     login: 'login',
     userName: 'userName',
-    password: 'password'
+    password: 'password',
+    size: {
+      default: 'default',
+      medium: 'medium',
+      small: 'small',
+      mini: 'mini'
+    }
   },
   common: {
     search: 'search',
@@ -14,7 +20,7 @@ const lang = {
   },
   menu: {
     index: 'index',
-    test: 'test'
+    crudTable: 'crud Table'
   }
 }
 

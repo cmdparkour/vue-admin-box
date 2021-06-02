@@ -7,8 +7,9 @@ const state = () => ({
   isCollapse: false,
   contentFullScreen: false,
   showLogo: true, // 是否显示Logo
-  fixedTop: false, // 是否固定顶部
+  fixedTop: false, // 是否固定顶部, todo，暂未使用
   showTabs: true, // 是否显示导航历史
+  elementSize: 'small'
 })
 
 // mutations

@@ -4,6 +4,28 @@
   background-color: #fff;
   width: 100%;
   height: 100%;
+  display: flex;
+  flex-direction: column;
+  &-form {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    &-handle {
+      display: flex;
+      justify-content: flex-start;
+    }
+    &-search {
+      display: flex;
+      justify-content: flex-end;
+      .search-btn {
+        margin-left: 15px;
+      }
+    }
+  }
+  &-table {
+    flex: 1;
+    height: 100%;
+  }
 }
 
 .flex {

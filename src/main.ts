@@ -8,9 +8,8 @@ import App from './App.vue'
 import store from './store'
 import router from './router'
 import i18n from './locale'
-
 const app = createApp(App)
-app.use(ElementPlus)
+app.use(ElementPlus, { size: store.state.app.elementSize })
 app.use(store)
 app.use(router)
 app.use(i18n)

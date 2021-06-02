@@ -8,9 +8,8 @@
     size="300px"
     :show-close="false"
     direction="rtl">
-      <el-divider content-position="center">主题</el-divider>
-
-      <el-divider content-position="center">配置</el-divider>
+      <!-- <el-divider content-position="center">主题</el-divider> -->
+      <!-- <el-divider content-position="center">配置</el-divider> -->
       <div class="list">
         <div class="list-item" v-for="option in options" :key="option.name">
           <span>{{ option.name }}</span>
@@ -39,8 +38,8 @@ export default defineComponent({
     const store = useStore()
     let drawer = ref(false)
     const options = reactive([
-      { name: '显示logo', value: store.state.app.showLogo, store: 'showLogo' },
-      { name: '显示tabsView', value: store.state.app.showTabs, store: 'showTabs' },
+      { name: '显示logo模块', value: store.state.app.showLogo, store: 'showLogo' },
+      { name: '显示面包屑导航', value: store.state.app.showTabs, store: 'showTabs' },
       // { name: '固定顶部', value: store.state.app.fixedTop, store: 'fixedTop' }
     ])
     const drawerChange = (value: boolean) => {

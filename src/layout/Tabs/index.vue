@@ -35,7 +35,7 @@ import Item from './item.vue'
 import { defineComponent, computed, unref, watch, reactive, ref } from 'vue'
 import { useStore } from 'vuex'
 import { useRoute, useRouter } from 'vue-router'
-import tabsHook from './tabsHook.ts'
+import tabsHook from './tabsHook'
 export default defineComponent({
   components: {
     Item
@@ -57,7 +57,7 @@ export default defineComponent({
     if (menuList.length === 0) { // 判断之前有没有调用过
       addMenu(defaultMenu)
     } 
-    watch(menuList, (newVal) => {
+    watch(menuList, (newVal: []) => {
       tabsHook.setItem(newVal)
     })
     router.afterEach(() => {

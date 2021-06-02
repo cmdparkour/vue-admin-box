@@ -92,7 +92,7 @@ export default defineComponent({
     transition: 0.3s;
   }
   .el-main {
-    background-color: #f1f2f6;
+    background-color: #f0f2f5;
     height: 100%;
     padding: 15px;
   }

@@ -10,6 +10,7 @@
   "dependencies": {
     "@vueuse/core": "^4.10.0",
     "axios": "^0.21.1",
+    "echarts": "^5.1.1",
     "element-plus": "^1.0.2-beta.42",
     "mockjs": "^1.1.0",
     "normalize.css": "^8.0.1",

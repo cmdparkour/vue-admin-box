@@ -4,7 +4,13 @@ const lang = {
     title: '后台管理系统',
     login: '登录',
     userName: '用户名',
-    password: '密码'
+    password: '密码',
+    size: {
+      default: '默认',
+      medium: '中',
+      small: '小',
+      mini: '迷你'
+    }
   },
   common: {
     search: '搜索',
@@ -14,7 +20,7 @@ const lang = {
   },
   menu: {
     index: '首页',
-    test: '测试'
+    crudTable: '业务表格'
   }
 }
 

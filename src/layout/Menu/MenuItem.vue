@@ -11,13 +11,13 @@
     </el-submenu>
     <app-link v-else-if="showMenuType === 1" :to="pathResolve">
       <el-menu-item :index="pathResolve">
-        <i class="el-icon-menu" v-if="menu.children[0].meta.icon"></i>
+        <i :class="menu.children[0].meta.icon || menu.meta.icon" v-if="menu.children[0].meta.icon"></i>
         <template #title>{{ $t(menu.children[0].meta.title) }}</template>
       </el-menu-item>
     </app-link>
     <app-link v-else :to="pathResolve">
       <el-menu-item :index="pathResolve">
-      <i class="el-icon-menu" v-if="menu.meta.icon"></i>
+      <i :class="menu.meta.icon" v-if="menu.meta.icon"></i>
       <template #title>{{ $t(menu.meta.title) }}</template>
       </el-menu-item>
     </app-link>

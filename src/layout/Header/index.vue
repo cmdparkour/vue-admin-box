@@ -12,6 +12,7 @@
       <div class="function-list">
         <div class="function-list-item hidden-sm-and-down"><Full-screen /></div>
         <div class="function-list-item"><Word /></div>
+        <div class="function-list-item"><SizeChange /></div>
         <div class="function-list-item hidden-sm-and-down"><Theme /></div>
         <div class="function-list-item hidden-sm-and-down"><Github /></div>
       </div>
@@ -39,6 +40,7 @@ import { useStore } from 'vuex'
 import { useRouter, useRoute } from 'vue-router'
 import FullScreen from './functionList/fullscreen.vue'
 import Word from './functionList/word.vue'
+import SizeChange from './functionList/sizeChange.vue'
 import Github from './functionList/github.vue'
 import Theme from './functionList/theme.vue'
 import Breadcrumb from './Breadcrumb.vue'
@@ -48,6 +50,7 @@ export default defineComponent({
     FullScreen,
     Breadcrumb,
     Word,
+    SizeChange,
     Github,
     Theme
   },
