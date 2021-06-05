@@ -1,0 +1,71 @@
+<template>
+  <div class="system-table-box">
+    <el-table
+      class="system-table"
+      :data="data"
+      v-bind="$attrs"
+      border
+      height="100%"
+    >
+      <el-table-column type="selection" align="center" width="50" v-if="showSelection" />
+      <el-table-column label="序号" width="60" align="center" v-if="showIndex">
+        <template #default="scope">
+          {{ (page.index - 1) * page.size + scope.$index + 1 }}
+        </template>
+      </el-table-column>
+      <slot></slot>
+    </el-table>
+    <el-pagination
+      v-if="showPage"
+      class="system-page"
+      background
+      :layout="pageLayout"
+      :total="page.total">
+    </el-pagination>
+  </div>
+</template>
+
+<script lang="ts">
+import { defineComponent, reactive } from 'vue'
+export default defineComponent({
+  model: {
+    prop: 'select',
+    event: 'select',
+  },
+  props: {
+    data: { type: Array, default: () => [] }, // 数据源
+    select: { type: Array, default: () => [] }, // 已选择的数据，与selection结合使用
+    showIndex: { type: Boolean, default: false }, // 是否展示index选择，默认否
+    showSelection: { type: Boolean, default: false }, // 是否展示选择框，默认否
+    showPage: { type: Boolean, default: true }, // 是否展示页级组件，默认是
+    pageLayout: { type: String, default: "total, sizes, prev, pager, next, jumper" }, // 分页需要显示的东西，默认全部
+  },
+  setup(props) {
+    const page = reactive({
+      index: 1,
+      size: 20,
+      total: 0
+    })
+    return {
+      page
+    }
+  }
+})
+</script>
+
+<style lang="scss" scoped>
+  .system-table-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    height: 100%;
+    .system-table {
+      flex: 1;
+      height: 100%;
+    }
+    .system-page {
+      margin-top: 20px;
+    }
+  }
+</style>

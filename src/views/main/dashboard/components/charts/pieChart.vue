@@ -22,7 +22,7 @@ export default defineComponent({
 
 <style lang="scss" scoped>
   .box {
-    margin: 0 auto;
+    margin: 20px auto 0;
     width: calc(100% - 40px);
     height: 400px;
     background: #fff;
