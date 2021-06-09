@@ -15,7 +15,6 @@ service.interceptors.request.use(
     if (store.getters['user/token']) {
       config.headers['token'] = store.state.user.token
     }
-
     return config
   },
   (error: AxiosError) => {
@@ -30,36 +29,30 @@ service.interceptors.response.use(
     if (res.code === 200) {
       return res
     } else {
-      ElMessage({
-        message: res.msg,
-        type: 'error',
-        duration: 5 * 1000
-      })
+      showError(res)
       return Promise.reject(res)
     }
   },
   (error: AxiosError)=> {
     console.log(error) // for debug
     const code = parseInt(error.toString().replace('Error: Request failed with status code ', ''))
-    if (code === 403) {
-      // to re-login
-      ElMessage({
-        message: '您的登录已过期，请重新登录',
-        type: 'error',
-        duration: 5 * 1000
-      })
-      // store.dispatch('user/resetToken').then(() => {
-      //   location.reload()
-      // })
-    } else {
-      ElMessage({
-        message: error.message,
-        type: 'error',
-        duration: 5 * 1000
-      })
-    }
+    showError({ code, message: error })
     return Promise.reject(error)
   }
 )
+
+function showError(error: any) {
+  if (error.code === 403) {
+    // to re-login
+    store.dispatch('user/loginOut')
+  } else {
+    ElMessage({
+      message: error.msg || error.message || '服务异常',
+      type: 'error',
+      duration: 3 * 1000
+    })
+  }
+  
+}
 
 export default service

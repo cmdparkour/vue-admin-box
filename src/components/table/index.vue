@@ -17,16 +17,23 @@
     </el-table>
     <el-pagination
       v-if="showPage"
+      v-model="page.index"
       class="system-page"
       background
       :layout="pageLayout"
-      :total="page.total">
+      :total="page.total"
+      :page-size="page.size"
+      :page-sizes="pageSizes"
+      @current-change="handleCurrentChange"
+      @size-change="handleSizeChange"
+    >
     </el-pagination>
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent, reactive } from 'vue'
+import { Page } from '@/components/table/type'
 export default defineComponent({
   model: {
     prop: 'select',
@@ -39,15 +46,29 @@ export default defineComponent({
     showSelection: { type: Boolean, default: false }, // 是否展示选择框，默认否
     showPage: { type: Boolean, default: true }, // 是否展示页级组件，默认是
     pageLayout: { type: String, default: "total, sizes, prev, pager, next, jumper" }, // 分页需要显示的东西，默认全部
+    pageSizes: { type: Array, default: [10, 20, 50, 100] }
   },
-  setup(props) {
-    const page = reactive({
+  setup(props, context) {
+    const page: Page = reactive({
       index: 1,
       size: 20,
       total: 0
     })
+    // 分页相关：监听页码切换事件
+    const handleCurrentChange = (val: Number) => {
+      page.index = val
+      context.emit("getTableData")
+    }
+    // 分页相关：监听单页显示数量切换事件
+    const handleSizeChange = (val: Number) => {
+      page.size = val
+      page.index = 1
+      context.emit("getTableData", true)
+    }
     return {
-      page
+      page,
+      handleCurrentChange,
+      handleSizeChange
     }
   }
 })

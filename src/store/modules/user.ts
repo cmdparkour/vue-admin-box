@@ -60,6 +60,11 @@ const actions = {
       commit('infoChange', {})
       location.reload()
     })
+    .catch(error => {
+      commit('tokenChange', '')
+      commit('infoChange', {})
+      location.reload()
+    })
   }
 }
 

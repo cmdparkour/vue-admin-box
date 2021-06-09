@@ -11,7 +11,7 @@ export function loginApi(data: object) {
 }
 
 // 获取用户信息Api
-export function getInfoApi(data) {
+export function getInfoApi(data: object) {
   return request({
     url: '/user/info',
     method: 'post',
