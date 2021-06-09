@@ -10,7 +10,7 @@ export default [
         code: 200,
         data: {
           [`list|${pageSize}`]: [{
-            'id|+1': '0',
+            'id|+1': 0,
             userName: '123',
             sex: 1,
             hobby: 'jump'
@@ -24,5 +24,38 @@ export default [
         msg: ''
       };
     }
-  }
+  },
+  {
+    url: `/mock/table/add`,
+    method: 'post',
+    response: ({ body }) => {
+      return {
+        code: 200,
+        data: {},
+        msg: ''
+      };
+    }
+  },
+  {
+    url: `/mock/table/update`,
+    method: 'post',
+    response: ({ body }) => {
+      return {
+        code: 200,
+        data: {},
+        msg: ''
+      };
+    }
+  },
+  {
+    url: `/mock/table/del`,
+    method: 'post',
+    response: ({ body }) => {
+      return {
+        code: 200,
+        data: {},
+        msg: ''
+      };
+    }
+  },
 ]

@@ -33,7 +33,7 @@
 import { defineComponent, ref } from 'vue'
 import Table from '@/components/table/index.vue'
 import { Page } from '@/components/table/type'
-import { getData } from '@/api/table'
+import { getData, del } from '@/api/table'
 export default defineComponent({
   components: {
     Table
@@ -52,15 +52,18 @@ export default defineComponent({
   },
   mounted() {
     this.$nextTick(() => {
-      this.getTableData()
+      this.getTableData(true)
     })
   },
   methods: {
     // 获取表格数据
     // params <init> Boolean ，默认为false，用于判断是否需要初始化分页
-    getTableData(init: false) {
+    getTableData(init: Boolean) {
       this.loading = true
       const page: Page = this.$refs.table.page
+      if (init) {
+        page.index = 1
+      }
       let params = {
         page: page.index,
         pageSize: page.size,
@@ -76,6 +79,22 @@ export default defineComponent({
         this.tableData = []
         this.loading = false
       })
+    },
+    // 删除功能
+    handleDel(data: object[]) {
+      let params = {
+        ids: data.map((e:any)=> {
+          return e.id
+        }).join(',')
+      }
+      del(params)
+      .then(res => {
+        this.getTableData(this.tableData.length === 1 ? true : false)
+      })
+    },
+    // 编辑弹窗功能
+    handleEdit(row: object) {
+
     }
   }
 })
