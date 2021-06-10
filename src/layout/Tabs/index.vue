@@ -52,12 +52,12 @@ export default defineComponent({
     const contentFullScreen = computed(() => store.state.app.contentFullScreen)
     const currentDisabled = computed(() => route.path === defaultMenu.path)
 
-    let activeMenu = reactive({ path: '' })
+    let activeMenu: any = reactive({ path: '' })
     let menuList = ref(tabsHook.getItem())
     if (menuList.length === 0) { // 判断之前有没有调用过
       addMenu(defaultMenu)
     } 
-    watch(menuList, (newVal: []) => {
+    watch(menuList.value, (newVal: []) => {
       tabsHook.setItem(newVal)
     })
     router.afterEach(() => {
@@ -99,12 +99,12 @@ export default defineComponent({
     }
 
     // 添加新的菜单项
-    function addMenu(menu) {
+    function addMenu(menu: any) {
       let { path, meta } = menu
       if (meta.hideTabs) {
         return
       }
-      let hasMenu = menuList.value.some((obj) => {
+      let hasMenu = menuList.value.some((obj: any) => {
         return obj.path === path
       })
       if (!hasMenu) {
@@ -116,12 +116,12 @@ export default defineComponent({
     }
 
     // 删除菜单项
-    function delMenu(menu: object) {
+    function delMenu(menu: any) {
       if (menu.path === activeMenu.path) {
         router.push(defaultMenu.path)
       }
       if (!menu.meta.hideClose) {
-        menuList.value.splice(menuList.value.findIndex(item => item.path === menu.path), 1)
+        menuList.value.splice(menuList.value.findIndex((item: any) => item.path === menu.path), 1)
       }
     }
 

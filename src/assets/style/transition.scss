@@ -13,3 +13,23 @@
   opacity: 0;
   transform: translateX(30px);
 }
+
+/* breadcrumb transition */
+.breadcrumb-enter-active,
+.breadcrumb-leave-active {
+  transition: all .2s;
+}
+
+.breadcrumb-enter,
+.breadcrumb-leave-active {
+  opacity: 0;
+  transform: translateX(80px);
+}
+
+.breadcrumb-move {
+  transition: all .5s;
+}
+
+.breadcrumb-leave-active {
+  position: absolute;
+}

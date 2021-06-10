@@ -74,8 +74,8 @@ export default defineComponent({
       margin-right: 15px;
     }
     &.active {
-      background-color: #42b983 !important;
-      border-color: #42b983;
+      background-color: #409eff !important;
+      border-color: #409eff;
       color: #fff;
       a {
         color: #fff;

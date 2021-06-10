@@ -2,7 +2,7 @@
   <div class="layout-container">
     <div class="layout-container-form flex space-between">
       <div class="layout-container-form-handle">
-        <el-button type="primary" icon="el-icon-circle-plus-outline">{{ $t('message.common.add') }}</el-button>
+        <el-button type="primary" icon="el-icon-circle-plus-outline" @click="handleAdd">{{ $t('message.common.add') }}</el-button>
         <el-button type="danger" icon="el-icon-delete">{{ $t('message.common.delBat') }}</el-button>
       </div>
       <div class="layout-container-form-search">
@@ -11,10 +11,10 @@
       </div>
     </div>
     <div class="layout-container-table">
-      <Table ref="table" v-loading="loading" :showIndex="true" :showSelection="true" :data="tableData" @getTableData="getTableData">
+      <Table ref="table" v-model:page="page" v-loading="loading" :showIndex="true" :showSelection="true" :data="tableData" @getTableData="getTableData">
         <el-table-column prop="userName" label="用户名" width="300" align="center" />
         <el-table-column prop="hobby" label="爱好" min-width="180" align="center" />
-        <el-table-column label="操作" align="center">
+        <el-table-column label="操作" align="center" fixed="right" width="200">
           <template #default="scope">
             <el-button @click="handleEdit(scope.row)">编辑</el-button>
             <el-popconfirm title="确定删除当前数据吗？" @confirm="handleDel([scope.row])">
@@ -25,58 +25,75 @@
           </template>
         </el-table-column>
       </Table>
+      <Layer :layer="layer" />
     </div>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from 'vue'
+import { defineComponent, ref, reactive } from 'vue'
 import Table from '@/components/table/index.vue'
 import { Page } from '@/components/table/type'
 import { getData, del } from '@/api/table'
+import Layer from './layer.vue'
+import { LayerInterface } from '@/components/layer/index.vue'
 export default defineComponent({
   components: {
-    Table
+    Table,
+    Layer
   },
   setup() {
-    const query = {
+    // 存储搜索用的数据
+    const query = reactive({
       input: ''
-    }
-    const loading = ref(true)
+    })
+    // 弹窗控制器
+    const layer = reactive({
+      show: false,
+      title: '新增',
+      showButton: true
+    })
+    // 分页参数, 供table使用
+    const page: Page = reactive({
+      index: 1,
+      size: 100,
+      total: 0
+    })
+    const loading = ref(false)
     const tableData = ref([])
     return {
       query,
       tableData,
-      loading
+      loading,
+      page,
+      layer
     }
   },
   mounted() {
-    this.$nextTick(() => {
-      this.getTableData(true)
-    })
+    this.getTableData()
   },
   methods: {
     // 获取表格数据
     // params <init> Boolean ，默认为false，用于判断是否需要初始化分页
     getTableData(init: Boolean) {
       this.loading = true
-      const page: Page = this.$refs.table.page
       if (init) {
-        page.index = 1
+        this.page.index = 1
       }
       let params = {
-        page: page.index,
-        pageSize: page.size,
+        page: this.page.index,
+        pageSize: this.page.size,
         ...this.query
       }
       getData(params)
       .then(res => {
-        this.loading = false
         this.tableData = res.data.list
-        page.total = Number(res.data.pager.total)
+        this.page.total = Number(res.data.pager.total)
       })
-      .catch((error) => {
+      .catch(error => {
         this.tableData = []
+      })
+      .finally(() => {
         this.loading = false
       })
     },
@@ -92,9 +109,17 @@ export default defineComponent({
         this.getTableData(this.tableData.length === 1 ? true : false)
       })
     },
+    // 新增弹窗功能
+    handleAdd() {
+      this.layer.title = '新增数据'
+      this.layer.show = true
+      delete this.layer.row
+    },
     // 编辑弹窗功能
     handleEdit(row: object) {
-
+      this.layer.title = '编辑数据'
+      this.layer.row = row
+      this.layer.show = true
     }
   }
 })
