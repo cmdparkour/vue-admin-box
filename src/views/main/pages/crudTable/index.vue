@@ -13,6 +13,7 @@
     <div class="layout-container-table">
       <Table ref="table" v-model:page="page" v-loading="loading" :showIndex="true" :showSelection="true" :data="tableData" @getTableData="getTableData">
         <el-table-column prop="userName" label="用户名" width="300" align="center" />
+        <el-table-column prop="userName" label="性别" width="300" align="center" />
         <el-table-column prop="hobby" label="爱好" min-width="180" align="center" />
         <el-table-column label="操作" align="center" fixed="right" width="200">
           <template #default="scope">
@@ -48,7 +49,7 @@ export default defineComponent({
       input: ''
     })
     // 弹窗控制器
-    const layer = reactive({
+    const layer: LayerInterface = reactive({
       show: false,
       title: '新增',
       showButton: true
@@ -56,10 +57,10 @@ export default defineComponent({
     // 分页参数, 供table使用
     const page: Page = reactive({
       index: 1,
-      size: 100,
+      size: 20,
       total: 0
     })
-    const loading = ref(false)
+    const loading = ref(true)
     const tableData = ref([])
     return {
       query,
@@ -70,7 +71,7 @@ export default defineComponent({
     }
   },
   mounted() {
-    this.getTableData()
+    this.getTableData(true)
   },
   methods: {
     // 获取表格数据

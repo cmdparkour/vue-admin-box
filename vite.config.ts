@@ -18,6 +18,11 @@ export default ({ command }: ConfigEnv): UserConfigExport => {
     resolve: {
       alias
     },
+    server: {
+      proxy: { // 代理配置
+        '/dev': 'https://www.fastmock.site/mock/48cab8545e64d93ff9ba66a87ad04f6b/'
+      },
+    },
     plugins: [
       vue(),
       viteMockServe({

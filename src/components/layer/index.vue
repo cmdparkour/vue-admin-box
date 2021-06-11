@@ -1,17 +1,20 @@
 <template>
-  <el-dialog
-    v-model="layer.show"
-    :title="layer.title"
-    :width="layer.width"
-    center
-  >
-    <template #footer>
-    </template>
-  </el-dialog>
+  <div v-drag>
+    <el-dialog
+      v-model="layer.show"
+      :title="layer.title"
+      :width="layer.width"
+      center
+    >
+      <template #footer>
+      </template>
+    </el-dialog>
+  </div>
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, Ref } from 'vue'
+import { defineComponent, ref, onMounted } from 'vue'
+import drag from '@/directive/drag/index'
 export interface LayerInterface {
   show: boolean;
   title: string;
@@ -32,8 +35,10 @@ export default defineComponent({
       }
     }
   },
+  directives: {
+    drag
+  },
   setup() {
-    
     return {
       
     }

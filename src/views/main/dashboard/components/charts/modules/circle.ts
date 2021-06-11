@@ -17,7 +17,7 @@ const option = {
       emphasis: {
         label: {
           show: true,
-          fontSize: '40',
+          fontSize: '26',
           fontWeight: 'bold',
           formatter: (p) => {
             let dom = `<div backgroundColor="red">1</div>`

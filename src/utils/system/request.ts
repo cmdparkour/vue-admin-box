@@ -35,8 +35,9 @@ service.interceptors.response.use(
   },
   (error: AxiosError)=> {
     console.log(error) // for debug
-    const code = parseInt(error.toString().replace('Error: Request failed with status code ', ''))
-    showError({ code, message: error })
+    const badMessage: any = error.message || error
+    const code = parseInt(badMessage.toString().replace('Error: Request failed with status code ', ''))
+    showError({ code, message: badMessage })
     return Promise.reject(error)
   }
 )
