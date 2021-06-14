@@ -6,14 +6,19 @@
       :width="layer.width"
       center
     >
-      <template #footer>
+      <slot></slot>
+      <template #footer v-if="layer.showButton">
+        <div>
+          <el-button type="primary" @click="confirm">确认</el-button>
+          <el-button @click="close">取消</el-button>
+        </div>
       </template>
     </el-dialog>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, onMounted } from 'vue'
+import { defineComponent } from 'vue'
 import drag from '@/directive/drag/index'
 export interface LayerInterface {
   show: boolean;
@@ -38,9 +43,16 @@ export default defineComponent({
   directives: {
     drag
   },
-  setup() {
+  setup(props, ctx) {
+    function close() {
+      props.layer.show = false
+    }
+    function confirm() {
+      ctx.emit('confirm')
+    }
     return {
-      
+      close,
+      confirm
     }
   }
 })

@@ -12,11 +12,13 @@ import { changeTitle } from '@/utils/system/title'
 // 引入modules
 import Dashboard from './modules/dashboard'
 import Pages from './modules/pages'
+import Menu from './modules/menu'
 import System from './modules/system'
 
 let modules: object[] = [
   ...Dashboard,
   ...Pages,
+  ...Menu,
   ...System
 ]
 

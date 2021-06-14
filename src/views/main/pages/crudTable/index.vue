@@ -11,7 +11,15 @@
       </div>
     </div>
     <div class="layout-container-table">
-      <Table ref="table" v-model:page="page" v-loading="loading" :showIndex="true" :showSelection="true" :data="tableData" @getTableData="getTableData">
+      <Table
+        ref="table"
+        v-model:page="page"
+        v-loading="loading"
+        :showIndex="true"
+        :showSelection="true"
+        :data="tableData"
+        @getTableData="getTableData"
+      >
         <el-table-column prop="userName" label="用户名" width="300" align="center" />
         <el-table-column prop="userName" label="性别" width="300" align="center" />
         <el-table-column prop="hobby" label="爱好" min-width="180" align="center" />
