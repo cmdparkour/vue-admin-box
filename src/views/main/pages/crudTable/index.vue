@@ -3,14 +3,14 @@
     <div class="layout-container-form flex space-between">
       <div class="layout-container-form-handle">
         <el-button type="primary" icon="el-icon-circle-plus-outline" @click="handleAdd">{{ $t('message.common.add') }}</el-button>
-        <el-popconfirm title="确定删除选中的数据吗？" @confirm="handleDel(chooseData)">
+        <el-popconfirm :title="$t('message.common.delTip')" @confirm="handleDel(chooseData)">
           <template #reference>
             <el-button type="danger" icon="el-icon-delete" :disabled="chooseData.length === 0">{{ $t('message.common.delBat') }}</el-button>
           </template>
         </el-popconfirm>
       </div>
       <div class="layout-container-form-search">
-        <el-input v-model="query.input" placeholder="请输入内容"></el-input>
+        <el-input v-model="query.input" :placeholder="$t('message.common.searchTip')"></el-input>
         <el-button type="primary" icon="el-icon-search" class="search-btn" @click="getTableData(true)">{{ $t('message.common.search') }}</el-button>
       </div>
     </div>
@@ -28,12 +28,12 @@
         <el-table-column prop="userName" label="用户名" width="300" align="center" />
         <el-table-column prop="userName" label="性别" width="300" align="center" />
         <el-table-column prop="hobby" label="爱好" min-width="180" align="center" />
-        <el-table-column label="操作" align="center" fixed="right" width="200">
+        <el-table-column :label="$t('message.common.handle')" align="center" fixed="right" width="200">
           <template #default="scope">
-            <el-button @click="handleEdit(scope.row)">编辑</el-button>
-            <el-popconfirm title="确定删除当前数据吗？" @confirm="handleDel([scope.row])">
+            <el-button @click="handleEdit(scope.row)">{{ $t('message.common.update') }}</el-button>
+            <el-popconfirm :title="$t('message.common.delTip')" @confirm="handleDel([scope.row])">
               <template #reference>
-                <el-button type="danger">删除</el-button>
+                <el-button type="danger">{{ $t('message.common.del') }}</el-button>
               </template>
             </el-popconfirm>
           </template>
@@ -114,9 +114,7 @@ export default defineComponent({
         this.tableData = []
       })
       .finally(() => {
-        setTimeout(() => {
-          this.loading = false
-        }, 500)
+        this.loading = false
       })
     },
     // 删除功能
