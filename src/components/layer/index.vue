@@ -1,6 +1,7 @@
 <template>
   <div v-drag>
     <el-dialog
+      ref="dialog"
       v-model="layer.show"
       :title="layer.title"
       :width="layer.width"
@@ -44,15 +45,17 @@ export default defineComponent({
     drag
   },
   setup(props, ctx) {
-    function close() {
-      props.layer.show = false
-    }
     function confirm() {
       ctx.emit('confirm')
     }
     return {
-      close,
       confirm
+    }
+  },
+  methods: {
+    close() {
+      // 触发内部的方法，以获得动画效果
+      this.$refs.dialog.handleClose()
     }
   }
 })

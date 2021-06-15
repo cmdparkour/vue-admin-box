@@ -3,7 +3,11 @@
     <div class="layout-container-form flex space-between">
       <div class="layout-container-form-handle">
         <el-button type="primary" icon="el-icon-circle-plus-outline" @click="handleAdd">{{ $t('message.common.add') }}</el-button>
-        <el-button type="danger" icon="el-icon-delete">{{ $t('message.common.delBat') }}</el-button>
+        <el-popconfirm title="确定删除选中的数据吗？" @confirm="handleDel(chooseData)">
+          <template #reference>
+            <el-button type="danger" icon="el-icon-delete" :disabled="chooseData.length === 0">{{ $t('message.common.delBat') }}</el-button>
+          </template>
+        </el-popconfirm>
       </div>
       <div class="layout-container-form-search">
         <el-input v-model="query.input" placeholder="请输入内容"></el-input>
@@ -19,6 +23,7 @@
         :showSelection="true"
         :data="tableData"
         @getTableData="getTableData"
+        @selection-change="handleSelectionChange"
       >
         <el-table-column prop="userName" label="用户名" width="300" align="center" />
         <el-table-column prop="userName" label="性别" width="300" align="center" />
@@ -34,7 +39,7 @@
           </template>
         </el-table-column>
       </Table>
-      <Layer :layer="layer" />
+      <Layer :layer="layer" @getTableData="getTableData" v-if="layer.show" />
     </div>
   </div>
 </template>
@@ -70,12 +75,18 @@ export default defineComponent({
     })
     const loading = ref(true)
     const tableData = ref([])
+    const chooseData = ref([])
+    const handleSelectionChange = (val: []) => {
+      chooseData.value = val
+    }
     return {
       query,
       tableData,
+      chooseData,
       loading,
       page,
-      layer
+      layer,
+      handleSelectionChange
     }
   },
   mounted() {
@@ -103,7 +114,9 @@ export default defineComponent({
         this.tableData = []
       })
       .finally(() => {
-        this.loading = false
+        setTimeout(() => {
+          this.loading = false
+        }, 500)
       })
     },
     // 删除功能
@@ -115,6 +128,10 @@ export default defineComponent({
       }
       del(params)
       .then(res => {
+        this.$message({
+          type: 'success',
+          message: '删除成功'
+        })
         this.getTableData(this.tableData.length === 1 ? true : false)
       })
     },

@@ -2,11 +2,14 @@ interface ElType extends HTMLDivElement {
   __mouseDown__: any,
   __mouseUp__: any,
   __mouseMove__: any,
+  __sizeChange__: any
 }
 const drag = {
   mounted(el: ElType) {
-    const dialog: any = el.querySelector('.el-dialog')
-    const header: any = el.querySelector('.el-dialog__header')
+    const dialog = el.querySelector('.el-dialog') as HTMLElement
+    const header = el.querySelector('.el-dialog__header') as HTMLElement
+    const dialogMask = el.querySelector('.el-overlay') as HTMLElement
+    dialogMask.style.cssText += "overflow: hidden;"
     header.style.cursor = 'move'
     let dragStatus = false
     let data = { // 数据源，不变部分为：window信息、dialog信息、mouse初始值信息，可变部分为：拖拽坐标位移
@@ -17,7 +20,9 @@ const drag = {
       dialog: {
         x: 0,
         y: 0,
-        marginTop: 0
+        width: 0,
+        height: 0,
+        marginTop: ""
       }, // dialog信息
       mouse: { // 鼠标初始信息
         x: 0,
@@ -32,6 +37,23 @@ const drag = {
     header.addEventListener('mousedown', mouseDown)
     document.addEventListener('mousemove', mouseMove)
     document.addEventListener('mouseup', mouseUp)
+    window.addEventListener('resize', sizeChange)
+    // 边界处理，防止拖动位置溢出
+    function handlePosition() {
+      if (data.mouse.x - data.drag.x >= data.dialog.x) {
+        data.drag.x = data.mouse.x - data.dialog.x
+      }
+      if (data.drag.x - data.mouse.x >= data.window.width - (data.dialog.x + data.dialog.width)) {
+        data.drag.x = data.mouse.x + data.window.width - data.dialog.x - data.dialog.width
+      }
+      if (data.mouse.y - data.drag.y >= data.dialog.y) {
+        data.drag.y = data.mouse.y - data.dialog.y
+      }
+      if (data.drag.y - data.mouse.y >= data.window.height - (data.dialog.y + data.dialog.height)) {
+        data.drag.y = data.mouse.y + data.window.height - data.dialog.y - data.dialog.height
+      }
+      setPosition()
+    }
     // 根据data来设置拖动后的位置
     function setPosition() {
       let top = data.drag.y - data.mouse.y + data.dialog.y
@@ -59,22 +81,30 @@ const drag = {
           x: e.clientX,
           y: e.clientY
         }
-        setPosition()
+        dialogMask.style.userSelect = "none"
+        handlePosition()
       }  
     }
     function mouseUp(e: any) {
+      dialogMask.style.userSelect = "auto"
       dragStatus = false
+    }
+    function sizeChange(e: any) {
+      dialog.style.cssText += 'position: static';
     }
     // 方便卸载使用
     el.__mouseDown__ = mouseDown
     el.__mouseUp__ = mouseUp
     el.__mouseMove__ = mouseMove
+    el.__sizeChange__ = sizeChange
   },
   beforeUnmount(el: ElType) {
-    // 避免开销，卸载所有的监听
+    // 避免重复开销，卸载所有的监听
+    // 解决问题：多次创建新的实例 =》 监听不取消 =》 同时存在多个无用的监听，导致页面卡顿
     document.removeEventListener('mousedown', el.__mouseDown__)
     document.removeEventListener('mousemove', el.__mouseMove__)
     document.removeEventListener('mouseup', el.__mouseUp__)
+    window.removeEventListener('resize', el.__sizeChange__)
   }
 }
 

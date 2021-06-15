@@ -1,11 +1,12 @@
 <template>
   <div class="system-table-box">
     <el-table
-      class="system-table"
-      :data="data"
       v-bind="$attrs"
+      class="system-table"
       border
       height="100%"
+      :data="data"
+      @selection-change="handleSelectionChange"
     >
       <el-table-column type="selection" align="center" width="50" v-if="showSelection" />
       <el-table-column label="序号" width="60" align="center" v-if="showIndex">
@@ -35,10 +36,6 @@
 import { defineComponent, reactive } from 'vue'
 import { Page } from '@/components/table/type'
 export default defineComponent({
-  model: {
-    prop: 'select',
-    event: 'select',
-  },
   props: {
     data: { type: Array, default: () => [] }, // 数据源
     select: { type: Array, default: () => [] }, // 已选择的数据，与selection结合使用
@@ -71,9 +68,14 @@ export default defineComponent({
       props.page.index = 1
       context.emit("getTableData", true)
     }
+    // 选择监听器
+    const handleSelectionChange = (val: []) =>{
+      context.emit("selection-change", val)
+    }
     return {
       handleCurrentChange,
-      handleSizeChange
+      handleSizeChange,
+      handleSelectionChange
     }
   }
 })
