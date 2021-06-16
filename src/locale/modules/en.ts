@@ -27,6 +27,10 @@ const lang = {
     },
     menu: {
       index: 'index',
+      component: {
+        name: 'component',
+        button: 'button'
+      },
       page: {
         name: 'page',
         crudTable: 'crudTable'
