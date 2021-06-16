@@ -2,14 +2,15 @@
   <el-menu
     :default-active="activeMenu"
     class="layout-menu"
-    background-color="#1f2933"
+    background-color="#304156"
     text-color="#bfcbd9"
     active-text-color="#409eff"
     :class="isCollapse? 'collapse': ''"
     :collapse="isCollapse"
     :collapse-transition="false"
+    :unique-opened="expandOneMenu"
   >
-    <MenuItem v-for="(menu, key) in allRoutes" :key="key" :menu="menu" />
+    <menu-item v-for="(menu, key) in allRoutes" :key="key" :menu="menu" />
   </el-menu>
 </template>
 
@@ -25,6 +26,7 @@ export default defineComponent({
   setup() {
     const store = useStore()
     const isCollapse = computed(() => store.state.app.isCollapse)
+    const expandOneMenu = computed(() => store.state.app.expandOneMenu)
     const allRoutes = useRouter().options.routes
     const route = useRoute()
     const activeMenu = computed(() => {
@@ -36,6 +38,7 @@ export default defineComponent({
     });
     return {
       isCollapse,
+      expandOneMenu,
       allRoutes,
       activeMenu
     }
@@ -47,9 +50,21 @@ export default defineComponent({
   .layout-menu {
     width: 100%;
     flex: 1;
+    box-shadow: 2px -1px 3px 0px #0000006e;
     &.collapse {
       margin-left: 0px;
-      paddding: 0 15px;
+      // padding: 0 15px;
+    }
+    :deep(.el-submenu) {
+      .el-menu {
+        background-color: #1f2d3d !important;
+        .el-menu-item, .el-submenu__title {
+          background-color: #1f2d3d !important;
+          &:hover {
+            background-color: #0f1721 !important;
+          }
+        }
+      }
     }
   }
 </style>

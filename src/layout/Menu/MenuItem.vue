@@ -2,12 +2,10 @@
   <template v-if="!menu.hideMenu">
     <el-submenu v-if="showMenuType === 2" :index="menu.path">
       <template #title>
-        <i class="el-icon-location" v-if="menu.meta.icon"></i>
+        <i :class="menu.meta.icon" v-if="menu.meta.icon"></i>
         <span>{{ $t(menu.meta.title) }}</span>
       </template>
-      <el-menu-item-group>
-        <menu-item v-for="(item, key) in menu.children" :key="key" :menu="item" />
-      </el-menu-item-group>
+      <menu-item v-for="(item, key) in menu.children" :key="key" :menu="item" :basePath="pathResolve" />
     </el-submenu>
     <app-link v-else-if="showMenuType === 1" :to="pathResolve">
       <el-menu-item :index="pathResolve">
@@ -33,6 +31,10 @@ export default defineComponent({
     menu: {
       type: Object,
       required: true
+    },
+    basePath: {
+      type: String,
+      default: ''
     }
   },
   components: {
@@ -52,19 +54,22 @@ export default defineComponent({
     })
     // todo: 优化多层if
     const pathResolve = computed(() => {
+      let path = ''
       if (showMenuType.value === 1) {
         if (menu.children[0].path.charAt(0) === '/') {
-          return menu.children[0].path
+          path = menu.children[0].path
         } else {
           let char = '/'
           if (menu.path.charAt(menu.path.length - 1) === '/') {
             char = ''
           }
-          return menu.path + char + menu.children[0].path
+          path = menu.path + char + menu.children[0].path
         }
       } else {
-        return menu.path
+        path = menu.path
       }
+      path = props.basePath ? props.basePath + '/' + path : path
+      return path
     })
     return {
       showMenuType,

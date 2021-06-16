@@ -90,6 +90,9 @@ export default defineComponent({
     transition: 0.2s;
     overflow-x: hidden;
     transition: 0.3s;
+    &::-webkit-scrollbar {
+      width: 0 !important;
+    }
   }
   .el-main {
     background-color: #f0f2f5;

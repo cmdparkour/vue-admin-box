@@ -18,7 +18,7 @@ import System from './modules/system'
 let modules: object[] = [
   ...Dashboard,
   ...Pages,
-  // ...Menu,
+  ...Menu,
   ...System
 ]
 

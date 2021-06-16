@@ -1,6 +1,6 @@
 <template>
   <div class="tags-view-item" :class="active? 'active' : ''">
-    <router-link :to="menu.path">
+    <router-link :to="menu.path" v-if="menu.meta.title">
       {{ $t(menu.meta.title) }}
     </router-link>
     <i class="el-icon-close" @click.stop="closeTab" v-if="!menu.meta.hideClose" :alt="$t('message.common.del')"></i>
@@ -54,7 +54,6 @@ export default defineComponent({
     font-size: 12px;
     margin-left: 5px;
     margin-top: 4px;
-    transition: 0.2s;
     a {
       color: #495060;
       height: 26px;

@@ -30,6 +30,16 @@ const lang = {
       page: {
         name: 'page',
         crudTable: 'crudTable'
+      },
+      menu: {
+        name: 'menu',
+        menu_1: 'menu-1',
+        menu_1_1: 'menu-1-1',
+        menu_1_1_1: 'menu-1-1-1',
+        menu_1_1_2: 'menu-1-1-2',
+        menu_1_2: 'menu-1-2',
+        menu_2: 'menu-2',
+        menu_3: 'menu-3'
       }
     },
   }

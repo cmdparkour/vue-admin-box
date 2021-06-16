@@ -40,7 +40,7 @@ export default defineComponent({
     const options = reactive([
       { name: '显示logo模块', value: store.state.app.showLogo, store: 'showLogo' },
       { name: '显示面包屑导航', value: store.state.app.showTabs, store: 'showTabs' },
-      // { name: '固定顶部', value: store.state.app.fixedTop, store: 'fixedTop' }
+      { name: '保持一个菜单展开', value: store.state.app.expandOneMenu, store: 'expandOneMenu' }
     ])
     const drawerChange = (value: boolean) => {
       drawer.value = value

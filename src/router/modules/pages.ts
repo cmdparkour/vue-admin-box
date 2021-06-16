@@ -5,11 +5,12 @@ const route = [
     component: Layout,
     redirect: '/pages/crudTable',
     meta: { title: 'message.menu.page.name', icon: 'el-icon-document-copy' },
+    alwayShow: true,
     children: [
       {
         path: 'crudTable',
         component: () => import('@/views/main/pages/crudTable/index.vue'),
-        meta: { title: 'message.menu.page.crudTable', icon: 'el-icon-document-copy' }
+        meta: { title: 'message.menu.page.crudTable' }
       }
     ]
   }
