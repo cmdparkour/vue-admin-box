@@ -27,9 +27,16 @@ const lang = {
     },
     menu: {
       index: '首页',
+      component: {
+        name: '组件',
+        button: '按钮'
+      },
       page: {
         name: '页面',
         crudTable: '业务表格'
+      },
+      directive: {
+        name: '自定义指令'
       },
       menu: {
         name: '多级嵌套菜单',

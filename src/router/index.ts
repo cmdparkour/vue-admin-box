@@ -13,12 +13,16 @@ import { changeTitle } from '@/utils/system/title'
 import Dashboard from './modules/dashboard'
 import Pages from './modules/pages'
 import Menu from './modules/menu'
+import Component from './modules/component'
+import Directive from './modules/directive'
 import System from './modules/system'
 
 let modules: object[] = [
   ...Dashboard,
+  ...Component,
   ...Pages,
   ...Menu,
+  // ...Directive,
   ...System
 ]
 

@@ -30,13 +30,13 @@ const route = [
     hideMenu: true,
     meta: { title: 'message.system.login', hideTabs: true }
   },
-  // {
-  //   // 找不到路由重定向到404页面
-  //   path: "/:pathMatch(.*)",
-  //   component: Layout,
-  //   redirect: "/404",
-  //   hideMenu: true
-  // },
+  {
+    // 找不到路由重定向到404页面
+    path: "/:pathMatch(.*)",
+    component: Layout,
+    redirect: "/404",
+    hideMenu: true
+  },
 ]
 
 export default route

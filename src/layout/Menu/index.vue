@@ -2,7 +2,7 @@
   <el-menu
     :default-active="activeMenu"
     class="layout-menu"
-    background-color="#304156"
+    background-color="#28415a"
     text-color="#bfcbd9"
     active-text-color="#409eff"
     :class="isCollapse? 'collapse': ''"
