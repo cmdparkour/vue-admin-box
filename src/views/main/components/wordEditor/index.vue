@@ -1,24 +1,42 @@
 <template>
   <div class="layout-container">
     <div class="layout-container-table">
-      <el-alert
-        title="预计2021年7月1日前上线"
-        type="info"
-        effect="dark">
-      </el-alert>
+      <tinymce v-model="word" />
+      <el-card class="box-card">
+        <template #header>
+          <p style="text-align: left;">
+            v-model结果
+            <el-button style="float: right; padding: 3px 0" type="text" @click="setData">初始赋值</el-button>
+          </p>
+        </template>
+        <div>{{ word }}</div>
+      </el-card>
     </div>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent, ref } from 'vue'
+import tinymce from '@/components/tinymce/index.vue'
 export default defineComponent({
+  components: {
+    tinymce
+  },
   setup() {
-
+    let word = ref('')
+    function setData() {
+      word.value = "我是一个初始值"
+    }
+    return {
+      word,
+      setData
+    }
   }
 })
 </script>
 
 <style lang="scss" scoped>
-  
+  .box-card{
+    margin-top: 10px;
+  }
 </style>
