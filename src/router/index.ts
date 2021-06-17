@@ -15,6 +15,8 @@ import Pages from './modules/pages'
 import Menu from './modules/menu'
 import Component from './modules/component'
 import Directive from './modules/directive'
+import SystemManage from './modules/systemManage'
+import Chart from './modules/chart'
 import System from './modules/system'
 
 let modules: object[] = [
@@ -22,7 +24,9 @@ let modules: object[] = [
   ...Component,
   ...Pages,
   ...Menu,
-  // ...Directive,
+  ...Directive,
+  ...Chart,
+  ...SystemManage,
   ...System
 ]
 
