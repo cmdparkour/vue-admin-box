@@ -1,5 +1,7 @@
 @import "./transition.scss";
-
+* {
+  text-align: left;
+}
 .layout-container {
   background-color: #fff;
   width: 100%;
@@ -26,7 +28,7 @@
     flex: 1;
     height: 100%;
     padding: 15px;
-    overflow: hidden;
+    overflow: auto;
   }
 }
 
