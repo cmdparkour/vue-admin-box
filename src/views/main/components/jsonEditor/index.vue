@@ -1,7 +1,7 @@
 <template>
   <div class="layout-container">
     <div class="layout-container-table">
-      <div id="codeEditor" />
+      <div ref="dom" />
       <el-card class="box-card">
         <template #header>
           <p style="text-align: left;">
@@ -28,6 +28,7 @@ import 'codemirror/addon/lint/json-lint'
 import 'codemirror/theme/3024-night.css'
 export default defineComponent({
   setup() {
+    let dom = ref(null)
     let codeData = ref('')
     let editor: any = ref(null)
     let timer = null
@@ -39,7 +40,7 @@ export default defineComponent({
       theme: '3024-night'
     }
     onMounted(() => {
-      editor = codeMirror(document.getElementById('codeEditor'), options)
+      editor = codeMirror(dom.value, options)
       handleChange()
     })
     function handleChange() {
@@ -76,6 +77,7 @@ export default defineComponent({
       editor.getDoc().setValue(codeData.value)
     }
     return {
+      dom,
       codeData,
       setData
     }
