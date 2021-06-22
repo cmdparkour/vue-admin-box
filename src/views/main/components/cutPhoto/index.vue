@@ -9,7 +9,7 @@
             图片效果
           </p>
         </template>
-        <img :src="img" alt="" style="width: 100%;">
+        <img :src="img" alt="" style="width: 100%;" >
       </el-card>
     </div>
   </div>

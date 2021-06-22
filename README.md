@@ -19,6 +19,10 @@
 
 ### 正在努力向1.0迈进，敬请期待
 
+## 更新日志
+
+- [更新说明](./VERSION.md)
+
 ## 预览
 
 - [vue-admin-box](http://vue-admin-box.51weblove.com)

@@ -9,18 +9,18 @@
         </div>
       </div>
     </div>
-    <Tip />
+    <Tip :cropper="cropper" />
   </Layer>
 </template>
 
 <script lang="ts">
-import { defineComponent, nextTick, watch, ref, reactive } from 'vue'
+import { defineComponent, nextTick, watch, ref, Ref, reactive } from 'vue'
 import Layer from '@/components/layer/index.vue'
 import Tip from './tip.vue'
 import Cropper from 'cropperjs'
 import 'cropperjs/dist/cropper.css'
-interface Params {
-  url: string
+interface Command {
+  
 }
 export default defineComponent({
   components: {
@@ -43,6 +43,7 @@ export default defineComponent({
     }
   },
   setup(props) {
+    let cropper: any = ref(null)
     watch(() => props.layer.show, (newVal) => {
       if (!newVal) {
         return
@@ -54,7 +55,7 @@ export default defineComponent({
     // init the cropperjs
     function initCropper() {
       const image = document.getElementById('test') as HTMLImageElement
-      const cropper = new Cropper(image, {
+      cropper.value = new Cropper(image, {
         preview: '.preview',
         ready: function() {
           
@@ -64,9 +65,8 @@ export default defineComponent({
         },
       });
     }
-    
     return {
-      // previewDom
+      cropper
     }
   }
 })
