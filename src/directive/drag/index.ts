@@ -90,7 +90,7 @@ const drag = {
       dragStatus = false
     }
     function sizeChange(e: any) {
-      dialog.style.cssText += 'position: static';
+      // dialog.style.cssText += 'position: static';
     }
     // 方便卸载使用
     el.__mouseDown__ = mouseDown

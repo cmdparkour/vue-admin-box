@@ -1,28 +1,40 @@
 <template>
   <div class="layout-container">
     <div class="layout-container-table">
-      <v3-cropper
-        style="width: 100%;height: 500px"
-        :src="options.src"
-      ></v3-cropper>
+      <el-button @click="showWindow" type="primary">上传图片</el-button>
+      <Cropper :layer="layer" v-model="img" />
+      <el-card class="box-card" style="margin-top: 15px;">
+        <template #header>
+          <p style="text-align: left;">
+            图片效果
+          </p>
+        </template>
+        <img :src="img" alt="" style="width: 100%;">
+      </el-card>
     </div>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, onMounted } from 'vue'
-import v3Cropper from 'vue3-cropperjs'
-import 'vue3-cropperjs/dist/v3cropper.css'
+import { defineComponent, reactive, ref } from 'vue'
+import Cropper from '@/components/cropper/index.vue'
 export default defineComponent({
   components: {
-    v3Cropper
+    Cropper
   },
   setup() {
-    let options = {
-      src: 'https://image-static.segmentfault.com/941/415/94141560-5b839e9bc41fc_fix732'
+    let img = ref('http://blog.51weblove.com/wp-content/uploads/2019/03/2019032400535358.jpg')
+    const layer = reactive({
+      show: false,
+      title: '图片上传'
+    })
+    function showWindow() {
+      layer.show = true
     }
     return {
-      options
+      layer,
+      img,
+      showWindow
     }
   }
 })
