@@ -57,10 +57,10 @@ export default defineComponent({
     }
   },
   setup(props, context) {
-    let cropper: any = ref(null)
+    let cropper = ref(null as Cropper|null)
     const imgId = 'image' + (new Date()).getTime()
     const previewClass = 'preview' + (new Date()).getTime()
-    let uploadDom: any = ref(null)
+    let uploadDom = ref(null as any|null)
     watch(() => props.layer.show, (newVal) => {
       if (!newVal) {
         return
@@ -80,12 +80,12 @@ export default defineComponent({
       });
     }
     // 文件选择监控
-    function uploadchange(file: File, fileList: Object) {
+    function uploadchange(file: any, fileList: any) {
       file2base64(file)
       uploadDom.value.clearFiles()
     }
     // 文件对象转base64
-    function file2base64(file: File) {
+    function file2base64(file: any) {
       let imgFile = new FileReader()
       imgFile.readAsDataURL(file.raw)
       imgFile.onload = function(e) {
@@ -96,11 +96,11 @@ export default defineComponent({
     }
     // 下载本地图片
     function downloadCropper() {
-      const canvas = cropper.value.getCroppedCanvas({
+      const canvas = cropper.value?.getCroppedCanvas({
         maxWidth: 4096,
         maxHeight: 4096
       })
-      const base64 = canvas.toDataURL()
+      const base64 = canvas?.toDataURL() || ''
       let a = document.createElement('a')
       a.href = base64
       a.download = "截图下载.png"
@@ -109,11 +109,11 @@ export default defineComponent({
     // 保存至v-model数据,与下载本地图片类似，但需要执行数据上传操作
     function saveAsModel() {
       // 1. 获取base64数据
-      const canvas = cropper.value.getCroppedCanvas({
+      const canvas = cropper.value?.getCroppedCanvas({
         maxWidth: 4096,
         maxHeight: 4096
       })
-      const base64 = canvas.toDataURL()
+      const base64 = canvas?.toDataURL()
       // 2. 进行图片上传，并拿到上传后的地址，暂时省略
       // 3. 赋值给v-model
       context.emit('update:modelValue', base64)
