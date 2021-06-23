@@ -90,17 +90,17 @@ export default defineComponent({
       imgFile.readAsDataURL(file.raw)
       imgFile.onload = function(e) {
         const image = document.getElementById(imgId) as HTMLImageElement
-        image.setAttribute('src', this.result)
+        image.setAttribute('src', this.result as string)
         initCropper()
       }
     }
     // 下载本地图片
     function downloadCropper() {
-      const canvas = cropper.value?.getCroppedCanvas({
+      const canvas = cropper.value.getCroppedCanvas({
         maxWidth: 4096,
         maxHeight: 4096
       })
-      const base64 = canvas?.toDataURL() || ''
+      const base64 = canvas.toDataURL() || ''
       let a = document.createElement('a')
       a.href = base64
       a.download = "截图下载.png"
@@ -109,11 +109,11 @@ export default defineComponent({
     // 保存至v-model数据,与下载本地图片类似，但需要执行数据上传操作
     function saveAsModel() {
       // 1. 获取base64数据
-      const canvas = cropper.value?.getCroppedCanvas({
+      const canvas = cropper.value.getCroppedCanvas({
         maxWidth: 4096,
         maxHeight: 4096
       })
-      const base64 = canvas?.toDataURL()
+      const base64 = canvas.toDataURL()
       // 2. 进行图片上传，并拿到上传后的地址，暂时省略
       // 3. 赋值给v-model
       context.emit('update:modelValue', base64)
