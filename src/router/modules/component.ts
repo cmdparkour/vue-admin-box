@@ -45,7 +45,7 @@ const route = [
       {
         path: 'cutPhoto',
         component: () => import('@/views/main/components/cutPhoto/index.vue'),
-        meta: { title: '图片裁剪' },
+        meta: { title: '弹窗图片裁剪' },
       },
       {
         path: 'rightMenu',
