@@ -112,6 +112,8 @@ export default defineComponent({
       })
       .catch(error => {
         this.tableData = []
+        this.page.index = 1
+        this.page.total = 0
       })
       .finally(() => {
         this.loading = false
