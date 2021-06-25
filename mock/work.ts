@@ -13,41 +13,6 @@ export default [
               name: '待处理',
               children: [
                 {
-                  id: 1,
-                  tags: ['新增'],
-                  name: '拖拽指令',
-                  options: [
-                    '类型：页面'
-                  ]
-                },{
-                  id: 2,
-                  tags: ['新增'],
-                  name: '复制指令',
-                  options: [
-                    '类型：页面'
-                  ]
-                },{
-                  id: 3,
-                  tags: ['新增'],
-                  name: '防抖指令',
-                  options: [
-                    '类型：页面'
-                  ]
-                },{
-                  id: 4,
-                  tags: ['新增'],
-                  name: '长按指令',
-                  options: [
-                    '类型：页面'
-                  ]
-                },{
-                  id: 5,
-                  tags: ['新增'],
-                  name: '下拉加载',
-                  options: [
-                    '类型：页面'
-                  ]
-                },{
                   id: 6,
                   tags: ['新增'],
                   name: '柱状图',
@@ -121,21 +86,44 @@ export default [
             },
             {
               name: '处理中',
-              children: [{
-                id: 16,
-                tags: ['新增'],
-                name: '页面-工作进度',
-                options: [
-                  '类型：页面'
-                ]
-              },{
-                id: 17,
-                tags: ['新增'],
-                name: '页面-详情页面',
-                options: [
-                  '类型：页面'
-                ]
-              }]
+              children: [
+                {
+                  id: 1,
+                  tags: ['新增'],
+                  name: '拖拽指令',
+                  options: [
+                    '类型：页面'
+                  ]
+                },{
+                  id: 2,
+                  tags: ['新增'],
+                  name: '复制指令',
+                  options: [
+                    '类型：页面'
+                  ]
+                },{
+                  id: 3,
+                  tags: ['新增'],
+                  name: '防抖指令',
+                  options: [
+                    '类型：页面'
+                  ]
+                },{
+                  id: 4,
+                  tags: ['新增'],
+                  name: '长按指令',
+                  options: [
+                    '类型：页面'
+                  ]
+                },{
+                  id: 5,
+                  tags: ['新增'],
+                  name: '下拉加载',
+                  options: [
+                    '类型：页面'
+                  ]
+                },
+              ]
             },
             {
               name: '待部署',
@@ -148,6 +136,13 @@ export default [
             {
               name: '已完成',
               children: [{
+                id: 16,
+                tags: ['新增'],
+                name: '页面-工作进度',
+                options: [
+                  '类型：页面'
+                ]
+              },{
                 id: 18,
                 tags: ['系统'],
                 name: '路由管理router',

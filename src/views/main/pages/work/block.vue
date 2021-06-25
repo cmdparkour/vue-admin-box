@@ -46,7 +46,7 @@ export default defineComponent({
           let oldList = evt.target.list.children
           let newList = evt.to.list.children
           if (pullMode) { // 移动至toList并去除旧数据
-            newList[newIndex] = oldList[oldIndex]
+            newList.splice(newIndex, 0, oldList[oldIndex])
             oldList.splice(oldIndex, 1)
           } else { // 同List位置修改
             const tem = oldList[oldIndex]

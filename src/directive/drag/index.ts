@@ -1,10 +1,11 @@
+import type { Directive } from 'vue'
 interface ElType extends HTMLDivElement {
   __mouseDown__: any,
   __mouseUp__: any,
   __mouseMove__: any,
   __sizeChange__: any
 }
-const drag = {
+const drag: Directive = {
   mounted(el: ElType) {
     const dialog = el.querySelector('.el-dialog') as HTMLElement
     const header = el.querySelector('.el-dialog__header') as HTMLElement
@@ -63,6 +64,9 @@ const drag = {
     function mouseDown(e: any) {
       // 获取dialog目前的位置，坐标, 以及屏幕当前的宽高
       // 一切初始数据的获取应该放置于此，避免其他如：宽度修改等一系列的影响
+      if (e.button !== 0) {
+        return
+      }
       data.window = {
         width: document.body.clientWidth,
         height: document.body.clientHeight

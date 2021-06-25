@@ -23,11 +23,6 @@ const route = [
         meta: { title: '工作进度' }
       },
       {
-        path: 'detail',
-        component: () => import('@/views/main/pages/detail/index.vue'),
-        meta: { title: '详情页面' }
-      },
-      {
         path: 'baidu',
         component: () => import('@/views/main/pages/baidu/index.vue'),
         meta: { title: '百度一下' }

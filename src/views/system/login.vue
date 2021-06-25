@@ -131,6 +131,7 @@ export default defineComponent({
       box-shadow: 0 6px 20px 5px rgba(152, 152, 152, 0.1), 0 16px 24px 2px rgba(117, 117, 117, 0.14);
       h1 {
         margin-top: 80px;
+        text-align: center;
       }
       .form {
         width: 80%;
