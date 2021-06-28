@@ -8,6 +8,7 @@
       <p>父级：{{ dragableFather }}</p>
       <div class="box">
         <div class="row" v-dragable="dragableFather"></div>
+        <div class="row" v-dragable="dragableFather"></div>
       </div>
     </div>
   </div>
