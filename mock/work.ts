@@ -13,58 +13,9 @@ export default [
               name: '待处理',
               children: [
                 {
-                  id: 6,
-                  tags: ['新增'],
-                  name: '柱状图',
-                  options: [
-                    '类型：页面'
-                  ]
-                },{
-                  id: 7,
-                  tags: ['新增'],
-                  name: '折线图',
-                  options: [
-                    '类型：页面'
-                  ]
-                },{
-                  id: 8,
-                  tags: ['新增'],
-                  name: '饼图',
-                  options: [
-                    '类型：页面'
-                  ]
-                },{
-                  id: 9,
-                  tags: ['新增'],
-                  name: '雷达图',
-                  options: [
-                    '类型：页面'
-                  ]
-                },{
-                  id: 10,
-                  tags: ['新增'],
-                  name: '地图',
-                  options: [
-                    '类型：页面'
-                  ]
-                },{
                   id: 11,
                   tags: ['新增'],
                   name: '右键菜单',
-                  options: [
-                    '类型：页面'
-                  ]
-                },{
-                  id: 12,
-                  tags: ['新增'],
-                  name: '系统管理-用户管理',
-                  options: [
-                    '类型：页面'
-                  ]
-                },{
-                  id: 13,
-                  tags: ['新增'],
-                  name: '系统管理-角色管理',
                   options: [
                     '类型：页面'
                   ]
@@ -82,56 +33,136 @@ export default [
                   options: [
                     '类型：系统优化'
                   ]
+                }, {
+                  id: 101,
+                  tags: ['优化'],
+                  name: '父级菜单显示为白色',
+                  options: [
+                    '类型：系统优化'
+                  ]
+                }, {
+                  id: 102,
+                  tags: ['优化'],
+                  name: '菜单国际化处理',
+                  options: [
+                    '类型：系统优化'
+                  ]
+                }, {
+                  id: 103,
+                  tags: ['优化'],
+                  name: '系统全局国际化',
+                  options: [
+                    '类型：系统优化'
+                  ]
                 }]
             },
             {
               name: '处理中',
-              children: [
-                {
-                  id: 1,
-                  tags: ['新增'],
-                  name: '拖拽指令',
-                  options: [
-                    '类型：页面'
-                  ]
-                },{
-                  id: 2,
-                  tags: ['新增'],
-                  name: '复制指令',
-                  options: [
-                    '类型：页面'
-                  ]
-                },{
-                  id: 3,
-                  tags: ['新增'],
-                  name: '防抖指令',
-                  options: [
-                    '类型：页面'
-                  ]
-                },{
-                  id: 4,
-                  tags: ['新增'],
-                  name: '长按指令',
-                  options: [
-                    '类型：页面'
-                  ]
-                },{
-                  id: 5,
-                  tags: ['新增'],
-                  name: '下拉加载',
-                  options: [
-                    '类型：页面'
-                  ]
-                },
+              children: [{
+                id: 12,
+                tags: ['新增'],
+                name: '系统管理-菜单管理',
+                options: [
+                  '类型：页面'
+                ]
+              },{
+                id: 12,
+                tags: ['新增'],
+                name: '系统管理-字典管理',
+                options: [
+                  '类型：页面'
+                ]
+              },{
+                id: 12,
+                tags: ['新增'],
+                name: '系统管理-用户管理',
+                options: [
+                  '类型：页面'
+                ]
+              },{
+                id: 13,
+                tags: ['新增'],
+                name: '系统管理-角色管理',
+                options: [
+                  '类型：页面'
+                ]
+              },
+                
               ]
             },
             {
-              name: '待部署',
-              children: []
-            },
-            {
               name: '测试中',
-              children: []
+              children: [{
+                id: 6,
+                tags: ['新增'],
+                name: '柱状图',
+                options: [
+                  '类型：页面'
+                ]
+              },{
+                id: 7,
+                tags: ['新增'],
+                name: '折线图',
+                options: [
+                  '类型：页面'
+                ]
+              },{
+                id: 8,
+                tags: ['新增'],
+                name: '饼图',
+                options: [
+                  '类型：页面'
+                ]
+              },{
+                id: 9,
+                tags: ['新增'],
+                name: '雷达图',
+                options: [
+                  '类型：页面'
+                ]
+              },{
+                id: 10,
+                tags: ['新增'],
+                name: '地图',
+                options: [
+                  '类型：页面'
+                ]
+              },{
+                id: 1,
+                tags: ['新增'],
+                name: '拖拽指令',
+                options: [
+                  '类型：页面'
+                ]
+              },{
+                id: 2,
+                tags: ['新增'],
+                name: '复制指令',
+                options: [
+                  '类型：页面'
+                ]
+              },{
+                id: 3,
+                tags: ['新增'],
+                name: '防抖指令',
+                options: [
+                  '类型：页面'
+                ]
+              },{
+                id: 4,
+                tags: ['新增'],
+                name: '长按指令',
+                options: [
+                  '类型：页面'
+                ]
+              },{
+                id: 5,
+                tags: ['新增'],
+                name: '下拉加载',
+                options: [
+                  '类型：页面'
+                ]
+              },]
             },
             {
               name: '已完成',

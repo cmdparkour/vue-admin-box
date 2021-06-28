@@ -1,9 +1,12 @@
 <template>
   <div class="item">
-    <div class="tags">
-      <div class="tag" v-for="(tag, key) in data.tags" :key="key" :style="{ 'background': colorInit(tag) }">{{ tag }}</div>
+    
+    <div class="title">
+      <div class="tags">
+        <div class="tag" v-for="(tag, key) in data.tags" :key="key" :style="{ 'background': colorInit(tag) }">{{ tag }}</div>
+      </div>
+      {{ data.name }}
     </div>
-    <div class="title">{{ data.name }}</div>
     <div class="options">
       <p v-for="(option, key) in data.options" :key="key">{{ option }}</p>
     </div>
@@ -53,18 +56,19 @@ export default defineComponent({
     min-height: 50px;
     margin-bottom: 15px;
     border-radius: 8px;
-    padding: 15px;
+    padding: 10px 15px;
     overflow: hidden;
     white-space: normal;
     cursor: pointer;
     .tags {
-      padding-bottom: 10px;
+      display: inline-block;
+      margin-right: 10px;
       .tag{
         color: #fff;
         border-radius: 16px;
         padding: 2px 8px;
-        height: 20px;
-        line-height: 20px;
+        height: 26px;
+        line-height: 26px;
         font-weight: 400;
         box-sizing: border-box;
         display: inline-flex;
