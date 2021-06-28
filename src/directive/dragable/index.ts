@@ -46,7 +46,6 @@ const directive: Directive = {
     document.addEventListener('mousemove', handleMouseMove)
     document.addEventListener('mouseup', handleMouseUp)
     function handleMouseDown(e: MouseEvent) {
-      console.log(el.__parentDom__)
       if (e.button !== 0) {
         return
       }

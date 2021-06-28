@@ -1,18 +1,18 @@
 <template>
   <div class="layout-container">
-    <div class="layout-container-table">
-      <el-alert
-        title="预计2021年7月1日前上线"
-        type="info"
-        effect="dark">
-      </el-alert>
+    <div class="layout-container-table" v-waterMarker>
+      我是一个水印页面
     </div>
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue'
+import WaterMarker from '@/directive/waterMarker'
 export default defineComponent({
+  directives: {
+    WaterMarker
+  },
   setup() {
 
   }
@@ -20,5 +20,5 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
-  
+
 </style>

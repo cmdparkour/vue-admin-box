@@ -1,24 +1,40 @@
 <template>
   <div class="layout-container">
     <div class="layout-container-table">
-      <el-alert
-        title="预计2021年7月1日前上线"
-        type="info"
-        effect="dark">
-      </el-alert>
+      <div class="box">
+        <el-button v-debounce="getData" type="primary">防抖按钮</el-button>
+      </div>
     </div>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent, ref } from 'vue'
+import { ElMessage } from 'element-plus'
+import Debounce from '@/directive/debounce'
 export default defineComponent({
+  directives: {
+    Debounce
+  },
   setup() {
-
+    const getData = ()=> {
+      ElMessage({
+        type: 'success',
+        message: '正在拉取数据'
+      })
+    }
+    return {
+      getData
+    }
   }
 })
 </script>
 
 <style lang="scss" scoped>
-  
+  .box {
+    display: flex;
+    .el-input {
+      margin-right: 10px;
+    }
+  }
 </style>

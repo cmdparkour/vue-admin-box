@@ -92,6 +92,7 @@ export default defineComponent({
       flex: 1;
       height: 100%;
     }
+    
     .system-page {
       margin-top: 20px;
     }

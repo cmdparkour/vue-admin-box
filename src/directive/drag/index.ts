@@ -1,3 +1,7 @@
+/**
+ * 指令，仅用于element-plus 中的 dialog 使用
+ * 可基于窗口各种拖拽使用
+ */
 import type { Directive } from 'vue'
 interface ElType extends HTMLDivElement {
   __mouseDown__: any,
