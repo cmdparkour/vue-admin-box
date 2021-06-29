@@ -36,6 +36,9 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
+  * {
+    text-align: left;
+  }
   .box-card{
     margin-top: 10px;
   }

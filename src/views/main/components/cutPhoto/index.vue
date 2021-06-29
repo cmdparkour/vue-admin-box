@@ -1,7 +1,7 @@
 <template>
   <div class="layout-container">
     <div class="layout-container-table">
-      <el-button @click="showWindow" type="primary">上传图片</el-button>
+      <div style="text-align: left;"><el-button @click="showWindow" type="primary">上传图片</el-button></div>
       <Cropper :layer="layer" v-model="img" />
       <el-card class="box-card" style="margin-top: 15px;">
         <template #header>

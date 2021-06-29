@@ -28,7 +28,14 @@
     overflow: auto;
   }
 }
-
+.flex-box {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  padding: 15px;
+  box-sizing: border-box;
+}
 .flex {
   display: flex;
 }
@@ -44,4 +51,12 @@ a {
 /** element-plus **/
 .el-icon{
   text-align: center;
+}
+
+/** 用于提示信息 **/
+.my-tip {
+  background-color: #f1f1f1;
+  padding: 5px 10px;
+  text-align: left;
+  border-radius: 4px;
 }
