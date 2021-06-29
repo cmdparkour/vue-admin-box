@@ -59,6 +59,7 @@ export default defineComponent({
       box-sizing: border-box;
       overflow-y: hidden;
       overflow-x: auto;
+      text-align: left;
       height: 100%;
       padding: 0 15px;
       background: #fff;

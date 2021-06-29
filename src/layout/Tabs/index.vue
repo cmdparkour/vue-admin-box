@@ -1,6 +1,6 @@
 <template>
   <div class="tabs">
-    <el-scrollbar class="scroll-container tags-view-container">
+    <el-scrollbar class="scroll-container tags-view-container" ref="scrollbarDom">
       <Item
         v-for="menu in menuList"
         :key="menu.meta.title"
@@ -10,7 +10,7 @@
       />
     </el-scrollbar>
     <div class="handle">
-      <el-dropdown>
+      <el-dropdown trigger="click">
         <div class="el-dropdown-link">
           <i class="el-icon-arrow-down el-icon--right"></i>
         </div>
@@ -18,7 +18,7 @@
           <el-dropdown-menu>
             <el-dropdown-item icon="el-icon-refresh-left" @click="pageReload">重新加载</el-dropdown-item>
             <el-dropdown-item icon="el-icon-circle-close" :disabled="currentDisabled" @click="closeCurrentRoute">关闭当前标签</el-dropdown-item>
-            <el-dropdown-item icon="el-icon-circle-close" :disabled="menuList.length <= 1" @click="closeOtherRoute">关闭其他标签</el-dropdown-item>
+            <el-dropdown-item icon="el-icon-circle-close" :disabled="menuList.length <= 3" @click="closeOtherRoute">关闭其他标签</el-dropdown-item>
             <el-dropdown-item icon="el-icon-circle-close" :disabled="menuList.length <= 1" @click="closeAllRoute">关闭所有标签</el-dropdown-item>
           </el-dropdown-menu>
         </template>
@@ -31,11 +31,16 @@
 </template>
 
 <script lang="ts">
+import type { Ref } from 'vue'
 import Item from './item.vue'
 import { defineComponent, computed, unref, watch, reactive, ref } from 'vue'
 import { useStore } from 'vuex'
 import { useRoute, useRouter } from 'vue-router'
 import tabsHook from './tabsHook'
+interface ElScrollbar {
+  scrollbar: HTMLDivElement,
+  [propName: string]: any
+}
 export default defineComponent({
   components: {
     Item
@@ -44,6 +49,7 @@ export default defineComponent({
     const store = useStore()
     const route = useRoute()
     const router = useRouter()
+    const scrollbarDom: Ref<ElScrollbar|null> = ref(null)
     const allRoutes = router.options.routes
     const defaultMenu = {
       path: '/dashboard',
@@ -54,10 +60,13 @@ export default defineComponent({
 
     let activeMenu: any = reactive({ path: '' })
     let menuList = ref(tabsHook.getItem())
-    if (menuList.length === 0) { // 判断之前有没有调用过
+    if (menuList.value.length === 0) { // 判断之前有没有调用过
       addMenu(defaultMenu)
     } 
     watch(menuList.value, (newVal: []) => {
+      tabsHook.setItem(newVal)
+    })
+    watch(menuList, (newVal: []) => {
       tabsHook.setItem(newVal)
     })
     router.afterEach(() => {
@@ -128,6 +137,14 @@ export default defineComponent({
     // 初始化activeMenu
     function initMenu(menu: object) {
       activeMenu = menu
+      setPosition()
+    }
+    // 设置当前滚动条应该在的位置
+    function setPosition() {
+      if (scrollbarDom.value) {
+        const scrollData = scrollbarDom.value.scrollbar.getBoundingClientRect()
+        console.log(scrollData)
+      }
     }
     // 初始化时调用：1. 新增菜单 2. 初始化activeMenu
     addMenu(route)
@@ -136,6 +153,7 @@ export default defineComponent({
       contentFullScreen,
       onFullscreen,
       pageReload,
+      scrollbarDom,
       // 菜单相关
       menuList,
       activeMenu,

@@ -86,6 +86,9 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
+  * {
+    text-align: left;
+  }
   #codeEditor {
     text-align: left;
   }

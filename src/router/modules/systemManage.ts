@@ -40,11 +40,11 @@ const route = [
         component: () => import('@/views/main/systemManage/role/index.vue'),
         meta: { title: '角色管理' }
       },
-      // {
-      //   path: 'user',
-      //   component: () => import('@/views/main/systemManage/users/index.vue'),
-      //   meta: { title: '用户管理' }
-      // },
+      {
+        path: 'user',
+        component: () => import('@/views/main/systemManage/users/index.vue'),
+        meta: { title: '用户管理' }
+      }
     ]
   }
 ]
