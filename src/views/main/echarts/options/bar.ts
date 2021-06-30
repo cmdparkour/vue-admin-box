@@ -16,9 +16,9 @@ const options = {
     data: dataAxis,
     axisLabel: {
       inside: true,
-      textStyle: {
-        color: '#fff'
-      }
+    },
+    textStyle: {
+      color: '#fff'
     },
     axisTick: {
       show: false
@@ -36,9 +36,10 @@ const options = {
       show: false
     },
     axisLabel: {
-      textStyle: {
-        color: '#999'
-      }
+      
+    },
+    textStyle: {
+      color: '#999'
     }
   },
   dataZoom: [

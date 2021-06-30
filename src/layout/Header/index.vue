@@ -20,22 +20,24 @@
       <div class="user-info">
         <el-dropdown>
           <span class="el-dropdown-link">
-            管理员<i class="el-icon-arrow-down el-icon--right"></i>
+            {{ $t('message.system.user') }}
+            <i class="el-icon-arrow-down el-icon--right"></i>
           </span>
           <template #dropdown>
             <el-dropdown-menu>
-              <el-dropdown-item>修改密码</el-dropdown-item>
-              <el-dropdown-item @click="loginOut">退出登录</el-dropdown-item>
+              <el-dropdown-item @click="showPasswordLayer">{{ $t('message.system.changePassword') }}</el-dropdown-item>
+              <el-dropdown-item @click="loginOut">{{ $t('message.system.loginOut') }}</el-dropdown-item>
             </el-dropdown-menu>
           </template>
         </el-dropdown>
       </div>
+      <password-layer :layer="layer" v-if="layer.show" />
     </div>
   </header>
 </template>
 
 <script lang="ts">
-import { defineComponent, computed } from 'vue'
+import { defineComponent, computed, reactive } from 'vue'
 import { useStore } from 'vuex'
 import { useRouter, useRoute } from 'vue-router'
 import FullScreen from './functionList/fullscreen.vue'
@@ -44,7 +46,7 @@ import SizeChange from './functionList/sizeChange.vue'
 import Github from './functionList/github.vue'
 import Theme from './functionList/theme.vue'
 import Breadcrumb from './Breadcrumb.vue'
-
+import PasswordLayer from './passwordLayer.vue'
 export default defineComponent({
   components: {
     FullScreen,
@@ -52,12 +54,17 @@ export default defineComponent({
     Word,
     SizeChange,
     Github,
-    Theme
+    Theme,
+    PasswordLayer
   },
   setup() {
     const store = useStore()
     const router = useRouter()
     const route = useRoute()
+    const layer = reactive({
+      show: false,
+      showButton: true
+    })
     const isCollapse = computed(() => store.state.app.isCollapse)
     // isCollapse change to hide/show the sidebar
     const opendStateChange = () => {
@@ -68,10 +75,16 @@ export default defineComponent({
     const loginOut = () => {
       store.dispatch('user/loginOut')
     }
+    
+    const showPasswordLayer = () => {
+      layer.show = true
+    }
     return {
       isCollapse,
+      layer,
       opendStateChange,
-      loginOut
+      loginOut,
+      showPasswordLayer
     }
   }
 })

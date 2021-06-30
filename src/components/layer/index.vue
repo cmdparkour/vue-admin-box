@@ -19,14 +19,22 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
+import type { Ref } from 'vue'
+import { defineComponent, ref, watch } from 'vue'
 import drag from '@/directive/drag/index'
+import { UseDialogProps } from 'element-plus/lib/el-dialog/src/dialog'
 export interface LayerInterface {
   show: boolean;
   title: string;
   showButton?: boolean;
   width?: string;
   [propName: string]: any;
+}
+interface SystemDialogProps extends UseDialogProps {
+  handleClose: Function
+}
+export interface LayerType {
+  close: Function
 }
 export default defineComponent({
   props: {
@@ -38,24 +46,25 @@ export default defineComponent({
           title: '',
           showButton: false
         }
-      }
+      },
+      required: true
     }
   },
   directives: {
     drag
   },
   setup(props, ctx) {
+    const dialog: Ref<SystemDialogProps> = ref(null) as any
     function confirm() {
       ctx.emit('confirm')
     }
-    return {
-      confirm
+    function close() {
+      dialog.value.handleClose()
     }
-  },
-  methods: {
-    close() {
-      // 触发内部的方法，以获得动画效果
-      this.$refs.dialog.handleClose()
+    return {
+      dialog,
+      confirm,
+      close
     }
   }
 })

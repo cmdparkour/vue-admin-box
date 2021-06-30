@@ -5,22 +5,22 @@ const route = [
     component: Layout,
     redirect: '/404',
     hideMenu: true,
-    meta: { title: '系统目录' },
+    meta: { title: 'message.menu.system.name' },
     children: [
       {
         path: '/404',
         component: () => import('@/views/system/404.vue'),
-        meta: { title: '404', hideTabs: true }
+        meta: { title: 'message.menu.system.404', hideTabs: true }
       },
       {
         path: '/401',
         component: () => import('@/views/system/401.vue'),
-        meta: { title: '401', hideTabs: true }
+        meta: { title: 'message.menu.system.401', hideTabs: true }
       },
       {
         path: '/redirect/:path(.*)',
         component: () => import('@/views/system/redirect.vue'),
-        meta: { title: 'redirect', hideTabs: true }
+        meta: { title: 'message.menu.system.redirect', hideTabs: true }
       }
     ]
   },

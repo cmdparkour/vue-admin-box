@@ -15,17 +15,17 @@ const route = [
       {
         path: 'card',
         component: () => import('@/views/main/pages/card/index.vue'),
-        meta: { title: '卡片列表' }
+        meta: { title: 'message.menu.page.card' }
       },
       {
         path: 'work',
         component: () => import('@/views/main/pages/work/index.vue'),
-        meta: { title: '工作进度' }
+        meta: { title: 'message.menu.page.work' }
       },
       {
         path: 'baidu',
         component: () => import('@/views/main/pages/baidu/index.vue'),
-        meta: { title: '百度一下' }
+        meta: { title: 'message.menu.page.baidu' }
       },
     ]
   }
