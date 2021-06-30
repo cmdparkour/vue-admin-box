@@ -4,6 +4,12 @@ export default {
       name: 'dashboard',
       index: 'index'
     },
+    system: {
+      name: 'system',
+      redirect: 'redirect',
+      '404': '404',
+      '401': '401'
+    },
     component: {
       name: 'component',
       button: 'button',

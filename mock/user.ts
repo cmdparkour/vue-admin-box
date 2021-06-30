@@ -71,4 +71,15 @@ export default [
       };
     }
   },
+  {
+    url: `/mock/user/passwordChange`,
+    method: 'post',
+    response: () => {
+      return {
+        code: 200,
+        data: {},
+        msg: 'success'
+      };
+    }
+  },
 ] as MockMethod[]

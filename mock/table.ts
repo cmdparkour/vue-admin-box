@@ -11,9 +11,10 @@ export default [
         data: {
           [`list|${pageSize}`]: [{
             'id|+1': 0,
-            userName: '123',
-            sex: 1,
-            hobby: 'jump'
+            'name': '@cname',
+            "number|+1": 500,
+            "choose|1": [1, 2, 3, 4],
+            "radio|1": [1, 2, 3]
           }],
           pager: {
             page: page,

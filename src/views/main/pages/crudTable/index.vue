@@ -25,9 +25,10 @@
         @getTableData="getTableData"
         @selection-change="handleSelectionChange"
       >
-        <el-table-column prop="userName" label="用户名" width="300" align="center" />
-        <el-table-column prop="userName" label="性别" width="300" align="center" />
-        <el-table-column prop="hobby" label="爱好" min-width="180" align="center" />
+        <el-table-column prop="name" label="名称" align="center" />
+        <el-table-column prop="number" label="数字" align="center" />
+        <el-table-column prop="chooseName" label="选择器" align="center" />
+        <el-table-column prop="radioName" label="单选框" align="center" />
         <el-table-column :label="$t('message.common.handle')" align="center" fixed="right" width="200">
           <template #default="scope">
             <el-button @click="handleEdit(scope.row)">{{ $t('message.common.update') }}</el-button>
@@ -50,7 +51,8 @@ import Table from '@/components/table/index.vue'
 import { Page } from '@/components/table/type'
 import { getData, del } from '@/api/table'
 import Layer from './layer.vue'
-import { LayerInterface } from '@/components/layer/index.vue'
+import type { LayerInterface } from '@/components/layer/index.vue'
+import { selectData, radioData } from './enum'
 export default defineComponent({
   components: {
     Table,
@@ -89,7 +91,7 @@ export default defineComponent({
       handleSelectionChange
     }
   },
-  mounted() {
+  created() {
     this.getTableData(true)
   },
   methods: {
@@ -107,6 +109,15 @@ export default defineComponent({
       }
       getData(params)
       .then(res => {
+        let data = res.data.list
+        if (Array.isArray(data)) {
+          data.forEach(d => {
+            const select = selectData.find(select => select.value === d.choose)
+            select ? d.chooseName = select.label : d.chooseName = d.choose
+            const radio = radioData.find(select => select.value === d.radio)
+            radio ? d.radioName = radio.label : d.radio
+          })
+        }
         this.tableData = res.data.list
         this.page.total = Number(res.data.pager.total)
       })

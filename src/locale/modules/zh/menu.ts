@@ -4,6 +4,12 @@ export default {
       name: 'dashboard',
       index: '首页'
     },
+    system: {
+      name: '系统目录',
+      redirect: '重定向页面',
+      '404': '404',
+      '401': '401'
+    },
     component: {
       name: '组件',
       button: '按钮',

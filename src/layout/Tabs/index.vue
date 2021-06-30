@@ -10,7 +10,7 @@
       />
     </el-scrollbar>
     <div class="handle">
-      <el-dropdown trigger="click">
+      <el-dropdown>
         <div class="el-dropdown-link">
           <i class="el-icon-arrow-down el-icon--right"></i>
         </div>
@@ -144,23 +144,23 @@ export default defineComponent({
     // 设置当前滚动条应该在的位置
     function setPosition() {
       if (scrollbarDom.value) {
-        const dom = {
+        const domBox = {
           scrollbar: scrollbarDom.value.scrollbar.querySelector('.el-scrollbar__wrap ') as HTMLDivElement,
           activeDom: scrollbarDom.value.scrollbar.querySelector('.active') as HTMLDivElement,
           activeFather: scrollbarDom.value.scrollbar.querySelector('.el-scrollbar__view') as HTMLDivElement
         }
-        for (let i in dom) {
-          if (!i) {
+        for (let i in domBox) {
+          if (!domBox[i]) {
             return
           }
         }
         const domData = {
-          scrollbar: dom.scrollbar.getBoundingClientRect(),
-          activeDom: dom.activeDom.getBoundingClientRect(),
-          activeFather: dom.activeFather.getBoundingClientRect()
+          scrollbar: domBox.scrollbar.getBoundingClientRect(),
+          activeDom: domBox.activeDom.getBoundingClientRect(),
+          activeFather: domBox.activeFather.getBoundingClientRect()
         }
         const num = domData.activeDom.x - domData.activeFather.x + 1/2 * domData.activeDom.width - 1/2 * domData.scrollbar.width
-        dom.scrollbar.scrollLeft = num
+        domBox.scrollbar.scrollLeft = num
       }
     }
     // 初始化时调用：1. 新增菜单 2. 初始化activeMenu
