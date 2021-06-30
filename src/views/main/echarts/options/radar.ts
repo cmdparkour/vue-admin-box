@@ -103,10 +103,8 @@ var dataSH = [
 ];
 
 var lineStyle = {
-  normal: {
-    width: 1,
-    opacity: 0.5
-  }
+  width: 1,
+  opacity: 0.5
 };
 
 const options = {
@@ -129,15 +127,6 @@ const options = {
     },
     selectedMode: 'single'
   },
-  // visualMap: {
-  //     show: true,
-  //     min: 0,
-  //     max: 20,
-  //     dimension: 6,
-  //     inRange: {
-  //         colorLightness: [0.5, 0.8]
-  //     }
-  // },
   radar: {
     indicator: [
       { name: 'AQI', max: 300 },
@@ -149,10 +138,8 @@ const options = {
     ],
     shape: 'circle',
     splitNumber: 5,
-    name: {
-      textStyle: {
-        color: 'rgb(238, 197, 102)'
-      }
+    textStyle: {
+      color: 'rgb(238, 197, 102)'
     },
     splitLine: {
       lineStyle: {

@@ -20,12 +20,13 @@
       <div class="user-info">
         <el-dropdown>
           <span class="el-dropdown-link">
-            管理员<i class="el-icon-arrow-down el-icon--right"></i>
+            {{ $t('message.system.user') }}
+            <i class="el-icon-arrow-down el-icon--right"></i>
           </span>
           <template #dropdown>
             <el-dropdown-menu>
-              <el-dropdown-item>修改密码</el-dropdown-item>
-              <el-dropdown-item @click="loginOut">退出登录</el-dropdown-item>
+              <el-dropdown-item>{{ $t('message.system.changePassword') }}</el-dropdown-item>
+              <el-dropdown-item @click="loginOut">{{ $t('message.system.loginOut') }}</el-dropdown-item>
             </el-dropdown-menu>
           </template>
         </el-dropdown>

@@ -14,8 +14,8 @@
   </el-menu>
 </template>
 
-<script>
-import { defineComponent, computed } from 'vue'
+<script lang="ts">
+import { defineComponent, computed, onMounted } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
 import { useStore } from 'vuex'
 import MenuItem from './MenuItem.vue'
@@ -36,6 +36,9 @@ export default defineComponent({
       }
       return path;
     });
+    onMounted(() => {
+
+    })
     return {
       isCollapse,
       expandOneMenu,
@@ -50,10 +53,10 @@ export default defineComponent({
   .layout-menu {
     width: 100%;
     flex: 1;
+    height: 0;
     box-shadow: 2px -1px 3px 0px #0000006e;
     &.collapse {
       margin-left: 0px;
-      // padding: 0 15px;
     }
     :deep(.el-submenu) {
       .el-menu {
@@ -63,6 +66,11 @@ export default defineComponent({
           &:hover {
             background-color: #0f1721 !important;
           }
+        }
+      }
+      &.is-active {
+        >.el-submenu__title, >.el-submenu__title i {
+          color: #f1f1f1 !important;
         }
       }
     }

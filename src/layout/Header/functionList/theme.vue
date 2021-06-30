@@ -1,9 +1,9 @@
 <template>
-  <div title="设置主题" @click="drawerChange(true)">
+  <div :title="$t('message.system.setting.name')" @click="drawerChange(true)">
     <i class="sfont system-shezhi"></i>
   </div>
   <el-drawer
-    title="主题配置"
+    :title="$t('message.system.setting.name')"
     v-model="drawer"
     size="300px"
     :show-close="false"
@@ -12,7 +12,7 @@
       <!-- <el-divider content-position="center">配置</el-divider> -->
       <div class="list">
         <div class="list-item" v-for="option in options" :key="option.name">
-          <span>{{ option.name }}</span>
+          <span>{{ $t(option.name) }}</span>
           <el-switch
             v-model="option.value"
             active-color="#13ce66"
@@ -38,9 +38,9 @@ export default defineComponent({
     const store = useStore()
     let drawer = ref(false)
     const options = reactive([
-      { name: '显示logo模块', value: store.state.app.showLogo, store: 'showLogo' },
-      { name: '显示面包屑导航', value: store.state.app.showTabs, store: 'showTabs' },
-      { name: '保持一个菜单展开', value: store.state.app.expandOneMenu, store: 'expandOneMenu' }
+      { name: 'message.system.setting.showLogo', value: store.state.app.showLogo, store: 'showLogo' },
+      { name: 'message.system.setting.showBreadcrumb', value: store.state.app.showTabs, store: 'showTabs' },
+      { name: 'message.system.setting.keepOnlyOneMenu', value: store.state.app.expandOneMenu, store: 'expandOneMenu' }
     ])
     const drawerChange = (value: boolean) => {
       drawer.value = value

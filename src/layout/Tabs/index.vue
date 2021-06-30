@@ -16,10 +16,10 @@
         </div>
         <template #dropdown>
           <el-dropdown-menu>
-            <el-dropdown-item icon="el-icon-refresh-left" @click="pageReload">重新加载</el-dropdown-item>
-            <el-dropdown-item icon="el-icon-circle-close" :disabled="currentDisabled" @click="closeCurrentRoute">关闭当前标签</el-dropdown-item>
-            <el-dropdown-item icon="el-icon-circle-close" :disabled="menuList.length <= 3" @click="closeOtherRoute">关闭其他标签</el-dropdown-item>
-            <el-dropdown-item icon="el-icon-circle-close" :disabled="menuList.length <= 1" @click="closeAllRoute">关闭所有标签</el-dropdown-item>
+            <el-dropdown-item icon="el-icon-refresh-left" @click="pageReload">{{ $t('message.system.tab.reload') }}</el-dropdown-item>
+            <el-dropdown-item icon="el-icon-circle-close" :disabled="currentDisabled" @click="closeCurrentRoute">{{ $t('message.system.tab.closeCurrent') }}</el-dropdown-item>
+            <el-dropdown-item icon="el-icon-circle-close" :disabled="menuList.length <= 3" @click="closeOtherRoute">{{ $t('message.system.tab.closeOther') }}</el-dropdown-item>
+            <el-dropdown-item icon="el-icon-circle-close" :disabled="menuList.length <= 1" @click="closeAllRoute">{{ $t('message.system.tab.closeAll') }}</el-dropdown-item>
           </el-dropdown-menu>
         </template>
       </el-dropdown>
@@ -33,7 +33,7 @@
 <script lang="ts">
 import type { Ref } from 'vue'
 import Item from './item.vue'
-import { defineComponent, computed, unref, watch, reactive, ref } from 'vue'
+import { defineComponent, computed, unref, watch, reactive, ref, nextTick } from 'vue'
 import { useStore } from 'vuex'
 import { useRoute, useRouter } from 'vue-router'
 import tabsHook from './tabsHook'
@@ -53,7 +53,7 @@ export default defineComponent({
     const allRoutes = router.options.routes
     const defaultMenu = {
       path: '/dashboard',
-      meta: { title: 'message.menu.index', hideClose: true }
+      meta: { title: 'message.menu.dashboard.index', hideClose: true }
     }
     const contentFullScreen = computed(() => store.state.app.contentFullScreen)
     const currentDisabled = computed(() => route.path === defaultMenu.path)
@@ -137,13 +137,30 @@ export default defineComponent({
     // 初始化activeMenu
     function initMenu(menu: object) {
       activeMenu = menu
-      setPosition()
+      nextTick(() => {
+        setPosition()
+      })
     }
     // 设置当前滚动条应该在的位置
     function setPosition() {
       if (scrollbarDom.value) {
-        const scrollData = scrollbarDom.value.scrollbar.getBoundingClientRect()
-        console.log(scrollData)
+        const dom = {
+          scrollbar: scrollbarDom.value.scrollbar.querySelector('.el-scrollbar__wrap ') as HTMLDivElement,
+          activeDom: scrollbarDom.value.scrollbar.querySelector('.active') as HTMLDivElement,
+          activeFather: scrollbarDom.value.scrollbar.querySelector('.el-scrollbar__view') as HTMLDivElement
+        }
+        for (let i in dom) {
+          if (!i) {
+            return
+          }
+        }
+        const domData = {
+          scrollbar: dom.scrollbar.getBoundingClientRect(),
+          activeDom: dom.activeDom.getBoundingClientRect(),
+          activeFather: dom.activeFather.getBoundingClientRect()
+        }
+        const num = domData.activeDom.x - domData.activeFather.x + 1/2 * domData.activeDom.width - 1/2 * domData.scrollbar.width
+        dom.scrollbar.scrollLeft = num
       }
     }
     // 初始化时调用：1. 新增菜单 2. 初始化activeMenu

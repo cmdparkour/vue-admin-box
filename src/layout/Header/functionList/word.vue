@@ -34,6 +34,7 @@ export default defineComponent({
       locale.value = command
       store.commit('app/stateChange', { name: 'lang', value: command })
       changeTitle(route.meta.title)
+      document.querySelector('html')!.setAttribute('lang', command)
     }
     return {
       handleCommand,

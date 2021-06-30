@@ -4,32 +4,32 @@ const route = [
     path: '/echarts',
     component: Layout,
     redirect: '/echarts/dragable',
-    meta: { title: 'echarts图表', icon: 'el-icon-pie-chart' },
+    meta: { title: 'message.menu.echarts.name', icon: 'el-icon-pie-chart' },
     children: [
       {
         path: 'bar',
         component: () => import('@/views/main/echarts/bar.vue'),
-        meta: { title: '柱状图' }
+        meta: { title: 'message.menu.echarts.bar' }
       },
       {
         path: 'line',
         component: () => import('@/views/main/echarts/line.vue'),
-        meta: { title: '折线图' }
+        meta: { title: 'message.menu.echarts.line' }
       },
       {
         path: 'pie',
         component: () => import('@/views/main/echarts/pie.vue'),
-        meta: { title: '饼图' }
+        meta: { title: 'message.menu.echarts.pie' }
       },
       {
         path: 'radar',
         component: () => import('@/views/main/echarts/radar.vue'),
-        meta: { title: '雷达图' }
+        meta: { title: 'message.menu.echarts.radar' }
       },
       {
         path: 'map',
         component: () => import('@/views/main/echarts/map.vue'),
-        meta: { title: '地图' }
+        meta: { title: 'message.menu.echarts.map' }
       },
     ]
   }

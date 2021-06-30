@@ -53,14 +53,14 @@ const option = {
     },
     axisLabel: {
       formatter: '{value}',
-      textStyle: {
-        fontSize: 12,
-        fontFamily: 'PingFang SC',
-        fontWeight: 400,
-        lineHeight: 17,
-        color: '#646464', //坐标值的具体的颜色
-        opacity: 1,
-      }
+    },
+    textStyle: {
+      fontSize: 12,
+      fontFamily: 'PingFang SC',
+      fontWeight: 400,
+      lineHeight: 17,
+      color: '#646464', //坐标值的具体的颜色
+      opacity: 1,
     },
     axisTick: {
       show: false
@@ -76,14 +76,14 @@ const option = {
     },
     axisLabel: {
       formatter: '{value}',
-      textStyle: {
-        fontSize: 12,
-        fontFamily: 'PingFang SC',
-        fontWeight: 400,
-        lineHeight: 17,
-        color: '#979A9F', //坐标值的具体的颜色
-        opacity: 1,
-      }
+    },
+    textStyle: {
+      fontSize: 12,
+      fontFamily: 'PingFang SC',
+      fontWeight: 400,
+      lineHeight: 17,
+      color: '#979A9F', //坐标值的具体的颜色
+      opacity: 1,
     },
     splitLine: {
       lineStyle: {
@@ -101,13 +101,11 @@ const option = {
       data: data_A,
       symbolSize: 9, //设置拐点大小
       itemStyle: {
-        normal: {
-          color: color[0], //设置颜色
-          lineStyle: {
-            width: 2,
-            type: 'solid'  //'dotted'虚线 'solid'实线
-          }
-        }
+        color: color[0]
+      },
+      lineStyle: {
+        width: 2,
+        type: 'solid'  //'dotted'虚线 'solid'实线
       }
     }, {
       type: 'bar',
@@ -115,13 +113,11 @@ const option = {
       data: data_B,
       symbolSize: 9, //设置拐点大小
       itemStyle: {
-        normal: {
-          color: color[1], //设置颜色
-          lineStyle: {
-            width: 2,
-            type: 'solid'  //'dotted'虚线 'solid'实线
-          }
-        }
+        color: color[1]
+      },
+      lineStyle: {
+        width: 2,
+        type: 'solid'  //'dotted'虚线 'solid'实线
       }
     }, {
       type: 'line',
@@ -144,13 +140,9 @@ const option = {
         }
       },
       color: color[2], //设置颜色
-      itemStyle: {
-        normal: {
-          lineStyle: {
-            width: 2,
-            type: 'solid'  //'dotted'虚线 'solid'实线
-          }
-        }
+      lineStyle: {
+        width: 2,
+        type: 'solid'  //'dotted'虚线 'solid'实线
       }
     },
   ]

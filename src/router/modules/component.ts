@@ -15,42 +15,42 @@ const route = [
       {
         path: 'wordEditor',
         component: () => import('@/views/main/components/wordEditor/index.vue'),
-        meta: { title: '文本编辑器' },
+        meta: { title: 'message.menu.component.wordEditor' },
       },
       {
         path: 'mdEditor',
         component: () => import('@/views/main/components/mdEditor/index.vue'),
-        meta: { title: 'MD编辑器' },
+        meta: { title: 'message.menu.component.mdEditor' },
       },
       {
         path: 'codeEditor',
         component: () => import('@/views/main/components/codeEditor/index.vue'),
-        meta: { title: '代码编辑器' },
+        meta: { title: 'message.menu.component.codeEditor' },
       },
       {
         path: 'jsonEditor',
         component: () => import('@/views/main/components/jsonEditor/index.vue'),
-        meta: { title: 'JSON编辑器' },
+        meta: { title: 'message.menu.component.jsonEditor' },
       },
       {
         path: 'dragPane',
         component: () => import('@/views/main/components/dragPane/index.vue'),
-        meta: { title: '可拖拽面板' },
+        meta: { title: 'message.menu.component.dragPane' },
       },
       {
         path: 'map',
         component: () => import('@/views/main/components/map/index.vue'),
-        meta: { title: '地图组件' },
+        meta: { title: 'message.menu.component.map' },
       },
       {
         path: 'cutPhoto',
         component: () => import('@/views/main/components/cutPhoto/index.vue'),
-        meta: { title: '弹窗图片裁剪' },
+        meta: { title: 'message.menu.component.cutPhoto' },
       },
       {
         path: 'rightMenu',
         component: () => import('@/views/main/components/rightMenu/index.vue'),
-        meta: { title: '右键菜单' },
+        meta: { title: 'message.menu.component.rightMenu' },
       },
     ]
   }

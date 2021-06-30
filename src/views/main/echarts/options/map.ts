@@ -197,20 +197,13 @@ const options = {
     show: false, // 是否显示背景地图
     roam: true,
     label: {
-      normal: {
-        show: false,
-      },
-      emphasis: {
-        show: false,
-      },
+      show: false
     },
-    // 默认背景
-    // itemStyle: {
-    //   normal: {
-    //     areaColor: '#032954',
-    //     borderColor: '#0C6075',
-    //   }
-    // }
+    emphasis: {
+      label: {
+        show: false
+      }
+    }
   },
   series: [
     {
@@ -219,32 +212,28 @@ const options = {
       map: nameMap,
       zoom: 1.2,
       label: {
-        normal: {
-          show: true,
-          textStyle: {
-            fontSize: 12,
-            fontWeight: 400,
-            color: 'rgb(255,255,255)',
-          },
-        },
-        // 文字hover颜色
-        emphasis: {
-          show: true, //是否在高亮状态下显示标签。
-          textStyle: {
-            color: '#ff0',
-          }, //高亮状态下的标签文本样式。
-        },
+        show: true,
+      },
+      textStyle: {
+        fontSize: 12,
+        fontWeight: 400,
+        color: 'rgb(255,255,255)',
       },
       itemStyle: {
         // 地图边框设置
-        normal: {
-          // areaColor: '#272235',
-          borderColor: 'rgba(175,224,254,.4)',
-          fontWeightL: 700,
-          borderWidth: 0.5,
+        borderColor: 'rgba(175,224,254,.4)',
+        fontWeightL: 700,
+        borderWidth: 0.5,
+      },
+      // hover效果
+      emphasis: {
+        label: {// 文字hover颜色
+          show: true, //是否在高亮状态下显示标签。
         },
-        // hover效果
-        emphasis: {
+        textStyle: {
+          color: '#ff0',
+        }, //高亮状态下的标签文本样式。
+        itemStyle: {
           areaColor: {
             type: 'linear',
             x: 0,
@@ -262,8 +251,8 @@ const options = {
               },
             ],
             globalCoord: false, // 缺省为 false
-          },
-        },
+          }
+        }
       },
       // 点击效果
       select: {
@@ -284,9 +273,6 @@ const options = {
           })
           .slice(0, 50)
       ),
-      // symbolSize: function (val) {
-      //   return val[2] / 6;
-      // },
       showEffectOn: 'render',
       // symbolOffset: [-10, 10], //偏移
       rippleEffect: {

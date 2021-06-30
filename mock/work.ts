@@ -13,27 +13,6 @@ export default [
               name: '待处理',
               children: [
                 {
-                  id: 11,
-                  tags: ['新增'],
-                  name: '右键菜单',
-                  options: [
-                    '类型：页面'
-                  ]
-                },{
-                  id: 14,
-                  tags: ['优化'],
-                  name: 'tab标签栏Keep-alive',
-                  options: [
-                    '类型：系统优化'
-                  ]
-                },{
-                  id: 15,
-                  tags: ['优化'],
-                  name: 'tab标签栏切换时自动居中处理tab标签栏切换时自动居中处理',
-                  options: [
-                    '类型：系统优化'
-                  ]
-                }, {
                   id: 101,
                   tags: ['优化'],
                   name: '父级菜单显示为白色',
@@ -66,14 +45,14 @@ export default [
                   '类型：页面'
                 ]
               },{
-                id: 12,
+                id: 104,
                 tags: ['新增'],
                 name: '系统管理-字典管理',
                 options: [
                   '类型：页面'
                 ]
               },{
-                id: 12,
+                id: 105,
                 tags: ['新增'],
                 name: '系统管理-用户管理',
                 options: [
@@ -93,6 +72,27 @@ export default [
             {
               name: '测试中',
               children: [{
+                id: 11,
+                tags: ['新增'],
+                name: '右键菜单',
+                options: [
+                  '类型：页面'
+                ]
+              },{
+                id: 14,
+                tags: ['优化'],
+                name: 'tab标签栏Keep-alive',
+                options: [
+                  '类型：系统优化'
+                ]
+              },{
+                id: 15,
+                tags: ['优化'],
+                name: 'tab标签栏切换时自动居中处理tab标签栏切换时自动居中处理',
+                options: [
+                  '类型：系统优化'
+                ]
+              },{
                 id: 6,
                 tags: ['新增'],
                 name: '柱状图',
