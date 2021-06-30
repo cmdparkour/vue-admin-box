@@ -17,6 +17,7 @@ import Component from './modules/component'
 import Directive from './modules/directive'
 import SystemManage from './modules/systemManage'
 import Chart from './modules/chart'
+import Print from './modules/print'
 import System from './modules/system'
 
 let modules: object[] = [
@@ -27,6 +28,7 @@ let modules: object[] = [
   ...Directive,
   ...Chart,
   ...SystemManage,
+  ...Print,
   ...System
 ]
 
