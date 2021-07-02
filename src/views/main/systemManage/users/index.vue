@@ -94,12 +94,12 @@
 
 <script lang="ts">
 import { defineComponent, ref, reactive } from "vue";
-import Table from "@/components/table/index.vue";
 import { Page } from "@/components/table/type";
 import { getData, del, updateStatus } from "@/api/system/user";
-import Layer from "./layer.vue";
 import { LayerInterface } from "@/components/layer/index.vue";
 import { ElMessage } from "element-plus";
+import Table from "@/components/table/index.vue";
+import Layer from "./layer.vue";
 export default defineComponent({
   components: {
     Table,
@@ -128,52 +128,38 @@ export default defineComponent({
     const handleSelectionChange = (val: []) => {
       chooseData.value = val;
     };
-    return {
-      query,
-      tableData,
-      chooseData,
-      loading,
-      page,
-      layer,
-      handleSelectionChange,
-    };
-  },
-  mounted() {
-    this.getTableData(true);
-  },
-  methods: {
     // 获取表格数据
     // params <init> Boolean ，默认为false，用于判断是否需要初始化分页
-    getTableData(init: Boolean) {
-      this.loading = true;
+    const getTableData = (init: Boolean) => {
+      loading.value = true
       if (init) {
-        this.page.index = 1;
+        page.index = 1
       }
       let params = {
-        page: this.page.index,
-        pageSize: this.page.size,
-        ...this.query,
-      };
+        page: page.index,
+        pageSize: page.size,
+        ...query
+      }
       getData(params)
         .then((res) => {
           let data = res.data.list
-          data.forEach(d => {
+          data.forEach((d: any) => {
             d.loading = false
           })
-          this.tableData = data
-          this.page.total = Number(res.data.pager.total);
+          tableData.value = data
+          page.total = Number(res.data.pager.total);
         })
         .catch((error) => {
-          this.tableData = [];
-          this.page.index = 1;
-          this.page.total = 0;
+          tableData.value = [];
+          page.index = 1;
+          page.total = 0;
         })
         .finally(() => {
-          this.loading = false;
+          loading.value = false;
         });
-    },
-    // 删除功能
-    handleDel(data: object[]) {
+    }
+     // 删除功能
+    const handleDel = (data: object[]) => {
       let params = {
         ids: data
           .map((e: any) => {
@@ -186,23 +172,26 @@ export default defineComponent({
           type: "success",
           message: "删除成功",
         });
-        this.getTableData(this.tableData.length === 1 ? true : false);
+        getTableData(tableData.value.length === 1 ? true : false);
       });
-    },
+    }
     // 新增弹窗功能
-    handleAdd() {
-      this.layer.title = "新增数据";
-      this.layer.show = true;
-      delete this.layer.row;
-    },
+    const handleAdd = () => {
+      layer.title = "新增数据";
+      layer.show = true;
+      delete layer.row;
+    }
     // 编辑弹窗功能
-    handleEdit(row: any) {
-      this.layer.title = "编辑数据";
-      this.layer.row = row;
-      this.layer.show = true;
-    },
+    const handleEdit = (row: any) => {
+      layer.title = "编辑数据";
+      layer.row = row;
+      layer.show = true;
+    }
     // 状态编辑功能
-    handleUpdateStatus(row: any) {
+    const handleUpdateStatus = (row: any) => {
+      if (!row.id) {
+        return
+      }
       row.loading = true
       let params = {
         id: row.id,
@@ -220,13 +209,27 @@ export default defineComponent({
           type: 'error',
           message: '状态变更失败'
         })
-        // row.status = !row.status
       })
       .finally(() => {
         row.loading = false
       })
     }
-  },
+    getTableData(true)
+    return {
+      query,
+      tableData,
+      chooseData,
+      loading,
+      page,
+      layer,
+      handleSelectionChange,
+      getTableData,
+      handleDel,
+      handleAdd,
+      handleEdit,
+      handleUpdateStatus
+    };
+  }
 });
 </script>
 

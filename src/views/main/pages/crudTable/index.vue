@@ -10,7 +10,7 @@
         </el-popconfirm>
       </div>
       <div class="layout-container-form-search">
-        <el-input v-model="query.input" :placeholder="$t('message.common.searchTip')"></el-input>
+        <el-input v-model="query.input" :placeholder="$t('message.common.searchTip')" @change="getTableData(true)"></el-input>
         <el-button type="primary" icon="el-icon-search" class="search-btn" @click="getTableData(true)">{{ $t('message.common.search') }}</el-button>
       </div>
     </div>
@@ -51,6 +51,7 @@ import Table from '@/components/table/index.vue'
 import { Page } from '@/components/table/type'
 import { getData, del } from '@/api/table'
 import Layer from './layer.vue'
+import { ElMessage } from 'element-plus'
 import type { LayerInterface } from '@/components/layer/index.vue'
 import { selectData, radioData } from './enum'
 export default defineComponent({
@@ -81,31 +82,17 @@ export default defineComponent({
     const handleSelectionChange = (val: []) => {
       chooseData.value = val
     }
-    return {
-      query,
-      tableData,
-      chooseData,
-      loading,
-      page,
-      layer,
-      handleSelectionChange
-    }
-  },
-  created() {
-    this.getTableData(true)
-  },
-  methods: {
     // 获取表格数据
     // params <init> Boolean ，默认为false，用于判断是否需要初始化分页
-    getTableData(init: Boolean) {
-      this.loading = true
+    const getTableData = (init: boolean) => {
+      loading.value = true
       if (init) {
-        this.page.index = 1
+        page.index = 1
       }
       let params = {
-        page: this.page.index,
-        pageSize: this.page.size,
-        ...this.query
+        page: page.index,
+        pageSize: page.size,
+        ...query
       }
       getData(params)
       .then(res => {
@@ -118,20 +105,20 @@ export default defineComponent({
             radio ? d.radioName = radio.label : d.radio
           })
         }
-        this.tableData = res.data.list
-        this.page.total = Number(res.data.pager.total)
+        tableData.value = res.data.list
+        page.total = Number(res.data.pager.total)
       })
       .catch(error => {
-        this.tableData = []
-        this.page.index = 1
-        this.page.total = 0
+        tableData.value = []
+        page.index = 1
+        page.total = 0
       })
       .finally(() => {
-        this.loading = false
+        loading.value = false
       })
-    },
+    }
     // 删除功能
-    handleDel(data: object[]) {
+    const handleDel = (data: object[]) => {
       let params = {
         ids: data.map((e:any)=> {
           return e.id
@@ -139,24 +126,38 @@ export default defineComponent({
       }
       del(params)
       .then(res => {
-        this.$message({
+        ElMessage({
           type: 'success',
           message: '删除成功'
         })
-        this.getTableData(this.tableData.length === 1 ? true : false)
+        getTableData(tableData.value.length === 1 ? true : false)
       })
-    },
+    }
     // 新增弹窗功能
-    handleAdd() {
-      this.layer.title = '新增数据'
-      this.layer.show = true
-      delete this.layer.row
-    },
+    const handleAdd = () => {
+      layer.title = '新增数据'
+      layer.show = true
+      delete layer.row
+    }
     // 编辑弹窗功能
-    handleEdit(row: object) {
-      this.layer.title = '编辑数据'
-      this.layer.row = row
-      this.layer.show = true
+    const handleEdit = (row: object) => {
+      layer.title = '编辑数据'
+      layer.row = row
+      layer.show = true
+    }
+    getTableData(true)
+    return {
+      query,
+      tableData,
+      chooseData,
+      loading,
+      page,
+      layer,
+      handleSelectionChange,
+      handleAdd,
+      handleEdit,
+      handleDel,
+      getTableData
     }
   }
 })

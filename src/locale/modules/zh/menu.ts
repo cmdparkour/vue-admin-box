@@ -25,6 +25,8 @@ export default {
     page: {
       name: '页面',
       crudTable: '业务表格',
+      categoryTable: '分类联动表格',
+      treeTable: '树联动表格',
       card: '卡片列表',
       work: '工作进度',
       baidu: '百度一下',

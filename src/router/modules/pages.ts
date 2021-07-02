@@ -13,6 +13,16 @@ const route = [
         meta: { title: 'message.menu.page.crudTable' }
       },
       {
+        path: 'categoryTable',
+        component: () => import('@/views/main/pages/categoryTable/index.vue'),
+        meta: { title: 'message.menu.page.categoryTable' }
+      },
+      {
+        path: 'treeTable',
+        component: () => import('@/views/main/pages/treeTable/index.vue'),
+        meta: { title: 'message.menu.page.treeTable' }
+      },
+      {
         path: 'card',
         component: () => import('@/views/main/pages/card/index.vue'),
         meta: { title: 'message.menu.page.card' }

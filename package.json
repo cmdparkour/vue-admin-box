@@ -20,6 +20,7 @@
     "nprogress": "^0.2.0",
     "sortablejs": "^1.13.0",
     "splitpanes": "^3.0.4",
+    "throttle-debounce": "^3.0.1",
     "v-contextmenu": "^3.0.0",
     "vue": "^3.0.5",
     "vue-i18n": "^9.1.6",

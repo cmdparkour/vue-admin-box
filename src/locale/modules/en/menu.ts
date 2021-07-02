@@ -25,6 +25,8 @@ export default {
     page: {
       name: 'page',
       crudTable: 'crudTable',
+      categoryTable: 'categoryTable',
+      treeTable: 'treeTable',
       card: 'card',
       work: 'work',
       baidu: 'baidu',

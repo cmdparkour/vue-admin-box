@@ -60,3 +60,26 @@ a {
   text-align: left;
   border-radius: 4px;
 }
+.system-scrollbar {
+  &::-webkit-scrollbar {
+    display: none;
+    width: 6px;
+  }
+  &::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background: rgba(144, 147, 153, 0.3);
+  }
+  &:hover {
+    &::-webkit-scrollbar {
+      display: block;
+    }
+    &::-webkit-scrollbar-thumb {
+      border-radius: 10px;
+      background: rgba(144, 147, 153, 0.3);
+      &:hover {
+        background: rgba(144, 147, 153, 0.5);
+      }
+    }
+  }
+ 
+}

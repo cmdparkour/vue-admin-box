@@ -41,10 +41,7 @@ const directive: Directive = {
       y: 0
     }
     let bodyUserSelect: string = 'text'
-    // 2. 监听拖拽事件
-    el.addEventListener('mousedown', handleMouseDown)
-    document.addEventListener('mousemove', handleMouseMove)
-    document.addEventListener('mouseup', handleMouseUp)
+    
     function handleMouseDown(e: MouseEvent) {
       if (e.button !== 0) {
         return
@@ -106,6 +103,10 @@ const directive: Directive = {
     el.__mouseDown__ = handleMouseDown
     el.__mouseMove__ = handleMouseMove
     el.__mouseUp__ = handleMouseUp
+    // 2. 监听拖拽事件
+    el.addEventListener('mousedown', el.__mouseDown__)
+    document.addEventListener('mousemove', el.__mouseMove__)
+    document.addEventListener('mouseup', el.__mouseUp__)
   },
   updated(el, binding) {
     setParentDom(el, binding)
