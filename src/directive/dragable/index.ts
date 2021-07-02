@@ -21,12 +21,12 @@ interface ElType extends HTMLElement {
   __mouseDown__: any,
   __mouseUp__: any,
   __mouseMove__: any,
-  __parentDom__: HTMLElement
+  __parentDom__: HTMLElement,
+  __position__: Position
 }
 const directive: Directive = {
   mounted: (el: ElType, binding: DirectiveBinding) => {
-    setParentDom(el, binding)
-
+    setParentDom(el, binding, false)
     // 子级元素位置处理
     // 1. 获取父子元素当前位置
     let parentDomRect: DOMRect
@@ -36,7 +36,7 @@ const directive: Directive = {
       move: { x: 0, y: 0 }
     }
     let mouseDown: boolean = false
-    let elPosition: Position = {
+    el.__position__ = {
       x: 0,
       y: 0
     }
@@ -79,25 +79,25 @@ const directive: Directive = {
       const y = mouseData.move.y + elDomRect.y - parentDomRect.y - mouseData.down.y
       // 进行x,y坐标边界处理判断
       if (x < 0) {
-        elPosition.x = 0
+        el.__position__.x = 0
       } else if (x > parentDomRect.width - elDomRect.width) {
-        elPosition.x = parentDomRect.width - elDomRect.width
+        el.__position__.x = parentDomRect.width - elDomRect.width
       } else {
-        elPosition.x = x
+        el.__position__.x = x
       }
       if (y < 0) {
-        elPosition.y = 0
+        el.__position__.y = 0
       } else if (y > parentDomRect.height - elDomRect.height) {
-        elPosition.y = parentDomRect.height - elDomRect.height
+        el.__position__.y = parentDomRect.height - elDomRect.height
       } else {
-        elPosition.y = y
+        el.__position__.y = y
       }
       // 渲染到真实dom属性上
       el.style.cssText += `
         position: absolute;
         z-index: 100;
-        left: ${ elPosition.x }px;
-        top: ${ elPosition.y }px;
+        left: ${ el.__position__.x }px;
+        top: ${ el.__position__.y }px;
       `
     }
     el.__mouseDown__ = handleMouseDown
@@ -109,7 +109,7 @@ const directive: Directive = {
     document.addEventListener('mouseup', el.__mouseUp__)
   },
   updated(el, binding) {
-    setParentDom(el, binding)
+    setParentDom(el, binding, true)
   },
   beforeUnmount(el: ElType) {
     // 避免重复开销，卸载所有的监听
@@ -120,11 +120,8 @@ const directive: Directive = {
   }
 }
 // 设置parentDom，供mounted和update使用
-function setParentDom(el: ElType, binding: DirectiveBinding) {
-  // 把以前的样式重置一下
-  if (el.__parentDom__) {
-    el.__parentDom__.style.position = 'static'
-  }
+function setParentDom(el: ElType, binding: DirectiveBinding, updated: boolean) {
+  
   const array = [
     { name: 'father', dom: el.parentElement }
   ]
@@ -144,7 +141,28 @@ function setParentDom(el: ElType, binding: DirectiveBinding) {
   } else {
     parentDom = array[0].dom as HTMLElement || array[1].dom
   }
+  const parentDomRect = parentDom.getBoundingClientRect()
+  const elDomRect = el.getBoundingClientRect()
+  // 把以前的样式重置一下
+  if (el.__parentDom__) {
+    el.__parentDom__.style.position = 'static'
+  }
   el.__parentDom__ = parentDom
   el.__parentDom__.style.position = 'relative'
+  
+  if (updated) {
+    el.__position__ = {
+      x: elDomRect.x - parentDomRect.x,
+      y: elDomRect.y - parentDomRect.y
+    }
+    console.log(el.__position__)
+    // return
+    el.style.cssText += `
+      position: absolute;
+      z-index: 100;
+      left: ${ el.__position__.x }px;
+      top: ${ el.__position__.y }px;
+    `
+  }
 }
 export default directive
