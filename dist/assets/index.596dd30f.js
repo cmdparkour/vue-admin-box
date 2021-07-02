@@ -1,0 +1,1 @@
+import{d as a,x as s,y as r,r as t,o,c as d,k as e,p as c}from"./vendor.910582b6.js";var n=a({setup(){}});const v=c();s("data-v-25d4642a");const i={class:"dictionary"};r();const p=v(((a,s,r,c,n,v)=>{const p=t("router-view");return o(),d("div",i,[e(p)])}));n.render=p,n.__scopeId="data-v-25d4642a";export default n;

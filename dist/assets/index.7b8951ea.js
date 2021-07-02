@@ -1,0 +1,1 @@
+import{d as a,x as s,y as r,o as e,c as o,p as d}from"./vendor.910582b6.js";var t=a({setup(){}});const c=d();s("data-v-2485f4a6");const f={src:"//www.baidu.com",frameborder:"0",class:"full-iframe"};r();const m=c(((a,s,r,d,t,c)=>(e(),o("iframe",f))));t.render=m,t.__scopeId="data-v-2485f4a6";export default t;

@@ -1,0 +1,1 @@
+var t={axisPointer:1,tooltip:1,brush:1};function e(e,o,r){var n=o.getComponentByElement(e.topTarget),a=n&&n.coordinateSystem;return n&&n!==r&&!t.hasOwnProperty(n.mainType)&&a&&a.model!==r}export{e as o};

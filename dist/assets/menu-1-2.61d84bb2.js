@@ -1,0 +1,1 @@
+import{d as a,x as s,y as e,r as d,o as r,c as t,p as o,k as c}from"./vendor.910582b6.js";var n=a({setup(){}});const b=o();s("data-v-e94bedb0");const l=c("p",null,"我是三级导航菜单1-2",-1);e();const p=b(((a,s,e,o,c,n)=>{const p=d("el-card");return r(),t(p,{class:"box-card"},{default:b((()=>[l])),_:1})}));n.render=p,n.__scopeId="data-v-e94bedb0";export default n;

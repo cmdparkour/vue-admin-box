@@ -1,0 +1,1 @@
+import{d as a,x as s,y as d,r as e,o as r,c as t,p as o,k as c}from"./vendor.910582b6.js";var n=a({setup(){}});const l=o();s("data-v-8d842dbe");const p=c("p",null,"我是二级导航菜单2",-1);d();const u=l(((a,s,d,o,c,n)=>{const u=e("el-card");return r(),t(u,{class:"box-card"},{default:l((()=>[p])),_:1})}));n.render=u,n.__scopeId="data-v-8d842dbe";export default n;
