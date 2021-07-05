@@ -3,13 +3,13 @@ const route = [
   {
     path: '/print',
     component: Layout,
-    redirect: '/print/html',
-    meta: { title: '打印功能', icon: 'el-icon-pie-chart' },
+    redirect: '/print/js',
+    meta: { title: 'message.menu.print.name', icon: 'el-icon-pie-chart' },
     children: [
       {
-        path: 'html',
+        path: 'js',
         component: () => import('@/views/main/print/index.vue'),
-        meta: { title: 'html打印', icon: 'el-icon-document-copy' }
+        meta: { title: 'message.menu.print.jsPrint', icon: 'el-icon-document-copy' }
       }
     ]
   }

@@ -61,15 +61,13 @@ export default {
     },
     systemManage: {
       name: 'systemManage',
-      dictionary: {
-        name: 'dictionary',
-        type: 'type',
-        project: 'project',
-        data: 'data'
-      },
       menu: 'menu',
       role: 'role',
       user: 'user'
+    },
+    print: {
+      name: 'print',
+      jsPrint: 'print in JS'
     }
   },
 }

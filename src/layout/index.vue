@@ -11,10 +11,10 @@
       </el-header>
       <Tabs v-show="showTabs" />
       <el-main>
-        <router-view :key="key" v-slot="{ Component }">
+        <router-view v-slot="{ Component, route }">
           <transition appear name="fade-transform" mode="out-in">
-            <keep-alive>
-              <component :is="Component" />
+            <keep-alive ref="keepDom" :max="10">
+              <component :is="Component" :key="route.meta.cache ? route.path : undefined" />
             </keep-alive>
           </transition>
         </router-view>
@@ -24,9 +24,10 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, computed, onBeforeMount } from "vue"
+import type { Ref } from 'vue'
+import { defineComponent, computed, onBeforeMount, ref,getCurrentInstance } from "vue"
 import { useStore } from 'vuex'
-import { useRoute } from 'vue-router'
+import { useRouter } from 'vue-router'
 import { useEventListener } from '@vueuse/core'
 import Menu from "./Menu/index.vue"
 import Logo from "./Logo/index.vue"
@@ -41,8 +42,6 @@ export default defineComponent({
   },
   setup() {
     const store = useStore()
-    const route = useRoute()
-    const key = computed(() => route.path)
     // computed
     const isCollapse = computed(() => store.state.app.isCollapse)
     const contentFullScreen = computed(() => store.state.app.contentFullScreen)
@@ -70,11 +69,10 @@ export default defineComponent({
     }
     return {
       isCollapse,
-      hideMenu,
-      contentFullScreen,
-      key,
       showLogo,
-      showTabs
+      showTabs,
+      hideMenu,
+      contentFullScreen
     }
   }
 });
@@ -98,6 +96,7 @@ export default defineComponent({
     background-color: #f0f2f5;
     height: 100%;
     padding: 15px;
+    overflow-x: hidden;
   }
   @media screen and ( max-width: 1000px ) {
     .el-aside {

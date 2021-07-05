@@ -18,7 +18,7 @@ export default {
       mini: '迷你'
     },
     setting: {
-      name: '主题设置',
+      name: '系统设置',
       showLogo: '显示logo',
       showBreadcrumb: '显示面包屑导航',
       keepOnlyOneMenu: '保持一个菜单展开'

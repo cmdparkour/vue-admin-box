@@ -61,15 +61,13 @@ export default {
     },
     systemManage: {
       name: '系统管理',
-      dictionary: {
-        name: '字典管理',
-        type: '字典类型',
-        project: '字典项目',
-        data: '字典数据'
-      },
       menu: '菜单',
       role: '角色',
       user: '用户'
+    },
+    print: {
+      name: '打印功能',
+      jsPrint: 'JS打印事件'
     }
   },
 }

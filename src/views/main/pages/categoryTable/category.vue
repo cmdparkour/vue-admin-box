@@ -39,7 +39,7 @@ export default defineComponent({
     const listDom: Ref<HTMLElement | null> = ref(null);
     const page = {
       index: 1,
-      size: 20,
+      size: 30,
       total: 0,
     };
     let input = ref("");
@@ -141,7 +141,7 @@ export default defineComponent({
     padding: 0;
     display: block;
     li {
-      height: 40px;
+      height: 38px;
       display: flex;
       justify-content: flex-start;
       align-items: center;
@@ -157,14 +157,14 @@ export default defineComponent({
         background: #eee;
       }
       &.active {
-        background: rgba(64, 158, 255, 0.4);
-        border-radius: 4px;
+        background: rgba(186, 220, 255, 0.4);
       }
       span {
         display: -webkit-box;
         -webkit-line-clamp: 1;
         -webkit-box-orient: vertical;
         overflow: hidden;
+        font-size: 14px;
       }
     }
     .load-tip {

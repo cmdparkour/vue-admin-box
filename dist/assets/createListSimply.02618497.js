@@ -1,1 +1,0 @@
-import{A as a,a as s,F as n,L as o}from"./install.f743767a.js";function r(r,t,i){t=a(t)&&{coordDimensions:t}||s({},t);var e=r.getSource(),c=n(e,t),f=new o(c,r);return f.initData(e,i),f}export{r as c};

@@ -55,6 +55,7 @@ import { ElMessage } from 'element-plus'
 import type { LayerInterface } from '@/components/layer/index.vue'
 import { selectData, radioData } from './enum'
 export default defineComponent({
+  name: 'crudTable',
   components: {
     Table,
     Layer

@@ -13,19 +13,22 @@ const route = [
         meta: { title: 'message.menu.page.crudTable' }
       },
       {
+        name: 'categoryTable',
         path: 'categoryTable',
         component: () => import('@/views/main/pages/categoryTable/index.vue'),
-        meta: { title: 'message.menu.page.categoryTable' }
+        meta: { title: 'message.menu.page.categoryTable', cache: true }
       },
       {
+        name: 'treeTable',
         path: 'treeTable',
         component: () => import('@/views/main/pages/treeTable/index.vue'),
-        meta: { title: 'message.menu.page.treeTable' }
+        meta: { title: 'message.menu.page.treeTable', cache: true }
       },
       {
+        name: 'card',
         path: 'card',
         component: () => import('@/views/main/pages/card/index.vue'),
-        meta: { title: 'message.menu.page.card' }
+        meta: { title: 'message.menu.page.card', cache: true }
       },
       {
         path: 'work',

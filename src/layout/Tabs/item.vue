@@ -45,15 +45,16 @@ export default defineComponent({
     display: inline-block;
     position: relative;
     cursor: pointer;
-    height: 26px;
+    height: 24px;
     line-height: 26px;
     border: 1px solid #d8dce5;
     color: #495060;
     background: #fff;
-    padding: 0;
+    padding: 0 8px;
     font-size: 12px;
     margin-left: 5px;
     margin-top: 4px;
+    border-radius: 2px;
     a {
       color: #495060;
       height: 26px;
@@ -62,7 +63,6 @@ export default defineComponent({
       padding-right: 8px;
     }
     .el-icon-close {
-      padding-right: 8px;
       display: inline-block;
       height: 26px;
     }
@@ -73,21 +73,13 @@ export default defineComponent({
       margin-right: 15px;
     }
     &.active {
-      background-color: #409eff !important;
+      background: #409eff;  /* fallback for old browsers */
+      background: -webkit-linear-gradient(to top, #409eff, #2c3e50);  /* Chrome 10-25, Safari 5.1-6 */
+      background: linear-gradient(to top, #409eff, #2c3e50); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
       border-color: #409eff;
       color: #fff;
       a {
         color: #fff;
-      }
-      &::before {
-        content: '';
-        background: #fff;
-        display: inline-block;
-        width: 8px;
-        height: 8px;
-        border-radius: 50%;
-        position: relative;
-        margin-left: 8px;
       }
     }
     &:hover {

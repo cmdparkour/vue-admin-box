@@ -10,7 +10,7 @@ export default defineComponent({
   setup() {
     let dom = ref(null as HTMLDivElement|null)
     onMounted(() => {
-      console.log(dom)
+      // console.log(dom)
       // dom.value?.addEventListener
     })
     return {

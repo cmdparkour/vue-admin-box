@@ -43,6 +43,7 @@ import { defineComponent, ref, reactive, onMounted } from 'vue'
 import { Page } from '@/components/table/type'
 import { getData } from '@/api/card'
 export default defineComponent({
+  name: 'card',
   setup() {
     let loading = ref(true)
     let list = ref([])
@@ -106,9 +107,8 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
-  .el-row {
-    // margin-left: 0 !important;
-    // margin-right: 0 !important;
+  * {
+    text-align: left;
   }
   .el-col{
     margin-bottom: 20px;
