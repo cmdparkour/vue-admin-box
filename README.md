@@ -1,5 +1,5 @@
 <p align="center">
-    # vue-admin-box
+    <h1></h1>
     <a href="https://github.com/vuejs/vue-next">
         <img src="https://img.shields.io/badge/vue3-3.0.5-brightgreen.svg" alt="vue">
     </a>
