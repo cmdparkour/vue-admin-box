@@ -1,4 +1,4 @@
-# vue-admin-box
+<h1 align="center">vue-admin-box</h1>
 <p align="center">
     <a href="https://github.com/vuejs/vue-next">
         <img src="https://img.shields.io/badge/vue3-3.0.5-brightgreen.svg" alt="vue">
@@ -24,8 +24,12 @@
 - [更新说明](./VERSION.md)
 
 ## 预览
-
-- [vue-admin-box](http://vue-admin-box.51weblove.com)
+<p align="center">
+    <a href="http://vue-admin-box.51weblove.com">
+        <img src="http://blog.51weblove.com/wp-content/uploads/2021/06/20E47DA7-7870-42d7-A028-A683D0A89F4F-1024x503.png">
+        Demo
+    </a>
+</p>
 
 
 ## 介绍
