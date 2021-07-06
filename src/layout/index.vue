@@ -13,9 +13,12 @@
       <el-main>
         <router-view v-slot="{ Component, route }">
           <transition appear name="fade-transform" mode="out-in">
-            <keep-alive ref="keepDom" :max="10">
-              <component :is="Component" :key="route.meta.cache ? route.path : undefined" />
-            </keep-alive>
+            <div style="width: 100%; height: 100%;" :key="undefined">
+              <keep-alive ref="keepDom" :max="10">
+                <component :is="Component" :key="route.path" v-if="route.meta.cache" />
+              </keep-alive>
+              <component :is="Component" v-if="!route.meta.cache" :key="route.path" />
+            </div>
           </transition>
         </router-view>
       </el-main>

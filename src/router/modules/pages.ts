@@ -10,7 +10,7 @@ const route = [
       {
         path: 'crudTable',
         component: () => import('@/views/main/pages/crudTable/index.vue'),
-        meta: { title: 'message.menu.page.crudTable' }
+        meta: { title: 'message.menu.page.crudTable', cache: false }
       },
       {
         name: 'categoryTable',

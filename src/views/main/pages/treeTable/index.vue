@@ -19,6 +19,7 @@ export default defineComponent({
     Category,
     myTable,
   },
+  
   setup() {
     let active: any = ref({})
     provide('active', active)
