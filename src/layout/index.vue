@@ -12,14 +12,18 @@
       <Tabs v-show="showTabs" />
       <el-main>
         <router-view v-slot="{ Component, route }">
-          <transition appear name="fade-transform" mode="out-in">
-            <div style="width: 100%; height: 100%;" :key="undefined">
-              <keep-alive ref="keepDom" :max="10">
-                <component :is="Component" :key="route.path" v-if="route.meta.cache" />
-              </keep-alive>
-              <component :is="Component" v-if="!route.meta.cache" :key="route.path" />
-            </div>
-          </transition>
+          <keep-alive ref="keepDom" :max="10">
+            <transition appear name="fade-transform" mode="out-in">
+               <div class="el-main-box" :key="route.path" v-if="route.meta.cache">
+                 <component :is="Component" />
+               </div>
+             </transition>
+          </keep-alive>
+          <div class="el-main-box" v-if="!route.meta.cache" :key="route.path">
+            <transition appear name="fade-transform" mode="out-in">
+              <component :is="Component" />
+            </transition>
+          </div>
         </router-view>
       </el-main>
     </el-container>
@@ -98,8 +102,14 @@ export default defineComponent({
   .el-main {
     background-color: #f0f2f5;
     height: 100%;
+    padding: 0;
+  }
+  .el-main-box {
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
     padding: 15px;
-    overflow-x: hidden;
+    box-sizing: border-box;
   }
   @media screen and ( max-width: 1000px ) {
     .el-aside {

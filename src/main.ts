@@ -17,4 +17,5 @@ app.use(ElementPlus, { size: store.state.app.elementSize, i18n: i18n.global.t })
 app.use(store)
 app.use(router)
 app.use(i18n)
+// app.config.performance = true
 app.mount('#app')
