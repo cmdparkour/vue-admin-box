@@ -68,6 +68,11 @@ export default {
     print: {
       name: 'print',
       jsPrint: 'print in JS'
+    },
+    community: {
+      name: 'community',
+      qq: 'qqGroup',
+      site: 'vue3 resource'
     }
   },
 }

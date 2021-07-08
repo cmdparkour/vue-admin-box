@@ -18,6 +18,7 @@ import Directive from './modules/directive'
 import SystemManage from './modules/systemManage'
 import Chart from './modules/chart'
 import Print from './modules/print'
+import Community from './modules/community'
 import System from './modules/system'
 
 let modules: object[] = [
@@ -29,6 +30,7 @@ let modules: object[] = [
   ...Chart,
   ...SystemManage,
   ...Print,
+  ...Community,
   ...System
 ]
 

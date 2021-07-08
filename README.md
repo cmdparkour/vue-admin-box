@@ -32,7 +32,7 @@
 </p>
 
 ## 基础模板
-1. vue-admin-box-template-js 当前项目去ts和国际化之后的项目基础模板，适合基础开发使用
+1. [vue-admin-box-template-js](https://github.com/cmdparkour/vue-admin-box-template-js) 当前项目去ts和国际化之后的项目基础模板，适合基础开发使用
 2. vue-admin-box-template-ts 当前项目的基础模板，带ts+国际化，适合基础开发使用（待做）
 
 ## 介绍
