@@ -1,4 +1,5 @@
 import Layout from '@/layout/index.vue'
+import { createNameComponent } from '../createNode'
 const route = [
   {
     path: '/print',
@@ -8,7 +9,7 @@ const route = [
     children: [
       {
         path: 'js',
-        component: () => import('@/views/main/print/index.vue'),
+        component: createNameComponent(() => import('@/views/main/print/index.vue')),
         meta: { title: 'message.menu.print.jsPrint', icon: 'el-icon-document-copy' }
       }
     ]

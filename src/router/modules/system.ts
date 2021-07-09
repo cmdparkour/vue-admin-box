@@ -1,4 +1,5 @@
 import Layout from '@/layout/index.vue'
+import { createNameComponent } from '../createNode'
 const route = [
   {
     path: '/system',
@@ -9,24 +10,24 @@ const route = [
     children: [
       {
         path: '/404',
-        component: () => import('@/views/system/404.vue'),
+        component: createNameComponent(() => import('@/views/system/404.vue')),
         meta: { title: 'message.menu.system.404', hideTabs: true }
       },
       {
         path: '/401',
-        component: () => import('@/views/system/401.vue'),
+        component: createNameComponent(() => import('@/views/system/401.vue')),
         meta: { title: 'message.menu.system.401', hideTabs: true }
       },
       {
         path: '/redirect/:path(.*)',
-        component: () => import('@/views/system/redirect.vue'),
+        component: createNameComponent(() => import('@/views/system/redirect.vue')),
         meta: { title: 'message.menu.system.redirect', hideTabs: true }
       }
     ]
   },
   {
     path: '/login',
-    component: () => import('@/views/system/login.vue'),
+    component: createNameComponent(() => import('@/views/system/login.vue')),
     hideMenu: true,
     meta: { title: 'message.system.login', hideTabs: true }
   },

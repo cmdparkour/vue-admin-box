@@ -83,7 +83,7 @@ export default defineComponent({
     function pageReload() {
       const { fullPath, meta, name } = unref(route);
       if (meta.cache && name) {
-        store.commit('app/delKeepAliveComponentsName', name)
+        store.commit('keepAlive/delKeepAliveComponentsName', name)
       }
       router.replace({
         path: "/redirect" + fullPath
@@ -134,7 +134,7 @@ export default defineComponent({
     function delMenu(menu: any) {     
       if (!menu.meta.hideClose) {
         if (menu.meta.cache && menu.name) {
-          store.commit('app/delKeepAliveComponentsName', menu.name)
+          store.commit('keepAlive/delKeepAliveComponentsName', menu.name)
         }
         menuList.value.splice(menuList.value.findIndex((item: any) => item.path === menu.path), 1)
       }
@@ -179,7 +179,7 @@ export default defineComponent({
       menuList.value.forEach((menu: any) => {
         menu.meta && menu.meta.cache && menu.name && keepAliveNames.push(menu.name)
       })
-      store.commit('app/setKeepAliveComponentsName', keepAliveNames)
+      store.commit('keepAlive/setKeepAliveComponentsName', keepAliveNames)
     }
 
     // 初始化时调用：1. 新增菜单 2. 初始化activeMenu

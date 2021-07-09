@@ -32,22 +32,6 @@
             </keep-alive>
             <component v-else :is="Component" :key="route.fullPath" />
           </transition>
-          <!-- <div class="el-main-box" v-show="route.meta.cache">
-            <transition :name="route.meta.transition || 'fade-transform'" mode="out-in">
-              <keep-alive>
-                <component
-                  v-if="route.meta.cache"
-                  :is="Component"
-                  :key="route.path"
-                />
-              </keep-alive>
-            </transition>
-          </div>
-          <div class="el-main-box" v-show="!route.meta.cache">
-            <transition appear :name="route.meta.transition || 'fade-transform'" mode="out-in">
-              <component :is="Component" v-if="!route.meta.cache" />
-            </transition>
-          </div> -->
         </router-view>
       </el-main>
     </el-container>
@@ -85,7 +69,7 @@ export default defineComponent({
     const contentFullScreen = computed(() => store.state.app.contentFullScreen);
     const showLogo = computed(() => store.state.app.showLogo);
     const showTabs = computed(() => store.state.app.showTabs);
-    const keepAliveComponentsName = computed(() => store.state.app.keepAliveComponentsName);
+    const keepAliveComponentsName = computed(() => store.getters['keepAlive/keepAliveComponentsName']);
     // 页面宽度变化监听后执行的方法
     const resizeHandler = () => {
       if (document.body.clientWidth <= 1000 && !isCollapse.value) {
@@ -135,7 +119,7 @@ export default defineComponent({
 .el-main {
   background-color: #f0f2f5;
   height: 100%;
-  padding: 15px;
+  padding: 0;
 }
 .el-main-box {
   width: 100%;

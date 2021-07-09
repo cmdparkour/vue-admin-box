@@ -1,4 +1,5 @@
 import Layout from '@/layout/index.vue'
+import { createNameComponent } from '../createNode'
 const route = [
   {
     path: '/systemManage',
@@ -9,17 +10,17 @@ const route = [
     children: [
       {
         path: 'menu',
-        component: () => import('@/views/main/systemManage/menu/index.vue'),
+        component: createNameComponent(() => import('@/views/main/systemManage/menu/index.vue')),
         meta: { title: 'message.menu.systemManage.menu' }
       },
       {
         path: 'role',
-        component: () => import('@/views/main/systemManage/role/index.vue'),
+        component: createNameComponent(() => import('@/views/main/systemManage/role/index.vue')),
         meta: { title: 'message.menu.systemManage.role' }
       },
       {
         path: 'user',
-        component: () => import('@/views/main/systemManage/users/index.vue'),
+        component: createNameComponent(() => import('@/views/main/systemManage/users/index.vue')),
         meta: { title: 'message.menu.systemManage.user' }
       }
     ]

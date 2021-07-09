@@ -1,4 +1,5 @@
 import Layout from '@/layout/index.vue'
+import { createNameComponent } from '../createNode'
 const route = [
   {
     path: '/',
@@ -8,7 +9,7 @@ const route = [
     children: [
       {
         path: 'dashboard',
-        component: () => import('@/views/main/dashboard/index.vue'),
+        component: createNameComponent(() => import('@/views/main/dashboard/index.vue')),
         meta: { title: 'message.menu.dashboard.index', icon: 'el-icon-menu', hideClose: true }
       }
     ]

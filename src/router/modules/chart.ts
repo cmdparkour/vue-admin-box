@@ -1,4 +1,5 @@
 import Layout from '@/layout/index.vue'
+import { createNameComponent } from '../createNode'
 const route = [
   {
     path: '/echarts',
@@ -8,27 +9,27 @@ const route = [
     children: [
       {
         path: 'bar',
-        component: () => import('@/views/main/echarts/bar.vue'),
+        component: createNameComponent(() => import('@/views/main/echarts/bar.vue')),
         meta: { title: 'message.menu.echarts.bar' }
       },
       {
         path: 'line',
-        component: () => import('@/views/main/echarts/line.vue'),
+        component: createNameComponent(() => import('@/views/main/echarts/line.vue')),
         meta: { title: 'message.menu.echarts.line' }
       },
       {
         path: 'pie',
-        component: () => import('@/views/main/echarts/pie.vue'),
+        component: createNameComponent(() => import('@/views/main/echarts/pie.vue')),
         meta: { title: 'message.menu.echarts.pie' }
       },
       {
         path: 'radar',
-        component: () => import('@/views/main/echarts/radar.vue'),
+        component: createNameComponent(() => import('@/views/main/echarts/radar.vue')),
         meta: { title: 'message.menu.echarts.radar' }
       },
       {
         path: 'map',
-        component: () => import('@/views/main/echarts/map.vue'),
+        component: createNameComponent(() => import('@/views/main/echarts/map.vue')),
         meta: { title: 'message.menu.echarts.map' }
       },
     ]

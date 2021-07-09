@@ -1,4 +1,5 @@
 import Layout from '@/layout/index.vue'
+import { createNameComponent } from '../createNode'
 const route = [
   {
     path: '/community',
@@ -8,12 +9,12 @@ const route = [
     children: [
       {
         path: 'qq',
-        component: () => import('@/views/main/community/qq.vue'),
+        component: createNameComponent(() => import('@/views/main/community/qq.vue')),
         meta: { title: 'message.menu.community.qq' }
       },
       {
         path: 'site',
-        component: () => import('@/views/main/community/site.vue'),
+        component: createNameComponent(() => import('@/views/main/community/site.vue')),
         meta: { title: 'message.menu.community.site' }
       },
     ]

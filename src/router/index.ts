@@ -57,9 +57,10 @@ router.beforeEach((to, _from, next) => {
 });
 
 router.afterEach((to, _from) => {
-  const keepAliveComponentsName = store.getters['app/keepAliveComponentsName'] || []
-  if (to.meta && to.meta.cache && !keepAliveComponentsName.includes(to.name)) {
-    store.commit('app/addKeepAliveComponentsName', to.name)
+  const keepAliveComponentsName = store.getters['keepAlive/keepAliveComponentsName'] || []
+  const name = to.matched[to.matched.length - 1].components.default.name
+  if (to.meta && to.meta.cache && name && !keepAliveComponentsName.includes(name)) {
+    store.commit('keepAlive/addKeepAliveComponentsName', name)
   }
   NProgress.done();
 });

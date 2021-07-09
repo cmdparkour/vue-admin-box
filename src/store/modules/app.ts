@@ -10,8 +10,7 @@ interface State {
   showTabs: boolean,
   expandOneMenu: boolean,
   elementSize: string,
-  lang: string,
-  keepAliveComponentsName: []
+  lang: string
 }
 const state = () => ({
   isCollapse: false, // 侧边栏是否收缩展示
@@ -22,7 +21,6 @@ const state = () => ({
   expandOneMenu: true, // 一次是否只能展开一个菜单
   elementSize: 'mini', // element默认尺寸，支持官网四个大小参数
   lang: 'zh', // 默认采用的国际化方案
-  keepAliveComponentsName: [] // 需要缓存的组件名称
 })
 
 // mutations
@@ -38,26 +36,6 @@ const mutations = {
   },
   stateChange(state: any, option: Option) {
     state[option.name] = option.value
-  },
-  // 重置，Push, splice keep-alive对象
-  setKeepAliveComponentsName(state: any, nameArr: []) {
-    state.keepAliveComponentsName = nameArr
-  },
-  addKeepAliveComponentsName(state: any, name: string) {
-    state.keepAliveComponentsName.push(name)
-  },
-  delKeepAliveComponentsName(state: any, name: string) {
-    const key = state.keepAliveComponentsName.indexOf(name)
-    if (key !== -1) {
-      state.keepAliveComponentsName.splice(key, 1)
-      console.log(state.keepAliveComponentsName)
-    }
-  }
-}
-
-const getters = {
-  keepAliveComponentsName(state: State) {
-    return state.keepAliveComponentsName
   }
 }
 
@@ -69,7 +47,6 @@ const actions = {
 export default {
   namespaced: true,
   state,
-  getters,
   actions,
   mutations
 }

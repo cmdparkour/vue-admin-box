@@ -1,4 +1,5 @@
 import Layout from '@/layout/index.vue'
+import { createNameComponent } from '../createNode'
 const route = [
   {
     path: '/pages',
@@ -9,35 +10,32 @@ const route = [
     children: [
       {
         path: 'crudTable',
-        component: () => import('@/views/main/pages/crudTable/index.vue'),
+        component: createNameComponent(() => import('@/views/main/pages/crudTable/index.vue')),
         meta: { title: 'message.menu.page.crudTable', cache: false }
       },
       {
-        name: 'categoryTable',
         path: 'categoryTable',
-        component: () => import('@/views/main/pages/categoryTable/index.vue'),
+        component: createNameComponent(() => import('@/views/main/pages/categoryTable/index.vue')),
         meta: { title: 'message.menu.page.categoryTable', cache: true }
       },
       {
-        name: 'treeTable',
         path: 'treeTable',
-        component: () => import('@/views/main/pages/treeTable/index.vue'),
+        component: createNameComponent(() => import('@/views/main/pages/treeTable/index.vue')),
         meta: { title: 'message.menu.page.treeTable', cache: true }
       },
       {
-        name: 'card',
         path: 'card',
-        component: () => import('@/views/main/pages/card/index.vue'),
+        component: createNameComponent(() => import('@/views/main/pages/card/index.vue')),
         meta: { title: 'message.menu.page.card', cache: true }
       },
       {
         path: 'work',
-        component: () => import('@/views/main/pages/work/index.vue'),
+        component: createNameComponent(() => import('@/views/main/pages/work/index.vue')),
         meta: { title: 'message.menu.page.work' }
       },
       {
         path: 'baidu',
-        component: () => import('@/views/main/pages/baidu/index.vue'),
+        component: createNameComponent(() => import('@/views/main/pages/baidu/index.vue')),
         meta: { title: 'message.menu.page.baidu' }
       },
     ]
