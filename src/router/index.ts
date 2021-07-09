@@ -56,7 +56,11 @@ router.beforeEach((to, _from, next) => {
   }
 });
 
-router.afterEach(() => {
+router.afterEach((to, _from) => {
+  const keepAliveComponentsName = store.getters['app/keepAliveComponentsName'] || []
+  if (to.meta && to.meta.cache && !keepAliveComponentsName.includes(to.name)) {
+    store.commit('app/addKeepAliveComponentsName', to.name)
+  }
   NProgress.done();
 });
 

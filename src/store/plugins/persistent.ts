@@ -17,7 +17,7 @@ interface Mutation {
   type: any,
   payload: any
 }
-
+const exclude = ['actions', 'getters', 'mutations', 'namespaced']
 export default function Presistent({ key, modules, modulesKeys }: Socket) {
   return (store: any) => {
     const localOldState = JSON.parse(localStorage.getItem(key) || '{}')

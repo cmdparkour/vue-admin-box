@@ -3,6 +3,7 @@
     <router-link :to="menu.path" v-if="menu.meta.title">
       {{ $t(menu.meta.title) }}
     </router-link>
+    <i class="el-icon-refresh-right" @click.stop="reload" v-if="active" />
     <i class="el-icon-close" @click.stop="closeTab" v-if="!menu.meta.hideClose" :alt="$t('message.common.del')"></i>
   </div>
 </template>
@@ -33,8 +34,13 @@ export default defineComponent({
     function closeTab() {
       emit('close')
     }
+    // 刷新按钮
+    function reload() {
+      emit('reload')
+    }
     return {
-      closeTab
+      closeTab,
+      reload
     }
   }
 })
@@ -61,6 +67,10 @@ export default defineComponent({
       display: inline-block;
       padding-left: 8px;
       padding-right: 8px;
+    }
+    .el-icon-refresh-right {
+      display: inline-block;
+      margin-right: 5px;
     }
     .el-icon-close {
       display: inline-block;

@@ -1,7 +1,15 @@
 <template>
   <el-container style="height: 100vh">
-    <div class="mask" v-show="!isCollapse && !contentFullScreen" @click="hideMenu"></div>
-    <el-aside :width="isCollapse ? '60px' : '250px'" :class="isCollapse ? 'hide-aside': 'show-side'" v-show="!contentFullScreen">
+    <div
+      class="mask"
+      v-show="!isCollapse && !contentFullScreen"
+      @click="hideMenu"
+    ></div>
+    <el-aside
+      :width="isCollapse ? '60px' : '250px'"
+      :class="isCollapse ? 'hide-aside' : 'show-side'"
+      v-show="!contentFullScreen"
+    >
       <Logo v-if="showLogo" />
       <Menu />
     </el-aside>
@@ -12,18 +20,34 @@
       <Tabs v-show="showTabs" />
       <el-main>
         <router-view v-slot="{ Component, route }">
-          <keep-alive ref="keepDom" :max="10">
-            <transition appear name="fade-transform" mode="out-in">
-               <div class="el-main-box" :key="route.path" v-if="route.meta.cache">
-                 <component :is="Component" />
-               </div>
-             </transition>
-          </keep-alive>
-          <div class="el-main-box" v-if="!route.meta.cache" :key="route.path">
-            <transition appear name="fade-transform" mode="out-in">
-              <component :is="Component" />
+          <transition
+            :name="route.meta.transition || 'fade-transform'"
+            mode="out-in"
+          >
+            <keep-alive
+              v-if="keepAliveComponentsName"
+              :include="keepAliveComponentsName"
+            >
+              <component :is="Component" :key="route.fullPath" />
+            </keep-alive>
+            <component v-else :is="Component" :key="route.fullPath" />
+          </transition>
+          <!-- <div class="el-main-box" v-show="route.meta.cache">
+            <transition :name="route.meta.transition || 'fade-transform'" mode="out-in">
+              <keep-alive>
+                <component
+                  v-if="route.meta.cache"
+                  :is="Component"
+                  :key="route.path"
+                />
+              </keep-alive>
             </transition>
           </div>
+          <div class="el-main-box" v-show="!route.meta.cache">
+            <transition appear :name="route.meta.transition || 'fade-transform'" mode="out-in">
+              <component :is="Component" v-if="!route.meta.cache" />
+            </transition>
+          </div> -->
         </router-view>
       </el-main>
     </el-container>
@@ -31,39 +55,47 @@
 </template>
 
 <script lang="ts">
-import type { Ref } from 'vue'
-import { defineComponent, computed, onBeforeMount, ref,getCurrentInstance } from "vue"
-import { useStore } from 'vuex'
-import { useRouter } from 'vue-router'
-import { useEventListener } from '@vueuse/core'
-import Menu from "./Menu/index.vue"
-import Logo from "./Logo/index.vue"
-import Header from "./Header/index.vue"
-import Tabs from './Tabs/index.vue'
+import type { Ref } from "vue";
+import type { RouteRecordName } from "vue-router";
+import {
+  defineComponent,
+  computed,
+  onBeforeMount,
+  ref,
+  getCurrentInstance,
+} from "vue";
+import { useStore } from "vuex";
+import { useRouter } from "vue-router";
+import { useEventListener } from "@vueuse/core";
+import Menu from "./Menu/index.vue";
+import Logo from "./Logo/index.vue";
+import Header from "./Header/index.vue";
+import Tabs from "./Tabs/index.vue";
 export default defineComponent({
   components: {
     Menu,
     Logo,
     Header,
-    Tabs
+    Tabs,
   },
   setup() {
-    const store = useStore()
+    const store = useStore();
     // computed
-    const isCollapse = computed(() => store.state.app.isCollapse)
-    const contentFullScreen = computed(() => store.state.app.contentFullScreen)
-    const showLogo = computed(() => store.state.app.showLogo)
-    const showTabs = computed(() => store.state.app.showTabs)
+    const isCollapse = computed(() => store.state.app.isCollapse);
+    const contentFullScreen = computed(() => store.state.app.contentFullScreen);
+    const showLogo = computed(() => store.state.app.showLogo);
+    const showTabs = computed(() => store.state.app.showTabs);
+    const keepAliveComponentsName = computed(() => store.state.app.keepAliveComponentsName);
     // 页面宽度变化监听后执行的方法
     const resizeHandler = () => {
       if (document.body.clientWidth <= 1000 && !isCollapse.value) {
-        store.commit('app/isCollapseChange', true)
+        store.commit("app/isCollapseChange", true);
       } else if (document.body.clientWidth > 1000 && isCollapse.value) {
-        store.commit('app/isCollapseChange', false)
+        store.commit("app/isCollapseChange", false);
       }
-    }
+    };
     // 初始化调用
-    resizeHandler()
+    resizeHandler();
     // beforeMount
     onBeforeMount(() => {
       // 监听页面变化
@@ -72,65 +104,65 @@ export default defineComponent({
     // methods
     // 隐藏菜单
     const hideMenu = () => {
-      store.commit('app/isCollapseChange', true)
-    }
+      store.commit("app/isCollapseChange", true);
+    };
     return {
       isCollapse,
       showLogo,
       showTabs,
+      contentFullScreen,
+      keepAliveComponentsName,
       hideMenu,
-      contentFullScreen
-    }
-  }
+    };
+  },
 });
 </script>
 
 <style lang="scss" scoped>
-  .el-header {
-    padding-left: 0;
+.el-header {
+  padding-left: 0;
+}
+.el-aside {
+  display: flex;
+  flex-direction: column;
+  transition: 0.2s;
+  overflow-x: hidden;
+  transition: 0.3s;
+  &::-webkit-scrollbar {
+    width: 0 !important;
   }
+}
+.el-main {
+  background-color: #f0f2f5;
+  height: 100%;
+  padding: 15px;
+}
+.el-main-box {
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  padding: 15px;
+  box-sizing: border-box;
+}
+@media screen and (max-width: 1000px) {
   .el-aside {
-    display: flex;
-    flex-direction: column;
-    transition: 0.2s;
-    overflow-x: hidden;
-    transition: 0.3s;
-    &::-webkit-scrollbar {
-      width: 0 !important;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    z-index: 1000;
+    &.hide-aside {
+      left: -250px;
     }
   }
-  .el-main {
-    background-color: #f0f2f5;
-    height: 100%;
-    padding: 0;
+  .mask {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 999;
+    background: rgba(0, 0, 0, 0.5);
   }
-  .el-main-box {
-    width: 100%;
-    height: 100%;
-    overflow-y: auto;
-    padding: 15px;
-    box-sizing: border-box;
-  }
-  @media screen and ( max-width: 1000px ) {
-    .el-aside {
-      position: fixed;
-      top: 0;
-      left: 0;
-      height: 100vh;
-      z-index: 1000;
-      &.hide-aside {
-        left: -250px;
-      }
-    }
-    .mask {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      z-index: 999;
-      background: rgba(0, 0, 0, 0.5);
-    }
-    
-  }
+}
 </style>

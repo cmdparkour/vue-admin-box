@@ -7,6 +7,7 @@
         :menu="menu"
         :active="activeMenu.path === menu.path"
         @close="delMenu(menu)"
+        @reload="pageReload"
       />
     </el-scrollbar>
     <div class="handle">
@@ -18,7 +19,7 @@
           <el-dropdown-menu>
             <el-dropdown-item icon="el-icon-refresh-left" @click="pageReload">{{ $t('message.system.tab.reload') }}</el-dropdown-item>
             <el-dropdown-item icon="el-icon-circle-close" :disabled="currentDisabled" @click="closeCurrentRoute">{{ $t('message.system.tab.closeCurrent') }}</el-dropdown-item>
-            <el-dropdown-item icon="el-icon-circle-close" :disabled="menuList.length <= 3" @click="closeOtherRoute">{{ $t('message.system.tab.closeOther') }}</el-dropdown-item>
+            <el-dropdown-item icon="el-icon-circle-close" :disabled="menuList.length < 3" @click="closeOtherRoute">{{ $t('message.system.tab.closeOther') }}</el-dropdown-item>
             <el-dropdown-item icon="el-icon-circle-close" :disabled="menuList.length <= 1" @click="closeAllRoute">{{ $t('message.system.tab.closeAll') }}</el-dropdown-item>
           </el-dropdown-menu>
         </template>
@@ -78,10 +79,12 @@ export default defineComponent({
     function onFullscreen() {
       store.commit('app/contentFullScreenChange', !contentFullScreen.value)
     }
-
     // 当前页面组件重新加载
     function pageReload() {
-      const { path, fullPath } = unref(route);
+      const { fullPath, meta, name } = unref(route);
+      if (meta.cache && name) {
+        store.commit('app/delKeepAliveComponentsName', name)
+      }
       router.replace({
         path: "/redirect" + fullPath
       });
@@ -99,17 +102,19 @@ export default defineComponent({
       if (route.path !== defaultMenu.path) {
         addMenu(route)
       }
+      setKeepAliveData()
     }
 
     // 关闭所有的标签，除了首页
     function closeAllRoute() {
       menuList.value = [defaultMenu]
+      setKeepAliveData()
       router.push(defaultMenu.path)
     }
 
     // 添加新的菜单项
     function addMenu(menu: any) {
-      let { path, meta } = menu
+      let { path, meta, name } = menu
       if (meta.hideTabs) {
         return
       }
@@ -119,18 +124,22 @@ export default defineComponent({
       if (!hasMenu) {
         menuList.value.push({
           path,
-          meta
+          meta,
+          name
         })
       }
     }
 
     // 删除菜单项
-    function delMenu(menu: any) {
+    function delMenu(menu: any) {     
+      if (!menu.meta.hideClose) {
+        if (menu.meta.cache && menu.name) {
+          store.commit('app/delKeepAliveComponentsName', menu.name)
+        }
+        menuList.value.splice(menuList.value.findIndex((item: any) => item.path === menu.path), 1)
+      }
       if (menu.path === activeMenu.path) {
         router.push(defaultMenu.path)
-      }
-      if (!menu.meta.hideClose) {
-        menuList.value.splice(menuList.value.findIndex((item: any) => item.path === menu.path), 1)
       }
     }
 
@@ -163,6 +172,16 @@ export default defineComponent({
         domBox.scrollbar.scrollLeft = num
       }
     }
+
+    // 配置需要缓存的数据
+    function setKeepAliveData() {
+      let keepAliveNames: any[] = []
+      menuList.value.forEach((menu: any) => {
+        menu.meta && menu.meta.cache && menu.name && keepAliveNames.push(menu.name)
+      })
+      store.commit('app/setKeepAliveComponentsName', keepAliveNames)
+    }
+
     // 初始化时调用：1. 新增菜单 2. 初始化activeMenu
     addMenu(route)
     initMenu(route)
