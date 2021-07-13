@@ -125,7 +125,6 @@ export default defineComponent({
   width: 100%;
   height: 100%;
   overflow-y: auto;
-  padding: 15px;
   box-sizing: border-box;
 }
 @media screen and (max-width: 1000px) {

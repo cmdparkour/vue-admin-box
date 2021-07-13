@@ -14,5 +14,7 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
-  
+  .box-card {
+    margin: 15px;
+  }
 </style>

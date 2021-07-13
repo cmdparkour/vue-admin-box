@@ -31,6 +31,8 @@ export default defineComponent({
   .full {
     width: 100%;
     height: 100%;
+    box-sizing: border-box;
+    padding: 15px;
     display: flex;
     .left {
       width: 250px;

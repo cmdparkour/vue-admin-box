@@ -73,6 +73,13 @@ export default {
       name: '社区的力量',
       qq: 'QQ交流群',
       site: 'vue3最新资源库'
+    },
+    document: {
+      name: '文档',
+      intro: '使用说明',
+      function: '功能说明',
+      keepAlive: 'keepAlive使用说明',
+      crud: '数据表格的增删改查'
     }
   },
 }

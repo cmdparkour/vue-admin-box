@@ -11,6 +11,7 @@ import { changeTitle } from '@/utils/system/title'
 
 // 引入modules
 import Dashboard from './modules/dashboard'
+import Document from './modules/document'
 import Pages from './modules/pages'
 import Menu from './modules/menu'
 import Component from './modules/component'
@@ -23,6 +24,7 @@ import System from './modules/system'
 
 let modules: object[] = [
   ...Dashboard,
+  ...Document,
   ...Component,
   ...Pages,
   ...Menu,
