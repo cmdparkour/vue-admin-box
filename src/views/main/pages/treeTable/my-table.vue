@@ -170,7 +170,8 @@ export default defineComponent({
 
 <style lang="scss" scoped>
   .layout-container {
-    margin-left: 10px;
+    height: 100%;
+    margin: 0 0 0 10px;
     width: calc(100% - 10px);
   }
 </style>

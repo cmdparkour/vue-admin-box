@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="box">
     <basic-template />
     <Card />
     <Charts />
@@ -21,5 +21,7 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
-  
+  .box {
+    padding: 15px;
+  }
 </style>

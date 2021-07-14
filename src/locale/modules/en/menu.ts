@@ -73,6 +73,13 @@ export default {
       name: 'community',
       qq: 'qqGroup',
       site: 'vue3 resource'
+    },
+    document: {
+      name: 'document',
+      intro: 'intro',
+      function: 'function',
+      keepAlive: 'how to use keepAlive',
+      crud: 'crud table and form'
     }
   },
 }

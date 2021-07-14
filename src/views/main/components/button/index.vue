@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="box">
     <ElementButtonCard />
     <NormalButton />
   </div>
@@ -21,6 +21,9 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
+  .box{
+    padding: 15px;
+  }
   .el-row {
     margin-bottom: 15px;
   }

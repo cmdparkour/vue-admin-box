@@ -1,6 +1,6 @@
 <template>
-  <div class="box">
-    <router-view></router-view>  
+  <div>
+    
   </div>
 </template>
 
@@ -14,7 +14,5 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
-  .box {
-    padding: 15px;
-  }
+  
 </style>
