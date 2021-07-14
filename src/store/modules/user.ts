@@ -56,13 +56,14 @@ const actions = {
   loginOut({ commit }: ActionContext<State, State>) {
     loginOutApi()
     .then(res => {
-      commit('tokenChange', '')
-      commit('infoChange', {})
-      location.reload()
+
     })
     .catch(error => {
-      commit('tokenChange', '')
-      commit('infoChange', {})
+
+    })
+    .finally(() => {
+      localStorage.removeItem('tabs')
+      localStorage.removeItem('vuex')
       location.reload()
     })
   }

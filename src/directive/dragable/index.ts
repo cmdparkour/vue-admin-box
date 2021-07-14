@@ -155,7 +155,6 @@ function setParentDom(el: ElType, binding: DirectiveBinding, updated: boolean) {
       x: elDomRect.x - parentDomRect.x,
       y: elDomRect.y - parentDomRect.y
     }
-    console.log(el.__position__)
     // return
     el.style.cssText += `
       position: absolute;

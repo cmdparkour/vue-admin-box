@@ -30,7 +30,7 @@
             <i class="sfont password-icon" :class="passwordType ? 'system-yanjing-guan': 'system-yanjing'" @click="passwordTypeChange"></i>
           </template>
         </el-input>
-        <el-button type="primary" @click="submit" style="width: 100%;">{{ $t('message.system.login') }}</el-button>
+        <el-button type="primary" @click="submit" style="width: 100%;" size="default">{{ $t('message.system.login') }}</el-button>
       </el-form>
       <div class="fixed-top-right">
         <select-lang />
