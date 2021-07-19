@@ -52,20 +52,24 @@ export default defineComponent({
     pageSizes: { type: Array, default: [10, 20, 50, 100] }
   },
   setup(props, context) {
-    const page: Page = reactive({
-      index: 1,
-      size: 20,
-      total: 0
-    })
+    let timer: any = null
     // 分页相关：监听页码切换事件
     const handleCurrentChange = (val: Number) => {
-      props.page.index = val
-      context.emit("getTableData")
+      console.log(val)
+      if (timer) {
+        props.page.index = 1
+      } else {
+        props.page.index = val
+        context.emit("getTableData")
+      }
     }
     // 分页相关：监听单页显示数量切换事件
     const handleSizeChange = (val: Number) => {
+      timer = 'work'
+      setTimeout(() => {
+        timer = null
+      }, 100)
       props.page.size = val
-      props.page.index = 1
       context.emit("getTableData", true)
     }
     // 选择监听器
