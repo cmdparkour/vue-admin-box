@@ -153,30 +153,30 @@ export const data = [
                 ]
             },
             {
-                label: 'store', children: [
-                    { label: 'modules', children: [] },
-                    { label: 'plugins' },
-                    { label: 'index.ts' }
+                label: 'store', des: ['vuex状态管理组件,包含了本地化存储插件、分文件管理大文件等功能，已针对于中大型项目做了大量的细节适配。退出功能可直接清除所有的本地存储信息，所以如有异常，重新登录即可。'], children: [
+                    { label: 'modules', des: ['分模块定义了各个系列的状态管理文件，不需要在index.ts内部单独引入，已做全量引入，扩展文件，可直接复制其中一个文件进行改造即可。'], children: [] },
+                    { label: 'plugins', des: ['主要为本地化插件，支持localStorage/sessionStorage等的存储'] },
+                    { label: 'index.ts', des: ['状态管理核心文件'] }
                 ]
             },
-            { label: 'theme', children: [] },
+            { label: 'theme', des: ['主题管理文件，暂未使用到，后期开发计划主要使用的地方。'], children: [] },
             {
-                label: 'utils', children: [
+                label: 'utils', des: ['部分通用的JS处理逻辑，其中system为系统内部的处理专用，开发者可自行建立其他文件夹来进行开发，以便区分。'], children: [
                     {
-                        label: 'system', children: [
-                            { label: 'nprogress.ts' },
-                            { label: 'request.ts' },
-                            { label: 'statistics.ts' },
-                            { label: 'title.ts' },
+                        label: 'system', des: ['系统内部通用处理专用文件夹，包括了进度条处理、请求封装处理、百度统计、标题管理等。'], children: [
+                            { label: 'nprogress.ts', des: ['进度条管理文件'] },
+                            { label: 'request.ts', des: ['axios封装文件'] },
+                            { label: 'statistics.ts', des: ['百度统计专用文件'] },
+                            { label: 'title.ts', des: ['页面标题处理专用'] },
                         ]
                     }
                 ]
             },
             {
-                label: 'views', children: [
-                    { label: 'main', children: [] },
+                label: 'views', des: ['页面集中管理中心'], children: [
+                    { label: 'main', des: ['业务相关处理建议直接放入此文件夹中，方便统一管理，与路由命名统一，以便后期好维护'], children: [] },
                     {
-                        label: 'system', children: [
+                        label: 'system', des: ['系统内部处理文件，包括了404页面、401权限页面、登录页面、重定向页面等等。'], children: [
                             { label: '401.vue' },
                             { label: '404.vue' },
                             { label: 'login.vue' },
@@ -185,18 +185,20 @@ export const data = [
                     },
                 ]
             },
-            { label: 'App.vue', children: [] },
-            { label: 'main.ts', children: [] },
-            { label: 'shims-vue.d.ts', children: [] },
+            { label: 'App.vue', des: ['页面入口文件，主要引入了router-view以便路由切换。'], children: [] },
+            { label: 'main.ts', des: ['页面核心处理js文件，对vue引入及处理的主要页面，全局JS入口文件'], children: [] },
+            { label: 'shims-vue.d.ts', des: [
+                'shims-vue.d.ts是为了 typescript 做的适配定义文件，因为.vue 文件不是一个常规的文件类型，ts 是不能理解 vue 文件是干嘛的，加这一段是是告诉 ts，vue 文件是这种类型的。'
+            ], children: [] },
         ]
     },
-    { label: '.env.development', },
-    { label: '.gitignore', },
-    { label: 'index.html', },
-    { label: 'mockProdServer.ts', },
-    { label: 'package.json', },
-    { label: 'README.md', },
-    { label: 'tsconfig.json', },
-    { label: 'VERSION.md', },
-    { label: 'vite.config.ts', }
+    { label: '.env.development', des: ['环境变量配置文件，本地环境，其他环境自行扩展即可'] },
+    { label: '.gitignore', des: ['git提交时忽略的文件'] },
+    { label: 'index.html', des: ['页面主入口文件'] },
+    { label: 'mockProdServer.ts', des: ['用于线上配置mock数据的文件，需要单独引入mock文件夹内的文件'] },
+    { label: 'package.json', des: ['包管理文件'] },
+    { label: 'README.md', des: ['项目说明文件'] },
+    { label: 'tsconfig.json', des: ['ts配置文件'] },
+    { label: 'VERSION.md', des: ['版本说明文件'] },
+    { label: 'vite.config.ts', des: ['vite配置文件，包含了分包处理、Mock数据处理、全局@符号处理等基础功能。'] }
 ]

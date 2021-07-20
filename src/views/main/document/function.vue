@@ -5,7 +5,12 @@
       <el-col :span="12" class="el-col-tree-box">
         <h2>目录结构</h2>
         <div class="custom-tree">
-          <el-tree :data="data" :props="defaultProps" :highlight-current="true" @node-click="handleNodeClick">
+          <el-tree
+            :data="data"
+            :props="defaultProps"
+            :highlight-current="true"
+            @node-click="handleNodeClick"
+          >
           <template #default="{ node, data }">
             <div class="custom-tree-node">
               <i :class="data.children ? 'el-icon-files': 'el-icon-document'"></i>
@@ -34,7 +39,7 @@ export default defineComponent({
       children: 'children',
       label: 'label'
     }
-    let active = ref({ des: '' }) as any
+    let active = ref({ des: ['点击左侧目录，可查看到每个目录及文件的功能说明'] }) as any
     const handleNodeClick = (row: object) => {
       active.value = row
       console.log(row);
