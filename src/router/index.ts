@@ -9,6 +9,11 @@ import i18n from '@/locale'
 import NProgress from '@/utils/system/nprogress'
 import { changeTitle } from '@/utils/system/title'
 
+// 动态路由相关引入数据
+import Layout from '@/layout/index.vue'
+import MenuBox from '@/components/menu/index.vue'
+import { createNameComponent } from './createNode'
+
 // 引入modules
 import Dashboard from './modules/dashboard'
 import Document from './modules/document'
@@ -35,27 +40,73 @@ const router = createRouter({
   history: createWebHashHistory(),
   routes
 })
-
+let asyncRoutes: RouteRecordRaw[] = [
+  ...Dashboard,
+  ...Document,
+  ...Permission,
+  ...Component,
+  ...Pages,
+  ...Menu,
+  ...Directive,
+  ...Chart,
+  ...SystemManage,
+  ...Print,
+  ...Community,
+]
 // 动态路由的权限新增，供登录后调用
 export function addRoutes() {
-  let asyncRoutes: RouteRecordRaw[] = [
-    ...Dashboard,
-    ...Document,
-    ...Permission,
-    ...Component,
-    ...Pages,
-    ...Menu,
-    ...Directive,
-    ...Chart,
-    ...SystemManage,
-    ...Print,
-    ...Community,
-  ]
+  
+  // let data = [
+  //   {
+  //     path: '/echarts',
+  //     meta: { title: '权限管理', icon: 'el-icon-pie-chart' },
+  //     children: [
+  //       {
+  //         meta: { title: '菜单管理' },
+  //         component: 'index',
+  //         path: 'box456789'
+  //       },
+  //       {
+  //         meta: { title: '角色管理' },
+  //         component: 'index',
+  //         path: 'box1'
+  //       },
+  //       {
+  //         meta: { title: '用户管理' },
+  //         component: 'index',
+  //         path: 'box1456'
+  //       },
+  //     ]
+  //   },
+  // ]
+  // eachData(data, 0)
+  // data.forEach(item => {
+  //   modules.push(item)
+  //   router.addRoute(item)
+  // })
   // 与后端交互的逻辑处理，处理完后异步添加至页面
   asyncRoutes.forEach(item => {
     modules.push(item)
     router.addRoute(item)
   })
+}
+
+// 重置匹配所有路由的解决方案，todo
+function eachData(data: any, type: number) {
+  data.forEach(d => {
+    if (d.children && d.children.length > 0) {
+      if (type === 0) {
+        d.component = Layout
+      } else {
+        d.component = createNameComponent(MenuBox)
+      }
+      eachData(d.children, type + 1)
+    } else {
+      /* 暂时写死，todo项 */
+      d.component = createNameComponent(() => import('@/views/main/pages/crudTable/index.vue'))
+    }
+  })
+  console.log(data)
 }
 
 if (store.state.user.token) {
