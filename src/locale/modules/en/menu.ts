@@ -80,6 +80,11 @@ export default {
       function: 'function',
       keepAlive: 'how to use keepAlive',
       crud: 'crud table and form'
+    },
+    permission: {
+      name: 'permission',
+      page: 'web control',
+      role: 'role data control'
     }
   },
 }

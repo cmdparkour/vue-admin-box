@@ -30,7 +30,7 @@
             <i class="sfont password-icon" :class="passwordType ? 'system-yanjing-guan': 'system-yanjing'" @click="passwordTypeChange"></i>
           </template>
         </el-input>
-        <el-button type="primary" @click="submit" style="width: 100%;" size="default">{{ $t('message.system.login') }}</el-button>
+        <el-button type="primary" @click="submit" style="width: 100%;" size="medium">{{ $t('message.system.login') }}</el-button>
       </el-form>
       <div class="fixed-top-right">
         <select-lang />
@@ -44,6 +44,7 @@ import { systemTitle } from '@/config'
 import { defineComponent, ref, reactive } from 'vue'
 import { useStore } from 'vuex'
 import { useRouter, useRoute } from 'vue-router'
+import { addRoutes } from '@/router'
 import { ElMessage } from 'element-plus'
 import selectLang from '@/layout/Header/functionList/word.vue'
 export default defineComponent({
@@ -96,6 +97,7 @@ export default defineComponent({
             showClose: true,
             duration: 1000
           })
+          addRoutes()
           router.push(route.query.redirect || '/')
         })
 

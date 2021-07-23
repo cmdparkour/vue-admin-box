@@ -8,8 +8,8 @@
     size="300px"
     :show-close="false"
     direction="rtl">
-      <!-- <el-divider content-position="center">主题</el-divider> -->
-      <!-- <el-divider content-position="center">配置</el-divider> -->
+      <h3>整体风格设置</h3>
+      
       <div class="list">
         <div class="list-item" v-for="option in options" :key="option.name">
           <span>{{ $t(option.name) }}</span>
@@ -68,6 +68,7 @@ export default defineComponent({
       outline: none;
     }
   }
+  
   .list {
     padding: 0 20px;
     &-item {
@@ -79,5 +80,13 @@ export default defineComponent({
         font-size: 16px;
       }
     }
+  }
+  h3 {
+    margin-bottom: 12px;
+    color: rgba(0,0,0,.85);
+    font-size: 14px;
+    line-height: 22px;
+    text-align: left;
+    padding: 0 20px;
   }
 </style>

@@ -1,5 +1,6 @@
 import { loginApi, getInfoApi, loginOutApi } from '@/api/user'
 import { ActionContext } from 'vuex'
+
 interface State {
   token: string,
   info: object

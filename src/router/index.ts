@@ -3,7 +3,7 @@
  * @params hideMenu: 是否隐藏当前路由结点不在导航中展示
  * @params alwayShow: 只有一个子路由时是否总是展示菜单，默认false
  */
-import { createRouter, createWebHashHistory } from 'vue-router'
+import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router'
 import store from '@/store'
 import i18n from '@/locale'
 import NProgress from '@/utils/system/nprogress'
@@ -12,6 +12,7 @@ import { changeTitle } from '@/utils/system/title'
 // 引入modules
 import Dashboard from './modules/dashboard'
 import Document from './modules/document'
+import Permission from './modules/permission'
 import Pages from './modules/pages'
 import Menu from './modules/menu'
 import Component from './modules/component'
@@ -23,16 +24,6 @@ import Community from './modules/community'
 import System from './modules/system'
 
 let modules: object[] = [
-  ...Dashboard,
-  ...Document,
-  ...Component,
-  ...Pages,
-  ...Menu,
-  ...Directive,
-  ...Chart,
-  ...SystemManage,
-  ...Print,
-  ...Community,
   ...System
 ]
 
@@ -44,6 +35,32 @@ const router = createRouter({
   history: createWebHashHistory(),
   routes
 })
+
+// 动态路由的权限新增，供登录后调用
+export function addRoutes() {
+  let asyncRoutes: RouteRecordRaw[] = [
+    ...Dashboard,
+    ...Document,
+    ...Permission,
+    ...Component,
+    ...Pages,
+    ...Menu,
+    ...Directive,
+    ...Chart,
+    ...SystemManage,
+    ...Print,
+    ...Community,
+  ]
+  // 与后端交互的逻辑处理，处理完后异步添加至页面
+  asyncRoutes.forEach(item => {
+    modules.push(item)
+    router.addRoute(item)
+  })
+}
+
+if (store.state.user.token) {
+  addRoutes()
+}
 
 const whiteList = ['/login']
 
@@ -66,5 +83,9 @@ router.afterEach((to, _from) => {
   }
   NProgress.done();
 });
+
+export {
+  modules
+}
 
 export default router

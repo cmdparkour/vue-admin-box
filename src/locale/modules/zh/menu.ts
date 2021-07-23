@@ -80,6 +80,11 @@ export default {
       function: '功能说明',
       keepAlive: 'keepAlive使用说明',
       crud: '数据表格的增删改查'
+    },
+    permission: {
+      name: '权限管理',
+      page: '前端权限管理',
+      role: '数据权限管理'
     }
   },
 }
