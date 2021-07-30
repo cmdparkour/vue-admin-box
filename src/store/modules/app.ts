@@ -26,6 +26,11 @@ const state = () => ({
   lang: 'zh', // 默认采用的国际化方案
   theme: {
     primaryColor: '#409eff',
+    state: {
+      style: 'default',
+      color: '#409eff',
+      menuType: 'side'
+    },
     system: {
       menuTextColor: '#bfcbd9',
       menuBackgroundColor: '#28415a',

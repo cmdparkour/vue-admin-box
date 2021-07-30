@@ -45,14 +45,21 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, reactive, computed } from 'vue'
+import { defineComponent, ref, reactive, computed, watch } from 'vue'
 import { useStore } from 'vuex'
-import themeIcon from './theme-icon.vue'
-import themeColor from './theme-color.vue'
+import themeIcon from './theme/theme-icon.vue'
+import themeColor from './theme/theme-color.vue'
+import type { Style } from './theme/setting'
+import { style } from './theme/setting'
 interface Option {
   name: string,
   value: boolean,
   store: string
+}
+interface State {
+  style: string,
+  color: string,
+  menuType: string
 }
 export default defineComponent({
   components: {
@@ -60,12 +67,24 @@ export default defineComponent({
     themeColor
   },
   setup() {
-    const state = reactive({
-      style: 'default',
-      color: '#409eff',
-      menuType: 'side'
-    })
     const store = useStore()
+    // 只取值，不做computed
+    const state: State = reactive({
+      style: store.state.app.theme.state.style,
+      color: store.state.app.theme.state.color,
+      menuType: store.state.app.theme.state.menuType
+    })
+    // 监听数据的变化
+    watch(state, (newVal) => {
+      const theme = {
+        state: JSON.parse(JSON.stringify(state)),
+        system: style[state.style]
+      }
+      store.commit('app/stateChange', {
+        name: 'theme',
+        value: theme
+      })
+    })
     let drawer = ref(false)
     const options = reactive([
       { name: 'message.system.setting.showLogo', value: store.state.app.showLogo, store: 'showLogo' },
