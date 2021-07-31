@@ -25,17 +25,10 @@ const state = () => ({
   elementSize: 'mini', // element默认尺寸，支持官网四个大小参数
   lang: 'zh', // 默认采用的国际化方案
   theme: {
-    primaryColor: '#409eff',
     state: {
       style: 'default',
       color: '#409eff',
       menuType: 'side'
-    },
-    system: {
-      menuTextColor: '#bfcbd9',
-      menuBackgroundColor: '#28415a',
-      logoBackGroundColor: '#263445',
-      logoColor: '#f1f1f1'
     }
   }
 })

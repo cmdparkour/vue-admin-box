@@ -117,7 +117,7 @@ export default defineComponent({
   }
 }
 .el-main {
-  background-color: #f0f2f5;
+  background-color: var(--system-container-background);
   height: 100%;
   padding: 0;
 }

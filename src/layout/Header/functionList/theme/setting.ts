@@ -1,8 +1,18 @@
 interface Colors {
-  menuTextColor: string
-  menuBackgroundColor: string
-  logoBackGroundColor: string
-  logoColor: string
+  menu: {
+    textColor: string,
+    backgroundColor: string
+  }
+  logo: {
+    color: string,
+    backgroundColor: string
+  }
+  header: {
+
+  }
+  container: {
+
+  }
 }
 
 export interface Style {
@@ -13,21 +23,52 @@ export interface Style {
 }
 export const style: Style = {
   'default': {
-    menuTextColor: '#bfcbd9',
-    menuBackgroundColor: '#28415a',
-    logoBackGroundColor: '#263445',
-    logoColor: '#f1f1f1'
+    menu: {
+      textColor: '#bfcbd9',
+      backgroundColor: '#28415a'
+    },
+    logo: {
+      color: '#f1f1f1',
+      backgroundColor: '#263445'
+    },
+    header: {
+
+    },
+    container: {
+
+    }
   },
   'light': {
-    menuTextColor: '#bfcbd9',
-    menuBackgroundColor: '#28415a',
-    logoBackGroundColor: '#fff',
-    logoColor: '#000'
+    menu: {
+      textColor: '#000',
+      backgroundColor: '#fff'
+    },
+    logo: {
+      color: '#000',
+      backgroundColor: '#fff'
+    },
+    header: {
+
+    },
+    container: {
+
+    }
   },
   'dark': {
-    menuTextColor: '#bfcbd9',
-    menuBackgroundColor: '#28415a',
-    logoBackGroundColor: '#fff',
-    logoColor: '#000'
+    menu: {
+      textColor: '#bfcbd9',
+      backgroundColor: '#18181c'
+    },
+    logo: {
+      color: '#fff',
+      backgroundColor: '#18181c'
+    },
+    header: {
+      color: '#fff',
+      backgroundColor: '#18181c'
+    },
+    container: {
+      backgroundColor: '#101014'
+    }
   }
 }

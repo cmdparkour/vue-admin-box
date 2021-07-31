@@ -1,7 +1,7 @@
 <template>
-  <div class="logo-container" :style="{ 'background-color': theme.system.logoBackGroundColor }">
+  <div class="logo-container">
     <!-- <img src="@/assets/logo.png" alt=""> -->
-    <h1 v-if="!isCollapse" :style="{ 'color': theme.system.logoColor }">{{ $t(systemTitle) }}</h1>
+    <h1 v-if="!isCollapse">{{ $t(systemTitle) }}</h1>
   </div>
 </template>
 
@@ -13,11 +13,9 @@ export default defineComponent({
   setup() {
     const store = useStore()
     const isCollapse = computed(() => store.state.app.isCollapse)
-    const theme = computed(() => store.state.app.theme)
     return {
       isCollapse,
-      systemTitle,
-      theme
+      systemTitle
     }
   }
 })
@@ -30,9 +28,11 @@ export default defineComponent({
     align-items: center;
     justify-content: center;
     width: 100%;
+    background-color: var(--system-logo-background);
     h1 {
       font-size: 20px;
       white-space: nowrap;
+      color: var(--system-logo-color);
     }
   }
 </style>

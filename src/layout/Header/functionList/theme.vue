@@ -74,16 +74,22 @@ export default defineComponent({
       color: store.state.app.theme.state.color,
       menuType: store.state.app.theme.state.menuType
     })
+    const setTheme = () => {
+      const userTheme = style[state.style]
+      console.log(userTheme)
+    }
     // 监听数据的变化
     watch(state, (newVal) => {
       const theme = {
-        state: JSON.parse(JSON.stringify(state)),
-        system: style[state.style]
+        state: {
+          ...state
+        }
       }
       store.commit('app/stateChange', {
         name: 'theme',
         value: theme
       })
+      setTheme()
     })
     let drawer = ref(false)
     const options = reactive([

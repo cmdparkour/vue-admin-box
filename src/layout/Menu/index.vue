@@ -1,9 +1,9 @@
 <template>
   <el-menu
     class="layout-menu"
-    background-color="#28415a"
-    text-color="#bfcbd9"
-    active-text-color="#409eff"
+    background-color="var(--system-menu-background)"
+    text-color="var(--system-menu-text-color)"
+    active-text-color="var(--system-primary-color)"
     :default-active="activeMenu"
     :class="isCollapse? 'collapse': ''"
     :collapse="isCollapse"
@@ -43,7 +43,7 @@ export default defineComponent({
       isCollapse,
       expandOneMenu,
       allRoutes,
-      activeMenu
+      activeMenu,
     }
   }
 })
@@ -54,7 +54,6 @@ export default defineComponent({
     width: 100%;
     flex: 1;
     height: 0;
-    box-shadow: 2px -1px 3px 0px #0000006e;
     &.collapse {
       margin-left: 0px;
     }
