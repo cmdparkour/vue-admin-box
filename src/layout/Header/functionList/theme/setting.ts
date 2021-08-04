@@ -1,11 +1,14 @@
 interface Colors {
   menu: {
     textColor: string,
-    backgroundColor: string
+    background: string,
+    childrenBackground: string,
+    hoverBackground: string,
+    submenuActiveColor: string
   }
   logo: {
     color: string,
-    backgroundColor: string
+    background: string
   }
   header: {
 
@@ -25,11 +28,14 @@ export const style: Style = {
   'default': {
     menu: {
       textColor: '#bfcbd9',
-      backgroundColor: '#28415a'
+      background: '#28415a',
+      childrenBackground: '#1f2d3d',
+      hoverBackground: '#203448',
+      submenuActiveColor: '#fff'
     },
     logo: {
       color: '#f1f1f1',
-      backgroundColor: '#263445'
+      background: '#263445'
     },
     header: {
 
@@ -40,12 +46,15 @@ export const style: Style = {
   },
   'light': {
     menu: {
-      textColor: '#000',
-      backgroundColor: '#fff'
+      textColor: '#272727',
+      background: '#fff',
+      childrenBackground: '#fff',
+      hoverBackground: '#f1f1f1',
+      submenuActiveColor: 'var(--system-primary-color)'
     },
     logo: {
       color: '#000',
-      backgroundColor: '#fff'
+      background: '#fff'
     },
     header: {
 
@@ -56,19 +65,20 @@ export const style: Style = {
   },
   'dark': {
     menu: {
-      textColor: '#bfcbd9',
-      backgroundColor: '#18181c'
+      textColor: '#28415a',
+      background: '#28415a',
+      childrenBackground: '#1f2d3d',
+      hoverBackground: '#203448'
     },
     logo: {
       color: '#fff',
-      backgroundColor: '#18181c'
+      background: '#18181c'
     },
     header: {
-      color: '#fff',
-      backgroundColor: '#18181c'
+      
     },
     container: {
-      backgroundColor: '#101014'
+      
     }
   }
 }

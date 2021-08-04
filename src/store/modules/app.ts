@@ -27,7 +27,7 @@ const state = () => ({
   theme: {
     state: {
       style: 'default',
-      color: '#409eff',
+      primaryColor: '#409eff',
       menuType: 'side'
     }
   }

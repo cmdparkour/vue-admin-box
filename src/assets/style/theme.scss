@@ -1,15 +1,24 @@
 :root {
   // 主题色
-  --system-primary-color: #409eff;
+  --system-primary-color: #409eff; // 可做背景色和文本色，用做背景色时，需要和--system-primary-text-color配合使用，避免文件颜色和主题色冲突
+  --system-primary-text-color: #fff; // 主题色作为背景色时使用
+
   // logo颜色相关
   --system-logo-color: #f1f1f1;
   --system-logo-background: #263445;
+
   // 菜单颜色相关
-  --system-menu-background: #28415a;
   --system-menu-text-color: #bfcbd9;
+  --system-menu-background: #28415a;
+  --system-menu-children-background: #1f2d3d;
+  --system-menu-submenu-active-color: #fff; 
+  --system-menu-hover-background: #203448;
+
   // header区域
+
   // contaier区域，页面区
   --system-container-background: #f0f2f5;
+  
   // element主题色修改
   --el-color-primary: var(--system-primary-color);
 }

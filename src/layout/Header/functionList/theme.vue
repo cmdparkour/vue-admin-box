@@ -16,12 +16,16 @@
       </div>
       <h3>主题色(to do)</h3>
       <div class="theme-box">
-        <theme-color v-model:active="state.color"></theme-color>
-        <theme-color v-model:active="state.color" tip="玫瑰红" color="#d60f20"></theme-color>
-        <theme-color v-model:active="state.color" tip="优雅紫" color="#ac25e6"></theme-color>
-        <theme-color v-model:active="state.color" tip="故事绿" color="#4dc86f"></theme-color>
-        <theme-color v-model:active="state.color" tip="明青" color="#13c2c2"></theme-color>
-        <theme-color v-model:active="state.color" tip="极客黑" color="#333"></theme-color>
+        <!-- <theme-color v-model:active="state.primaryColor" v-model:activeTextColor="state.primaryTextColor"></theme-color> -->
+        <theme-color
+          v-for="(item, key) in themeColorArr"
+          v-model:active="state.primaryColor"
+          v-model:activeTextColor="state.primaryTextColor"
+          :key="key"
+          :color="item.color"
+          :textColor="item.textColor"
+          :tip="item.tip"
+        ></theme-color>
       </div>
       <h3>导航模式(to do)</h3>
       <div class="theme-box">
@@ -58,7 +62,7 @@ interface Option {
 }
 interface State {
   style: string,
-  color: string,
+  primaryColor: string,
   menuType: string
 }
 export default defineComponent({
@@ -71,12 +75,33 @@ export default defineComponent({
     // 只取值，不做computed
     const state: State = reactive({
       style: store.state.app.theme.state.style,
-      color: store.state.app.theme.state.color,
+      primaryColor: store.state.app.theme.state.primaryColor,
+      primaryTextColor: store.state.app.theme.state.primaryTextColor,
       menuType: store.state.app.theme.state.menuType
     })
+    const themeColorArr = [
+      { color: '#409eff', textColor: '#fff', tip: '默认蓝' },
+      { color: '#d60f20', textColor: '#fff', tip: '玫瑰红' },
+      { color: '#ac25e6', textColor: '#fff', tip: '优雅紫' },
+      { color: '#4dc86f', textColor: '#fff', tip: '故事绿' },
+      { color: '#13c2c2', textColor: '#fff', tip: '明青' },
+      { color: '#333', textColor: '#fff', tip: '极客黑' }
+    ]
     const setTheme = () => {
       const userTheme = style[state.style]
-      console.log(userTheme)
+      const body = document.getElementsByTagName('body')[0]
+      // 需要设置的颜色参照theme.scss，位置：assets/style/theme.scss
+      // 设置主题色
+      body.style.setProperty('--system-primary-color', state.primaryColor)
+      // 设置菜单系列色
+      body.style.setProperty('--system-menu-background', userTheme.menu.background)
+      body.style.setProperty('--system-menu-text-color', userTheme.menu.textColor)
+      body.style.setProperty('--system-menu-children-background', userTheme.menu.childrenBackground)
+      body.style.setProperty('--system-menu-hover-background', userTheme.menu.hoverBackground)
+      body.style.setProperty('--system-menu-submenu-active-color', userTheme.menu.submenuActiveColor)
+      // 设置logo系列色
+      body.style.setProperty('--system-logo-background', userTheme.logo.background)
+      body.style.setProperty('--system-logo-color', userTheme.logo.color)
     }
     // 监听数据的变化
     watch(state, (newVal) => {
@@ -103,10 +128,12 @@ export default defineComponent({
     const change = (option: Option) => {
       store.commit(`app/stateChange`, { name: option.store, value: option.value })
     }
+    setTheme()
     return {
       drawer,
       options,
       state,
+      themeColorArr,
       drawerChange,
       change
     }

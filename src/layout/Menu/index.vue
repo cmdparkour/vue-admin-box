@@ -1,6 +1,6 @@
 <template>
   <el-menu
-    class="layout-menu"
+    class="layout-menu system-scrollbar"
     background-color="var(--system-menu-background)"
     text-color="var(--system-menu-text-color)"
     active-text-color="var(--system-primary-color)"
@@ -54,22 +54,52 @@ export default defineComponent({
     width: 100%;
     flex: 1;
     height: 0;
+    overflow-y: auto;
     &.collapse {
       margin-left: 0px;
     }
-    :deep(.el-submenu) {
-      .el-menu {
-        background-color: #1f2d3d !important;
-        .el-menu-item, .el-submenu__title {
-          background-color: #1f2d3d !important;
+    :deep() {
+      .el-menu-item, .el-submenu {
+        background-color: var(--system-menu-background) !important;
+      }
+      .el-menu-item i, .el-menu-item-group__title, .el-submenu__title i {
+        color: var(--system-menu-text-color);
+      }
+      .el-menu-item, .el-submenu__title{
+        &.is-active {
+          background-color: var(--system-primary-color) !important;
+          color: var(--system-primary-text-color) !important;
+          i {
+            color: var(--system-primary-text-color) !important;
+          }
           &:hover {
-            background-color: #0f1721 !important;
+            background-color: var(--system-primary-color) !important;
+            color: var(--system-primary-text-color) !important;
           }
         }
+        &:hover {
+          background-color: var(--system-menu-hover-background) !important;
+        }
       }
-      &.is-active {
-        >.el-submenu__title, >.el-submenu__title i {
-          color: #f1f1f1 !important;
+      .el-submenu {
+        &.is-active {
+          >.el-submenu__title, >.el-submenu__title i {
+            color: var(--system-menu-submenu-active-color) !important;
+          }
+        }
+        .el-menu-item {
+          background-color: var(--system-menu-children-background) !important;
+          &.is-active {
+            background-color: var(--system-primary-color) !important;
+            color: var(--system-primary-text-color) !important;
+            &:hover {
+              background-color: var(--system-primary-color) !important;
+              color: var(--system-primary-text-color) !important;
+            }
+          }
+          &:hover {
+            background-color: var(--system-menu-hover-background) !important;
+          }
         }
       }
     }

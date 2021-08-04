@@ -2,7 +2,7 @@
   <el-tooltip class="item" effect="dark" :content="tip" placement="top">
     <div class="theme-color" :style="{ 'background-color': color }" @click="handleClick">
       <div class="active" v-if="active === color">
-        <i class="el-icon-check" :style="{'color': activeColor}"></i>
+        <i class="el-icon-check" :style="{'color': textColor}"></i>
       </div>
     </div>
   </el-tooltip>
@@ -16,6 +16,10 @@ export default defineComponent({
       type: String,
       default: ''
     },
+    activeTextColor: {
+      type: String,
+      default: ''
+    },
     tip: {
       type: String,
       default: '默认蓝'
@@ -24,7 +28,7 @@ export default defineComponent({
       type: String,
       default: '#409eff'
     },
-    activeColor: {
+    textColor: {
       type: String,
       default: '#fff'
     }
@@ -33,6 +37,7 @@ export default defineComponent({
     // 点击事件，触发v-model修改active值
     const handleClick = () => {
       ctx.emit('update:active', props.color)
+      ctx.emit('update:activeTextColor', props.textColor)
     }
     return {
       handleClick
