@@ -29,7 +29,7 @@ export default {
       treeTable: 'treeTable',
       card: 'card',
       work: 'work',
-      baidu: 'baidu',
+      baidu: 'iframe case',
     },
     menu: {
       name: 'menu',

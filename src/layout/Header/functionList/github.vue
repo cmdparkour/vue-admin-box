@@ -18,9 +18,6 @@ export default defineComponent({
   i {
     cursor: pointer;
     font-size: 18px;
-    &:hover {
-      background: rgba(0,0,0,.025);
-    }
     &:focus {
       outline: none;
     }

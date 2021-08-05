@@ -25,7 +25,7 @@ export default defineComponent({
     margin: 20px auto 0;
     width: calc(100% - 40px);
     height: 400px;
-    background: #fff;
+    background: var(--system-page-background);
     padding: 20px 20px 10px;
     overflow: hidden;
   }

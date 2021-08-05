@@ -16,7 +16,6 @@
       </div>
       <h3>主题色(to do)</h3>
       <div class="theme-box">
-        <!-- <theme-color v-model:active="state.primaryColor" v-model:activeTextColor="state.primaryTextColor"></theme-color> -->
         <theme-color
           v-for="(item, key) in themeColorArr"
           v-model:active="state.primaryColor"
@@ -26,11 +25,6 @@
           :textColor="item.textColor"
           :tip="item.tip"
         ></theme-color>
-      </div>
-      <h3>导航模式(to do)</h3>
-      <div class="theme-box">
-        <theme-icon v-model:active="state.menuType" name="side" tip="侧边菜单导航"></theme-icon>
-        <theme-icon v-model:active="state.menuType" name="top" tip="顶部菜单导航" header="#263445" menu="#f0f2f5"></theme-icon>
       </div>
       <h3>其他设置</h3>
       <div class="list">
@@ -53,8 +47,8 @@ import { defineComponent, ref, reactive, computed, watch } from 'vue'
 import { useStore } from 'vuex'
 import themeIcon from './theme/theme-icon.vue'
 import themeColor from './theme/theme-color.vue'
-import type { Style } from './theme/setting'
-import { style } from './theme/setting'
+import type { Style, Colors } from '@/theme/index'
+import { style } from '@/theme/index'
 interface Option {
   name: string,
   value: boolean,
@@ -90,18 +84,18 @@ export default defineComponent({
     const setTheme = () => {
       const userTheme = style[state.style]
       const body = document.getElementsByTagName('body')[0]
+      // 设置全局顶部body上的class名称，即为主题名称，便于自定义配置符合当前主题的样式统一入口
+      body.className = state.style
       // 需要设置的颜色参照theme.scss，位置：assets/style/theme.scss
       // 设置主题色
       body.style.setProperty('--system-primary-color', state.primaryColor)
-      // 设置菜单系列色
-      body.style.setProperty('--system-menu-background', userTheme.menu.background)
-      body.style.setProperty('--system-menu-text-color', userTheme.menu.textColor)
-      body.style.setProperty('--system-menu-children-background', userTheme.menu.childrenBackground)
-      body.style.setProperty('--system-menu-hover-background', userTheme.menu.hoverBackground)
-      body.style.setProperty('--system-menu-submenu-active-color', userTheme.menu.submenuActiveColor)
-      // 设置logo系列色
-      body.style.setProperty('--system-logo-background', userTheme.logo.background)
-      body.style.setProperty('--system-logo-color', userTheme.logo.color)
+      for (let i in userTheme) {
+        const item: any = userTheme[i as keyof Colors]
+        for (let y in item) {
+          let cssVarName = '--system-' + i + '-' + y.replace(/([A-Z])/g, "-$1").toLowerCase()
+          body.style.setProperty(cssVarName, item[y])
+        }
+      }
     }
     // 监听数据的变化
     watch(state, (newVal) => {
@@ -144,9 +138,6 @@ export default defineComponent({
 <style lang="scss" scoped>
   i {
     cursor: pointer;
-    &:hover {
-      background: rgba(0,0,0,.025);
-    }
     &:focus {
       outline: none;
     }

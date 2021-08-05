@@ -96,7 +96,8 @@ export default defineComponent({
     justify-content: space-between;
     align-items: center;
     height: 60px;
-    background-color: #fff;
+    background-color: var(--system-header-background);
+    padding-right: 22px;
   }
   .left-box {
     height: 100%;
@@ -113,9 +114,11 @@ export default defineComponent({
       cursor: pointer;
       margin-right: 10px;
       &:hover {
-        background-color: rgba(0,0,0,.025);
+        background-color: var(--system-header-item-hover-color);
       }
-      
+      i {
+        color: var(--system-header-text-color);
+      }
     }
   }
   .right-box {
@@ -129,10 +132,16 @@ export default defineComponent({
         display: flex;
         justify-content: center;
         align-items: center;
+        :deep(i) {
+          color: var(--system-header-text-color);
+        }
       }
     }
     .user-info {
       margin-left: 20px;
+      .el-dropdown-link {
+        color: var(--system-header-breadcrumb-text-color);
+      }
     }
   }
 </style>

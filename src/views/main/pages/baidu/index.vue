@@ -1,5 +1,5 @@
 <template>
-  <iframe src="//www.baidu.com" frameborder="0" class="full-iframe"></iframe>
+  <iframe src="//blog.51weblove.com" frameborder="0" class="full-iframe"></iframe>
 </template>
 
 <script lang="ts">

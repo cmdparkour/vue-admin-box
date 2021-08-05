@@ -105,6 +105,7 @@ export default defineComponent({
 <style lang="scss" scoped>
 .el-header {
   padding-left: 0;
+  padding-right: 0;
 }
 .el-aside {
   display: flex;

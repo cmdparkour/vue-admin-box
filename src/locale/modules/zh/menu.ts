@@ -29,7 +29,7 @@ export default {
       treeTable: '树联动表格',
       card: '卡片列表',
       work: '工作进度',
-      baidu: '百度一下',
+      baidu: '外部链接',
     },   
     menu: {
       name: '多级嵌套菜单',

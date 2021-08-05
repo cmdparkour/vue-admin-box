@@ -53,16 +53,16 @@ export default defineComponent({
     cursor: pointer;
     height: 24px;
     line-height: 26px;
-    border: 1px solid #d8dce5;
-    color: #495060;
-    background: #fff;
+    border: 1px solid var(--system-header-border-color);
+    color: var(--system-header-text-color);
+    background: var(--system-header-tab-background);
     padding: 0 8px;
     font-size: 12px;
     margin-left: 5px;
     margin-top: 4px;
     border-radius: 2px;
     a {
-      color: #495060;
+      color: var(--system-header-text-color);
       height: 26px;
       display: inline-block;
       padding-left: 8px;
@@ -83,17 +83,18 @@ export default defineComponent({
       margin-right: 15px;
     }
     &.active {
-      background: #409eff;  /* fallback for old browsers */
-      background: -webkit-linear-gradient(to top, #409eff, #2c3e50);  /* Chrome 10-25, Safari 5.1-6 */
-      background: linear-gradient(to top, #409eff, #2c3e50); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-      border-color: #409eff;
-      color: #fff;
+      background: var(--system-primary-color);
+      border-color: var(--system-primary-color);
+      color: var(--system-primary-text-color);
       a {
-        color: #fff;
+        color: var(--system-primary-text-color);
+      }
+      &:hover {
+        background: var(--system-primary-color);
       }
     }
     &:hover {
-      background-color: #f1f1f1;
+      background-color: var(--system-header-item-hover-color);
     }
   }
 </style>

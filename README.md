@@ -32,8 +32,9 @@
 </p>
 
 ## 基础模板
+预期目标，等主项目上1.0时，会更新4个版本的基础模板，包括：ts+国际化，ts无国际化，js+国际化，js无国际化，下列模板暂不推荐使用，非最新版本，出四个基础版本，总时间约在一天左右
 1. [vue-admin-box-template-js](https://github.com/cmdparkour/vue-admin-box-template-js) 当前项目去ts和国际化之后的项目基础模板，适合基础开发使用
-2. [vue-admin-box-template-ts](https://github.com/cmdparkour/vue-admin-box-template-ts) 当前项目的基础模板，带ts+国际化，适合基础开发使用（待做）
+2. [vue-admin-box-template-ts](https://github.com/cmdparkour/vue-admin-box-template-ts) 当前项目的基础模板，带ts+国际化，适合基础开发使用
 
 ## 介绍
 vue-admin-box是一个免费并且开源的中后台管理系统模板。使用最新版本的vue3开发而成。

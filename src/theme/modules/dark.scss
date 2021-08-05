@@ -1,0 +1,23 @@
+.dark {
+  // 通用
+  p, h1, h2, h3, h4, h5, h6, article {
+    color: var(--system-page-color);
+  }
+  .el-tree {
+    background-color: var(--system-page-background);
+    .el-tree-node__content:hover {
+      background-color: #272727;
+    }
+    --el-color-primary-light-9: #272727;
+  }
+  .el-card {
+    background-color: var(--system-page-background);
+    color: var(--system-page-color);
+    border-color: var(--system-page-border-color);
+    .el-card__header {
+      border-color: var(--system-page-border-color);
+    }
+  }
+  // 页面内部样式修改
+  
+}

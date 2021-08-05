@@ -11,7 +11,7 @@
       />
     </el-scrollbar>
     <div class="handle">
-      <el-dropdown>
+      <el-dropdown placement="bottom">
         <div class="el-dropdown-link">
           <i class="el-icon-arrow-down el-icon--right"></i>
         </div>
@@ -209,9 +209,9 @@ export default defineComponent({
     justify-content: space-between;
     align-items: center;
     height: 40px;
-    background: #fff;
-    border-bottom: 1px solid #e6e6e6;
-    border-top: 1px solid #e6e6e6;
+    background: var(--system-header-background);
+    border-bottom: 1px solid var(--system-header-border-color);
+    border-top: 1px solid var(--system-header-border-color);
     box-shadow: 0 1px 4px 0 rgba(0, 0, 0, .1);
     .handle {
       padding-right: 20px;
@@ -220,12 +220,15 @@ export default defineComponent({
       align-items: center;
       .el-dropdown-link {
         margin-top: 5px;
-        border-left: 1px solid #eee;
+        border-left: 1px solid var(--system-header-border-color);
         height: 25px;
         width: 40px;
         display: flex;
         justify-content: center;
         align-items: center;
+      }
+      i {
+        color: var(--system-header-text-color);
       }
     }
   }

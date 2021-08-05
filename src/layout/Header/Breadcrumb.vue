@@ -54,8 +54,11 @@ export default defineComponent({
   font-size: 14px;
   line-height: 50px;
   .no-redirect {
-    color: #97a8be;
+    color: var(--system-header-breadcrumb-text-color);
     cursor: text;
+  }
+  a {
+    color: var(--system-header-text-color);
   }
 }
 </style>

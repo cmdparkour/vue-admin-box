@@ -39,7 +39,7 @@ export default defineComponent({
     align-items: center;
     justify-content: space-between;
     width: calc(25% - 26px);
-    background-color: #fff;
+    background-color: var(--system-page-background);
     margin: 10px;
     box-shadow: 3px 3px 10px 0 rgba(58, 59, 69, 0.15);
     &-left{
@@ -50,13 +50,14 @@ export default defineComponent({
       padding-left: 20px;
       .name {
         line-height: 18px;
-        color: rgba(0,0,0,.45);
+        color: var(--system-page-tip-color);
         font-size: 16px;
         margin-bottom: 14px;
       }
       .detail {
         font-size: 20px;
         font-weight: bold;
+        color: var(--system-page-color);
       }
     }
     &-right {

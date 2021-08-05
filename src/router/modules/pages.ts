@@ -34,7 +34,7 @@ const route = [
         meta: { title: 'message.menu.page.work' }
       },
       {
-        path: 'baidu',
+        path: 'blog',
         component: createNameComponent(() => import('@/views/main/pages/baidu/index.vue')),
         meta: { title: 'message.menu.page.baidu' }
       },
