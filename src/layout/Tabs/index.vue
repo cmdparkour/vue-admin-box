@@ -38,6 +38,7 @@ import { defineComponent, computed, unref, watch, reactive, ref, nextTick } from
 import { useStore } from 'vuex'
 import { useRoute, useRouter } from 'vue-router'
 import tabsHook from './tabsHook'
+import { log } from 'util'
 interface ElScrollbar {
   scrollbar: HTMLDivElement,
   [propName: string]: any
@@ -81,13 +82,17 @@ export default defineComponent({
     }
     // 当前页面组件重新加载
     function pageReload() {
-      const { fullPath, meta, name } = unref(route);
-      if (meta.cache && name) {
-        store.commit('keepAlive/delKeepAliveComponentsName', name)
-      }
-      router.replace({
-        path: "/redirect" + fullPath
-      });
+      const self: any = route.matched[route.matched.length-1].instances.default
+      // console.log(route.matched);
+      
+      self.handleReload();
+      // const { fullPath, meta, name } = unref(route);
+      // if (meta.cache && name) {
+      //   store.commit('keepAlive/delKeepAliveComponentsName', name)
+      // }
+      // router.replace({
+      //   path: "/redirect" + fullPath
+      // });
     }
 
     // 关闭当前标签，首页不关闭
