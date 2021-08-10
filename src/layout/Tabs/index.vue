@@ -24,7 +24,7 @@
           </el-dropdown-menu>
         </template>
       </el-dropdown>
-      <el-tooltip class="item" effect="dark" :content="contentFullScreen ? '退出全屏':'内容全屏'" placement="bottom">
+      <el-tooltip class="item" effect="dark" :content="contentFullScreen ? $t('message.system.fullScreenBack'):$t('message.system.fullScreen')" placement="bottom">
         <i class="el-icon-full-screen" @click="onFullscreen"></i>
       </el-tooltip>
     </div>
@@ -83,16 +83,8 @@ export default defineComponent({
     // 当前页面组件重新加载
     function pageReload() {
       const self: any = route.matched[route.matched.length-1].instances.default
-      // console.log(route.matched);
       
       self.handleReload();
-      // const { fullPath, meta, name } = unref(route);
-      // if (meta.cache && name) {
-      //   store.commit('keepAlive/delKeepAliveComponentsName', name)
-      // }
-      // router.replace({
-      //   path: "/redirect" + fullPath
-      // });
     }
 
     // 关闭当前标签，首页不关闭
@@ -219,7 +211,7 @@ export default defineComponent({
     border-top: 1px solid var(--system-header-border-color);
     box-shadow: 0 1px 4px 0 rgba(0, 0, 0, .1);
     .handle {
-      padding-right: 20px;
+      min-width: 90px;
       height: 100%;
       display: flex;
       align-items: center;

@@ -19,9 +19,28 @@ export default {
     },
     setting: {
       name: 'setting',
-      showLogo: 'show logo',
-      showBreadcrumb: 'show breadcrumb',
-      keepOnlyOneMenu: 'keep only one menu open'
+      
+      style: {
+        name: 'full style setting',
+        default: 'default menu style',
+        light: 'light menu style',
+        dark: 'dark menu style'
+      },
+      primaryColor: {
+        name: 'primary color',
+        blue: 'default blue',
+        red: 'rose red',
+        violet: 'grace violet',
+        green: 'story green',
+        cyan: 'cyan',
+        black: 'geek black'
+      },
+      other: {
+        name: 'other setting',
+        showLogo: 'show logo',
+        showBreadcrumb: 'show breadcrumb',
+        keepOnlyOneMenu: 'keep only one menu open',
+      }
     },
     tab: {
       reload: 'refresh',

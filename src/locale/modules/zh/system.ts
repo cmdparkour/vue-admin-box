@@ -19,9 +19,28 @@ export default {
     },
     setting: {
       name: '系统设置',
-      showLogo: '显示logo',
-      showBreadcrumb: '显示面包屑导航',
-      keepOnlyOneMenu: '保持一个菜单展开'
+      
+      style: {
+        name: '整体风格设置',
+        default: '默认菜单风格',
+        light: '亮色菜单风格',
+        dark: '暗色菜单风格'
+      },
+      primaryColor: {
+        name: '主题色',
+        blue: '默认蓝',
+        red: '玫瑰红',
+        violet: '优雅紫',
+        green: '故事绿',
+        cyan: '明青',
+        black: '极客黑'
+      },
+      other: {
+        name: '其他设置',
+        showLogo: '显示logo',
+        showBreadcrumb: '显示面包屑导航',
+        keepOnlyOneMenu: '保持一个菜单展开',
+      }
     },
     tab: {
       reload: '重新加载',

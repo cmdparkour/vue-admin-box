@@ -43,7 +43,6 @@ const router = createRouter({
 let asyncRoutes: RouteRecordRaw[] = [
   ...Dashboard,
   ...Document,
-  ...Permission,
   ...Component,
   ...Pages,
   ...Menu,

@@ -36,4 +36,16 @@
   --el-color-primary: var(--system-primary-color);
 }
 
+// 进度条颜色修改为主题色
+body #nprogress .bar {
+  background-color: var(--system-primary-color);
+}
+body #nprogress .peg {
+  box-shadow: 0 0 10px var(--system-primary-color), 0 0 5px var(--system-primary-color);
+}
+body #nprogress .spinner-icon {
+  border-top-color: var(--system-primary-color);
+  border-left-color: var(--system-primary-color);
+}
+
 @import './modules/dark.scss';
