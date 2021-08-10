@@ -23,7 +23,4 @@ const i18n = createI18n({
 })
 document.getElementsByTagName('html')[0].setAttribute('lang', store.state.app.lang)
 
-export {
-  messages
-}
 export default i18n
