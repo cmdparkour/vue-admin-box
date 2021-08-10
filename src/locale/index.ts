@@ -21,6 +21,7 @@ const i18n = createI18n({
   fallbackLocale: 'zh-cn',
   messages
 })
-document.getElementsByTagName('html')[0].setAttribute('lang', store.state.app.lang)
+
+document.getElementsByTagName('html')[0].setAttribute('lang', locale)
 
 export default i18n

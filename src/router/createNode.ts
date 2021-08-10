@@ -8,7 +8,7 @@ export function createNameComponent(component: any) {
   return () => {
     return new Promise((res) => {
       component().then((comm: any) => {
-        const name = (comm.default.name || 'okAdminMain') + '$' + Date.now();
+        const name = (comm.default.name || 'vueAdminBox') + '$' + Date.now();
         const tempComm = defineComponent({
           name,
           setup() {

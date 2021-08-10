@@ -211,7 +211,7 @@ export default defineComponent({
     border-top: 1px solid var(--system-header-border-color);
     box-shadow: 0 1px 4px 0 rgba(0, 0, 0, .1);
     .handle {
-      min-width: 90px;
+      min-width: 95px;
       height: 100%;
       display: flex;
       align-items: center;
