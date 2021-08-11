@@ -30,9 +30,10 @@
 
 - [demo](http://vue-admin-box.51weblove.com)
 - [github地址](https://github.com/cmdparkour/vue-admin-box)
+- [码云地址](https://gitee.com/cmdparkour/vue-admin-box)
 
 ## 基础模板
-共四个基础模板，均适合从零研发使用，可在[vue-admin-box-template](https://github.com/cmdparkour/vue-admin-box-template)仓库中直接查看，模板如下所示
+共四个基础模板，均适合从零研发使用，可在[github](https://github.com/cmdparkour/vue-admin-box-template)、[码云](https://gitee.com/cmdparkour/vue-admin-box-template)仓库中直接查看，模板如下所示
 1. template-ts-i18n 基础模板，内含ts语法+国际化配置 [demo](http://vue-admin-box-template.51weblove.com/ts-i18n/)
 2. template-ts 基础模板，只含ts语法，国际化已去除 [demo](http://vue-admin-box-template.51weblove.com/ts)
 3. template-js-i18n 基础模板，js语法 + 国际化配置 [demo](http://vue-admin-box-template.51weblove.com/js-i18n)
