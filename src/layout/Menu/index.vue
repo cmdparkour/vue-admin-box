@@ -1,17 +1,19 @@
 <template>
-  <el-menu
-    class="layout-menu system-scrollbar"
-    background-color="var(--system-menu-background)"
-    text-color="var(--system-menu-text-color)"
-    active-text-color="var(--system-primary-color)"
-    :default-active="activeMenu"
-    :class="isCollapse? 'collapse': ''"
-    :collapse="isCollapse"
-    :collapse-transition="false"
-    :unique-opened="expandOneMenu"
-  >
-    <menu-item v-for="(menu, key) in allRoutes" :key="key" :menu="menu" />
-  </el-menu>
+  <el-scrollbar>
+    <el-menu
+      class="layout-menu system-scrollbar"
+      background-color="var(--system-menu-background)"
+      text-color="var(--system-menu-text-color)"
+      active-text-color="var(--system-primary-color)"
+      :default-active="activeMenu"
+      :class="isCollapse? 'collapse': ''"
+      :collapse="isCollapse"
+      :collapse-transition="false"
+      :unique-opened="expandOneMenu"
+    >
+      <menu-item v-for="(menu, key) in allRoutes" :key="key" :menu="menu" />
+    </el-menu>
+  </el-scrollbar>
 </template>
 
 <script lang="ts">
@@ -50,6 +52,9 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
+  .el-scrollbar {
+    background-color: var(--system-menu-background);
+  }
   .layout-menu {
     width: 100%;
     flex: 1;
