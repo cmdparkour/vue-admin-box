@@ -101,6 +101,14 @@ export default defineComponent({
             background-color: var(--system-menu-hover-background) !important;
           }
         }
+        .el-submenu {
+          .el-submenu__title {
+            background-color: var(--system-menu-children-background) !important;
+            &:hover {
+              background-color: var(--system-primary-color) !important;
+            }
+          }
+        }
       }
     }
   }
