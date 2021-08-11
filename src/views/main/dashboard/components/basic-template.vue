@@ -3,22 +3,29 @@
     <template #header>
       <div class="card-header">
         <span>基础模板</span>
+        <el-link type="primary" href="http://www.github.com/cmdparkour/vue-admin-box-template" target="_blank" style="margin-left: 20px;">github地址</el-link>
       </div>
     </template>
       <div class="box">
         <div class="item">
-          <h4>vue-admin-template-ts</h4>
-          <p>ts版本的基础模板，支持ts，国际化，去除所有多余的页面及路由</p>
-          <el-link type="primary" href="http://vue-admin-box-ts.51weblove.com" target="_blank">demo</el-link>
-          <el-link type="primary" href="http://www.github.com/cmdparkour/vue-admin-box-template-ts" target="_blank">github地址</el-link>
-          <el-link type="primary" href="https://gitee.com/cmdparkour/vue-admin-box-template-ts" target="_blank">码云地址</el-link>
+          <h4>ts</h4>
+          <p>ts版本的基础模板，无国际化</p>
+          <el-link type="primary" href="http://vue-admin-box-template.51weblove.com/ts" target="_blank">demo</el-link>
         </div>
         <div class="item">
-          <h4>vue-admin-template-js</h4>
-          <p>js版本的基础模板，去除ts，去除国际化，去除所有多余的页面及路由</p>
-          <el-link type="primary" href="http://vue-admin-box-js.51weblove.com" target="_blank">demo</el-link>
-          <el-link type="primary" href="http://www.github.com/cmdparkour/vue-admin-box-template-js" target="_blank">github地址</el-link>
-          <el-link type="primary" href="https://gitee.com/cmdparkour/vue-admin-box-template-js" target="_blank">码云地址</el-link>
+          <h4>ts-i18n</h4>
+          <p>ts版本的基础模板，含国际化功能</p>
+          <el-link type="primary" href="http://vue-admin-box-template.51weblove.com/ts-i18n" target="_blank">demo</el-link>
+        </div>
+        <div class="item">
+          <h4>js</h4>
+          <p>js版本的基础模板，无国际化</p>
+          <el-link type="primary" href="http://vue-admin-box-template.51weblove.com/js" target="_blank">demo</el-link>
+        </div>
+        <div class="item">
+          <h4>js-i18n</h4>
+          <p>js版本的基础模板，含国际化功能</p>
+          <el-link type="primary" href="http://vue-admin-box-template.51weblove.com/js-i18n" target="_blank">demo</el-link>
         </div>
       </div>
   </el-card>
