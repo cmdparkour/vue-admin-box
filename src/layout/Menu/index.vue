@@ -57,9 +57,6 @@ export default defineComponent({
   }
   .layout-menu {
     width: 100%;
-    flex: 1;
-    height: 0;
-    overflow-y: auto;
     &.collapse {
       margin-left: 0px;
     }
