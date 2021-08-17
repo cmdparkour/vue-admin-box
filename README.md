@@ -64,19 +64,6 @@ vue-admin-box是一个免费并且开源的中后台管理系统模板。使用�
 - 数据请求：axios
 - 实用工具库：@vueuse/core
 
-
-
-## 效果预览
-
-<p align="center">
-    <img src="http://blog.51weblove.com/wp-content/uploads/2021/08/QQ截图20210810174824.png">
-    <img src="http://blog.51weblove.com/wp-content/uploads/2021/08/QQ截图20210810174848.png">
-    <img src="http://blog.51weblove.com/wp-content/uploads/2021/08/QQ截图20210810174923.png">
-    <img src="http://blog.51weblove.com/wp-content/uploads/2021/08/QQ截图20210810174940.png">
-    <img src="http://blog.51weblove.com/wp-content/uploads/2021/08/QQ截图20210810175009.png">
-</p>
-
-
 ## 使用
 
 1. 获取源码资源包
@@ -109,4 +96,16 @@ vue-admin-box是一个免费并且开源的中后台管理系统模板。使用�
    npm run build
    ```
    
+## Partner project
+* [H5-dooring - 一款h5端页面可视化编辑器](http://h5.dooring.cn)
 
+
+## 效果预览
+
+<p align="center">
+    <img src="http://blog.51weblove.com/wp-content/uploads/2021/08/QQ截图20210810174824.png">
+    <img src="http://blog.51weblove.com/wp-content/uploads/2021/08/QQ截图20210810174848.png">
+    <img src="http://blog.51weblove.com/wp-content/uploads/2021/08/QQ截图20210810174923.png">
+    <img src="http://blog.51weblove.com/wp-content/uploads/2021/08/QQ截图20210810174940.png">
+    <img src="http://blog.51weblove.com/wp-content/uploads/2021/08/QQ截图20210810175009.png">
+</p>
