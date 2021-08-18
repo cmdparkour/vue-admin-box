@@ -50,7 +50,8 @@ export default defineComponent({
         name: '其他资源',
         thumb: 'http://blog.51weblove.com/wp-content/themes/2021062118010181/timthumb.php?src=http://blog.51weblove.com/wp-content/uploads/2018/12/2018120512374712.jpg&h=284&w=248&zc=1',
         data: [
-          { id: 1, name: 'vue-i18n', des: '国际化解决方案', link: 'https://element-plus.gitee.io/#/zh-CN' }
+          { id: 1, name: 'vue-i18n', des: '国际化解决方案', link: 'https://vue-i18n.intlify.dev/', img: 'https://vue-i18n.intlify.dev/vue-i18n-logo.png' },
+          { id: 2, name: 'h5-dooring', des: 'h5低代码开源平台', link: 'https://github.com/MrXujiang/h5-Dooring', img: '' },
         ]
       }
     ]

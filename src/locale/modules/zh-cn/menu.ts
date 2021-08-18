@@ -79,7 +79,8 @@ export default {
       intro: '使用说明',
       function: '功能说明',
       keepAlive: 'keepAlive使用说明',
-      crud: '数据表格的增删改查'
+      crud: '数据表格的增删改查',
+      theme: '自定义主题'
     }
   },
 }

@@ -26,6 +26,11 @@ const route = [
         path: 'crud',
         component: createNameComponent(() => import('@/views/main/document/crud.vue')),
         meta: { title: 'message.menu.document.crud' }
+      },
+      {
+        path: 'theme',
+        component: createNameComponent(() => import('@/views/main/document/theme.vue')),
+        meta: { title: 'message.menu.document.theme' }
       }
     ]
   }

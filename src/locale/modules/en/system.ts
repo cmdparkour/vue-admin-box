@@ -19,7 +19,6 @@ export default {
     },
     setting: {
       name: 'setting',
-      
       style: {
         name: 'full style setting',
         default: 'default menu style',

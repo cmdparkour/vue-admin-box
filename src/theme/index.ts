@@ -1,5 +1,6 @@
 
 export interface Colors {
+  name: '' // 国际化版本请提供国际化字符串如：message.system.setting.style.default，非国际化版本直接写字符串，如：默认菜单风格
   menu: {
     textColor: string
     background: string
@@ -39,6 +40,7 @@ export interface Style {
 }
 export const style: Style = {
   'default': {
+    name: 'message.system.setting.style.default',
     menu: {
       textColor: '#bfcbd9',
       background: '#28415a',
@@ -70,6 +72,7 @@ export const style: Style = {
     }
   },
   'light': {
+    name: 'message.system.setting.style.light',
     menu: {
       textColor: '#272727',
       background: '#fff',
@@ -101,6 +104,7 @@ export const style: Style = {
     }
   },
   'dark': {
+    name: 'message.system.setting.style.dark',
     menu: {
       textColor: '#bbb',
       background: '#18181c',

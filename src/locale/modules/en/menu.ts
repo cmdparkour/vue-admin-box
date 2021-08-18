@@ -79,7 +79,8 @@ export default {
       intro: 'intro',
       function: 'function',
       keepAlive: 'how to use keepAlive',
-      crud: 'crud table and form'
+      crud: 'crud table and form',
+      theme: 'how to diy your theme'
     }
   },
 }
