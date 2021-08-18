@@ -30,7 +30,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, computed, watch } from 'vue'
+import { defineComponent, computed } from 'vue'
 import appLink from './Link.vue'
 export default defineComponent({
   name: 'menu-item',
