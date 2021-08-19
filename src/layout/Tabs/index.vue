@@ -38,7 +38,6 @@ import { defineComponent, computed, unref, watch, reactive, ref, nextTick } from
 import { useStore } from 'vuex'
 import { useRoute, useRouter } from 'vue-router'
 import tabsHook from './tabsHook'
-import { log } from 'util'
 interface ElScrollbar {
   scrollbar: HTMLDivElement,
   [propName: string]: any

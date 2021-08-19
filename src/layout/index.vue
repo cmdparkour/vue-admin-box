@@ -39,15 +39,7 @@
 </template>
 
 <script lang="ts">
-import type { Ref } from "vue";
-import type { RouteRecordName } from "vue-router";
-import {
-  defineComponent,
-  computed,
-  onBeforeMount,
-  ref,
-  getCurrentInstance,
-} from "vue";
+import { defineComponent, computed, onBeforeMount } from "vue";
 import { useStore } from "vuex";
 import { useRouter } from "vue-router";
 import { useEventListener } from "@vueuse/core";
