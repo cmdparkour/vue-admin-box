@@ -39,6 +39,8 @@ const actions = {
         .then(infoRes => {
           resolve(res.data.token)
         })
+      }).catch(err => {
+        reject(err)
       })
     })
   },
