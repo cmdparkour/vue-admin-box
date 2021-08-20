@@ -1,6 +1,6 @@
 import { createStore, createLogger } from 'vuex'
-import Presistent from './plugins/persistent'
-const debug = process.env.NODE_ENV !== 'production'
+import Persistent from './plugins/persistent'
+const debug = import.meta.env.MODE !== 'production'
 
 const files= import.meta.globEager('./modules/*.ts')
 
@@ -11,7 +11,7 @@ Object.keys(files).forEach((c: string) => {
   modules[moduleName] = module
 })
 
-const presistent = Presistent({ key: 'vuex', modules, modulesKeys: {
+const persistent = Persistent({ key: 'vuex', modules, modulesKeys: {
   local: Object.keys(modules),
   session: []
 } })
@@ -21,5 +21,5 @@ export default createStore({
     ...modules
   },
   strict: debug,
-  plugins: debug ? [createLogger(), presistent] : [presistent]
+  plugins: debug ? [createLogger(), persistent] : [persistent]
 })

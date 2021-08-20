@@ -53,7 +53,7 @@ let asyncRoutes: RouteRecordRaw[] = [
   ...Community,
 ]
 // 动态路由的权限新增，供登录后调用
-export function addRoutes() {
+export async function addRoutes() {
   
   // let data = [
   //   {
