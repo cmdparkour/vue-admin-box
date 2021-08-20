@@ -101,7 +101,7 @@ export default defineComponent({
             duration: 1000
           })
           await addRoutes()
-          await router.push(route?.query?.redirect as RouteLocationRaw || '/')
+          await router.push(route.query.redirect as RouteLocationRaw || '/')
         }).finally(() => {
           form.loading = false
         })

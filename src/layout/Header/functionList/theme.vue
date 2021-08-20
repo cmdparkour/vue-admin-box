@@ -54,11 +54,12 @@
 <script lang="ts">
 import { defineComponent, ref, reactive, computed, watch } from 'vue'
 import { useStore } from 'vuex'
+import { useI18n } from 'vue-i18n'
 import themeIcon from './theme/theme-icon.vue'
 import themeColor from './theme/theme-color.vue'
 import type { Style, Colors } from '@/theme/index'
 import { style } from '@/theme/index'
-import { useI18n } from 'vue-i18n'
+
 interface Option {
   name: string,
   value: boolean,
