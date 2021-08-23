@@ -127,15 +127,18 @@ export default defineComponent({
     }
 
     // 删除菜单项
-    function delMenu(menu: any) {     
+    function delMenu(menu: any) {
+      let index = 0
       if (!menu.meta.hideClose) {
         if (menu.meta.cache && menu.name) {
           store.commit('keepAlive/delKeepAliveComponentsName', menu.name)
         }
-        menuList.value.splice(menuList.value.findIndex((item: any) => item.path === menu.path), 1)
+        index = menuList.value.findIndex((item: any) => item.path === menu.path)
+        console.log(index)
+        menuList.value.splice(index, 1)
       }
       if (menu.path === activeMenu.path) {
-        router.push(defaultMenu.path)
+        index - 1 > 0 ? router.push(menuList.value[index - 1].path) : router.push(defaultMenu.path)
       }
     }
 
