@@ -2,7 +2,7 @@
   <div class="layout-container">
     <div class="layout-container-table">
       <div class="box">
-        <el-button v-debounce="getData" type="primary">防抖按钮</el-button>
+        <el-button v-debounce="getData(123)" type="primary">防抖按钮</el-button>
       </div>
     </div>
   </div>
@@ -17,7 +17,8 @@ export default defineComponent({
     Debounce
   },
   setup() {
-    const getData = ()=> {
+    const getData = (str)=> {
+      console.log(str)
       ElMessage({
         type: 'success',
         message: '正在拉取数据'

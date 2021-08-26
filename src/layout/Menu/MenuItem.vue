@@ -1,6 +1,6 @@
 <template>
   <template v-if="!menu.hideMenu">
-    <el-submenu v-if="showMenuType === 2" :index="pathResolve">
+    <el-submenu v-if="showMenuType === 2" :index="pathResolve" :show-timeout="0" :hide-timeout="0">
       <template #title>
         <i :class="menu.meta.icon" v-if="menu.meta.icon"></i>
         <span>{{ $t(menu.meta.title) }}</span>
@@ -12,7 +12,7 @@
         <i :class="menu.children[0].meta.icon || menu.meta.icon" v-if="menu.children[0].meta.icon || menu.meta.icon"></i>
         <template #title>{{ $t(menu.children[0].meta.title) }}</template>
       </el-menu-item>
-      <el-submenu v-else :index="pathResolve">
+      <el-submenu v-else :index="pathResolve" :show-timeout="0" :hide-timeout="0">
         <template #title>
           <i :class="menu.children[0].meta.icon || menu.meta.icon" v-if="menu.children[0].meta.icon || menu.meta.icon"></i>
           <span>{{ $t(menu.children[0].meta.title) }}</span>

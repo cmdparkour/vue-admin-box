@@ -102,6 +102,9 @@ export default defineComponent({
       // 设置主题色
       body.style.setProperty('--system-primary-color', state.primaryColor)
       for (let i in userTheme) {
+        if (i === 'name') {
+          continue;
+        }
         const item: any = userTheme[i as keyof Colors]
         for (let y in item) {
           let cssVarName = '--system-' + i + '-' + y.replace(/([A-Z])/g, "-$1").toLowerCase()

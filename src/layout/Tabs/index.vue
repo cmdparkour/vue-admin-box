@@ -134,7 +134,6 @@ export default defineComponent({
           store.commit('keepAlive/delKeepAliveComponentsName', menu.name)
         }
         index = menuList.value.findIndex((item: any) => item.path === menu.path)
-        console.log(index)
         menuList.value.splice(index, 1)
       }
       if (menu.path === activeMenu.path) {

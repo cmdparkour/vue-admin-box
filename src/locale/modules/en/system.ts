@@ -23,6 +23,7 @@ export default {
         name: 'full style setting',
         default: 'default menu style',
         light: 'light menu style',
+        chinese: 'chinese menu style',
         dark: 'dark menu style'
       },
       primaryColor: {

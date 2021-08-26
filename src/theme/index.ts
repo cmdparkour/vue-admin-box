@@ -103,6 +103,38 @@ export const style: Style = {
       borderColor: '#ebeef5'
     }
   },
+  'chinese': {
+    name: 'message.system.setting.style.chinese',
+    menu: {
+      textColor: '#c7c7c7',
+      background: '#232323',
+      childrenBackground: '#292929',
+      hoverBackground: '#1d1d1d',
+      submenuActiveColor: 'var(--system-primary-color)'
+    },
+    logo: {
+      color: '#fff',
+      background: '#232323'
+    },
+    header: {
+      background: '#f1f0ed',
+      textColor: '#303133',
+      itemHoverColor: 'rgba(0,0,0,.025)',
+      breadcrumbTextColor: '#606266',
+      borderColor: '#d8dce5',
+      tabBackground: 'rgba(216, 216, 216, 0.51)'
+    },
+    container: {
+      background: 'rgba(255, 255, 255, 0.92)',
+      mainBackground: 'rgba(255, 255, 255, 0.92)'
+    },
+    page: {
+      background: 'rgba(255, 255, 255, 0.92)',
+      color: '#303133',
+      tipColor: 'rgba(0, 0, 0, 0.45)',
+      borderColor: '#ebeef5'
+    }
+  },
   'dark': {
     name: 'message.system.setting.style.dark',
     menu: {

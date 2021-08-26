@@ -24,6 +24,7 @@ export default {
         name: '整体风格设置',
         default: '默认菜单风格',
         light: '亮色菜单风格',
+        chinese: '中国水墨风',
         dark: '暗色菜单风格'
       },
       primaryColor: {
