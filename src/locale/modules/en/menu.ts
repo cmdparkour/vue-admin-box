@@ -78,6 +78,7 @@ export default {
       name: 'document',
       intro: 'intro',
       function: 'function',
+      menu: 'diy route menus',
       keepAlive: 'how to use keepAlive',
       crud: 'crud table and form',
       theme: 'how to diy your theme'

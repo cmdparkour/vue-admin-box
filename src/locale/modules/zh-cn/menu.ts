@@ -78,6 +78,7 @@ export default {
       name: '文档',
       intro: '使用说明',
       function: '功能说明',
+      menu: '路由菜单配置',
       keepAlive: 'keepAlive使用说明',
       crud: '数据表格的增删改查',
       theme: '自定义主题'

@@ -28,6 +28,7 @@ import Print from './modules/print'
 import Community from './modules/community'
 import System from './modules/system'
 
+// 初始化必须要的路由
 let modules: object[] = [
   ...System
 ]
@@ -40,6 +41,8 @@ const router = createRouter({
   history: createWebHashHistory(),
   routes
 })
+
+// 登录后动态加入的路由
 let asyncRoutes: RouteRecordRaw[] = [
   ...Dashboard,
   ...Document,
@@ -55,7 +58,7 @@ let asyncRoutes: RouteRecordRaw[] = [
 // 动态路由的权限新增，供登录后调用
 export async function addRoutes() {
   
-  // let data = [
+  // let data = [ // 来源于后端的数据
   //   {
   //     path: '/echarts',
   //     meta: { title: '权限管理', icon: 'el-icon-pie-chart' },
@@ -78,8 +81,8 @@ export async function addRoutes() {
   //     ]
   //   },
   // ]
-  // eachData(data, 0)
-  // data.forEach(item => {
+  // eachData(data, 0) // 匹配本地路由
+  // data.forEach(item => { // 添加到路由表里面去
   //   modules.push(item)
   //   router.addRoute(item)
   // })
@@ -101,13 +104,14 @@ function eachData(data: any, type: number) {
       }
       eachData(d.children, type + 1)
     } else {
-      /* 暂时写死，todo项 */
+      /* 组件匹配暂时写死，todo项 */
       d.component = createNameComponent(() => import('@/views/main/pages/crudTable/index.vue'))
     }
   })
   console.log(data)
 }
 
+// 如果你登录了，那么系统才会把路由加入到路由表里面，防止越权访问
 if (store.state.user.token) {
   addRoutes()
 }

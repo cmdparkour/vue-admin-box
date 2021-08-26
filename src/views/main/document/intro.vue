@@ -1,6 +1,7 @@
 <template>
   <div class="layout-container">
     <h1>使用说明</h1>
+    <p>为什么文档是写在系统内，一方面是因为偷懒，另一方面是因为我坚信，如果我用着不爽，那么大家用着也不会爽，所以文档部分就暂时放置于此了</p>
     <div style="padding: 0 10px;"><basic-template /></div>
     <article>
       <h2>简介</h2>

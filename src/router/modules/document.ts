@@ -18,6 +18,11 @@ const route = [
         meta: { title: 'message.menu.document.function' }
       },
       {
+        path: 'menu',
+        component: createNameComponent(() => import('@/views/main/document/menu.vue')),
+        meta: { title: 'message.menu.document.menu' }
+      },
+      {
         path: 'keep-alive',
         component: createNameComponent(() => import('@/views/main/document/keepAlive.vue')),
         meta: { title: 'message.menu.document.keepAlive' }
