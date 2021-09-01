@@ -20,7 +20,8 @@ export default {
       dragPane: '可拖拽面板',
       map: '地图组件',
       cutPhoto: '弹窗图片裁剪',
-      rightMenu: '右键菜单'
+      rightMenu: '右键菜单',
+      exportExcel:'导出文件'
     },
     page: {
       name: '页面',

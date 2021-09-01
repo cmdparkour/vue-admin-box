@@ -9,7 +9,8 @@
     "resolveJsonModule": true,
     "esModuleInterop": true,
     "lib": ["esnext", "dom"],
-    "types": ["vite/client"],
+    "types": ["vite/client","node"],
+    "typeRoots": [ "../node_modules/@types" ],
     "baseUrl": "./",
     "paths": {
       "@/*": ["src/*"]
