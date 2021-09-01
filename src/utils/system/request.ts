@@ -42,7 +42,9 @@ service.interceptors.response.use(
   }
 )
 
+// 错误处理
 function showError(error: any) {
+  // token过期，清除本地数据，并跳转至登录页面
   if (error.code === 403) {
     // to re-login
     store.dispatch('user/loginOut')

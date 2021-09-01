@@ -43,7 +43,7 @@ export const style: Style = {
     name: 'message.system.setting.style.default',
     menu: {
       textColor: '#bfcbd9',
-      background: '#28415a',
+      background: '#181f31',
       childrenBackground: '#1f2d3d',
       hoverBackground: '#203448',
       submenuActiveColor: '#fff'
@@ -55,7 +55,7 @@ export const style: Style = {
     header: {
       background: '#fff',
       textColor: '#303133',
-      itemHoverColor: 'rgba(0,0,0,.025)',
+      itemHoverColor: 'rgba(0,0,0,.06)',
       breadcrumbTextColor: '#606266',
       borderColor: '#d8dce5',
       tabBackground: '#fff'

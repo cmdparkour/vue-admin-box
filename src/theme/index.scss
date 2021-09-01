@@ -9,16 +9,16 @@
 
   // 菜单颜色相关
   --system-menu-text-color: #bfcbd9;
-  --system-menu-background: #28415a;
+  --system-menu-background: #181f31;
   --system-menu-children-background: #1f2d3d;
   --system-menu-submenu-active-color: #fff; 
   --system-menu-hover-background: #203448;
 
   // header区域
   --system-header-background: #fff;
-  --system-header-text-color: #bbb;
-  --system-header-breadcrumb-text-color: #97a8be;
-  --system-header-item-hover-color: #000;
+  --system-header-text-color: #303133;
+  --system-header-breadcrumb-text-color: #606266;
+  --system-header-item-hover-color: rgba(0,0,0,.06);
   --system-header-border-color: #d8dce5;
   --system-header-tab-background: #fff;
 
@@ -30,7 +30,7 @@
   --system-page-background: #fff; // 主背景
   --system-page-color: #303133; // 主要的文本颜色
   --system-page-tip-color: rgba(0, 0, 0, 0.45); // 协助展示的文本颜色
-  --system-page-border-color: #000; // 通用的边框配置色，便于主题扩展
+  --system-page-border-color: #ebeef5; // 通用的边框配置色，便于主题扩展
   
   // element主题色修改
   --el-color-primary: var(--system-primary-color);

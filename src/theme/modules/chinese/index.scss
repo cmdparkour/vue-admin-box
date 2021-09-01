@@ -1,5 +1,5 @@
 // 带有本地背景图片的主题需要在main.ts里面主动引入，否则无法正常解析
-.chinese {
+[data-theme='chinese'] {
   .el-main {
     background-image: url("./screen.png");
     background-size: 100% 100%;

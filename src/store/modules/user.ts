@@ -67,6 +67,7 @@ const actions = {
     .finally(() => {
       localStorage.removeItem('tabs')
       localStorage.removeItem('vuex')
+      sessionStorage.removeItem('vuex')
       location.reload()
     })
   }

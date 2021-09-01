@@ -97,7 +97,7 @@ export default defineComponent({
       const userTheme = style[state.style]
       const body = document.getElementsByTagName('body')[0]
       // 设置全局顶部body上的class名称，即为主题名称，便于自定义配置符合当前主题的样式统一入口
-      body.className = state.style
+      body.setAttribute('data-theme', state.style)
       // 需要设置的颜色参照theme.scss，位置：assets/style/theme.scss
       // 设置主题色
       body.style.setProperty('--system-primary-color', state.primaryColor)

@@ -11,6 +11,10 @@ Object.keys(files).forEach((c: string) => {
   modules[moduleName] = module
 })
 
+// 这是一个vuex本地存储插件，默认把vuex所有数据都做存储了
+// local代表存储在localStorage里面，进行永久存储
+// session代表存储在sessionStorage里面，进行临时存储
+// 都接收Modules的文件名数组，如：['app', 'keepAlive', 'user']
 const persistent = Persistent({ key: 'vuex', modules, modulesKeys: {
   local: Object.keys(modules),
   session: []

@@ -17,7 +17,6 @@ import { createNameComponent } from './createNode'
 // 引入modules
 import Dashboard from './modules/dashboard'
 import Document from './modules/document'
-import Permission from './modules/permission'
 import Pages from './modules/pages'
 import Menu from './modules/menu'
 import Component from './modules/component'
