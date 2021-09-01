@@ -20,7 +20,8 @@ export default {
       dragPane: 'dragPane',
       map: 'map',
       cutPhoto: 'cutPhoto',
-      rightMenu: 'rightMenu'
+      rightMenu: 'rightMenu',
+      exportExcel:'exportExcel'
     },
     page: {
       name: 'page',

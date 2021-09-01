@@ -1,5 +1,5 @@
-@import "./transition.scss";
-@import "@/theme/index.scss";
+@import './transition.scss';
+@import '@/theme/index.scss';
 .layout-container {
   background-color: var(--system-container-main-background);
   width: calc(100% - 30px);
@@ -15,6 +15,9 @@
     &-handle {
       display: flex;
       justify-content: flex-start;
+      .export-excel-btn {
+        margin-left: 15px;
+      }
     }
     &-search {
       display: flex;
@@ -55,7 +58,7 @@ a {
 }
 
 /** element-plus **/
-.el-icon{
+.el-icon {
   text-align: center;
 }
 
@@ -87,5 +90,4 @@ a {
       }
     }
   }
- 
 }
