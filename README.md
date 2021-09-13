@@ -32,6 +32,7 @@
 - [demo](http://vue-admin-box.51weblove.com)
 - [github地址](https://github.com/cmdparkour/vue-admin-box)
 - [码云地址](https://gitee.com/cmdparkour/vue-admin-box)
+- 国内推荐使用yarn或者cnpm进行安装，npm安装容易产生问题
 
 ## 基础模板
 共四个基础模板，均适合从零研发使用，可在[github](https://github.com/cmdparkour/vue-admin-box-template)、[码云](https://gitee.com/cmdparkour/vue-admin-box-template)仓库中直接查看，模板如下所示
