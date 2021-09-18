@@ -1,28 +1,28 @@
 import { loginApi, getInfoApi, loginOutApi } from '@/api/user'
 import { ActionContext } from 'vuex'
 
-interface State {
+export interface userState {
   token: string,
   info: object
 }
-const state = (): State => ({
+const state = (): userState => ({
   token: '', // 登录token
   info: {},  // 用户信息
 })
 
 // getters
 const getters = {
-  token(state: State) {
+  token(state: userState) {
     return state.token
   }
 }
 
 // mutations
 const mutations = {
-  tokenChange(state: State, token: string) {
+  tokenChange(state: userState, token: string) {
     state.token = token
   },
-  infoChange(state: State, info: object) {
+  infoChange(state: userState, info: object) {
     state.info = info
   }
 }
@@ -30,7 +30,7 @@ const mutations = {
 // actions
 const actions = {
   // login by login.vue
-  login({ commit, dispatch }: ActionContext<State, State>, params: any) {
+  login({ commit, dispatch }: ActionContext<userState, userState>, params: any) {
     return new Promise((resolve, reject) => {
       loginApi(params)
       .then(res => {
@@ -45,7 +45,7 @@ const actions = {
     })
   },
   // get user info after user logined
-  getInfo({ commit }: ActionContext<State, State>, params: any) {
+  getInfo({ commit }: ActionContext<userState, userState>, params: any) {
     return new Promise((resolve, reject) => {
       getInfoApi(params)
       .then(res => {
@@ -56,7 +56,7 @@ const actions = {
   },
 
   // login out the system after user click the loginOut button
-  loginOut({ commit }: ActionContext<State, State>) {
+  loginOut({ commit }: ActionContext<userState, userState>) {
     loginOutApi()
     .then(res => {
 
