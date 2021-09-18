@@ -9,6 +9,8 @@ import i18n from '@/locale'
 import NProgress from '@/utils/system/nprogress'
 import { changeTitle } from '@/utils/system/title'
 
+NProgress.configure({ showSpinner: false })
+
 // 动态路由相关引入数据
 import Layout from '@/layout/index.vue'
 import MenuBox from '@/components/menu/index.vue'
@@ -56,7 +58,7 @@ let asyncRoutes: RouteRecordRaw[] = [
 ]
 // 动态路由的权限新增，供登录后调用
 export async function addRoutes() {
-  
+
   // let data = [ // 来源于后端的数据
   //   {
   //     path: '/echarts',

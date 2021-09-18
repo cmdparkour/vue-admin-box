@@ -1,8 +1,17 @@
-interface Option {
-  name: string,
-  value: any
+interface Option<T>  {
+  name: keyof optionKey<T>
+  value: optionValue<T>
 }
-interface State {
+
+type optionKey<T> = {
+  [name in keyof T]: string
+}
+
+type optionValue<T> = {
+  value: T[keyof T]
+}
+
+export interface appState {
   isCollapse: boolean,
   contentFullScreen: boolean,
   showLogo: boolean,
@@ -12,9 +21,12 @@ interface State {
   elementSize: string,
   lang: string,
   theme: {
-    primaryColor: string
-  }
+    primaryColor: '#409eff',
+  },
+  menuList: Array<unknown>,
+  [key:string]:unknown
 }
+
 const state = () => ({
   isCollapse: false, // 侧边栏是否收缩展示
   contentFullScreen: false, // 内容是否可全屏展示
@@ -30,29 +42,28 @@ const state = () => ({
       primaryColor: '#409eff',
       menuType: 'side'
     }
-  }
+  },
+  menuList: []
 })
 
 // mutations
 const mutations = {
-  isCollapseChange(state: any, type: boolean) {
+  isCollapseChange(state: appState, type: boolean) {
     state.isCollapse = type
   },
-  contentFullScreenChange(state: any, type: boolean) {
+  contentFullScreenChange(state: appState, type: boolean) {
     state.contentFullScreen = type
   },
-  menuListChange(state: any, arr: []) {
+  menuListChange(state: appState, arr: []) {
     state.menuList = arr
   },
-  stateChange(state: any, option: Option) {
+  stateChange(state: appState, option: Option<appState>) {
     state[option.name] = option.value
   }
 }
 
 // actions
-const actions = {
-
-}
+const actions = {}
 
 export default {
   namespaced: true,
