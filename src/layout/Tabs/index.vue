@@ -1,6 +1,6 @@
 <template>
   <div class="tabs">
-    <el-scrollbar class="scroll-container tags-view-container" ref="scrollbarDom">
+    <el-scrollbar class="scroll-container tags-view-container" ref="scrollbarDom" @wheel.native.prevent="handleScroll">
       <Item
         v-for="menu in menuList"
         :key="menu.meta.title"
