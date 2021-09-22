@@ -58,12 +58,16 @@ export default defineComponent({
     }
     const contentFullScreen = computed(() => store.state.app.contentFullScreen)
     const currentDisabled = computed(() => route.path === defaultMenu.path)
+    const scrollWrapper = computed(() => {
+      if (scrollbarDom.value)
+        return scrollbarDom.value.$refs.wrap
+    })
 
     let activeMenu: any = reactive({ path: '' })
     let menuList = ref(tabsHook.getItem())
     if (menuList.value.length === 0) { // 判断之前有没有调用过
       addMenu(defaultMenu)
-    } 
+    }
     watch(menuList.value, (newVal: []) => {
       tabsHook.setItem(newVal)
     })
@@ -82,7 +86,7 @@ export default defineComponent({
     // 当前页面组件重新加载
     function pageReload() {
       const self: any = route.matched[route.matched.length-1].instances.default
-      
+
       self.handleReload();
     }
 
@@ -180,6 +184,12 @@ export default defineComponent({
       store.commit('keepAlive/setKeepAliveComponentsName', keepAliveNames)
     }
 
+    function handleScroll(e: WheelEvent & { wheelDelta: number }) {
+      const eventDelta = e.wheelDelta || -e.deltaY * 40
+      const $scrollWrapper = scrollWrapper.value
+      $scrollWrapper.scrollLeft = $scrollWrapper.scrollLeft + eventDelta / 4
+    }
+
     // 初始化时调用：1. 新增菜单 2. 初始化activeMenu
     addMenu(route)
     initMenu(route)
@@ -195,7 +205,8 @@ export default defineComponent({
       closeCurrentRoute,
       closeOtherRoute,
       closeAllRoute,
-      currentDisabled
+      currentDisabled,
+      handleScroll
     }
   }
 })
