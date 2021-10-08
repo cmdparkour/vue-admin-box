@@ -113,6 +113,7 @@ export default defineComponent({
   background-color: var(--system-container-background);
   height: 100%;
   padding: 0;
+  overflow-x: hidden;
 }
 .el-main-box {
   width: 100%;

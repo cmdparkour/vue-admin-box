@@ -4,7 +4,6 @@ import {userState} from "@/store/modules/user";
 import {keepAliveState} from "@/store/modules/keepAlive";
 import {appState} from "@/store/modules/app";
 const debug = import.meta.env.MODE !== 'production'
-console.log(debug)
 const files= import.meta.globEager('./modules/*.ts')
 
 export interface RootState {

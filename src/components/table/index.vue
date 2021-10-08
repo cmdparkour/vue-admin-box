@@ -2,6 +2,7 @@
   <div class="system-table-box">
     <el-table
       v-bind="$attrs"
+      ref="table"
       class="system-table"
       border
       height="100%"
@@ -33,7 +34,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, reactive } from 'vue'
+import { defineComponent, reactive, ref, onActivated, onMounted } from 'vue'
 import { Page } from '@/components/table/type'
 export default defineComponent({
   props: {
@@ -52,10 +53,10 @@ export default defineComponent({
     pageSizes: { type: Array, default: [10, 20, 50, 100] }
   },
   setup(props, context) {
+    const table: any = ref(null)
     let timer: any = null
     // 分页相关：监听页码切换事件
     const handleCurrentChange = (val: Number) => {
-      console.log(val)
       if (timer) {
         props.page.index = 1
       } else {
@@ -76,7 +77,12 @@ export default defineComponent({
     const handleSelectionChange = (val: []) =>{
       context.emit("selection-change", val)
     }
+    // 解决BUG：keep-alive组件使用时，表格浮层高度不对的问题
+    onActivated(() => {
+      table.value.doLayout()
+    })
     return {
+      table,
       handleCurrentChange,
       handleSizeChange,
       handleSelectionChange
