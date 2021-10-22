@@ -8,7 +8,8 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from 'vue'
+import { defineComponent, ref, onMounted, watch } from 'vue'
+import type { Ref } from 'vue'
 import { useEventListener } from '@vueuse/core' // 引入监听函数，监听在vue实例中可自动销毁，无须手动销毁
 import * as echarts from 'echarts'
 export default defineComponent({
@@ -17,16 +18,21 @@ export default defineComponent({
   },
   setup(props) {
     let option: any = props.option
+    const chart: Ref<HTMLDivElement|null> = ref(null)
+    onMounted(() => {
+      const dom = chart.value as HTMLDivElement
+      // 需要在页面Dom元素加载后再初始化echarts对象
+      let myChart = echarts.init(dom)
+      myChart.setOption(option)
+      useEventListener("resize", () => myChart.resize());
+      watch(() => props.option, (newVal: any) => {
+        myChart.setOption(newVal)
+      })
+    })
     return {
-      option
+      option,
+      chart
     }
-  },
-  mounted() {
-    const dom: any = this.$refs.chart
-    // 需要在页面Dom元素加载后再初始化echarts对象
-    let myChart = echarts.init(dom)
-    myChart.setOption(this.option)
-    useEventListener("resize", () => myChart.resize());
   }
 })
 </script>

@@ -82,7 +82,7 @@ export async function addRoutes() {
   //     ]
   //   },
   // ]
-  // eachData(data, 0) // 匹配本地路由
+  // eachData(data, 0) // 匹配本地路由，产生一棵新树
   // data.forEach(item => { // 添加到路由表里面去
   //   modules.push(item)
   //   router.addRoute(item)
@@ -106,7 +106,8 @@ function eachData(data: any, type: number) {
       eachData(d.children, type + 1)
     } else {
       /* 组件匹配暂时写死，todo项 */
-      d.component = createNameComponent(() => import('@/views/main/pages/crudTable/index.vue'))
+      // d.component = createNameComponent(() => import('@/views/main/pages/crudTable/index.vue'))
+      d.component = x.component
     }
   })
   console.log(data)
