@@ -1,6 +1,6 @@
 {
   "name": "vue-admin-box",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "scripts": {
     "dev": "vite",
     "start": "vite",
