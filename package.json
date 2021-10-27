@@ -15,7 +15,7 @@
     "codemirror": "^5.61.1",
     "cropperjs": "^1.5.12",
     "echarts": "^5.1.1",
-    "element-plus": "^1.0.2-beta.48",
+    "element-plus": "^1.1.0-beta.24",
     "mockjs": "^1.1.0",
     "normalize.css": "^8.0.1",
     "nprogress": "^0.2.0",

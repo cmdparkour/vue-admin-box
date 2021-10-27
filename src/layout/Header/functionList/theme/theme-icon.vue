@@ -125,6 +125,6 @@ export default defineComponent({
 
   }
   .theme-icon+.theme-icon{
-    margin-left: 20px;
+    margin-left: 12px;
   }
 </style>
