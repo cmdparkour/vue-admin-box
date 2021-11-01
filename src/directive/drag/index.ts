@@ -12,6 +12,7 @@ interface ElType extends HTMLDivElement {
 const drag: Directive = {
   mounted(el: ElType) {
     const dialog = el.querySelector('.el-dialog') as HTMLElement
+    console.log(dialog)
     const header = el.querySelector('.el-dialog__header') as HTMLElement
     const dialogMask = el.querySelector('.el-overlay') as HTMLElement
     dialogMask.style.cssText += "overflow: hidden;"
@@ -62,6 +63,8 @@ const drag: Directive = {
     // 根据data来设置拖动后的位置
     function setPosition() {
       let top = data.drag.y - data.mouse.y + data.dialog.y
+      console.log(top)
+      console.log(data.dialog.marginTop)
       let left = data.drag.x - data.mouse.x + data.dialog.x
       dialog.style.cssText += `position: absolute; top: calc(${top}px - ${data.dialog.marginTop}); left: ${left}px;`
     }
@@ -76,7 +79,7 @@ const drag: Directive = {
         height: document.body.clientHeight
       }
       data.dialog = dialog.getBoundingClientRect()
-      data.dialog.marginTop = dialog.style.marginTop
+      data.dialog.marginTop = window.getComputedStyle(dialog).marginTop
       data.mouse = {
         x: e.clientX,
         y: e.clientY

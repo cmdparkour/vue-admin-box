@@ -12,13 +12,13 @@
         <i :class="menu.children[0].meta.icon || menu.meta.icon" v-if="menu.children[0].meta.icon || menu.meta.icon"></i>
         <template #title>{{ $t(menu.children[0].meta.title) }}</template>
       </el-menu-item>
-      <el-submenu v-else :index="pathResolve" :show-timeout="0" :hide-timeout="0">
+      <el-sub-menu v-else :index="pathResolve" :show-timeout="0" :hide-timeout="0">
         <template #title>
           <i :class="menu.children[0].meta.icon || menu.meta.icon" v-if="menu.children[0].meta.icon || menu.meta.icon"></i>
           <span>{{ $t(menu.children[0].meta.title) }}</span>
         </template>
         <menu-item v-for="(item, key) in menu.children[0].children" :key="key" :menu="item" :basePath="pathResolve" />
-      </el-submenu>
+      </el-sub-menu>
     </app-link>
     <app-link v-else :to="pathResolve">
       <el-menu-item :index="pathResolve">
