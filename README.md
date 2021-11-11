@@ -16,59 +16,58 @@
         <img src="https://img.shields.io/github/license/mashape/apistatus.svg" alt="license">
     </a>
 </p>
+ [English](./README.md) | [简体中文](./README.zh-CN.md)
 
-### 
+## Introduction
 
-## 简介
-
-- [更新日志](./VERSION.md)
-- 经过三个多月的迭代，于2021年8月10日，1.0版本正式发布，并附四个基础模板供大家使用
-- 此开源项目为个人开发，不限制任何商业使用和个人研究，使用之前请先点个Star对我进行鼓励
-- 利用此开源项目参与的一切违法、色情相关的活动均与本源码无关，请勿以身示法
-- QQ交流群：735838842，有问题群里提，可及时解决
+- [update version](./VERSION.md)
+- After more than three months of iteration, version 1.0 was officially released on August 10, 2021, with four basic templates attached for everyone to use
+- This open source project is developed by individuals and does not restrict any commercial use or personal research. Please click star to encourage me before using it
+- All illegal and pornographic activities involved in this open source project have nothing to do with this source code. Please do not show yourself
+- QQ communication group：735838842，Problems are raised in the group and can be solved in time
 
 ## 预览
 
 - [demo](http://vue-admin-box.51weblove.com)
-- [github地址](https://github.com/cmdparkour/vue-admin-box)
-- [码云地址](https://gitee.com/cmdparkour/vue-admin-box)
-- 国内推荐使用yarn或者cnpm进行安装，npm安装容易产生问题
+- [github address](https://github.com/cmdparkour/vue-admin-box)
+- [gitee address](https://gitee.com/cmdparkour/vue-admin-box)
+- It is recommended to use yarn or cnpm for installation in China. NPM installation is prone to problems
 
-## 基础模板
-共四个基础模板，均适合从零研发使用，可在[github](https://github.com/cmdparkour/vue-admin-box-template)、[码云](https://gitee.com/cmdparkour/vue-admin-box-template)仓库中直接查看，模板如下所示
-1. template-ts-i18n 基础模板，内含ts语法+国际化配置 [demo](http://vue-admin-box-template.51weblove.com/ts-i18n/)
-2. template-ts 基础模板，只含ts语法，国际化已去除 [demo](http://vue-admin-box-template.51weblove.com/ts)
-3. template-js-i18n 基础模板，js语法 + 国际化配置 [demo](http://vue-admin-box-template.51weblove.com/js-i18n)
-4. template-js 基础模板，js语法，国际化已去除 [demo](http://vue-admin-box-template.51weblove.com/js)
+## Basic Template
+There are four basic templates, which are suitable for zero development and use, and can be found in [github](https://github.com/cmdparkour/vue-admin-box-template)、[gitee ](https://gitee.com/cmdparkour/vue-admin-box-template)View directly in the warehouse，The template is shown below:
+1. template-ts-i18n template，container ts and internationalization [demo](http://vue-admin-box-template.51weblove.com/ts-i18n/)
+2. template-ts template，container ts，internationalization is not container [demo](http://vue-admin-box-template.51weblove.com/ts)
+3. template-js-i18n template，container js and internationalization [demo](http://vue-admin-box-template.51weblove.com/js-i18n)
+4. template-js template，container js，internationalization is not container [demo](http://vue-admin-box-template.51weblove.com/js)
 
 ## 介绍
 
-vue-admin-box是一个免费并且开源的中后台管理系统模板。使用最新版本的vue3+vite+element-plus开发而成，目的是为了解决通用型的业务中后台系统复杂的配置。
+**vue-admin-box** is a free and open source background management system template。The latest vue-next, vite, element-plus used in this project. The purpose is to solve the complex configuration of background system in general business。
 
-#### 特色功能
+#### Characteristic function
 
-- 适合中后台开发的路由配置、状态管理机制（状态默认支持本地存储）、已封装完善的axios及api管理机制
-- 极方便扩展的主题配置功能，默认支持三种典型的中后台风格
-- 简易配置的页面缓存功能，只需配置noCache属性，无需配置其他的任何属性，如组件名称，路由名称等等很多框架需要配置的东西
-- 典型增删改查的三种业务表格，详情请查看“页面栏目”内的“业务表格”、“分类联动表格”、“树联动表格”
-- 无路由跳转的刷新功能，支持缓存页面刷新，目前了解的多数框架都不支持缓存页面的刷新
-- 方便扩展的国际化解决方案，并提供了两套非国际化的基础模板和两套国际化的基础模板（ts版本/js版本）
-- 手写版本的各类自定义指令
-- 已经过多个中后台业务检验过的表格公用组件及弹窗公用组件，详情请查看“页面栏目”内的“业务表格”、“分类联动表格”、“树联动表格”
+- Routing configuration, state management mechanism (State supports local storage by default), encapsulated and perfect Axios and API management mechanism suitable for middle and background development
+- It is very convenient to expand the theme configuration function, and supports three typical middle and background styles by default
+- Routing configuration, state management mechanism (State supports local storage by default), encapsulated and perfect Axios and API management mechanism suitable for middle and background development
+- For the three typical business tables of adding, deleting and modifying query, please see "CRUD table", "category table" and "tree table" in the "page column" for details
+- The refresh function without route jump supports cache page refresh. At present, most frameworks do not support cache page refresh
+- It is a convenient and extensible internationalization solution, and provides two sets of non internationalized basic templates and two sets of internationalized basic templates (TS version / JS version)
+- Handwritten versions of various custom instructions
+- For table common components and pop-up common components that have been verified by multiple middle and background businesses, please see "crud table", "category table" and "tree table" in the "page column" for details
 
-#### 主要技术栈
+#### Main technology
 
-- MVVM框架：vue v3
-- 工程化管理：vite v2
-- UI框架：element-plus
-- 路由管理：vue-router v4
-- 状态管理：vuex v4
-- 数据请求：axios
-- 实用工具库：@vueuse/core
+- MVVM framework：vue v3
+- Engineering Management：vite v2
+- UI framework：element-plus
+- Router manage：vue-router v4
+- State Manage ：vuex v4
+- Data request：axios
+- Utility library：@vueuse/core
 
-## 使用
+## How to use
 
-1. 获取源码资源包
+1. get the source code project
 
    ```
    git clone https://github.com/cmdparkour/vue-admin-box.git
@@ -76,7 +75,7 @@ vue-admin-box是一个免费并且开源的中后台管理系统模板。使用�
 
    
 
-2. 安装依赖，国内推荐使用cnpm或tyarn，国外推荐使用npm或yarn
+2. install dependence, you can use cnpm or yarn in China
 
    ```
    npm install
@@ -84,7 +83,7 @@ vue-admin-box是一个免费并且开源的中后台管理系统模板。使用�
 
    
 
-3. 运行
+3. run in the development
 
    ```
    npm run dev 或 npm run start
@@ -92,17 +91,17 @@ vue-admin-box是一个免费并且开源的中后台管理系统模板。使用�
 
    
 
-4. 打包
+4. build in production
 
    ```
    npm run build
    ```
    
 ## Partner project
-* [H5-dooring - 一款h5端页面可视化编辑器](http://h5.dooring.cn)
+* [H5-dooring - a low code project about the mobile website](http://h5.dooring.cn)
 
 
-## 效果预览
+## preview
 
 <p align="center">
     <img src="http://blog.51weblove.com/wp-content/uploads/2021/08/QQ截图20210810174824.png">
