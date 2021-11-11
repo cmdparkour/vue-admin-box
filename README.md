@@ -28,8 +28,8 @@ English | [简体中文](./README.zh-CN.md)
 - QQ communication group：735838842，Problems are raised in the group and can be solved in time
 
 ## Preview
-
-- [demo](http://vue-admin-box.51weblove.com)
+if you are not in China, maybe you should download the project to show the demo or use a vpn to visit the online demo.
+- [demo](http://vue-admin-box.51weblove.com) 
 - [github address](https://github.com/cmdparkour/vue-admin-box)
 - [gitee address](https://gitee.com/cmdparkour/vue-admin-box)
 - It is recommended to use yarn or cnpm for installation in China. NPM installation is prone to problems
