@@ -18,7 +18,7 @@
 </p>
  [English](./README.md) | [简体中文](./README.zh-CN.md)
 
-## Introduction
+## summary
 
 - [update version](./VERSION.md)
 - After more than three months of iteration, version 1.0 was officially released on August 10, 2021, with four basic templates attached for everyone to use
@@ -26,7 +26,7 @@
 - All illegal and pornographic activities involved in this open source project have nothing to do with this source code. Please do not show yourself
 - QQ communication group：735838842，Problems are raised in the group and can be solved in time
 
-## 预览
+## Preview
 
 - [demo](http://vue-admin-box.51weblove.com)
 - [github address](https://github.com/cmdparkour/vue-admin-box)
@@ -40,7 +40,7 @@ There are four basic templates, which are suitable for zero development and use,
 3. template-js-i18n template，container js and internationalization [demo](http://vue-admin-box-template.51weblove.com/js-i18n)
 4. template-js template，container js，internationalization is not container [demo](http://vue-admin-box-template.51weblove.com/js)
 
-## 介绍
+## Introduction
 
 **vue-admin-box** is a free and open source background management system template。The latest vue-next, vite, element-plus used in this project. The purpose is to solve the complex configuration of background system in general business。
 
