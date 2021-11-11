@@ -10,7 +10,8 @@ interface ElType extends HTMLElement {
 const directive: Directive = {
   mounted(el: ElType, binding: DirectiveBinding) {
     if (typeof binding.value !== 'function') {
-      throw 'callback must be a function'
+      console.error('callback must be a function')
+      return;
     }
     let timer: NodeJS.Timeout|null = null
     el.__handleClick__ = function(e: ElType) {

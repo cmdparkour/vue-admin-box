@@ -31,19 +31,24 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
-.infinite-list {
-  height: 500px;
-  padding: 0;
-  margin: 0;
-  list-style: none;
-  .infinite-list-item {
+  .layout-container-table {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 50px;
-    background: #e8f3fe;
-    margin: 10px 10px 10px 0;
-    color: #7dbcfc;
+    flex-direction: column;
+    .infinite-list {
+      height: 500px;
+      padding: 0;
+      margin: 0;
+      flex: 1;
+      list-style: none;
+      .infinite-list-item {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 50px;
+        background: #e8f3fe;
+        margin: 10px 10px 10px 0;
+        color: #7dbcfc;
+      }
+    }
   }
-}
 </style>

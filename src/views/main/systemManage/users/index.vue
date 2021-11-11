@@ -2,7 +2,7 @@
   <div class="layout-container">
     <div class="layout-container-form flex space-between">
       <div class="layout-container-form-handle">
-        <el-button type="primary" icon="el-icon-circle-plus-outline" @click="handleAdd">{{
+        <el-button type="primary" :icon="Plus" @click="handleAdd">{{
           $t("message.common.add")
         }}</el-button>
         <el-popconfirm
@@ -12,7 +12,7 @@
           <template #reference>
             <el-button
               type="danger"
-              icon="el-icon-delete"
+              :icon="Delete"
               :disabled="chooseData.length === 0"
               >{{ $t("message.common.delBat") }}</el-button
             >
@@ -26,7 +26,7 @@
         ></el-input>
         <el-button
           type="primary"
-          icon="el-icon-search"
+          :icon="Search"
           class="search-btn"
           @click="getTableData(true)"
           >{{ $t("message.common.search") }}</el-button
@@ -100,6 +100,7 @@ import { LayerInterface } from "@/components/layer/index.vue";
 import { ElMessage } from "element-plus";
 import Table from "@/components/table/index.vue";
 import Layer from "./layer.vue";
+import { Plus, Delete, Search } from '@element-plus/icons'
 export default defineComponent({
   components: {
     Table,
@@ -216,6 +217,9 @@ export default defineComponent({
     }
     getTableData(true)
     return {
+      Plus,
+      Delete,
+      Search,
       query,
       tableData,
       chooseData,

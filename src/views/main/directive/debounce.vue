@@ -9,7 +9,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from 'vue'
+import { defineComponent, ref, onUnmounted } from 'vue'
 import { ElMessage } from 'element-plus'
 import Debounce from '@/directive/debounce'
 export default defineComponent({
@@ -18,12 +18,17 @@ export default defineComponent({
   },
   setup() {
     const getData = (str)=> {
-      console.log(str)
-      ElMessage({
-        type: 'success',
-        message: '正在拉取数据'
-      })
+      return function() {
+        console.log(str)
+        ElMessage({
+          type: 'success',
+          message: '正在拉取数据'
+        })
+      }
     }
+    onUnmounted(() => {
+      ElMessage.closeAll()
+    })
     return {
       getData
     }
