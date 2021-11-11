@@ -13,19 +13,19 @@
     <div class="handle">
       <el-dropdown placement="bottom">
         <div class="el-dropdown-link">
-          <i class="el-icon-arrow-down el-icon--right"></i>
+          <el-icon><ArrowDown /></el-icon>
         </div>
         <template #dropdown>
           <el-dropdown-menu>
-            <el-dropdown-item icon="el-icon-refresh-left" @click="pageReload">{{ $t('message.system.tab.reload') }}</el-dropdown-item>
-            <el-dropdown-item icon="el-icon-circle-close" :disabled="currentDisabled" @click="closeCurrentRoute">{{ $t('message.system.tab.closeCurrent') }}</el-dropdown-item>
-            <el-dropdown-item icon="el-icon-circle-close" :disabled="menuList.length < 3" @click="closeOtherRoute">{{ $t('message.system.tab.closeOther') }}</el-dropdown-item>
-            <el-dropdown-item icon="el-icon-circle-close" :disabled="menuList.length <= 1" @click="closeAllRoute">{{ $t('message.system.tab.closeAll') }}</el-dropdown-item>
+            <el-dropdown-item :icon="RefreshLeft" @click="pageReload">{{ $t('message.system.tab.reload') }}</el-dropdown-item>
+            <el-dropdown-item :icon="CircleClose" :disabled="currentDisabled" @click="closeCurrentRoute">{{ $t('message.system.tab.closeCurrent') }}</el-dropdown-item>
+            <el-dropdown-item :icon="CircleClose" :disabled="menuList.length < 3" @click="closeOtherRoute">{{ $t('message.system.tab.closeOther') }}</el-dropdown-item>
+            <el-dropdown-item :icon="CircleClose" :disabled="menuList.length <= 1" @click="closeAllRoute">{{ $t('message.system.tab.closeAll') }}</el-dropdown-item>
           </el-dropdown-menu>
         </template>
       </el-dropdown>
       <el-tooltip class="item" effect="dark" :content="contentFullScreen ? $t('message.system.fullScreenBack'):$t('message.system.fullScreen')" placement="bottom">
-        <i class="el-icon-full-screen" @click="onFullscreen"></i>
+        <el-icon @click="onFullscreen"><FullScreen /></el-icon>
       </el-tooltip>
     </div>
   </div>
@@ -37,6 +37,7 @@ import Item from './item.vue'
 import { defineComponent, computed, unref, watch, reactive, ref, nextTick } from 'vue'
 import { useStore } from 'vuex'
 import { useRoute, useRouter } from 'vue-router'
+import { ArrowDown, RefreshLeft, CircleClose, FullScreen } from '@element-plus/icons'
 import tabsHook from './tabsHook'
 interface ElScrollbar {
   scrollbar: HTMLDivElement,
@@ -44,7 +45,7 @@ interface ElScrollbar {
 }
 export default defineComponent({
   components: {
-    Item
+    Item, ArrowDown, FullScreen
   },
   setup() {
     const store = useStore()
@@ -194,6 +195,7 @@ export default defineComponent({
     addMenu(route)
     initMenu(route)
     return {
+      RefreshLeft, CircleClose,
       contentFullScreen,
       onFullscreen,
       pageReload,
