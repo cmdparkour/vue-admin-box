@@ -19,10 +19,10 @@
         ref="uploadDom"
         :on-change="uploadchange"
       >
-        <el-button type="primary" icon="el-icon-upload" style="margin-right: 10px;">上传图片</el-button>
+        <el-button type="primary" :icon="Upload" style="margin-right: 10px;">上传图片</el-button>
       </el-upload>
-      <el-button type="primary" icon="el-icon-download" @click="downloadCropper">下载截图至本地</el-button>
-      <el-button type="primary" icon="el-icon-picture" @click="saveAsModel">保存截图</el-button>
+      <el-button type="primary" :icon="Download" @click="downloadCropper">下载截图至本地</el-button>
+      <el-button type="primary" :icon="Picture" @click="saveAsModel">保存截图</el-button>
     </div>
   </Layer>
 </template>
@@ -33,6 +33,7 @@ import Layer from '@/components/layer/index.vue'
 import Tip from './tip.vue'
 import Cropper from 'cropperjs'
 import 'cropperjs/dist/cropper.css'
+import { Upload, Download, Picture } from '@element-plus/icons'
 interface Command {
   
 }
@@ -121,6 +122,9 @@ export default defineComponent({
       props.layer.show = false
     }
     return {
+      Upload,
+      Download,
+      Picture,
       cropper,
       uploadchange,
       imgId,
