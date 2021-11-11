@@ -83,7 +83,7 @@ export default defineComponent({
           background-color: var(--system-menu-hover-background) !important;
         }
       }
-      .el-submenu {
+      .el-sub-menu {
         &.is-active {
           >.el-sub-menu__title, >.el-sub-menu__title i {
             color: var(--system-menu-submenu-active-color) !important;
@@ -103,7 +103,7 @@ export default defineComponent({
             background-color: var(--system-menu-hover-background) !important;
           }
         }
-        .el-submenu {
+        .el-sub-menu {
           .el-sub-menu__title {
             background-color: var(--system-menu-children-background) !important;
             &:hover {
