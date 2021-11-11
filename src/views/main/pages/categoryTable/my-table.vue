@@ -2,16 +2,16 @@
   <div class="layout-container">
     <div class="layout-container-form flex space-between">
       <div class="layout-container-form-handle">
-        <el-button type="primary" icon="el-icon-circle-plus-outline" @click="handleAdd">{{ $t('message.common.add') }}</el-button>
+        <el-button type="primary" :icon="Plus" @click="handleAdd">{{ $t('message.common.add') }}</el-button>
         <el-popconfirm :title="$t('message.common.delTip')" @confirm="handleDel(chooseData)">
           <template #reference>
-            <el-button type="danger" icon="el-icon-delete" :disabled="chooseData.length === 0">{{ $t('message.common.delBat') }}</el-button>
+            <el-button type="danger" :icon="Delete" :disabled="chooseData.length === 0">{{ $t('message.common.delBat') }}</el-button>
           </template>
         </el-popconfirm>
       </div>
       <div class="layout-container-form-search">
         <el-input v-model="query.input" :placeholder="$t('message.common.searchTip')" @change="getTableData(true)"></el-input>
-        <el-button type="primary" icon="el-icon-search" class="search-btn" @click="getTableData(true)">{{ $t('message.common.search') }}</el-button>
+        <el-button type="primary" :icon="Search" class="search-btn" @click="getTableData(true)">{{ $t('message.common.search') }}</el-button>
       </div>
     </div>
     <div class="layout-container-table">
@@ -54,6 +54,7 @@ import Layer from './layer.vue'
 import { ElMessage } from 'element-plus'
 import type { LayerInterface } from '@/components/layer/index.vue'
 import { selectData, radioData } from './enum'
+import { Plus, Search, Delete } from '@element-plus/icons'
 export default defineComponent({
   components: {
     Table,
@@ -152,6 +153,9 @@ export default defineComponent({
     })
     // getTableData(true)
     return {
+      Plus,
+      Search,
+      Delete,
       query,
       tableData,
       chooseData,

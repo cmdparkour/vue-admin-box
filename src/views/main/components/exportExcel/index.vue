@@ -10,7 +10,7 @@
 
         <el-button
           type="primary"
-          icon="el-icon-bottom"
+          :icon="Download"
           class="export-excel-btn"
           @click="handleExportExcel"
           >{{ $t('message.common.exportExcel') }}</el-button
@@ -24,7 +24,7 @@
         ></el-input>
         <el-button
           type="primary"
-          icon="el-icon-search"
+          :icon="Search"
           class="search-btn"
           @click="getTableData(true)"
           >{{ $t('message.common.search') }}</el-button
@@ -63,6 +63,7 @@ import { getData } from '@/api/table'
 import { ElMessage } from 'element-plus'
 import { aoaToSheetXlsx } from './ExportExcel'
 import { useI18n } from 'vue-i18n'
+import { Download, Search } from '@element-plus/icons'
 export default defineComponent({
   name: 'crudTable',
   components: {
@@ -139,6 +140,8 @@ export default defineComponent({
 
     getTableData(true)
     return {
+      Download,
+      Search,
       query,
       fileName,
       tableData,
