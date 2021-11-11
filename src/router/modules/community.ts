@@ -5,7 +5,7 @@ const route = [
     path: '/community',
     component: Layout,
     redirect: '/community/qq',
-    meta: { title: 'message.menu.community.name', icon: 'el-icon-table-lamp' },
+    meta: { title: 'message.menu.community.name', icon: 'sfont system-shequ' },
     children: [
       {
         path: 'qq',

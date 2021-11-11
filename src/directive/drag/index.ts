@@ -63,8 +63,6 @@ const drag: Directive = {
     // 根据data来设置拖动后的位置
     function setPosition() {
       let top = data.drag.y - data.mouse.y + data.dialog.y
-      console.log(top)
-      console.log(data.dialog.marginTop)
       let left = data.drag.x - data.mouse.x + data.dialog.x
       dialog.style.cssText += `position: absolute; top: calc(${top}px - ${data.dialog.marginTop}); left: ${left}px;`
     }

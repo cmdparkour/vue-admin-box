@@ -5,7 +5,7 @@ const route = [
     path: '/component',
     component: Layout,
     redirect: '/component/table',
-    meta: { title: 'message.menu.component.name', icon: 'el-icon-s-ticket' },
+    meta: { title: 'message.menu.component.name', icon: 'sfont system-component' },
     alwayShow: true,
     children: [
       {

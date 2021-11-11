@@ -93,4 +93,7 @@ export default defineComponent({
   .el-menu-item {
     text-align: left;
   }
+  .el-menu-item i, .el-sub-menu__title i {
+    padding-right: 8px;
+  }
 </style>

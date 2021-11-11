@@ -5,7 +5,7 @@ const route = [
     path: '/document',
     component: Layout,
     redirect: '/document/intro',
-    meta: { title: 'message.menu.document.name', icon: 'el-icon-document' },
+    meta: { title: 'message.menu.document.name', icon: 'sfont system-document' },
     children: [
       {
         path: 'intro',

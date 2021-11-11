@@ -5,7 +5,7 @@ const route = [
     path: '/systemManage',
     component: Layout,
     redirect: '/systemManage/menu',
-    meta: { title: 'message.menu.systemManage.name', icon: 'el-icon-document-copy' },
+    meta: { title: 'message.menu.systemManage.name', icon: 'sfont system-xitongzhuangtai' },
     alwayShow: true,
     children: [
       {

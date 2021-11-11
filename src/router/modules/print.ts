@@ -5,12 +5,12 @@ const route = [
     path: '/print',
     component: Layout,
     redirect: '/print/js',
-    meta: { title: 'message.menu.print.name', icon: 'el-icon-pie-chart' },
+    meta: { title: 'message.menu.print.name', icon: 'sfont system-24gl-printer' },
     children: [
       {
         path: 'js',
         component: createNameComponent(() => import('@/views/main/print/index.vue')),
-        meta: { title: 'message.menu.print.jsPrint', icon: 'el-icon-document-copy' }
+        meta: { title: 'message.menu.print.jsPrint', icon: 'sfont system-24gl-printer' }
       }
     ]
   }

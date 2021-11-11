@@ -61,13 +61,13 @@ export default defineComponent({
       margin-left: 0px;
     }
     :deep() {
-      .el-menu-item, .el-submenu {
+      .el-menu-item, .el-sub-menu {
         background-color: var(--system-menu-background) !important;
       }
-      .el-menu-item i, .el-menu-item-group__title, .el-submenu__title i {
+      .el-menu-item i, .el-menu-item-group__title, .el-sub-menu__title i {
         color: var(--system-menu-text-color);
       }
-      .el-menu-item, .el-submenu__title{
+      .el-menu-item, .el-sub-menu__title{
         &.is-active {
           background-color: var(--system-primary-color) !important;
           color: var(--system-primary-text-color) !important;
@@ -85,7 +85,7 @@ export default defineComponent({
       }
       .el-submenu {
         &.is-active {
-          >.el-submenu__title, >.el-submenu__title i {
+          >.el-sub-menu__title, >.el-sub-menu__title i {
             color: var(--system-menu-submenu-active-color) !important;
           }
         }
@@ -104,7 +104,7 @@ export default defineComponent({
           }
         }
         .el-submenu {
-          .el-submenu__title {
+          .el-sub-menu__title {
             background-color: var(--system-menu-children-background) !important;
             &:hover {
               background-color: var(--system-menu-hover-background) !important;

@@ -7,7 +7,7 @@ const route = [
     component: Layout,
     redirect: '/menu/menu-1',
     alwayShow: true,
-    meta: { title: 'message.menu.menu.name', icon: 'el-icon-s-grid' },
+    meta: { title: 'message.menu.menu.name', icon: 'sfont system-menu' },
     children: [
       {
         path: 'menu-1',

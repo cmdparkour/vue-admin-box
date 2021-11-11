@@ -3,13 +3,14 @@
     <router-link :to="menu.path" v-if="menu.meta.title">
       {{ $t(menu.meta.title) }}
     </router-link>
-    <i class="el-icon-refresh-right" @click.stop="reload" v-if="active" />
-    <i class="el-icon-close" @click.stop="closeTab" v-if="!menu.meta.hideClose" :alt="$t('message.common.del')"></i>
+    <el-icon @click.stop="reload" v-if="active"><refresh-right /></el-icon>
+    <el-icon @click.stop="closeTab" v-if="!menu.meta.hideClose" :alt="$t('message.common.del')"><close /></el-icon>
   </div>
 </template>
 
 <script>
 import { defineComponent } from 'vue'
+import { RefreshRight, Close } from '@element-plus/icons'
 export default defineComponent({
   props: {
     menu: {
@@ -28,6 +29,10 @@ export default defineComponent({
       type: Boolean,
       default: false
     }
+  },
+  components: {
+    RefreshRight,
+    Close
   },
   setup(props, { emit }) {
     // 关闭按钮
@@ -48,10 +53,11 @@ export default defineComponent({
 
 <style lang="scss" scoped>
   .tags-view-item {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
     position: relative;
     cursor: pointer;
-    height: 24px;
+    height: 26px;
     line-height: 26px;
     border: 1px solid var(--system-header-border-color);
     color: var(--system-header-text-color);

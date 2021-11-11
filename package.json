@@ -9,13 +9,14 @@
     "serve": "vite preview"
   },
   "dependencies": {
+    "@element-plus/icons": "^0.0.11",
     "@kangc/v-md-editor": "^2.3.5",
     "@vueuse/core": "^4.10.0",
     "axios": "^0.21.1",
     "codemirror": "^5.61.1",
     "cropperjs": "^1.5.12",
     "echarts": "^5.1.1",
-    "element-plus": "^1.1.0-beta.24",
+    "element-plus": "^1.2.0-beta.2",
     "mockjs": "^1.1.0",
     "normalize.css": "^8.0.1",
     "nprogress": "^0.2.0",

@@ -5,7 +5,7 @@ const route = [
     path: '/pages',
     component: Layout,
     redirect: '/pages/crudTable',
-    meta: { title: 'message.menu.page.name', icon: 'el-icon-document-copy' },
+    meta: { title: 'message.menu.page.name', icon: 'sfont system-page' },
     alwayShow: true,
     children: [
       {

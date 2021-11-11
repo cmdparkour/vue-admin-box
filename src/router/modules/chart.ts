@@ -5,7 +5,7 @@ const route = [
     path: '/echarts',
     component: Layout,
     redirect: '/echarts/dragable',
-    meta: { title: 'message.menu.echarts.name', icon: 'el-icon-pie-chart' },
+    meta: { title: 'message.menu.echarts.name', icon: 'sfont system-chart' },
     children: [
       {
         path: 'bar',

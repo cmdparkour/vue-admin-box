@@ -3,7 +3,7 @@
     <div class="left-box">
       <!-- 收缩按钮 -->
       <div class="menu-icon" @click="opendStateChange">
-        <i :class="isCollapse ? 'el-icon-s-unfold' : 'el-icon-s-fold'"></i>
+        <i class="sfont head-fold" :class="isCollapse ? 'system-s-unfold' : 'system-s-fold'"></i>
       </div>
       <Breadcrumb />
     </div>
@@ -21,7 +21,7 @@
         <el-dropdown>
           <span class="el-dropdown-link">
             {{ $t('message.system.user') }}
-            <i class="el-icon-arrow-down el-icon--right"></i>
+            <i class="sfont system-xiala"></i>
           </span>
           <template #dropdown>
             <el-dropdown-menu>
@@ -143,5 +143,8 @@ export default defineComponent({
         color: var(--system-header-breadcrumb-text-color);
       }
     }
+  }
+  .head-fold {
+    font-size: 20px;
   }
 </style>
