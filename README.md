@@ -16,7 +16,8 @@
         <img src="https://img.shields.io/github/license/mashape/apistatus.svg" alt="license">
     </a>
 </p>
- [English](./README.md) | [简体中文](./README.zh-CN.md)
+
+English | [简体中文](./README.zh-CN.md)
 
 ## summary
 
