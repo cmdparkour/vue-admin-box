@@ -99,6 +99,7 @@ There are four basic templates, which are suitable for zero development and use,
    ```
    
 ## Partner project
+* [Thinker-Admin-Box - springboot with vue-admin-box, use java code to generate vue page](https://github.com/yirius/thinker-admin-box)
 * [H5-dooring - a low code project about the mobile website](http://h5.dooring.cn)
 
 
