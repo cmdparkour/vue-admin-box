@@ -1,7 +1,8 @@
+import type { Route } from '../index.type'
 import Layout from '@/layout/index.vue'
 import MenuBox from '@/components/menu/index.vue'
 import { createNameComponent } from '../createNode'
-const route = [
+const route: Route[] = [
   {
     path: '/menu',
     component: Layout,
