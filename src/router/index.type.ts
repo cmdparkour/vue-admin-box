@@ -14,8 +14,10 @@ export interface Route {
     name?: string
     /** @name 需要重定向的地址，可选 */
     redirect?: string
-    /** @name 是否总是显示,不设置的话，子元素只有一个的时候默认显示子元素，隐藏父元素 @description 大部分时候针对二级三级四级菜单的根结点 @default false */
+    /** @name 总是显示菜单，可选 @description 大部分时候针对二级三级四级菜单的根结点，不设置的话，子元素只有一个的时候默认显示子元素，隐藏父元素 @default false */
     alwayShow?: boolean
+    /** @name 是否隐藏菜单，可选 @description 这个属性通常用于详情页面、404、401页面等不需要显示在总菜单里面的 @default false */
+    hideMenu?: boolean
     /** @name 路由子集，和Route类型一致的数组，可选 */
     children?: Route[]
 }
