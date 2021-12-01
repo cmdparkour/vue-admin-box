@@ -1,8 +1,8 @@
 import type { DefineComponent } from 'vue'
-import { createNameComponent } from './createNode'
+import type { RouteRecordRaw } from 'vue-router'
 
 /** @name 基础路由类型 */
-export interface Route {
+export type Route = {
     /** @name 访问路径 */
     path: string
     /** @name 需要使用的组件 @description 两种类型，第一种是默认的Vue文件类型，第二种是通过createNameComponent搞出来的，凡是一个组件需要keep-alive,必须使用createNameComponent来搞定 */
@@ -20,7 +20,7 @@ export interface Route {
     hideMenu?: boolean
     /** @name 路由子集，和Route类型一致的数组，可选 */
     children?: Route[]
-}
+} & RouteRecordRaw
 
 /** @name 基础元数据的类型说明 */
 export interface Meta {

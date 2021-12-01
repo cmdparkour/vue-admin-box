@@ -3,6 +3,8 @@
  * @params hideMenu: 是否隐藏当前路由结点不在导航中展示
  * @params alwayShow: 只有一个子路由时是否总是展示菜单，默认false
  */
+import type { Route } from './index.type'
+import { reactive } from 'vue'
 import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router'
 import store from '@/store'
 import i18n from '@/locale'
@@ -29,10 +31,14 @@ import Print from './modules/print'
 import Community from './modules/community'
 import System from './modules/system'
 
-// 初始化必须要的路由
-let modules: object[] = [
+/** 
+ * @name 初始化必须要的路由
+ * @description 使用reactive属性使得modules可以在路由菜单里面实时响应，搞定菜单回显的问题
+ * @detail 针对modules的任何修改，均会同步至菜单级别，记住，是针对变量名为：moduels的修改
+ **/
+let modules = reactive([
   ...System
-]
+])
 
 const { t } = i18n.global
 
@@ -44,7 +50,7 @@ const router = createRouter({
 })
 
 // 登录后动态加入的路由
-let asyncRoutes: RouteRecordRaw[] = [
+let asyncRoutes: Route[] = [
   ...Dashboard,
   ...Document,
   ...Component,
@@ -59,6 +65,7 @@ let asyncRoutes: RouteRecordRaw[] = [
 // 动态路由的权限新增，供登录后调用
 export async function addRoutes() {
 
+  // 与后端交互的逻辑处理，处理完后异步添加至页面
   // let data = [ // 来源于后端的数据
   //   {
   //     path: '/echarts',
@@ -87,7 +94,9 @@ export async function addRoutes() {
   //   modules.push(item)
   //   router.addRoute(item)
   // })
-  // 与后端交互的逻辑处理，处理完后异步添加至页面
+
+  // 已验证完成，下面代码添加的可以实时同步至菜单中去，可以添加setTimeout(() => {}) 模拟异步代码的操作
+  // 利用前端路由表模拟后端数据问题
   asyncRoutes.forEach(item => {
     modules.push(item)
     router.addRoute(item)
@@ -95,19 +104,19 @@ export async function addRoutes() {
 }
 
 // 重置匹配所有路由的解决方案，todo
-function eachData(data: any, type: number) {
+function eachData(data: any, type?: number) {
   data.forEach(d => {
     if (d.children && d.children.length > 0) {
       if (type === 0) {
         d.component = Layout
       } else {
-        d.component = createNameComponent(MenuBox)
+        d.component = createNameComponent(() => MenuBox)
       }
       eachData(d.children, type + 1)
     } else {
       /* 组件匹配暂时写死，todo项 */
       // d.component = createNameComponent(() => import('@/views/main/pages/crudTable/index.vue'))
-      d.component = x.component
+      // d.component = x.component
     }
   })
   console.log(data)
@@ -118,8 +127,10 @@ if (store.state.user.token) {
   addRoutes()
 }
 
+// 未授权时可访问的白名单
 const whiteList = ['/login']
 
+// 路由跳转前的监听操作
 router.beforeEach((to, _from, next) => {
   NProgress.start();
   if (store.state.user.token || whiteList.indexOf(to.path) !== -1) {
@@ -131,6 +142,7 @@ router.beforeEach((to, _from, next) => {
   }
 });
 
+// 路由跳转后的监听操作
 router.afterEach((to, _from) => {
   const keepAliveComponentsName = store.getters['keepAlive/keepAliveComponentsName'] || []
   const name = to.matched[to.matched.length - 1].components.default.name
