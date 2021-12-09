@@ -32,17 +32,21 @@
 </template>
 
 <script lang="ts">
+/** 类型引用 */
 import type { Ref } from 'vue'
-import Item from './item.vue'
+import type { ElScrollbar } from 'element-plus'
+
+/** 引用vue系列函数 */
 import { defineComponent, computed, unref, watch, reactive, ref, nextTick } from 'vue'
 import { useStore } from 'vuex'
 import { useRoute, useRouter } from 'vue-router'
+
+/** 引用图标 */
 import { ArrowDown, RefreshLeft, CircleClose, FullScreen } from '@element-plus/icons'
+
+import Item from './item.vue'
 import tabsHook from './tabsHook'
-interface ElScrollbar {
-  scrollbar: HTMLDivElement,
-  [propName: string]: any
-}
+
 export default defineComponent({
   components: {
     Item, ArrowDown, FullScreen
@@ -51,7 +55,7 @@ export default defineComponent({
     const store = useStore()
     const route = useRoute()
     const router = useRouter()
-    const scrollbarDom: Ref<ElScrollbar|null> = ref(null)
+    const scrollbarDom: Ref<typeof ElScrollbar|null> = ref(null)
     const allRoutes = router.options.routes
     const defaultMenu = {
       path: '/dashboard',
@@ -153,13 +157,13 @@ export default defineComponent({
         setPosition()
       })
     }
-    // 设置当前滚动条应该在的位置
+    /** 设置当前滚动条应该在的位置 */
     function setPosition() {
       if (scrollbarDom.value) {
         const domBox = {
-          scrollbar: scrollbarDom.value.scrollbar.querySelector('.el-scrollbar__wrap ') as HTMLDivElement,
-          activeDom: scrollbarDom.value.scrollbar.querySelector('.active') as HTMLDivElement,
-          activeFather: scrollbarDom.value.scrollbar.querySelector('.el-scrollbar__view') as HTMLDivElement
+          scrollbar: scrollbarDom.value.scrollbar$.querySelector('.el-scrollbar__wrap ') as HTMLDivElement,
+          activeDom: scrollbarDom.value.scrollbar$.querySelector('.active') as HTMLDivElement,
+          activeFather: scrollbarDom.value.scrollbar$.querySelector('.el-scrollbar__view') as HTMLDivElement
         }
         for (let i in domBox) {
           if (!domBox[i]) {
@@ -248,13 +252,11 @@ export default defineComponent({
     position: relative;
     overflow: hidden;
     width: 100%;
-    :deep {
-      .el-scrollbar__bar {
-        bottom: 0px;
-      }
-      .el-scrollbar__wrap {
-        height: 49px;
-      }
+    :deep(.el-scrollbar__bar) {
+      bottom: 0px;
+    }
+    :deep(.el-scrollbar__wrap) {
+      height: 49px;
     }
   }
   .tags-view-container {

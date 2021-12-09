@@ -45,7 +45,7 @@ import { defineComponent, ref, reactive } from 'vue'
 import { useStore } from 'vuex'
 import { useRouter, useRoute } from 'vue-router'
 import type { RouteLocationRaw  } from 'vue-router'
-import { addRoutes } from '@/router'
+import { getAuthRoutes } from '@/router/permission'
 import { ElMessage } from 'element-plus'
 import selectLang from '@/layout/Header/functionList/word.vue'
 export default defineComponent({
@@ -100,7 +100,7 @@ export default defineComponent({
             showClose: true,
             duration: 1000
           })
-          await addRoutes()
+          await getAuthRoutes()
           await router.push(route.query.redirect as RouteLocationRaw || '/')
         }).finally(() => {
           form.loading = false
