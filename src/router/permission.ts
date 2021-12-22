@@ -40,58 +40,11 @@ const asyncRoutes: Route[] = [
   ...Community,
 ]
 
-/** 重置匹配所有路由的解决方案，todo */
-function eachData(data: any, type: number) {
-  data.forEach(d => {
-    if (d.children && d.children.length > 0) {
-      if (type === 0) {
-        d.component = Layout
-      } else {
-        d.component = createNameComponent(() => MenuBox)
-      }
-      eachData(d.children, type + 1)
-    } else {
-      /* 组件匹配暂时写死，todo项 */
-      // d.component = createNameComponent(() => import('@/views/main/pages/crudTable/index.vue'))
-      // d.component = x.component
-    }
-  })
-  console.log(data)
-}
-
-/** 动态路由的权限新增，供登录后调用 */
+/** 
+ * @name 动态路由的权限新增，供登录后调用
+ * @other 如果需要进行后端接口控制菜单的话，请在此拿到后端的菜单树与asyncRoutes对比，生成一个新的值
+ */
 function addRoutes() {
-
-  // 与后端交互的逻辑处理，处理完后异步添加至页面
-  // let data = [ // 来源于后端的数据
-  //   {
-  //     path: '/echarts',
-  //     meta: { title: '权限管理', icon: 'el-icon-pie-chart' },
-  //     children: [
-  //       {
-  //         meta: { title: '菜单管理' },
-  //         component: 'index',
-  //         path: 'box456789'
-  //       },
-  //       {
-  //         meta: { title: '角色管理' },
-  //         component: 'index',
-  //         path: 'box1'
-  //       },
-  //       {
-  //         meta: { title: '用户管理' },
-  //         component: 'index',
-  //         path: 'box1456'
-  //       },
-  //     ]
-  //   },
-  // ]
-  // eachData(data, 0) // 匹配本地路由，产生一棵新树
-  // data.forEach(item => { // 添加到路由表里面去
-  //   modules.push(item)
-  //   router.addRoute(item)
-  // })
-
   // 已验证完成，下面代码添加的可以实时同步至菜单中去，可以添加setTimeout(() => {}) 模拟异步代码的操作
   // 利用前端路由表模拟后端数据问题
   asyncRoutes.forEach(item => {
