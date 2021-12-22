@@ -82,7 +82,9 @@ export default {
       menu: 'diy route menus',
       keepAlive: 'how to use keepAlive',
       crud: 'crud table and form',
-      theme: 'how to diy your theme'
+      theme: 'how to diy your theme',
+      systemfont: 'icon in project',
+      api: 'api document'
     }
   },
 }

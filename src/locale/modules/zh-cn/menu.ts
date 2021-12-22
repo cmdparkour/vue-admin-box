@@ -82,7 +82,9 @@ export default {
       menu: '路由菜单配置',
       keepAlive: 'keepAlive使用说明',
       crud: '数据表格的增删改查',
-      theme: '自定义主题'
+      theme: '自定义主题',
+      systemfont: '项目图标的说明',
+      api: '接口说明文档'
     }
   },
 }

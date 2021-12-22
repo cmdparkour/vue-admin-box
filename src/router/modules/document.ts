@@ -37,7 +37,17 @@ const route: Route[] = [
         path: 'theme',
         component: createNameComponent(() => import('@/views/main/document/theme.vue')),
         meta: { title: 'message.menu.document.theme' }
-      }
+      },
+      {
+        path: 'systemfont',
+        component: createNameComponent(() => import('@/views/main/document/systemfont.vue')),
+        meta: { title: 'message.menu.document.systemfont' }
+      },
+      {
+        path: 'api',
+        component: createNameComponent(() => import('@/views/main/document/api.vue')),
+        meta: { title: 'message.menu.document.api' }
+      },
     ]
   }
 ]
