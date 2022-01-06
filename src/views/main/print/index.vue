@@ -1,17 +1,17 @@
 <template>
   <div class="layout-container">
-    <div style="text-align: left; padding: 15px;">
+    <div style="text-align: left; padding: 15px">
       <el-button @click="print">打印</el-button>
     </div>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
-export default defineComponent({
-  setup() {
-    const print = () => {
-      let headerStr = `
+  import { defineComponent } from 'vue';
+  export default defineComponent({
+    setup() {
+      const print = () => {
+        let headerStr = `
         <html>
           <head>
             <title></title>
@@ -21,9 +21,9 @@ export default defineComponent({
             </style>
           </head>
         <body>
-      `
-      let footerStr = "</body></html>"
-      let printData = `
+      `;
+        let footerStr = '</body></html>';
+        let printData = `
         <h1 style="text-align: center;">采购订单</h1>
         <div style="border-bottom: 1px solid #000; padding-bottom: 20px;">
           <div style="margin-right: 100px; display: inline-block;">订单号 ORD210000229</div>
@@ -113,21 +113,18 @@ export default defineComponent({
             <td>699902100000011</td>
           </tr>
         </table>
-      `
-      let wind = window.open("", "订单详情",
-					"toolbar=no,scrollbars=yes,menubar=no")
-      wind.document.body.innerHTML = headerStr + printData + footerStr
-      wind.print()
-      console.log(123)
-      wind.close()
-    }
-    return {
-      print
-    }
-  }
-})
+      `;
+        let wind = window.open('', '订单详情', 'toolbar=no,scrollbars=yes,menubar=no');
+        wind.document.body.innerHTML = headerStr + printData + footerStr;
+        wind.print();
+        console.log(123);
+        wind.close();
+      };
+      return {
+        print,
+      };
+    },
+  });
 </script>
 
-<style lang="scss" scoped>
-  
-</style>
+<style lang="scss" scoped></style>

@@ -25,49 +25,49 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
-import {
-  directive,
-  version,
-  Contextmenu,
-  ContextmenuItem,
-  ContextmenuDivider,
-  ContextmenuSubmenu,
-  ContextmenuGroup,
-} from "v-contextmenu";
-export default defineComponent({
-  name: "ExampleSimple",
-  components: {
-    [Contextmenu.name]: Contextmenu,
-    [ContextmenuItem.name]: ContextmenuItem,
-    [ContextmenuDivider.name]: ContextmenuDivider,
-    [ContextmenuSubmenu.name]: ContextmenuSubmenu,
-    [ContextmenuGroup.name]: ContextmenuGroup,
-  },
-  directives: {
-    contextmenu: directive,
-  },
-});
+  import { defineComponent } from 'vue';
+  import {
+    directive,
+    version,
+    Contextmenu,
+    ContextmenuItem,
+    ContextmenuDivider,
+    ContextmenuSubmenu,
+    ContextmenuGroup,
+  } from 'v-contextmenu';
+  export default defineComponent({
+    name: 'ExampleSimple',
+    components: {
+      [Contextmenu.name]: Contextmenu,
+      [ContextmenuItem.name]: ContextmenuItem,
+      [ContextmenuDivider.name]: ContextmenuDivider,
+      [ContextmenuSubmenu.name]: ContextmenuSubmenu,
+      [ContextmenuGroup.name]: ContextmenuGroup,
+    },
+    directives: {
+      contextmenu: directive,
+    },
+  });
 </script>
 
 <style scoped>
-.box {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-}
-h1 {
-  text-align: left;
-}
-.wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 100%;
-  flex: 1;
-  border: 1px dashed rgba(0, 0, 0, 0.9);
-  border-radius: 8px;
-  background-color: rgba(35, 212, 206, 0.2);
-}
+  .box {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+  h1 {
+    text-align: left;
+  }
+  .wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    flex: 1;
+    border: 1px dashed rgba(0, 0, 0, 0.9);
+    border-radius: 8px;
+    background-color: rgba(35, 212, 206, 0.2);
+  }
 </style>

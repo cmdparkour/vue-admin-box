@@ -7,17 +7,17 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
-import basicTemplate from './components/basic-template.vue'
-import Card from './components/card/index.vue'
-import Charts from './components/charts/index.vue'
-export default defineComponent({
-  components: {
-    Card,
-    Charts,
-    basicTemplate
-  }
-})
+  import { defineComponent } from 'vue';
+  import basicTemplate from './components/basic-template.vue';
+  import Card from './components/card/index.vue';
+  import Charts from './components/charts/index.vue';
+  export default defineComponent({
+    components: {
+      Card,
+      Charts,
+      basicTemplate,
+    },
+  });
 </script>
 
 <style lang="scss" scoped>

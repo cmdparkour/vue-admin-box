@@ -5,19 +5,14 @@
       <el-col :span="12" class="el-col-tree-box">
         <h2>目录结构</h2>
         <div class="custom-tree">
-          <el-tree
-            :data="data"
-            :props="defaultProps"
-            :highlight-current="true"
-            @node-click="handleNodeClick"
-          >
-          <template #default="{ node, data }">
-            <div class="custom-tree-node">
-              <i :class="data.children ? 'el-icon-files': 'el-icon-document'"></i>
-              <span>{{ node.label }}</span>
-            </div>
-          </template>
-        </el-tree>
+          <el-tree :data="data" :props="defaultProps" :highlight-current="true" @node-click="handleNodeClick">
+            <template #default="{ node, data }">
+              <div class="custom-tree-node">
+                <i :class="data.children ? 'el-icon-files' : 'el-icon-document'"></i>
+                <span>{{ node.label }}</span>
+              </div>
+            </template>
+          </el-tree>
         </div>
       </el-col>
       <el-col :span="12" class="el-col-tree-box">
@@ -31,46 +26,46 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from 'vue'
-import { data } from './dir'
-export default defineComponent({
-  setup() {
-    const defaultProps = {
-      children: 'children',
-      label: 'label'
-    }
-    let active = ref({ des: ['点击左侧目录，可查看到每个目录及文件的功能说明'] }) as any
-    const handleNodeClick = (row: object) => {
-      active.value = row
-      console.log(row);
-    }
-    return {
-      data,
-      defaultProps,
-      active,
-      handleNodeClick
-    }
-  }
-})
+  import { defineComponent, ref } from 'vue';
+  import { data } from './dir';
+  export default defineComponent({
+    setup() {
+      const defaultProps = {
+        children: 'children',
+        label: 'label',
+      };
+      let active = ref({ des: ['点击左侧目录，可查看到每个目录及文件的功能说明'] }) as any;
+      const handleNodeClick = (row: object) => {
+        active.value = row;
+        console.log(row);
+      };
+      return {
+        data,
+        defaultProps,
+        active,
+        handleNodeClick,
+      };
+    },
+  });
 </script>
 
 <style lang="scss" scoped>
   .layout-container {
     padding: 15px;
     box-sizing: border-box;
-    .el-row{
+    .el-row {
       flex: 1;
       width: 100%;
       height: 100%;
       display: flex;
       overflow: hidden;
     }
-    .custom-tree{
+    .custom-tree {
       border: 1px solid #eee;
       padding: 15px;
       overflow-y: auto;
       flex: 1;
-      .el-tree{
+      .el-tree {
         width: 100%;
       }
       :deep(.el-tree-node__content) {
@@ -100,6 +95,5 @@ export default defineComponent({
     margin: 0;
   }
   h2 {
-    
   }
 </style>

@@ -28,14 +28,18 @@ English | [简体中文](./README.zh-CN.md)
 - QQ communication group：735838842，Problems are raised in the group and can be solved in time
 
 ## Preview
+
 if you are not in China, maybe you should download the project to show the demo or use a vpn to visit the online demo.
-- [demo](http://vue-admin-box.51weblove.com) 
+
+- [demo](http://vue-admin-box.51weblove.com)
 - [github address](https://github.com/cmdparkour/vue-admin-box)
 - [gitee address](https://gitee.com/cmdparkour/vue-admin-box)
 - It is recommended to use yarn or cnpm for installation in China. NPM installation is prone to problems
 
 ## Basic Template
+
 There are four basic templates, which are suitable for zero development and use, and can be found in [github](https://github.com/cmdparkour/vue-admin-box-template)、[gitee ](https://gitee.com/cmdparkour/vue-admin-box-template)View directly in the warehouse，The template is shown below:
+
 1. template-ts-i18n template，container ts and internationalization [demo](http://vue-admin-box-template.51weblove.com/ts-i18n/)
 2. template-ts template，container ts，internationalization is not container [demo](http://vue-admin-box-template.51weblove.com/ts)
 3. template-js-i18n template，container js and internationalization [demo](http://vue-admin-box-template.51weblove.com/js-i18n)
@@ -74,15 +78,11 @@ There are four basic templates, which are suitable for zero development and use,
    git clone https://github.com/cmdparkour/vue-admin-box.git
    ```
 
-   
-
 2. install dependence, you can use cnpm or yarn in China
 
    ```
    npm install
    ```
-
-   
 
 3. run in the development
 
@@ -90,18 +90,16 @@ There are four basic templates, which are suitable for zero development and use,
    npm run dev 或 npm run start
    ```
 
-   
-
 4. build in production
 
    ```
    npm run build
    ```
-   
-## Partner project
-* [Thinker-Admin-Box - springboot with vue-admin-box, use java code to generate vue page](https://github.com/yirius/thinker-admin-box)
-* [H5-dooring - a low code project about the mobile website](http://h5.dooring.cn)
 
+## Partner project
+
+- [Thinker-Admin-Box - springboot with vue-admin-box, use java code to generate vue page](https://github.com/yirius/thinker-admin-box)
+- [H5-dooring - a low code project about the mobile website](http://h5.dooring.cn)
 
 ## preview
 

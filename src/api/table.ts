@@ -1,4 +1,4 @@
-import request from '@/utils/system/request'
+import request from '@/utils/system/request';
 
 // 获取数据api
 export function getData(data: object) {
@@ -6,8 +6,8 @@ export function getData(data: object) {
     url: '/table/list',
     method: 'post',
     baseURL: '/mock',
-    data
-  })
+    data,
+  });
 }
 
 // 获取分类数据
@@ -16,8 +16,8 @@ export function getCategory(data: object) {
     url: '/table/category',
     method: 'post',
     baseURL: '/mock',
-    data
-  })
+    data,
+  });
 }
 
 // 获取树组织数据
@@ -26,8 +26,8 @@ export function getTree(data: object) {
     url: '/table/tree',
     method: 'post',
     baseURL: '/mock',
-    data
-  })
+    data,
+  });
 }
 
 // 新增
@@ -36,8 +36,8 @@ export function add(data: object) {
     url: '/table/add',
     method: 'post',
     baseURL: '/mock',
-    data
-  })
+    data,
+  });
 }
 
 // 编辑
@@ -46,8 +46,8 @@ export function update(data: object) {
     url: '/table/update',
     method: 'post',
     baseURL: '/mock',
-    data
-  })
+    data,
+  });
 }
 
 // 删除
@@ -56,6 +56,6 @@ export function del(data: object) {
     url: '/table/del',
     method: 'post',
     baseURL: '/mock',
-    data
-  })
+    data,
+  });
 }

@@ -1,11 +1,15 @@
 <template>
   <div class="layout-container">
     <h1>使用说明</h1>
-    <p>为什么文档是写在系统内，一方面是因为偷懒，另一方面是因为我坚信，如果我用着不爽，那么大家用着也不会爽，所以文档部分就暂时放置于此了</p>
-    <div style="padding: 0 10px;"><basic-template /></div>
+    <p
+      >为什么文档是写在系统内，一方面是因为偷懒，另一方面是因为我坚信，如果我用着不爽，那么大家用着也不会爽，所以文档部分就暂时放置于此了</p
+    >
+    <div style="padding: 0 10px"><basic-template /></div>
     <article>
       <h2>简介</h2>
-      <p>vue-admin-box是一个开源的中后台管理项目，主要技术栈为vue3全家桶，包括了：vue3(vue-next)、vite、element-plus、vue-router、vuex、axios、vite-plugin-mock等众多中后台项目常用技术。</p>
+      <p
+        >vue-admin-box是一个开源的中后台管理项目，主要技术栈为vue3全家桶，包括了：vue3(vue-next)、vite、element-plus、vue-router、vuex、axios、vite-plugin-mock等众多中后台项目常用技术。</p
+      >
       <ol>
         <li>vue3(vue-next)：本项目的核心技术栈，用于响应式模块的控制</li>
         <li>vite：本地服务运行、打包编译工具，特点：轻量、快速</li>
@@ -18,7 +22,8 @@
       <h2>关于crud的优化</h2>
       <p>简单来说，你直接复制业务表格的文件夹，改个名，换个接口，调一下里面的细节，就可以直接使用了</p>
       <p>业务表格，这是本开源项目最核心的理念，我基于日常开发过程中的情景，封装了一个核心的<b>弹窗组件</b>及一个<b>table组件</b>。</p>
-      <p>在日常开发中，增删查改是一个核心，也是一个最重要的功能，为了高效开发，建议了解这两个组件，具体的demo可以参照页面：
+      <p
+        >在日常开发中，增删查改是一个核心，也是一个最重要的功能，为了高效开发，建议了解这两个组件，具体的demo可以参照页面：
         <el-link type="primary" href="/#/pages/crudTable">业务表格</el-link>、
         <el-link type="primary" href="/#/pages/categoryTable">分类联动表格</el-link>、
         <el-link type="primary" href="/#/pages/treeTable">树形联动表格</el-link>
@@ -32,16 +37,14 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
-import basicTemplate from '@/views/main/dashboard/components/basic-template.vue'
-export default defineComponent({
-  components: {
-    basicTemplate
-  },
-  setup() {
-
-  }
-})
+  import { defineComponent } from 'vue';
+  import basicTemplate from '@/views/main/dashboard/components/basic-template.vue';
+  export default defineComponent({
+    components: {
+      basicTemplate,
+    },
+    setup() {},
+  });
 </script>
 
 <style lang="scss" scoped>

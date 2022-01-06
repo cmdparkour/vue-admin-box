@@ -1,9 +1,9 @@
 // 1. 用于解决keep-alive需要name的问题，动态生成随机name供keep-alive使用
 // 2. 用于解决transition动画内部结点只能为根元素的问题，单文件可写多结点
-import type { DefineComponent, Component } from 'vue'
-import { defineComponent, h, createVNode, ref, nextTick } from 'vue'
-import reload from './reload.vue'
-import NProgress from '@/utils/system/nprogress'
+import type { DefineComponent, Component } from 'vue';
+import { defineComponent, h, createVNode, ref, nextTick } from 'vue';
+import reload from './reload.vue';
+import NProgress from '@/utils/system/nprogress';
 
 export function createNameComponent(component: () => Promise<any> | Component): Promise<DefineComponent<{}, {}, any>> {
   return () => {
@@ -28,7 +28,7 @@ export function createNameComponent(component: () => Promise<any> | Component): 
             };
             return {
               isReload,
-              handleReload
+              handleReload,
             };
           },
           render: function () {
@@ -37,11 +37,10 @@ export function createNameComponent(component: () => Promise<any> | Component): 
             } else {
               return h('div', { class: 'el-main-box' }, [createVNode(comm.default)]);
             }
-          }
+          },
         });
         resolve(tempComm);
       });
     });
-  }
+  };
 }
-

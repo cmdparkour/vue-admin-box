@@ -1,16 +1,14 @@
 <template>
   <div class="dictionary">
-    <router-view></router-view>
+    <router-view />
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
-export default defineComponent({
-  setup() {
-
-  }
-})
+  import { defineComponent } from 'vue';
+  export default defineComponent({
+    setup() {},
+  });
 </script>
 
 <style lang="scss" scoped>

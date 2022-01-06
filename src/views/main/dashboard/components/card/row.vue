@@ -1,5 +1,5 @@
 <template>
-  <div class="card" :style="{ 'borderColor': row.color }">
+  <div class="card" :style="{ borderColor: row.color }">
     <div class="card-left">
       <div class="name">{{ row.name }}</div>
       <div class="detail">{{ row.data }}</div>
@@ -11,26 +11,22 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
-export default defineComponent({
-  props: {
-    row: {
-      type: Object,
-      default: () => {
-        return {
-
-        }
-      }
-    }
-  },
-  setup(props) {
-
-  }
-})
+  import { defineComponent } from 'vue';
+  export default defineComponent({
+    props: {
+      row: {
+        type: Object,
+        default: () => {
+          return {};
+        },
+      },
+    },
+    setup(props) {},
+  });
 </script>
 
 <style lang="scss" scoped>
-  .card{
+  .card {
     border-radius: 4px;
     overflow: hidden;
     border-left: 6px solid;
@@ -42,7 +38,7 @@ export default defineComponent({
     background-color: var(--system-page-background);
     margin: 10px;
     box-shadow: 3px 3px 10px 0 rgba(58, 59, 69, 0.15);
-    &-left{
+    &-left {
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -69,12 +65,12 @@ export default defineComponent({
       }
     }
   }
-  @media screen and ( max-width: 1200px ) {
+  @media screen and (max-width: 1200px) {
     .card {
       width: calc(50% - 26px);
     }
   }
-  @media screen and ( max-width: 500px ) {
+  @media screen and (max-width: 500px) {
     .card {
       width: calc(100% - 26px);
     }

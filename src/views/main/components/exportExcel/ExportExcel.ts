@@ -32,12 +32,7 @@ export function jsonToSheetXlsx<T = any>({
   /* at this point, out.xlsb will have been downloaded */
 }
 
-export function aoaToSheetXlsx<T = any>({
-  data,
-  header,
-  filename = DEF_FILE_NAME,
-  write2excelOpts = { bookType: 'xlsx' },
-}: AoAToSheet<T>) {
+export function aoaToSheetXlsx<T = any>({ data, header, filename = DEF_FILE_NAME, write2excelOpts = { bookType: 'xlsx' } }: AoAToSheet<T>) {
   const arrData = [...data];
   if (header) {
     arrData.unshift(header);

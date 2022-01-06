@@ -10,21 +10,21 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, provide } from 'vue'
-import Category from './tree.vue'
-import myTable from './my-table.vue'
-export default defineComponent({
-  name: 'treeTable',
-  components: {
-    Category,
-    myTable,
-  },
-  
-  setup() {
-    let active: any = ref({})
-    provide('active', active)
-  }
-})
+  import { defineComponent, ref, provide } from 'vue';
+  import Category from './tree.vue';
+  import myTable from './my-table.vue';
+  export default defineComponent({
+    name: 'TreeTable',
+    components: {
+      Category,
+      myTable,
+    },
+
+    setup() {
+      let active: any = ref({});
+      provide('active', active);
+    },
+  });
 </script>
 
 <style lang="scss" scoped>

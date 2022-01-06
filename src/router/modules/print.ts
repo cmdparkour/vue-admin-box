@@ -1,6 +1,6 @@
-import type { Route } from '../index.type'
-import Layout from '@/layout/index.vue'
-import { createNameComponent } from '../createNode'
+import type { Route } from '../index.type';
+import Layout from '@/layout/index.vue';
+import { createNameComponent } from '../createNode';
 const route: Route[] = [
   {
     path: '/print',
@@ -11,10 +11,10 @@ const route: Route[] = [
       {
         path: 'js',
         component: createNameComponent(() => import('@/views/main/print/index.vue')),
-        meta: { title: 'message.menu.print.jsPrint', icon: 'sfont system-24gl-printer' }
-      }
-    ]
-  }
-]
+        meta: { title: 'message.menu.print.jsPrint', icon: 'sfont system-24gl-printer' },
+      },
+    ],
+  },
+];
 
-export default route
+export default route;

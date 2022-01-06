@@ -1,5 +1,5 @@
-export interface Page{
-  index: Number,
-  size: Number,
-  total: Number
+export interface Page {
+  index: Number;
+  size: Number;
+  total: Number;
 }

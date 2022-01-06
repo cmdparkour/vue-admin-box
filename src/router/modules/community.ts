@@ -1,6 +1,6 @@
-import type { Route } from '../index.type'
-import Layout from '@/layout/index.vue'
-import { createNameComponent } from '../createNode'
+import type { Route } from '../index.type';
+import Layout from '@/layout/index.vue';
+import { createNameComponent } from '../createNode';
 const route: Route[] = [
   {
     path: '/community',
@@ -11,15 +11,15 @@ const route: Route[] = [
       {
         path: 'qq',
         component: createNameComponent(() => import('@/views/main/community/qq.vue')),
-        meta: { title: 'message.menu.community.qq' }
+        meta: { title: 'message.menu.community.qq' },
       },
       {
         path: 'site',
         component: createNameComponent(() => import('@/views/main/community/site.vue')),
-        meta: { title: 'message.menu.community.site' }
+        meta: { title: 'message.menu.community.site' },
       },
-    ]
-  }
-]
+    ],
+  },
+];
 
-export default route
+export default route;

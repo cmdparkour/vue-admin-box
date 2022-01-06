@@ -1,6 +1,6 @@
-import type { Route } from '../index.type'
-import Layout from '@/layout/index.vue'
-import { createNameComponent } from '../createNode'
+import type { Route } from '../index.type';
+import Layout from '@/layout/index.vue';
+import { createNameComponent } from '../createNode';
 const route: Route[] = [
   {
     path: '/component',
@@ -59,8 +59,8 @@ const route: Route[] = [
         component: createNameComponent(() => import('@/views/main/components/exportExcel/index.vue')),
         meta: { title: 'message.menu.component.exportExcel' },
       },
-    ]
-  }
-]
+    ],
+  },
+];
 
-export default route
+export default route;

@@ -1,6 +1,6 @@
-import type { Route } from '../index.type'
-import Layout from '@/layout/index.vue'
-import { createNameComponent } from '../createNode'
+import type { Route } from '../index.type';
+import Layout from '@/layout/index.vue';
+import { createNameComponent } from '../createNode';
 const route: Route[] = [
   {
     path: '/',
@@ -11,10 +11,10 @@ const route: Route[] = [
       {
         path: 'dashboard',
         component: createNameComponent(() => import('@/views/main/dashboard/index.vue')),
-        meta: { title: 'message.menu.dashboard.index', icon: 'sfont system-home', hideClose: true }
-      }
-    ]
-  }
-]
+        meta: { title: 'message.menu.dashboard.index', icon: 'sfont system-home', hideClose: true },
+      },
+    ],
+  },
+];
 
-export default route
+export default route;

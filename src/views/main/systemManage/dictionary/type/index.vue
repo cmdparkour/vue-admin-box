@@ -10,8 +10,10 @@
         </el-popconfirm>
       </div>
       <div class="layout-container-form-search">
-        <el-input v-model="query.input" :placeholder="$t('message.common.searchTip')"></el-input>
-        <el-button type="primary" icon="el-icon-search" class="search-btn" @click="getTableData(true)">{{ $t('message.common.search') }}</el-button>
+        <el-input v-model="query.input" :placeholder="$t('message.common.searchTip')" />
+        <el-button type="primary" icon="el-icon-search" class="search-btn" @click="getTableData(true)">{{
+          $t('message.common.search')
+        }}</el-button>
       </div>
     </div>
     <div class="layout-container-table">
@@ -44,112 +46,111 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, reactive } from 'vue'
-import Table from '@/components/table/index.vue'
-import { Page } from '@/components/table/type'
-import { getData, del } from '@/api/table'
-import Layer from './layer.vue'
-import { LayerInterface } from '@/components/layer/index.vue'
-export default defineComponent({
-  components: {
-    Table,
-    Layer
-  },
-  setup() {
-    // 存储搜索用的数据
-    const query = reactive({
-      input: ''
-    })
-    // 弹窗控制器
-    const layer: LayerInterface = reactive({
-      show: false,
-      title: '新增',
-      showButton: true
-    })
-    // 分页参数, 供table使用
-    const page: Page = reactive({
-      index: 1,
-      size: 20,
-      total: 0
-    })
-    const loading = ref(true)
-    const tableData = ref([])
-    const chooseData = ref([])
-    const handleSelectionChange = (val: []) => {
-      chooseData.value = val
-    }
-    return {
-      query,
-      tableData,
-      chooseData,
-      loading,
-      page,
-      layer,
-      handleSelectionChange
-    }
-  },
-  mounted() {
-    this.getTableData(true)
-  },
-  methods: {
-    // 获取表格数据
-    // params <init> Boolean ，默认为false，用于判断是否需要初始化分页
-    getTableData(init: Boolean) {
-      this.loading = true
-      if (init) {
-        this.page.index = 1
-      }
-      let params = {
-        page: this.page.index,
-        pageSize: this.page.size,
-        ...this.query
-      }
-      getData(params)
-      .then(res => {
-        this.tableData = res.data.list
-        this.page.total = Number(res.data.pager.total)
-      })
-      .catch(error => {
-        this.tableData = []
-        this.page.index = 1
-        this.page.total = 0
-      })
-      .finally(() => {
-        this.loading = false
-      })
+  import { defineComponent, ref, reactive } from 'vue';
+  import Table from '@/components/table/index.vue';
+  import { Page } from '@/components/table/type';
+  import { getData, del } from '@/api/table';
+  import Layer from './layer.vue';
+  import { LayerInterface } from '@/components/layer/index.vue';
+  export default defineComponent({
+    components: {
+      Table,
+      Layer,
     },
-    // 删除功能
-    handleDel(data: object[]) {
-      let params = {
-        ids: data.map((e:any)=> {
-          return e.id
-        }).join(',')
-      }
-      del(params)
-      .then(res => {
-        this.$message({
-          type: 'success',
-          message: '删除成功'
-        })
-        this.getTableData(this.tableData.length === 1 ? true : false)
-      })
+    setup() {
+      // 存储搜索用的数据
+      const query = reactive({
+        input: '',
+      });
+      // 弹窗控制器
+      const layer: LayerInterface = reactive({
+        show: false,
+        title: '新增',
+        showButton: true,
+      });
+      // 分页参数, 供table使用
+      const page: Page = reactive({
+        index: 1,
+        size: 20,
+        total: 0,
+      });
+      const loading = ref(true);
+      const tableData = ref([]);
+      const chooseData = ref([]);
+      const handleSelectionChange = (val: []) => {
+        chooseData.value = val;
+      };
+      return {
+        query,
+        tableData,
+        chooseData,
+        loading,
+        page,
+        layer,
+        handleSelectionChange,
+      };
     },
-    // 新增弹窗功能
-    handleAdd() {
-      this.layer.title = '新增数据'
-      this.layer.show = true
-      delete this.layer.row
+    mounted() {
+      this.getTableData(true);
     },
-    // 编辑弹窗功能
-    handleEdit(row: object) {
-      this.layer.title = '编辑数据'
-      this.layer.row = row
-      this.layer.show = true
-    }
-  }
-})
+    methods: {
+      // 获取表格数据
+      // params <init> Boolean ，默认为false，用于判断是否需要初始化分页
+      getTableData(init: Boolean) {
+        this.loading = true;
+        if (init) {
+          this.page.index = 1;
+        }
+        let params = {
+          page: this.page.index,
+          pageSize: this.page.size,
+          ...this.query,
+        };
+        getData(params)
+          .then((res) => {
+            this.tableData = res.data.list;
+            this.page.total = Number(res.data.pager.total);
+          })
+          .catch((error) => {
+            this.tableData = [];
+            this.page.index = 1;
+            this.page.total = 0;
+          })
+          .finally(() => {
+            this.loading = false;
+          });
+      },
+      // 删除功能
+      handleDel(data: object[]) {
+        let params = {
+          ids: data
+            .map((e: any) => {
+              return e.id;
+            })
+            .join(','),
+        };
+        del(params).then((res) => {
+          this.$message({
+            type: 'success',
+            message: '删除成功',
+          });
+          this.getTableData(this.tableData.length === 1 ? true : false);
+        });
+      },
+      // 新增弹窗功能
+      handleAdd() {
+        this.layer.title = '新增数据';
+        this.layer.show = true;
+        delete this.layer.row;
+      },
+      // 编辑弹窗功能
+      handleEdit(row: object) {
+        this.layer.title = '编辑数据';
+        this.layer.row = row;
+        this.layer.show = true;
+      },
+    },
+  });
 </script>
 
-<style lang="scss" scoped>
-  
-</style>
+<style lang="scss" scoped></style>

@@ -1,4 +1,4 @@
-import { MockMethod } from 'vite-plugin-mock'
+import { MockMethod } from 'vite-plugin-mock';
 
 /** 给接口使用 */
 const menu = [
@@ -8,11 +8,11 @@ const menu = [
     children: [
       {
         path: 'dashboard',
-        meta: { title: 'message.menu.dashboard.index', icon: 'sfont system-home', hideClose: true }
-      }
-    ]
-  }
-]
+        meta: { title: 'message.menu.dashboard.index', icon: 'sfont system-home', hideClose: true },
+      },
+    ],
+  },
+];
 
 export default [
   /** 需要展示的菜单模拟接口 */
@@ -22,8 +22,8 @@ export default [
     response: ({ body }) => {
       return {
         code: 200,
-        data: menu
-      }
-    }
-  }
-]
+        data: menu,
+      };
+    },
+  },
+];

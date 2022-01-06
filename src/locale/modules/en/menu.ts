@@ -2,13 +2,13 @@ export default {
   menu: {
     dashboard: {
       name: 'dashboard',
-      index: 'index'
+      index: 'index',
     },
     system: {
       name: 'system',
       redirect: 'redirect',
       '404': '404',
-      '401': '401'
+      '401': '401',
     },
     component: {
       name: 'component',
@@ -21,7 +21,7 @@ export default {
       map: 'map',
       cutPhoto: 'cutPhoto',
       rightMenu: 'rightMenu',
-      exportExcel:'exportExcel'
+      exportExcel: 'exportExcel',
     },
     page: {
       name: 'page',
@@ -40,7 +40,7 @@ export default {
       menu_1_1_2: 'menu-1-1-2',
       menu_1_2: 'menu-1-2',
       menu_2: 'menu-2',
-      menu_3: 'menu-3'
+      menu_3: 'menu-3',
     },
     directive: {
       name: 'directive',
@@ -64,16 +64,16 @@ export default {
       name: 'systemManage',
       menu: 'menu',
       role: 'role',
-      user: 'user'
+      user: 'user',
     },
     print: {
       name: 'print',
-      jsPrint: 'print in JS'
+      jsPrint: 'print in JS',
     },
     community: {
       name: 'community',
       qq: 'qqGroup',
-      site: 'vue3 resource'
+      site: 'vue3 resource',
     },
     document: {
       name: 'document',
@@ -84,7 +84,7 @@ export default {
       crud: 'crud table and form',
       theme: 'how to diy your theme',
       systemfont: 'icon in project',
-      api: 'api document'
-    }
+      api: 'api document',
+    },
   },
-}
+};

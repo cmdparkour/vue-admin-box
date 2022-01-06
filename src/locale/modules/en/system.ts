@@ -15,7 +15,7 @@ export default {
       default: 'default',
       medium: 'medium',
       small: 'small',
-      mini: 'mini'
+      mini: 'mini',
     },
     setting: {
       name: 'setting',
@@ -24,7 +24,7 @@ export default {
         default: 'default menu style',
         light: 'light menu style',
         chinese: 'chinese menu style',
-        dark: 'dark menu style'
+        dark: 'dark menu style',
       },
       primaryColor: {
         name: 'primary color',
@@ -33,20 +33,20 @@ export default {
         violet: 'grace violet',
         green: 'story green',
         cyan: 'cyan',
-        black: 'geek black'
+        black: 'geek black',
       },
       other: {
         name: 'other setting',
         showLogo: 'show logo',
         showBreadcrumb: 'show breadcrumb',
         keepOnlyOneMenu: 'keep only one menu open',
-      }
+      },
     },
     tab: {
       reload: 'refresh',
       closeAll: 'close all tags',
       closeOther: 'close other tags',
-      closeCurrent: 'close current tag'
-    }
+      closeCurrent: 'close current tag',
+    },
   },
-}
+};

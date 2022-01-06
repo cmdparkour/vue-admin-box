@@ -15,23 +15,23 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from 'vue'
-import dragable from '@/directive/dragable'
-export default defineComponent({
-  directives: {
-    dragable
-  },
-  setup() {
-    let dragableFather = ref('body')
-    const changeBox = (str: string)=> {
-      dragableFather.value = str
-    }
-    return {
-      dragableFather,
-      changeBox
-    }
-  }
-})
+  import { defineComponent, ref } from 'vue';
+  import dragable from '@/directive/dragable';
+  export default defineComponent({
+    directives: {
+      dragable,
+    },
+    setup() {
+      let dragableFather = ref('body');
+      const changeBox = (str: string) => {
+        dragableFather.value = str;
+      };
+      return {
+        dragableFather,
+        changeBox,
+      };
+    },
+  });
 </script>
 
 <style lang="scss" scoped>

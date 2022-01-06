@@ -9,31 +9,31 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, onUnmounted } from 'vue'
-import { ElMessage } from 'element-plus'
-import Debounce from '@/directive/debounce'
-export default defineComponent({
-  directives: {
-    Debounce
-  },
-  setup() {
-    const getData = (str)=> {
-      return function() {
-        console.log(str)
-        ElMessage({
-          type: 'success',
-          message: '正在拉取数据'
-        })
-      }
-    }
-    onUnmounted(() => {
-      ElMessage.closeAll()
-    })
-    return {
-      getData
-    }
-  }
-})
+  import { defineComponent, ref, onUnmounted } from 'vue';
+  import { ElMessage } from 'element-plus';
+  import Debounce from '@/directive/debounce';
+  export default defineComponent({
+    directives: {
+      Debounce,
+    },
+    setup() {
+      const getData = (str) => {
+        return function () {
+          console.log(str);
+          ElMessage({
+            type: 'success',
+            message: '正在拉取数据',
+          });
+        };
+      };
+      onUnmounted(() => {
+        ElMessage.closeAll();
+      });
+      return {
+        getData,
+      };
+    },
+  });
 </script>
 
 <style lang="scss" scoped>

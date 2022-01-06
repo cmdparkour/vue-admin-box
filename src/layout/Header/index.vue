@@ -37,57 +37,57 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, computed, reactive } from 'vue'
-import { useStore } from 'vuex'
-import { useRouter, useRoute } from 'vue-router'
-import FullScreen from './functionList/fullscreen.vue'
-import Word from './functionList/word.vue'
-import SizeChange from './functionList/sizeChange.vue'
-import Github from './functionList/github.vue'
-import Theme from './functionList/theme.vue'
-import Breadcrumb from './Breadcrumb.vue'
-import PasswordLayer from './passwordLayer.vue'
-export default defineComponent({
-  components: {
-    FullScreen,
-    Breadcrumb,
-    Word,
-    SizeChange,
-    Github,
-    Theme,
-    PasswordLayer
-  },
-  setup() {
-    const store = useStore()
-    const router = useRouter()
-    const route = useRoute()
-    const layer = reactive({
-      show: false,
-      showButton: true
-    })
-    const isCollapse = computed(() => store.state.app.isCollapse)
-    // isCollapse change to hide/show the sidebar
-    const opendStateChange = () => {
-      store.commit('app/isCollapseChange', !isCollapse.value)
-    }
+  import { defineComponent, computed, reactive } from 'vue';
+  import { useStore } from 'vuex';
+  import { useRouter, useRoute } from 'vue-router';
+  import FullScreen from './functionList/fullscreen.vue';
+  import Word from './functionList/word.vue';
+  import SizeChange from './functionList/sizeChange.vue';
+  import Github from './functionList/github.vue';
+  import Theme from './functionList/theme.vue';
+  import Breadcrumb from './Breadcrumb.vue';
+  import PasswordLayer from './passwordLayer.vue';
+  export default defineComponent({
+    components: {
+      FullScreen,
+      Breadcrumb,
+      Word,
+      SizeChange,
+      Github,
+      Theme,
+      PasswordLayer,
+    },
+    setup() {
+      const store = useStore();
+      const router = useRouter();
+      const route = useRoute();
+      const layer = reactive({
+        show: false,
+        showButton: true,
+      });
+      const isCollapse = computed(() => store.state.app.isCollapse);
+      // isCollapse change to hide/show the sidebar
+      const opendStateChange = () => {
+        store.commit('app/isCollapseChange', !isCollapse.value);
+      };
 
-    // login out the system
-    const loginOut = () => {
-      store.dispatch('user/loginOut')
-    }
-    
-    const showPasswordLayer = () => {
-      layer.show = true
-    }
-    return {
-      isCollapse,
-      layer,
-      opendStateChange,
-      loginOut,
-      showPasswordLayer
-    }
-  }
-})
+      // login out the system
+      const loginOut = () => {
+        store.dispatch('user/loginOut');
+      };
+
+      const showPasswordLayer = () => {
+        layer.show = true;
+      };
+      return {
+        isCollapse,
+        layer,
+        opendStateChange,
+        loginOut,
+        showPasswordLayer,
+      };
+    },
+  });
 </script>
 
 <style lang="scss" scoped>
@@ -125,7 +125,7 @@ export default defineComponent({
     display: flex;
     justify-content: center;
     align-items: center;
-    .function-list{
+    .function-list {
       display: flex;
       .function-list-item {
         width: 30px;

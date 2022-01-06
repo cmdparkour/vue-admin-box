@@ -35,62 +35,62 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
-import {
-  directive,
-  version,
-  Contextmenu,
-  ContextmenuItem,
-  ContextmenuDivider,
-  ContextmenuSubmenu,
-  ContextmenuGroup
-} from "v-contextmenu";
-export default defineComponent({
-  name: "ExampleDynamic",
-  components: {
-    [Contextmenu.name]: Contextmenu,
-    [ContextmenuItem.name]: ContextmenuItem,
-    [ContextmenuDivider.name]: ContextmenuDivider,
-    [ContextmenuSubmenu.name]: ContextmenuSubmenu,
-    [ContextmenuGroup.name]: ContextmenuGroup
-  },
-  directives: {
-    contextmenu: directive
-  },
-  data() {
-    return {
-      extra: []
-    };
-  },
-  methods: {
-    addItem(type: string = "item") {
-      this.extra.push(type);
+  import { defineComponent } from 'vue';
+  import {
+    directive,
+    version,
+    Contextmenu,
+    ContextmenuItem,
+    ContextmenuDivider,
+    ContextmenuSubmenu,
+    ContextmenuGroup,
+  } from 'v-contextmenu';
+  export default defineComponent({
+    name: 'ExampleDynamic',
+    components: {
+      [Contextmenu.name]: Contextmenu,
+      [ContextmenuItem.name]: ContextmenuItem,
+      [ContextmenuDivider.name]: ContextmenuDivider,
+      [ContextmenuSubmenu.name]: ContextmenuSubmenu,
+      [ContextmenuGroup.name]: ContextmenuGroup,
     },
-    removeItem() {
-      this.extra.pop();
-    }
-  }
-});
+    directives: {
+      contextmenu: directive,
+    },
+    data() {
+      return {
+        extra: [],
+      };
+    },
+    methods: {
+      addItem(type = 'item') {
+        this.extra.push(type);
+      },
+      removeItem() {
+        this.extra.pop();
+      },
+    },
+  });
 </script>
 
 <style scoped>
-.box {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-}
-h1 {
-  text-align: left;
-}
-.wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 100%;
-  flex: 1;
-  border: 1px dashed rgba(0, 0, 0, 0.9);
-  border-radius: 8px;
-  background-color: rgba(52, 187, 64, 0.2);
-}
+  .box {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+  h1 {
+    text-align: left;
+  }
+  .wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    flex: 1;
+    border: 1px dashed rgba(0, 0, 0, 0.9);
+    border-radius: 8px;
+    background-color: rgba(52, 187, 64, 0.2);
+  }
 </style>

@@ -22,45 +22,47 @@
 ## 简介
 
 - [更新日志](./VERSION.md)
-- 经过三个多月的迭代，于2021年8月10日，1.0版本正式发布，并附四个基础模板供大家使用
-- 此开源项目为个人开发，不限制任何商业使用和个人研究，使用之前请先点个Star对我进行鼓励
+- 经过三个多月的迭代，于 2021 年 8 月 10 日，1.0 版本正式发布，并附四个基础模板供大家使用
+- 此开源项目为个人开发，不限制任何商业使用和个人研究，使用之前请先点个 Star 对我进行鼓励
 - 利用此开源项目参与的一切违法、色情相关的活动均与本源码无关，请勿以身示法
-- QQ交流群：735838842，有问题群里提，可及时解决
+- QQ 交流群：735838842，有问题群里提，可及时解决
 
 ## 预览
 
 - [demo](http://vue-admin-box.51weblove.com)
-- [github地址](https://github.com/cmdparkour/vue-admin-box)
+- [github 地址](https://github.com/cmdparkour/vue-admin-box)
 - [码云地址](https://gitee.com/cmdparkour/vue-admin-box)
-- 国内推荐使用yarn或者cnpm进行安装，npm安装容易产生问题
+- 国内推荐使用 yarn 或者 cnpm 进行安装，npm 安装容易产生问题
 
 ## 基础模板
+
 共四个基础模板，均适合从零研发使用，可在[github](https://github.com/cmdparkour/vue-admin-box-template)、[码云](https://gitee.com/cmdparkour/vue-admin-box-template)仓库中直接查看，模板如下所示
-1. template-ts-i18n 基础模板，内含ts语法+国际化配置 [demo](http://vue-admin-box-template.51weblove.com/ts-i18n/)
-2. template-ts 基础模板，只含ts语法，国际化已去除 [demo](http://vue-admin-box-template.51weblove.com/ts)
-3. template-js-i18n 基础模板，js语法 + 国际化配置 [demo](http://vue-admin-box-template.51weblove.com/js-i18n)
-4. template-js 基础模板，js语法，国际化已去除 [demo](http://vue-admin-box-template.51weblove.com/js)
+
+1. template-ts-i18n 基础模板，内含 ts 语法+国际化配置 [demo](http://vue-admin-box-template.51weblove.com/ts-i18n/)
+2. template-ts 基础模板，只含 ts 语法，国际化已去除 [demo](http://vue-admin-box-template.51weblove.com/ts)
+3. template-js-i18n 基础模板，js 语法 + 国际化配置 [demo](http://vue-admin-box-template.51weblove.com/js-i18n)
+4. template-js 基础模板，js 语法，国际化已去除 [demo](http://vue-admin-box-template.51weblove.com/js)
 
 ## 介绍
 
-vue-admin-box是一个免费并且开源的中后台管理系统模板。使用最新版本的vue3+vite+element-plus开发而成，目的是为了解决通用型的业务中后台系统复杂的配置。
+vue-admin-box 是一个免费并且开源的中后台管理系统模板。使用最新版本的 vue3+vite+element-plus 开发而成，目的是为了解决通用型的业务中后台系统复杂的配置。
 
 #### 特色功能
 
-- 适合中后台开发的路由配置、状态管理机制（状态默认支持本地存储）、已封装完善的axios及api管理机制
+- 适合中后台开发的路由配置、状态管理机制（状态默认支持本地存储）、已封装完善的 axios 及 api 管理机制
 - 极方便扩展的主题配置功能，默认支持三种典型的中后台风格
-- 简易配置的页面缓存功能，只需配置noCache属性，无需配置其他的任何属性，如组件名称，路由名称等等很多框架需要配置的东西
+- 简易配置的页面缓存功能，只需配置 noCache 属性，无需配置其他的任何属性，如组件名称，路由名称等等很多框架需要配置的东西
 - 典型增删改查的三种业务表格，详情请查看“页面栏目”内的“业务表格”、“分类联动表格”、“树联动表格”
 - 无路由跳转的刷新功能，支持缓存页面刷新，目前了解的多数框架都不支持缓存页面的刷新
-- 方便扩展的国际化解决方案，并提供了两套非国际化的基础模板和两套国际化的基础模板（ts版本/js版本）
+- 方便扩展的国际化解决方案，并提供了两套非国际化的基础模板和两套国际化的基础模板（ts 版本/js 版本）
 - 手写版本的各类自定义指令
 - 已经过多个中后台业务检验过的表格公用组件及弹窗公用组件，详情请查看“页面栏目”内的“业务表格”、“分类联动表格”、“树联动表格”
 
 #### 主要技术栈
 
-- MVVM框架：vue v3
+- MVVM 框架：vue v3
 - 工程化管理：vite v2
-- UI框架：element-plus
+- UI 框架：element-plus
 - 路由管理：vue-router v4
 - 状态管理：vuex v4
 - 数据请求：axios
@@ -74,15 +76,11 @@ vue-admin-box是一个免费并且开源的中后台管理系统模板。使用�
    git clone https://github.com/cmdparkour/vue-admin-box.git
    ```
 
-   
-
-2. 安装依赖，国内推荐使用cnpm或tyarn，国外推荐使用npm或yarn
+2. 安装依赖，国内推荐使用 cnpm 或 tyarn，国外推荐使用 npm 或 yarn
 
    ```
    npm install
    ```
-
-   
 
 3. 运行
 
@@ -90,18 +88,16 @@ vue-admin-box是一个免费并且开源的中后台管理系统模板。使用�
    npm run dev 或 npm run start
    ```
 
-   
-
 4. 打包
 
    ```
    npm run build
    ```
-   
-## Partner project
-* [Thinker-Aamin-Box - vue-admin-box的springboot后台，可使用java代码便捷创建vue界面](https://github.com/yirius/thinker-admin-box)
-* [H5-dooring - 一款h5端页面可视化编辑器](http://h5.dooring.cn)
 
+## Partner project
+
+- [Thinker-Aamin-Box - vue-admin-box 的 springboot 后台，可使用 java 代码便捷创建 vue 界面](https://github.com/yirius/thinker-admin-box)
+- [H5-dooring - 一款 h5 端页面可视化编辑器](http://h5.dooring.cn)
 
 ## 效果预览
 

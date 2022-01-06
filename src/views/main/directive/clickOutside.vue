@@ -10,27 +10,27 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from 'vue'
-import clickoutside from '@/directive/clickOutside'
-export default defineComponent({
-  directives: {
-    clickoutside
-  },
-  setup() {
-    const sideStr = ref('')
-    const setData = (type: boolean)=> {
-     if (type) {
-       sideStr.value = 'outSide'
-     } else {
-       sideStr.value = 'inSide'
-     }
-    }
-    return {
-      sideStr,
-      setData
-    }
-  }
-})
+  import { defineComponent, ref } from 'vue';
+  import clickoutside from '@/directive/clickOutside';
+  export default defineComponent({
+    directives: {
+      clickoutside,
+    },
+    setup() {
+      const sideStr = ref('');
+      const setData = (type: boolean) => {
+        if (type) {
+          sideStr.value = 'outSide';
+        } else {
+          sideStr.value = 'inSide';
+        }
+      };
+      return {
+        sideStr,
+        setData,
+      };
+    },
+  });
 </script>
 
 <style lang="scss" scoped>

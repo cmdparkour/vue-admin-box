@@ -10,28 +10,27 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from 'vue'
-import Block from './block.vue'
-import { getData } from '@/api/work'
-export default defineComponent({
-  components: {
-    Block
-  },
-  setup() {
-    let list = ref([])
-    const getList = () => {
-      let params = {}
-      getData(params)
-      .then(res => {
-        list.value = res.data.list
-      })
-    }
-    getList()
-    return {
-      list
-    }
-  }
-})
+  import { defineComponent, ref } from 'vue';
+  import Block from './block.vue';
+  import { getData } from '@/api/work';
+  export default defineComponent({
+    components: {
+      Block,
+    },
+    setup() {
+      let list = ref([]);
+      const getList = () => {
+        let params = {};
+        getData(params).then((res) => {
+          list.value = res.data.list;
+        });
+      };
+      getList();
+      return {
+        list,
+      };
+    },
+  });
 </script>
 
 <style lang="scss" scoped>
@@ -39,10 +38,11 @@ export default defineComponent({
     white-space: nowrap;
     padding: 15px 0 0 0;
     position: relative;
-    :deep(.el-scrollbar__view){
+    :deep(.el-scrollbar__view) {
       height: 100%;
     }
-    &::before, &::after{
+    &::before,
+    &::after {
       content: '';
       width: 15px;
       height: calc(100% - 20px);
@@ -50,10 +50,10 @@ export default defineComponent({
       background: #fff;
       top: 0;
     }
-    &::before{
+    &::before {
       left: 0;
     }
-    &::after{
+    &::after {
       right: 0;
     }
     .list {
@@ -64,12 +64,12 @@ export default defineComponent({
       height: 100%;
       padding: 0 15px;
       background: #fff;
-      .block{
+      .block {
         margin-right: 20px;
       }
       .block:last-child {
         margin-right: 0;
       }
     }
-  } 
+  }
 </style>

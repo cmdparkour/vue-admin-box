@@ -9,9 +9,7 @@
       </div>
       <div class="bullshit">
         <div class="bullshit__oops">页面不存在!</div>
-        <div class="bullshit__info">
-          请检查您输入的网址是否正确，或单击下面的按钮返回主页
-        </div>
+        <div class="bullshit__info"> 请检查您输入的网址是否正确，或单击下面的按钮返回主页 </div>
         <el-button @click="go" type="primary" round>跳转首页</el-button>
       </div>
     </div>
@@ -19,27 +17,26 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
-import four from "@/assets/images/404.png"
-import four_cloud from "@/assets/images/404_cloud.png"
-export default defineComponent({
-  setup() {
-    return {
-      four,
-      four_cloud
-    }
-  },
-  methods: {
-    go() {
-      this.$router.push('/')
-    }
-  }
-})
+  import { defineComponent } from 'vue';
+  import four from '@/assets/images/404.png';
+  import four_cloud from '@/assets/images/404_cloud.png';
+  export default defineComponent({
+    setup() {
+      return {
+        four,
+        four_cloud,
+      };
+    },
+    methods: {
+      go() {
+        this.$router.push('/');
+      },
+    },
+  });
 </script>
 
 <style lang="scss" scoped>
   .wscn-http404-container {
-    
   }
   .wscn-http404 {
     position: relative;

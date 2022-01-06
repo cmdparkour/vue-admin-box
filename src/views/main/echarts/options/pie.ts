@@ -2,16 +2,16 @@ const options = {
   title: {
     text: '南丁格尔玫瑰图',
     subtext: '纯属虚构',
-    left: 'center'
+    left: 'center',
   },
   tooltip: {
     trigger: 'item',
-    formatter: '{a} <br/>{b} : {c} ({d}%)'
+    formatter: '{a} <br/>{b} : {c} ({d}%)',
   },
   legend: {
     left: 'center',
     top: 'bottom',
-    data: ['rose1', 'rose2', 'rose3', 'rose4', 'rose5', 'rose6', 'rose7', 'rose8']
+    data: ['rose1', 'rose2', 'rose3', 'rose4', 'rose5', 'rose6', 'rose7', 'rose8'],
   },
   toolbox: {
     show: true,
@@ -19,8 +19,8 @@ const options = {
       mark: { show: true },
       dataView: { show: true, readOnly: false },
       restore: { show: true },
-      saveAsImage: { show: true }
-    }
+      saveAsImage: { show: true },
+    },
   },
   series: [
     {
@@ -30,15 +30,15 @@ const options = {
       center: ['25%', '50%'],
       roseType: 'radius',
       itemStyle: {
-        borderRadius: 5
+        borderRadius: 5,
       },
       label: {
-        show: false
+        show: false,
       },
       emphasis: {
         label: {
-          show: true
-        }
+          show: true,
+        },
       },
       data: [
         { value: 40, name: 'rose1' },
@@ -48,8 +48,8 @@ const options = {
         { value: 20, name: 'rose5' },
         { value: 15, name: 'rose6' },
         { value: 12, name: 'rose7' },
-        { value: 10, name: 'rose8' }
-      ]
+        { value: 10, name: 'rose8' },
+      ],
     },
     {
       name: '面积模式',
@@ -58,7 +58,7 @@ const options = {
       center: ['75%', '50%'],
       roseType: 'area',
       itemStyle: {
-        borderRadius: 5
+        borderRadius: 5,
       },
       data: [
         { value: 30, name: 'rose1' },
@@ -68,10 +68,10 @@ const options = {
         { value: 22, name: 'rose5' },
         { value: 20, name: 'rose6' },
         { value: 18, name: 'rose7' },
-        { value: 16, name: 'rose8' }
-      ]
-    }
-  ]
-}
+        { value: 16, name: 'rose8' },
+      ],
+    },
+  ],
+};
 
-export default options
+export default options;

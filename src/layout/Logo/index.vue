@@ -6,19 +6,19 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, computed } from 'vue'
-import { useStore } from 'vuex'
-import { systemTitle } from '@/config'
-export default defineComponent({
-  setup() {
-    const store = useStore()
-    const isCollapse = computed(() => store.state.app.isCollapse)
-    return {
-      isCollapse,
-      systemTitle
-    }
-  }
-})
+  import { defineComponent, computed } from 'vue';
+  import { useStore } from 'vuex';
+  import { systemTitle } from '@/config';
+  export default defineComponent({
+    setup() {
+      const store = useStore();
+      const isCollapse = computed(() => store.state.app.isCollapse);
+      return {
+        isCollapse,
+        systemTitle,
+      };
+    },
+  });
 </script>
 
 <style lang="scss" scoped>

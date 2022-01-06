@@ -1,6 +1,6 @@
 // Schema:
 // date,AQIindex,PM2.5,PM10,CO,NO2,SO2
-var dataBJ = [
+const dataBJ = [
   [55, 9, 56, 0.46, 18, 6, 1],
   [25, 11, 21, 0.65, 34, 9, 2],
   [56, 7, 63, 0.3, 14, 5, 3],
@@ -31,10 +31,10 @@ var dataBJ = [
   [160, 120, 186, 2.77, 91, 50, 28],
   [134, 96, 165, 2.76, 83, 41, 29],
   [52, 24, 60, 1.03, 50, 21, 30],
-  [46, 5, 49, 0.28, 10, 6, 31]
+  [46, 5, 49, 0.28, 10, 6, 31],
 ];
 
-var dataGZ = [
+const dataGZ = [
   [26, 37, 27, 1.163, 27, 13, 1],
   [85, 62, 71, 1.195, 60, 8, 2],
   [78, 38, 74, 1.363, 37, 7, 3],
@@ -65,10 +65,10 @@ var dataGZ = [
   [56, 48, 68, 1.336, 37, 9, 28],
   [82, 92, 174, 3.29, 0, 13, 29],
   [106, 116, 188, 3.628, 101, 16, 30],
-  [118, 50, 0, 1.383, 76, 11, 31]
+  [118, 50, 0, 1.383, 76, 11, 31],
 ];
 
-var dataSH = [
+const dataSH = [
   [91, 45, 125, 0.82, 34, 23, 1],
   [65, 27, 78, 0.86, 45, 29, 2],
   [83, 60, 84, 1.09, 73, 27, 3],
@@ -99,12 +99,12 @@ var dataSH = [
   [93, 68, 96, 1.05, 79, 29, 28],
   [188, 143, 197, 1.66, 99, 51, 29],
   [174, 131, 174, 1.55, 108, 50, 30],
-  [187, 143, 201, 1.39, 89, 53, 31]
+  [187, 143, 201, 1.39, 89, 53, 31],
 ];
 
-var lineStyle = {
+const lineStyle = {
   width: 1,
-  opacity: 0.5
+  opacity: 0.5,
 };
 
 const options = {
@@ -114,8 +114,8 @@ const options = {
     left: 'center',
     top: 10,
     textStyle: {
-      color: '#eee'
-    }
+      color: '#eee',
+    },
   },
   legend: {
     bottom: 15,
@@ -123,9 +123,9 @@ const options = {
     itemGap: 20,
     textStyle: {
       color: '#fff',
-      fontSize: 14
+      fontSize: 14,
     },
-    selectedMode: 'single'
+    selectedMode: 'single',
   },
   radar: {
     indicator: [
@@ -134,30 +134,33 @@ const options = {
       { name: 'PM10', max: 300 },
       { name: 'CO', max: 5 },
       { name: 'NO2', max: 200 },
-      { name: 'SO2', max: 100 }
+      { name: 'SO2', max: 100 },
     ],
     shape: 'circle',
     splitNumber: 5,
     textStyle: {
-      color: 'rgb(238, 197, 102)'
+      color: 'rgb(238, 197, 102)',
     },
     splitLine: {
       lineStyle: {
         color: [
-          'rgba(238, 197, 102, 0.1)', 'rgba(238, 197, 102, 0.2)',
-          'rgba(238, 197, 102, 0.4)', 'rgba(238, 197, 102, 0.6)',
-          'rgba(238, 197, 102, 0.8)', 'rgba(238, 197, 102, 1)'
-        ].reverse()
-      }
+          'rgba(238, 197, 102, 0.1)',
+          'rgba(238, 197, 102, 0.2)',
+          'rgba(238, 197, 102, 0.4)',
+          'rgba(238, 197, 102, 0.6)',
+          'rgba(238, 197, 102, 0.8)',
+          'rgba(238, 197, 102, 1)',
+        ].reverse(),
+      },
     },
     splitArea: {
-      show: false
+      show: false,
     },
     axisLine: {
       lineStyle: {
-        color: 'rgba(238, 197, 102, 0.5)'
-      }
-    }
+        color: 'rgba(238, 197, 102, 0.5)',
+      },
+    },
   },
   series: [
     {
@@ -167,11 +170,11 @@ const options = {
       data: dataBJ,
       symbol: 'none',
       itemStyle: {
-        color: '#F9713C'
+        color: '#F9713C',
       },
       areaStyle: {
-        opacity: 0.1
-      }
+        opacity: 0.1,
+      },
     },
     {
       name: '上海',
@@ -180,11 +183,11 @@ const options = {
       data: dataSH,
       symbol: 'none',
       itemStyle: {
-        color: '#B3E4A1'
+        color: '#B3E4A1',
       },
       areaStyle: {
-        opacity: 0.05
-      }
+        opacity: 0.05,
+      },
     },
     {
       name: '广州',
@@ -193,13 +196,13 @@ const options = {
       data: dataGZ,
       symbol: 'none',
       itemStyle: {
-        color: 'rgb(238, 197, 102)'
+        color: 'rgb(238, 197, 102)',
       },
       areaStyle: {
-        opacity: 0.05
-      }
-    }
-  ]
+        opacity: 0.05,
+      },
+    },
+  ],
 };
 
-export default options
+export default options;

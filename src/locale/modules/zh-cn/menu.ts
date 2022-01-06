@@ -2,13 +2,13 @@ export default {
   menu: {
     dashboard: {
       name: 'dashboard',
-      index: '首页'
+      index: '首页',
     },
     system: {
       name: '系统目录',
       redirect: '重定向页面',
       '404': '404',
-      '401': '401'
+      '401': '401',
     },
     component: {
       name: '组件',
@@ -21,7 +21,7 @@ export default {
       map: '地图组件',
       cutPhoto: '弹窗图片裁剪',
       rightMenu: '右键菜单',
-      exportExcel:'导出文件'
+      exportExcel: '导出文件',
     },
     page: {
       name: '页面',
@@ -31,7 +31,7 @@ export default {
       card: '卡片列表',
       work: '工作进度',
       baidu: '外部链接',
-    },   
+    },
     menu: {
       name: '多级嵌套菜单',
       menu_1: '二级菜单1',
@@ -40,7 +40,7 @@ export default {
       menu_1_1_2: '四级菜单1-1-2',
       menu_1_2: '三级菜单1-2',
       menu_2: '二级菜单2',
-      menu_3: '二级菜单3'
+      menu_3: '二级菜单3',
     },
     directive: {
       name: '自定义指令',
@@ -64,16 +64,16 @@ export default {
       name: '系统管理',
       menu: '菜单',
       role: '角色',
-      user: '用户'
+      user: '用户',
     },
     print: {
       name: '打印功能',
-      jsPrint: 'JS打印事件'
+      jsPrint: 'JS打印事件',
     },
     community: {
       name: '社区的力量',
       qq: 'QQ交流群',
-      site: 'vue3最新资源库'
+      site: 'vue3最新资源库',
     },
     document: {
       name: '文档',
@@ -84,7 +84,7 @@ export default {
       crud: '数据表格的增删改查',
       theme: '自定义主题',
       systemfont: '项目图标的说明',
-      api: '接口说明文档'
-    }
+      api: '接口说明文档',
+    },
   },
-}
+};

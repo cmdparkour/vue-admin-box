@@ -1,7 +1,7 @@
 <template>
-  <div class="card" @click="jump" :style="{ 'background': background }">
+  <div class="card" @click="jump" :style="{ background: background }">
     <div class="thumb" v-if="thumb">
-      <img :src="thumb">
+      <img :src="thumb" />
     </div>
     <div class="content">
       <h3>{{ row.name }}</h3>
@@ -11,33 +11,31 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
-export default defineComponent({
-  props: {
-    row: {
-      type: Object,
-      default: () => {
-
-      }
+  import { defineComponent } from 'vue';
+  export default defineComponent({
+    props: {
+      row: {
+        type: Object,
+        default: () => {},
+      },
+      background: {
+        type: String,
+        default: '',
+      },
+      thumb: {
+        type: String,
+        default: '',
+      },
     },
-    background: {
-      type: String,
-      default: ''
+    setup(props) {
+      const jump = () => {
+        window.open(props.row.link);
+      };
+      return {
+        jump,
+      };
     },
-    thumb: {
-      type: String,
-      default: ''
-    },
-  },
-  setup(props) {
-    const jump = () => {
-      window.open(props.row.link)
-    }
-    return {
-      jump
-    }
-  }
-})
+  });
 </script>
 
 <style lang="scss" scoped>
@@ -54,7 +52,7 @@ export default defineComponent({
     cursor: pointer;
     &:hover {
       transform: translateY(-5px);
-      box-shadow: 0 2px 12px 0 rgba(0,0,0,.1);
+      box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
     }
     .thumb {
       width: 130px;
@@ -66,7 +64,7 @@ export default defineComponent({
         height: 100%;
       }
     }
-    .content{
+    .content {
       flex: 1;
       p {
         line-height: 25px;

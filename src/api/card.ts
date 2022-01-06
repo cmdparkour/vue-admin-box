@@ -1,4 +1,4 @@
-import request from '@/utils/system/request'
+import request from '@/utils/system/request';
 
 // 获取数据api
 export function getData(data: object) {
@@ -6,8 +6,8 @@ export function getData(data: object) {
     url: '/card/list',
     method: 'post',
     baseURL: '/mock',
-    data
-  })
+    data,
+  });
 }
 
 // 新增
@@ -16,8 +16,8 @@ export function add(data: object) {
     url: '/card/add',
     method: 'post',
     baseURL: '/mock',
-    data
-  })
+    data,
+  });
 }
 
 // 编辑
@@ -26,8 +26,8 @@ export function update(data: object) {
     url: '/card/update',
     method: 'post',
     baseURL: '/mock',
-    data
-  })
+    data,
+  });
 }
 
 // 删除
@@ -36,6 +36,6 @@ export function del(data: object) {
     url: '/card/del',
     method: 'post',
     baseURL: '/mock',
-    data
-  })
+    data,
+  });
 }

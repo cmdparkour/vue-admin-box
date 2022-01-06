@@ -6,22 +6,20 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
-import ElementButtonCard from './elementButton.vue'
-import NormalButton from './normalButton.vue'
-export default defineComponent({
-  components: {
-    ElementButtonCard,
-    NormalButton
-  },
-  setup() {
-
-  }
-})
+  import { defineComponent } from 'vue';
+  import ElementButtonCard from './elementButton.vue';
+  import NormalButton from './normalButton.vue';
+  export default defineComponent({
+    components: {
+      ElementButtonCard,
+      NormalButton,
+    },
+    setup() {},
+  });
 </script>
 
 <style lang="scss" scoped>
-  .box{
+  .box {
     padding: 15px;
   }
   .el-row {

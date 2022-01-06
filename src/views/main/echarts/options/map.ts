@@ -1,8 +1,8 @@
-import gdMap from './mapData.json'
-import * as echarts from 'echarts/core'
-var nameMap = 'china';
+import gdMap from './mapData.json';
+import * as echarts from 'echarts/core';
+const nameMap = 'china';
 // 0表示未开发，1表示开发中
-var data = [
+const data = [
   { name: '北京', value: 1290 },
   { name: '天津', value: 42 },
   { name: '河北', value: 1 },
@@ -39,11 +39,11 @@ var data = [
   { name: '台湾', value: 0 },
 ];
 
-var geoCoordMap: any = {};
-var convertData = function (data) {
-  var res = [];
-  for (var i = 0; i < data.length; i++) {
-    var geoCoord = geoCoordMap[data[i].name];
+const geoCoordMap: any = {};
+const convertData = function (data) {
+  const res = [];
+  for (let i = 0; i < data.length; i++) {
+    const geoCoord = geoCoordMap[data[i].name];
     if (geoCoord) {
       res.push({
         name: data[i].name,
@@ -56,10 +56,10 @@ var convertData = function (data) {
 
 echarts.registerMap(nameMap, gdMap);
 /*获取地图数据*/
-var mapFeatures = echarts.getMap(nameMap).geoJson.features;
+const mapFeatures = echarts.getMap(nameMap).geoJson.features;
 mapFeatures.forEach(function (v) {
   // 地区名称
-  var name = v.properties.name;
+  const name = v.properties.name;
   // 地区经纬度
   geoCoordMap[name] = v.properties.center;
 });
@@ -197,13 +197,13 @@ const options = {
     show: false, // 是否显示背景地图
     roam: true,
     label: {
-      show: false
+      show: false,
     },
     emphasis: {
       label: {
-        show: false
-      }
-    }
+        show: false,
+      },
+    },
   },
   series: [
     {
@@ -227,7 +227,8 @@ const options = {
       },
       // hover效果
       emphasis: {
-        label: {// 文字hover颜色
+        label: {
+          // 文字hover颜色
           show: true, //是否在高亮状态下显示标签。
         },
         textStyle: {
@@ -251,8 +252,8 @@ const options = {
               },
             ],
             globalCoord: false, // 缺省为 false
-          }
-        }
+          },
+        },
       },
       // 点击效果
       select: {
@@ -271,7 +272,7 @@ const options = {
           .sort(function (a, b) {
             return b.value - a.value;
           })
-          .slice(0, 50)
+          .slice(0, 50),
       ),
       showEffectOn: 'render',
       // symbolOffset: [-10, 10], //偏移
@@ -285,4 +286,4 @@ const options = {
   ],
 };
 
-export default options
+export default options;

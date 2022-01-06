@@ -8,7 +8,7 @@ export default {
     delBat: 'delete choose',
     delTip: 'Are you sure delete the selection data ?',
     handle: 'handle',
-    exportExcel:'export excel',
-    exportExcelTip:'please input file name'
+    exportExcel: 'export excel',
+    exportExcelTip: 'please input file name',
   },
-}
+};

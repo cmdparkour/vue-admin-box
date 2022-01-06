@@ -2,7 +2,7 @@
   <div>
     <el-card shadow="hover" class="box-card">
       <template #header>
-        <div style="text-align: left;"><h2>Element系列</h2><span>框架内部默认使用的按钮组，支持右上方的尺寸控制</span></div>
+        <div style="text-align: left"><h2>Element系列</h2><span>框架内部默认使用的按钮组，支持右上方的尺寸控制</span></div>
       </template>
       <el-row>
         <el-button>默认按钮</el-button>
@@ -29,20 +29,19 @@
         <el-button type="danger" round>危险按钮</el-button>
       </el-row>
       <el-row>
-        <el-button :icon="Search" circle></el-button>
-        <el-button type="primary" :icon="Edit" circle></el-button>
-        <el-button type="success" :icon="Check" circle></el-button>
-        <el-button type="info" :icon="Message" circle></el-button>
-        <el-button type="warning" :icon="Star" circle></el-button>
-        <el-button type="danger" :icon="Delete" circle></el-button>
+        <el-button :icon="Search" circle />
+        <el-button type="primary" :icon="Edit" circle />
+        <el-button type="success" :icon="Check" circle />
+        <el-button type="info" :icon="Message" circle />
+        <el-button type="warning" :icon="Star" circle />
+        <el-button type="danger" :icon="Delete" circle />
       </el-row>
     </el-card>
   </div>
 </template>
 
 <script setup lang="ts">
-import { Search, Edit, Check, Message, Star, Delete } from '@element-plus/icons'
-
+  import { Search, Edit, Check, Message, Star, Delete } from '@element-plus/icons';
 </script>
 
 <style lang="scss" scoped>

@@ -1,5 +1,5 @@
 <template>
-  <div class="tags-view-item" :class="active? 'active' : ''">
+  <div class="tags-view-item" :class="active ? 'active' : ''">
     <router-link :to="menu.path" v-if="menu.meta.title">
       {{ $t(menu.meta.title) }}
     </router-link>
@@ -9,46 +9,46 @@
 </template>
 
 <script>
-import { defineComponent } from 'vue'
-import { RefreshRight, Close } from '@element-plus/icons'
-export default defineComponent({
-  props: {
-    menu: {
-      type: Object,
-      default: () => {
-        return {
-          path: '',
-          meta: {
-            label: '',
-            hideClose: false
-          }
-        }
-      }
+  import { defineComponent } from 'vue';
+  import { RefreshRight, Close } from '@element-plus/icons';
+  export default defineComponent({
+    components: {
+      RefreshRight,
+      Close,
     },
-    active: {
-      type: Boolean,
-      default: false
-    }
-  },
-  components: {
-    RefreshRight,
-    Close
-  },
-  setup(props, { emit }) {
-    // 关闭按钮
-    function closeTab() {
-      emit('close')
-    }
-    // 刷新按钮
-    function reload() {
-      emit('reload')
-    }
-    return {
-      closeTab,
-      reload
-    }
-  }
-})
+    props: {
+      menu: {
+        type: Object,
+        default: () => {
+          return {
+            path: '',
+            meta: {
+              label: '',
+              hideClose: false,
+            },
+          };
+        },
+      },
+      active: {
+        type: Boolean,
+        default: false,
+      },
+    },
+    setup(props, { emit }) {
+      // 关闭按钮
+      function closeTab() {
+        emit('close');
+      }
+      // 刷新按钮
+      function reload() {
+        emit('reload');
+      }
+      return {
+        closeTab,
+        reload,
+      };
+    },
+  });
 </script>
 
 <style lang="scss" scoped>

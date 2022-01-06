@@ -6,9 +6,7 @@
       </div>
       <div class="bullshit">
         <div class="bullshit__oops">无权限访问!</div>
-        <div class="bullshit__info">
-          您没有访问权限，如需权限，请联系上级授权！
-        </div>
+        <div class="bullshit__info"> 您没有访问权限，如需权限，请联系上级授权！ </div>
         <el-button @click="go" type="primary" round>跳转首页</el-button>
       </div>
     </div>
@@ -16,25 +14,24 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
-import first from "@/assets/images/401.gif"
-export default defineComponent({
-  setup() {
-    return {
-      first
-    }
-  },
-  methods: {
-    go() {
-      this.$router.push('/')
-    }
-  }
-})
+  import { defineComponent } from 'vue';
+  import first from '@/assets/images/401.gif';
+  export default defineComponent({
+    setup() {
+      return {
+        first,
+      };
+    },
+    methods: {
+      go() {
+        this.$router.push('/');
+      },
+    },
+  });
 </script>
 
 <style lang="scss" scoped>
   .wscn-http404-container {
-    
   }
   .wscn-http404 {
     position: relative;

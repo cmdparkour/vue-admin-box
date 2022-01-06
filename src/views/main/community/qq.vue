@@ -15,23 +15,38 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
-import Card from './components/card.vue'
-export default defineComponent({
-  components: {
-    Card
-  },
-  setup() {
-    const data = [
-      { id: 1, name: 'vue-admin-box技术共享', des: '群号：735838842', link: 'https://qm.qq.com/cgi-bin/qm/qr?k=6fxlga2ADcC28IUNJgn9QybExG3BdRTl&jump_from=webapi' },
-      { id: 2, name: 'Vue3技术交流组', des: '群号：1059695979', link: 'https://qm.qq.com/cgi-bin/qm/qr?k=pY8PpZi1JnTQLvvsaI4fQFaBE1dxBYrC&jump_from=webapi' },
-      { id: 3, name: 'Vue前端技术栈', des: '群号：685641057', link: 'https://qm.qq.com/cgi-bin/qm/qr?k=gd3t8OYL2T5oO8mZr8fyIS26LWdSmjH2&jump_from=webapi' }
-    ]
-    return {
-      data
-    }
-  }
-})
+  import { defineComponent } from 'vue';
+  import Card from './components/card.vue';
+  export default defineComponent({
+    components: {
+      Card,
+    },
+    setup() {
+      const data = [
+        {
+          id: 1,
+          name: 'vue-admin-box技术共享',
+          des: '群号：735838842',
+          link: 'https://qm.qq.com/cgi-bin/qm/qr?k=6fxlga2ADcC28IUNJgn9QybExG3BdRTl&jump_from=webapi',
+        },
+        {
+          id: 2,
+          name: 'Vue3技术交流组',
+          des: '群号：1059695979',
+          link: 'https://qm.qq.com/cgi-bin/qm/qr?k=pY8PpZi1JnTQLvvsaI4fQFaBE1dxBYrC&jump_from=webapi',
+        },
+        {
+          id: 3,
+          name: 'Vue前端技术栈',
+          des: '群号：685641057',
+          link: 'https://qm.qq.com/cgi-bin/qm/qr?k=gd3t8OYL2T5oO8mZr8fyIS26LWdSmjH2&jump_from=webapi',
+        },
+      ];
+      return {
+        data,
+      };
+    },
+  });
 </script>
 
 <style lang="scss" scoped>
