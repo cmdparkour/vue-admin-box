@@ -37,6 +37,9 @@ router.beforeEach((to, _from, next) => {
   NProgress.start();
   if (store.state.user.token || whiteList.indexOf(to.path) !== -1) {
     to.meta.title ? changeTitle(to.meta.title) : ''; // 动态title
+    if (store.state.user.token && to.path === '/login') {
+      next('/');
+    }
     next();
   } else {
     next('/login'); // 全部重定向到登录页
