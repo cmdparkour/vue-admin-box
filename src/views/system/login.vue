@@ -100,8 +100,9 @@ export default defineComponent({
             showClose: true,
             duration: 1000
           })
-          await getAuthRoutes()
-          await router.push(route.query.redirect as RouteLocationRaw || '/')
+          location.reload()
+          // await getAuthRoutes()
+          // await router.push(route.query.redirect as RouteLocationRaw || '/')
         }).finally(() => {
           form.loading = false
         })
