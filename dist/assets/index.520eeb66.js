@@ -1,1 +1,0 @@
-import{_ as e,d as o,o as s,c as _}from"./index.13b91343.js";const r=o({setup(){}}),t={src:"//blog.51weblove.com",frameborder:"0",class:"full-iframe"};function a(n,c,d,p,f,i){return s(),_("iframe",t)}var m=e(r,[["render",a],["__scopeId","data-v-60f80019"]]);export{m as default};
