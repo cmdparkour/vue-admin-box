@@ -29,7 +29,8 @@
 
 ## 预览
 
-- [demo](http://vue-admin-box.51weblove.com)
+- [demo国内](https://cmdparkour.gitee.io/vue-admin-box/)
+- [demo外国](https://cmdparkour.github.io/vue-admin-box/dist/)
 - [github地址](https://github.com/cmdparkour/vue-admin-box)
 - [码云地址](https://gitee.com/cmdparkour/vue-admin-box)
 - 国内推荐使用yarn或者cnpm进行安装，npm安装容易产生问题
