@@ -103,6 +103,7 @@ vue-admin-box是一个免费并且开源的中后台管理系统模板。使用�
 * [Thinker-Aamin-Box - vue-admin-box的springboot后台，可使用java代码便捷创建vue界面](https://github.com/yirius/thinker-admin-box)
 * [H5-dooring - 一款h5端页面可视化编辑器](http://h5.dooring.cn)
 * [ant-simple-pro - 一款支持vue3.0，react，angular，typescript等多框架支持的中台前端解决方案](https://github.com/lgf196/ant-simple-pro)
+* [vue-vben-admin - 使用了最新的vue3,vite2,TypeScript等主流技术开发，开箱即用的中后台前端解决方案](https://github.com/vbenjs/vue-vben-admin)
 
 
 ## 效果预览
