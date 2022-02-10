@@ -1,6 +1,8 @@
 export default {
   system: {
     title: 'backendsystem',
+    subTitle: 'few lines to write beautiful admin',
+    welcome: 'welcome login',
     login: 'login',
     userName: 'userName',
     password: 'password',
