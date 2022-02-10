@@ -1,6 +1,8 @@
 export default {
   system: {
     title: '后台管理系统',
+    subTitle: '几行代码，撰写精美后台',
+    welcome: '欢迎登录',
     login: '登录',
     userName: '用户名',
     password: '密码',
