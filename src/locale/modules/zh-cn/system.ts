@@ -1,7 +1,7 @@
 export default {
   system: {
     title: '后台管理系统',
-    subTitle: '几行代码，撰写精美后台',
+    subTitle: '时间不在于你拥有多少,而在于你怎样使用。',
     welcome: '欢迎登录',
     login: '登录',
     userName: '用户名',

@@ -5,7 +5,7 @@
         <img :src="loginLeftPng"/>
         <div class="login-content-left-mask">
           <div>{{ $t(systemTitle) }}</div>
-          <div>{{ $t('message.system.subTitle') }}</div>
+          <div>{{ $t(systemSubTitle) }}</div>
         </div>
       </div>
 
@@ -54,7 +54,7 @@
 </template>
 
 <script lang="ts">
-import { systemTitle } from '@/config'
+import { systemTitle, systemSubTitle } from '@/config'
 import { defineComponent, ref, reactive } from 'vue'
 import { useStore } from 'vuex'
 import { useRouter, useRoute } from 'vue-router'
@@ -127,6 +127,7 @@ export default defineComponent({
     return {
       loginLeftPng,
       systemTitle,
+      systemSubTitle,
       form,
       passwordType,
       passwordTypeChange,
@@ -177,12 +178,16 @@ export default defineComponent({
         background-image: linear-gradient(rgba(0,204,222,0.8), rgba(51,132,224,0.8));
         text-align: center;
         color: #fff;
-        font-size: 2rem;
+        font-size: 1.8rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        letter-spacing: 2px;
 
         div:nth-child(1) {
-          font-size: 4rem;
-          margin-bottom: 1rem;
-          margin-top: 10rem;
+          font-size: 3.5rem;
+          margin-bottom: 1em;
         }
       }
     }
