@@ -5,7 +5,7 @@ import { defineComponent, h, createVNode, ref, nextTick } from 'vue'
 import reload from './reload.vue'
 import NProgress from '@/utils/system/nprogress'
 
-export function createNameComponent(component: () => Promise<any> | Component): Promise<DefineComponent<{}, {}, any>> {
+export function createNameComponent(component: () => Promise<any>): () => Promise<DefineComponent<{}, {}, any>> {
   return () => {
     return new Promise((resolve) => {
       component().then((comm: DefineComponent<{}, {}, any>) => {

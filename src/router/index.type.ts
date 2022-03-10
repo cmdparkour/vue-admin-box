@@ -6,7 +6,7 @@ export type Route = {
     /** @name 访问路径 */
     path: string
     /** @name 需要使用的组件 @description 两种类型，第一种是默认的Vue文件类型，第二种是通过createNameComponent搞出来的，凡是一个组件需要keep-alive,必须使用createNameComponent来搞定 */
-    component: DefineComponent<{}, {}, any> | Promise<DefineComponent<{}, {}, any>>
+    component: DefineComponent<{}, {}, any> | (() => Promise<DefineComponent<{}, {}, any>>)
     /** @name 基础元数据 */
     meta: Meta
 
