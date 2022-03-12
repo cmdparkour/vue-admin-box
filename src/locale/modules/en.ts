@@ -1,4 +1,4 @@
-import enLocale from 'element-plus/lib/locale/lang/en'
+import enLocale from 'element-plus/lib/packages/locale/lang/en'
 import system from './en/system'
 import common from './en/common'
 import menu from './en/menu'

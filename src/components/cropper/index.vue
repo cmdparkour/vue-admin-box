@@ -27,26 +27,19 @@
   </Layer>
 </template>
 
-<script lang="ts">
-import { defineComponent, nextTick, watch, ref } from 'vue'
-import Layer from '@/components/layer/index.vue'
-import Tip from './tip.vue'
-import Cropper from 'cropperjs'
-import 'cropperjs/dist/cropper.css'
-import { Upload, Download, Picture } from '@element-plus/icons'
-interface Command {
-  
-}
-export default defineComponent({
-  components: {
-    Layer,
-    Tip
-  },
-  props: {
+<script lang="ts" setup>
+  import { nextTick, watch, ref } from 'vue'
+  import Layer from '@/components/layer/index.vue'
+  import Tip from './tip.vue'
+  import Cropper from 'cropperjs'
+  import 'cropperjs/dist/cropper.css'
+  import { Upload, Download, Picture } from '@element-plus/icons'
+
+  const props = defineProps({
     layer: {
       type: Object,
       required: true,
-      deafult: () => {
+      default: () => {
         return {
           show: false
         }
@@ -54,87 +47,75 @@ export default defineComponent({
     },
     modelValue: {
       type: String,
-      default: ''
+      default: '',
     }
-  },
-  setup(props, context) {
-    let cropper = ref(null as Cropper|null)
-    const imgId = 'image' + (new Date()).getTime()
-    const previewClass = 'preview' + (new Date()).getTime()
-    let uploadDom = ref(null as any|null)
-    watch(() => props.layer.show, (newVal) => {
-      if (!newVal) {
-        return
-      }
-      nextTick(() => {
-        initCropper()
-      })
+  })
+
+  const emit = defineEmits(['update:modelValue'])
+
+  let cropper = ref(null as Cropper|null)
+  const imgId = 'image' + new Date().getTime()
+  const previewClass = 'preview' + new Date().getTime()
+  let uploadDom = ref(null as any|null)
+  watch(() => props.layer.show, (newVal) => {
+    if (!newVal) {
+      return
+    }
+    nextTick(() => {
+      initCropper()
     })
-    // init the cropperjs
-    function initCropper() {
-      if (cropper.value) {
-        cropper.value.destroy()
-      }
+  })
+  // init the cropperjs
+  function initCropper() {
+    if (cropper.value) {
+      cropper.value.destroy()
+    }
+    const image = document.getElementById(imgId) as HTMLImageElement
+    cropper.value = new Cropper(image, {
+      preview: '.' + previewClass
+    });
+  }
+  // handle the file change
+  function uploadchange(file: any, fileList: any) {
+    file2base64(file)
+    uploadDom.value.clearFiles()
+  }
+  // the file object transform to base64
+  function file2base64(file: any) {
+    let imgFile = new FileReader()
+    imgFile.readAsDataURL(file.raw)
+    imgFile.onload = function(e) {
       const image = document.getElementById(imgId) as HTMLImageElement
-      cropper.value = new Cropper(image, {
-        preview: '.' + previewClass
-      });
-    }
-    // 文件选择监控
-    function uploadchange(file: any, fileList: any) {
-      file2base64(file)
-      uploadDom.value.clearFiles()
-    }
-    // 文件对象转base64
-    function file2base64(file: any) {
-      let imgFile = new FileReader()
-      imgFile.readAsDataURL(file.raw)
-      imgFile.onload = function(e) {
-        const image = document.getElementById(imgId) as HTMLImageElement
-        image.setAttribute('src', this.result as string)
-        initCropper()
-      }
-    }
-    // 下载本地图片
-    function downloadCropper() {
-      const canvas = cropper.value.getCroppedCanvas({
-        maxWidth: 4096,
-        maxHeight: 4096
-      })
-      const base64 = canvas.toDataURL() || ''
-      let a = document.createElement('a')
-      a.href = base64
-      a.download = "截图下载.png"
-      a.click()
-    }
-    // 保存至v-model数据,与下载本地图片类似，但需要执行数据上传操作
-    function saveAsModel() {
-      // 1. 获取base64数据
-      const canvas = cropper.value.getCroppedCanvas({
-        maxWidth: 4096,
-        maxHeight: 4096
-      })
-      const base64 = canvas.toDataURL()
-      // 2. 进行图片上传，并拿到上传后的地址，暂时省略
-      // 3. 赋值给v-model
-      context.emit('update:modelValue', base64)
-      // 4. 关闭当前弹窗
-      props.layer.show = false
-    }
-    return {
-      Upload,
-      Download,
-      Picture,
-      cropper,
-      uploadchange,
-      imgId,
-      previewClass,
-      uploadDom,
-      downloadCropper,
-      saveAsModel
+      image.setAttribute('src', this.result as string)
+      initCropper()
     }
   }
-})
+  // download the local image
+  function downloadCropper() {
+    const canvas = cropper.value?.getCroppedCanvas({
+      maxWidth: 4096,
+      maxHeight: 4096
+    })
+    const base64 = canvas?.toDataURL() || ''
+    const a = document.createElement('a')
+    a.href = base64
+    a.download = "download.png"
+    a.click()
+  }
+  // save as v-model data, just like download the local image, but need to upload the data
+  function saveAsModel() {
+    // 1. 获取base64数据
+    const canvas = cropper.value?.getCroppedCanvas({
+      maxWidth: 4096,
+      maxHeight: 4096
+    })
+    const base64 = canvas?.toDataURL()
+    // 2. 进行图片上传，并拿到上传后的地址，暂时省略
+    // 3. 赋值给v-model
+    emit('update:modelValue', base64)
+    // 4. 关闭当前弹窗
+    props.layer.show = false
+  }
 </script>
 
 <style lang="scss" scoped>
