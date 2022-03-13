@@ -49,7 +49,10 @@ export default defineComponent({
     const ruleForm: Ref<ElFormItemContext|null> = ref(null)
     const layerDom: Ref<LayerType|null> = ref(null)
     let form = ref({
-      name: ''
+      name: '',
+      choose: '',
+      radio: '',
+      number: ''
     })
     const rules = {
       name: [{ required: true, message: '请输入姓名', trigger: 'blur' }],

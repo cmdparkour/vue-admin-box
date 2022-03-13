@@ -15,13 +15,11 @@ export default {
     user: '管理员',
     size: {
       default: '默认',
-      medium: '中',
+      large: '大',
       small: '小',
-      mini: '迷你'
     },
     setting: {
       name: '系统设置',
-      
       style: {
         name: '整体风格设置',
         default: '默认菜单风格',

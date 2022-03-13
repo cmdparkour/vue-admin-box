@@ -15,9 +15,8 @@ export default {
     user: 'admin',
     size: {
       default: 'default',
-      medium: 'medium',
+      large: 'large',
       small: 'small',
-      mini: 'mini'
     },
     setting: {
       name: 'setting',
