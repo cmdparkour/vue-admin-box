@@ -151,4 +151,9 @@
     align-items: center;
     width: 49%;
   }
+
+  .upload-demo {
+    display: flex;
+    align-items: center;
+  }
 </style>
