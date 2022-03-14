@@ -45,14 +45,7 @@ export default defineComponent({
         name: 'elementSize',
         value: command
       })
-      this.setElementSize()
     },
-    setElementSize() {
-      this.$ELEMENT.size = this.elementSize
-      this.$router.replace({
-        path: "/redirect" + this.fullPath
-      })
-    }
   }
 })
 </script>

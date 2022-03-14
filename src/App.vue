@@ -1,5 +1,5 @@
 <template>
-  <el-config-provider :locale="locale">
+  <el-config-provider :locale="locale" :size="size">
     <router-view></router-view>
   </el-config-provider>
 </template>
@@ -7,18 +7,23 @@
 <script lang="ts">
 import { defineComponent, computed } from 'vue'
 import { useI18n } from 'vue-i18n'
+import { useStore } from 'vuex'
 export default defineComponent({
   name: 'App',
   setup() {
+    const store = useStore()
     const i18n = useI18n()
+    const size = computed(() => store.state.app.elementSize)
+    const messages: any = i18n.messages.value
     const locale = computed(() => {
       return {
         name: i18n.locale.value,
-        el: i18n.messages.value[i18n.locale.value].el
+        el: messages[i18n.locale.value].el,
       }
     })
     return {
-      locale
+      locale,
+      size,
     }
   }
 })
