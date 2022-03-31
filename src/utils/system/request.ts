@@ -15,6 +15,11 @@ service.interceptors.request.use(
     if (store.getters['user/token']) {
       config.headers['token'] = store.state.user.token
     }
+    if (config.method.toLocaleUpperCase() === "GET") {
+      config.params = {
+        ...config.data,
+      };
+    }
     return config
   },
   (error: AxiosError) => {
