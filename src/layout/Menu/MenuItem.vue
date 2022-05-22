@@ -1,46 +1,37 @@
 <template>
-  <template v-if="!menu.meta.hideMenu&&!menu.hideMenu">
+  <template v-if="!menu.hideMenu">
     <el-sub-menu v-if="showMenuType === 2" :index="pathResolve" :show-timeout="0" :hide-timeout="0">
       <template #title>
-        <el-icon v-if="menu.meta.icon">
-          <component :is="menu.meta.icon"></component>
-        </el-icon>
+        <i :class="menu.meta.icon" v-if="menu.meta.icon"></i>
         <span>{{ $t(menu.meta.title) }}</span>
       </template>
-      <menu-item v-for="(item, key) in menu.children" :key="key" :menu="item" :basePath="pathResolve"/>
+      <menu-item v-for="(item, key) in menu.children" :key="key" :menu="item" :basePath="pathResolve" />
     </el-sub-menu>
     <app-link v-else-if="showMenuType === 1" :to="pathResolve">
       <el-menu-item :index="pathResolve" v-if="!menu.children[0].children || menu.children[0].children.length === 0">
-        <el-icon v-if="menu.children[0].meta.icon || menu.meta.icon">
-          <component :is="menu.children[0].meta.icon || menu.meta.icon"></component>
-        </el-icon>
+        <i :class="menu.children[0].meta.icon || menu.meta.icon" v-if="menu.children[0].meta.icon || menu.meta.icon"></i>
         <template #title>{{ $t(menu.children[0].meta.title) }}</template>
       </el-menu-item>
       <el-sub-menu v-else :index="pathResolve" :show-timeout="0" :hide-timeout="0">
         <template #title>
-          <el-icon v-if="menu.children[0].meta.icon || menu.meta.icon">
-            <component :is="menu.children[0].meta.icon || menu.meta.icon"></component>
-          </el-icon>
+          <i :class="menu.children[0].meta.icon || menu.meta.icon" v-if="menu.children[0].meta.icon || menu.meta.icon"></i>
           <span>{{ $t(menu.children[0].meta.title) }}</span>
         </template>
-        <menu-item v-for="(item, key) in menu.children[0].children" :key="key" :menu="item" :basePath="pathResolve"/>
+        <menu-item v-for="(item, key) in menu.children[0].children" :key="key" :menu="item" :basePath="pathResolve" />
       </el-sub-menu>
     </app-link>
     <app-link v-else :to="pathResolve">
       <el-menu-item :index="pathResolve">
-        <el-icon v-if="menu.meta.icon">
-          <component :is="menu.meta.icon"></component>
-        </el-icon>
-        <template #title>{{ $t(menu.meta.title) }}</template>
+      <i :class="menu.meta.icon" v-if="menu.meta.icon"></i>
+      <template #title>{{ $t(menu.meta.title) }}</template>
       </el-menu-item>
     </app-link>
   </template>
 </template>
 
 <script lang="ts">
-import {defineComponent, computed} from 'vue'
+import { defineComponent, computed } from 'vue'
 import appLink from './Link.vue'
-
 export default defineComponent({
   name: 'menu-item',
   props: {
@@ -96,16 +87,13 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
-.el-sub-menu {
-  text-align: left;
-}
-
-.el-menu-item {
-  text-align: left;
-}
-
-.el-menu-item i, .el-sub-menu__title i {
-  padding-right: 4px;
-  margin-right: 0;
-}
+  .el-sub-menu {
+    text-align: left;
+  }
+  .el-menu-item {
+    text-align: left;
+  }
+  .el-menu-item i, .el-sub-menu__title i {
+    padding-right: 8px;
+  }
 </style>
