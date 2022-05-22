@@ -12,7 +12,7 @@
  * @params alwayShow: 只有一个子路由时是否总是展示菜单，默认false
  */
 import { reactive } from 'vue'
-import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router'
+import { createRouter, createWebHashHistory } from 'vue-router'
 import store from '@/store'
 import i18n from '@/locale'
 import NProgress from '@/utils/system/nprogress'

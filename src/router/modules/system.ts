@@ -37,7 +37,8 @@ const route: Route[] = [
     path: "/:pathMatch(.*)",
     component: Layout,
     redirect: "/404",
-    hideMenu: true
+    hideMenu: true,
+    meta: { title: '' },
   },
 ]
 
