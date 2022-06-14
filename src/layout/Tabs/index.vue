@@ -198,9 +198,9 @@ export default defineComponent({
     function handleWhellScroll(e: any) {
       let distance = 0
       let speed = 5
-      if (e.wheelDelta > 0) {
+      if (e.wheelDelta > 30) {
         distance = -10
-      } else {
+      } else if (e.wheelDelta < -30) {
         distance = 10
       }
       // console.log(scrollLeft.value + eventDelta / 4)
