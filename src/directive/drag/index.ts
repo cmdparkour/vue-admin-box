@@ -38,7 +38,9 @@ const drag: Directive = {
   }
 }
 
-function handleElShow(el: ElType) {
+async function handleElShow(el: ElType) {
+  // 防止时间太快，拿不到dom
+  await myPromise()
   const dialog = el.querySelector('.el-dialog') as HTMLElement
   if (!dialog) {
     return
@@ -130,6 +132,13 @@ function handleElShow(el: ElType) {
   }
   function sizeChange(e: any) {
     // dialog.style.cssText += 'position: static';
+  }
+  function myPromise() {
+    return new Promise((resolve: any, reject: any) => {
+      setTimeout(() => {
+        resolve()
+      }, 500)
+    })
   }
   // 方便卸载使用
   el.__mouseDown__ = mouseDown
