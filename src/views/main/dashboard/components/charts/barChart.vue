@@ -1,11 +1,11 @@
 <template>
   <div class="box">
-    <Chart :option="option" />
+    <Chart :option="options" />
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent, onBeforeUnmount, reactive } from 'vue'
 import Chart from '@/components/charts/index.vue'
 import option from './modules/bar'
 export default defineComponent({
@@ -13,8 +13,20 @@ export default defineComponent({
     Chart
   },
   setup() {
+    let timer:any = null;
+    const datar = [100,200,300,400,500,600,700,800,900,1000,1100,1200]
+    const options = reactive(option)
+    // 模拟异步请求
+    timer = setTimeout(() => {
+      options.series[0].data = datar
+    },1000)
+    // 组件销毁时清除定时器
+    onBeforeUnmount(() => {
+      clearInterval(timer)
+      timer = null;
+    })
     return {
-      option
+      options
     }
   }
 })

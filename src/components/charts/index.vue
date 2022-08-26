@@ -28,7 +28,7 @@ onMounted(() => {
     useEventListener('resize', () => myChart.resize())
     watch(() => props.option, (newVal: any) => {
       myChart.setOption(newVal)
-    })
+    },{ deep: true })
   }
 })
 </script>
