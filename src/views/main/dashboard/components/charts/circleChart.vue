@@ -1,11 +1,11 @@
 <template>
   <div class="box">
-    <Chart :option="option" />
+    <Chart :option="options" />
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent, reactive } from 'vue'
 import Chart from '@/components/charts/index.vue'
 import option from './modules/circle'
 export default defineComponent({
@@ -13,8 +13,9 @@ export default defineComponent({
     Chart
   },
   setup() {
+    const options = reactive(option)
     return {
-      option
+      options
     }
   }
 })
