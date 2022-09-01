@@ -120,6 +120,7 @@ export default defineComponent({
   height: 100%;
   overflow-y: auto;
   box-sizing: border-box;
+  display: flex;
 }
 @media screen and (max-width: 1000px) {
   .el-aside {
