@@ -115,12 +115,11 @@ export default defineComponent({
   padding: 0;
   overflow-x: hidden;
 }
-.el-main-box {
+:deep(.el-main-box) {
   width: 100%;
   height: 100%;
   overflow-y: auto;
   box-sizing: border-box;
-  display: flex;
 }
 @media screen and (max-width: 1000px) {
   .el-aside {
