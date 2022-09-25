@@ -1,3 +1,7 @@
+/*
+ * @Date: 2022-05-22 20:44:25
+ * @Description: 
+ */
 export default {
   menu: {
     dashboard: {
@@ -85,6 +89,9 @@ export default {
       theme: 'how to diy your theme',
       systemfont: 'icon in project',
       api: 'api document'
-    }
+    },
+    tab: {
+      name: 'tab',
+    },
   },
 }

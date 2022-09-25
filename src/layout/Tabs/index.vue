@@ -3,7 +3,7 @@
     <el-scrollbar
       class="scroll-container tags-view-container"
       ref="scrollbarDom"
-      @wheel.native.passive="handleWhellScroll"
+      @wheel.passive="handleWhellScroll"
       @scroll="handleScroll"
     >
       <Item
@@ -16,6 +16,10 @@
       />
     </el-scrollbar>
     <div class="handle">
+      <div id="vueAdminBoxTabRefresh" @click="pageReload"></div>
+      <div id="vueAdminBoxTabCloseSelf" @click="closeCurrentRoute"></div>
+      <div id="vueAdminBoxTabCloseOther" @click="closeOtherRoute"></div>
+      <div id="vueAdminBoxTabCloseAll" @click="closeAllRoute"></div>
       <el-dropdown placement="bottom">
         <div class="el-dropdown-link">
           <el-icon><ArrowDown /></el-icon>

@@ -1,3 +1,7 @@
+/*
+ * @Date: 2022-05-22 20:44:25
+ * @Description: 
+ */
 export default {
   menu: {
     dashboard: {
@@ -85,6 +89,9 @@ export default {
       theme: '自定义主题',
       systemfont: '项目图标的说明',
       api: '接口说明文档'
-    }
+    },
+    tab: {
+      name: 'tab事件公用',
+    },
   },
 }

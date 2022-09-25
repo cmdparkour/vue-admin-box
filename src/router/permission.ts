@@ -1,3 +1,7 @@
+/*
+ * @Date: 2022-07-24 21:43:47
+ * @Description: 
+ */
 /** 引入类型 */
 import type { Route } from './index.type'
 
@@ -25,6 +29,7 @@ import SystemManage from './modules/systemManage'
 import Chart from './modules/chart'
 import Print from './modules/print'
 import Community from './modules/community'
+import Tab from './modules/tab'
 
 /** 登录后需要动态加入的本地路由 */
 const asyncRoutes: Route[] = [
@@ -38,6 +43,7 @@ const asyncRoutes: Route[] = [
   ...SystemManage,
   ...Print,
   ...Community,
+  ...Tab,
 ]
 
 /** 
