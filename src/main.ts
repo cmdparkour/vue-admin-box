@@ -1,3 +1,7 @@
+/*
+ * @Date: 2022-05-22 20:44:25
+ * @Description: 
+ */
 import { createApp } from 'vue'
 import ElementPlus from 'element-plus'
 import { baidu } from './utils/system/statistics'
@@ -16,12 +20,13 @@ if (import.meta.env.MODE !== 'development') { // 非开发环境调用百度统�
 }
 
 /** 权限路由处理主方法 */
-getAuthRoutes()
+getAuthRoutes().then(() => {
+  const app = createApp(App)
+  app.use(ElementPlus, { size: store.state.app.elementSize })
+  app.use(store)
+  app.use(router)
+  app.use(i18n)
+  // app.config.performance = true
+  app.mount('#app')
+})
 
-const app = createApp(App)
-app.use(ElementPlus, { size: store.state.app.elementSize })
-app.use(store)
-app.use(router)
-app.use(i18n)
-// app.config.performance = true
-app.mount('#app')
