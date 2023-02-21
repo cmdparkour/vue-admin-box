@@ -103,7 +103,9 @@ export default defineComponent({
     // 关闭当前标签，首页不关闭
     function closeCurrentRoute() {
       if (route.path !== defaultMenu.path) {
-        delMenu(route)
+        const tab = document.getElementById('vueAdminBoxTabCloseSelf')
+        const nextPath = tab?.getAttribute('nextPath')
+        delMenu(route, nextPath)
       }
     }
     // 关闭除了当前标签之外的所有标签
@@ -141,7 +143,7 @@ export default defineComponent({
     }
 
     // 删除菜单项
-    function delMenu(menu: any) {
+    function delMenu(menu: any, nextPath?: string) {
       let index = 0
       if (!menu.meta.hideClose) {
         if (menu.meta.cache && menu.name) {
@@ -149,6 +151,10 @@ export default defineComponent({
         }
         index = menuList.value.findIndex((item: any) => item.path === menu.path)
         menuList.value.splice(index, 1)
+      }
+      if (nextPath) {
+        router.push(nextPath)
+        return
       }
       if (menu.path === activeMenu.path) {
         index - 1 > 0 ? router.push(menuList.value[index - 1].path) : router.push(defaultMenu.path)

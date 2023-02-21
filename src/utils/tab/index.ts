@@ -4,11 +4,21 @@
  */
 
 /** 关闭当前标签 */
-export const closeCurrentTab = () => {
+export const closeCurrentTab = (nextPath?: string) => {
   /** 拿到tab组件 */
   const tab = document.getElementById('vueAdminBoxTabCloseSelf')
+  if (nextPath) {
+    /** 设置下一个tab的路径 */
+    tab?.setAttribute('nextpath', nextPath)
+  }
   /** 触发tab事件点击 */
   tab?.click()
+  if (nextPath) {
+    setTimeout(() => {
+      /** 清除下一个tab的路径 */
+      tab?.removeAttribute('nextpath')
+    }, 100)
+  }
 }
 
 /** 关闭其他标签 */
