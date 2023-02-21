@@ -13,11 +13,14 @@
           <li>component: 使用的组件，必填项</li>
           <li>redirect: 重定向地址，非必填</li>
           <li>alwayShow: 布尔类型，当子级只有一个时，是否展示父级菜单，true表示总是展示，false表示不展示，默认为false</li>
+          <li>hideMenu: 是否隐藏菜单，可选</li>
           <li>meta: 基础元数据，是一个对象，包括了下列属性
             <ul>
               <li>title: 非国际化版本为<b>标题</b>，国际化版本为可供<b>$t函数</b>调用的<b>对象层级字符串</b>，必填项</li>
               <li>icon: 图标，非必填</li>
               <li>cache: 布尔类型，是否开启缓存功能，true表示开启，false表示关闭，默认为false, 非必填，目前仅支持在二级菜单上使用，暂不支持三级及三级以上菜单使用（社区难题，有待解决）</li>
+              <li>hideTabs?: 布尔类型，是否在tab栏隐藏</li>
+              <li>activeMenu?: 字符串类型，用于左侧菜单强制聚焦的路由</li>
               <li>自定义元数据，用于在其它定制化场景使用</li>
             </ul>
           </li>

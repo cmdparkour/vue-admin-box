@@ -30,6 +30,10 @@ export interface Meta {
     icon?: string
     /** @name 是否需要缓存页面，目前仅支持二级菜单缓存，多级菜单缓存会在未来支持，可选 @default false */
     cache?: boolean
+    /** @name 是否隐藏标签页，可选 @default false */
+    hideTabs?: boolean
+    /** @name 左侧菜单强制聚焦时的路由，比如新增、编辑一类页面，可能需要使用 */
+    activeMenu?: string
     /** @name 任意值 @description 供自行扩展使用，但推荐在上面自己定义好 */
     [key: string]: any
 }
