@@ -5,9 +5,9 @@
         <span
           v-if="item.redirect === 'noRedirect' || index == levelList.length - 1"
           class="no-redirect"
-        >{{  $t(item.meta.title) }}</span>
+        >{{  isBackMenu ? item.meta.title : $t(item.meta.title) }}</span>
         <a v-else @click.prevent="handleLink(item)">
-          {{ $t(item.meta.title) }}
+          {{ isBackMenu ? item.meta.title : $t(item.meta.title) }}
         </a>
       </el-breadcrumb-item>
     </transition-group>
@@ -17,6 +17,7 @@
 <script lang="ts">
 import { ref, defineComponent, watch, Ref } from "vue";
 import { useRoute, useRouter, RouteLocationMatched } from "vue-router";
+import { isBackMenu } from '@/config'
 export default defineComponent({
   name: "BreadCrumb",
   setup() {
@@ -43,7 +44,7 @@ export default defineComponent({
       }
       router.push(path);
     };
-    return { levelList, handleLink };
+    return { levelList, handleLink, isBackMenu };
   }
 });
 </script>

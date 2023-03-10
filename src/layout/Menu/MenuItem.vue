@@ -3,19 +3,19 @@
     <el-sub-menu v-if="showMenuType === 2" :index="pathResolve" :show-timeout="0" :hide-timeout="0">
       <template #title>
         <i :class="menu.meta.icon" v-if="menu.meta.icon"></i>
-        <span>{{ $t(menu.meta.title) }}</span>
+        <span>{{ isBackMenu ? menu.meta.title : $t(menu.meta.title) }}</span>
       </template>
       <menu-item v-for="(item, key) in menu.children" :key="key" :menu="item" :basePath="pathResolve" />
     </el-sub-menu>
     <app-link v-else-if="showMenuType === 1" :to="pathResolve">
       <el-menu-item :index="pathResolve" v-if="!menu.children[0].children || menu.children[0].children.length === 0">
         <i :class="menu.children[0].meta.icon || menu.meta.icon" v-if="menu.children[0].meta.icon || menu.meta.icon"></i>
-        <template #title>{{ $t(menu.children[0].meta.title) }}</template>
+        <template #title>{{ isBackMenu ? menu.children[0].meta.title : $t(menu.children[0].meta.title) }}</template>
       </el-menu-item>
       <el-sub-menu v-else :index="pathResolve" :show-timeout="0" :hide-timeout="0">
         <template #title>
           <i :class="menu.children[0].meta.icon || menu.meta.icon" v-if="menu.children[0].meta.icon || menu.meta.icon"></i>
-          <span>{{ $t(menu.children[0].meta.title) }}</span>
+          <span>{{ isBackMenu ? menu.children[0].meta.title : $t(menu.children[0].meta.title) }}</span>
         </template>
         <menu-item v-for="(item, key) in menu.children[0].children" :key="key" :menu="item" :basePath="pathResolve" />
       </el-sub-menu>
@@ -23,7 +23,7 @@
     <app-link v-else :to="pathResolve">
       <el-menu-item :index="pathResolve">
       <i :class="menu.meta.icon" v-if="menu.meta.icon"></i>
-      <template #title>{{ $t(menu.meta.title) }}</template>
+      <template #title>{{ isBackMenu ? menu.meta.title : $t(menu.meta.title) }}</template>
       </el-menu-item>
     </app-link>
   </template>
@@ -32,6 +32,7 @@
 <script lang="ts">
 import { defineComponent, computed } from 'vue'
 import appLink from './Link.vue'
+import { isBackMenu } from '@/config'
 export default defineComponent({
   name: 'menu-item',
   props: {
@@ -80,7 +81,8 @@ export default defineComponent({
     })
     return {
       showMenuType,
-      pathResolve
+      pathResolve,
+      isBackMenu
     }
   }
 })

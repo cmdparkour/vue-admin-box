@@ -3,48 +3,18 @@
  * @Description: 
  */
 /** 引入类型 */
-import type { Route } from './index.type'
 
 /** 引入路由相关的资源 */
 import router, { modules } from './index'
 /** 引入vuex实例 */
 import store from '@/store'
+/** 引入后端路由控制器 */
+import { isBackMenu } from '@/config'
 
-/** 动态路由实现基础组件 */
-/** 引入全局Layout组件 */
-import Layout from '@/layout/index.vue'
-/** 引入多级菜单控制器组件 */
-import MenuBox from '@/components/menu/index.vue'
-/** 引入带有系统自定义name的组件，方便keep-alive实现 */
-import { createNameComponent } from './createNode'
-
-/** 引入需要权限的Modules */
-import Dashboard from './modules/dashboard'
-import Document from './modules/document'
-import Pages from './modules/pages'
-import Menu from './modules/menu'
-import Component from './modules/component'
-import Directive from './modules/directive'
-import SystemManage from './modules/systemManage'
-import Chart from './modules/chart'
-import Print from './modules/print'
-import Community from './modules/community'
-import Tab from './modules/tab'
-
-/** 登录后需要动态加入的本地路由 */
-const asyncRoutes: Route[] = [
-  ...Dashboard,
-  ...Document,
-  ...Component,
-  ...Pages,
-  ...Menu,
-  ...Directive,
-  ...Chart,
-  ...SystemManage,
-  ...Print,
-  ...Community,
-  ...Tab,
-]
+/** 引入纯前端路由 */
+import FrontRoutes from './permission/front'
+/** 引入后端路由 */
+import getMenu from './permission/back'
 
 /** 
  * @name 动态路由的权限新增，供登录后调用
@@ -55,7 +25,18 @@ async function addRoutes() {
   // 利用前端路由表模拟后端数据问题
   // 等待后端接口返回数据后再回调出去，防止刷新跳转404
   return new Promise<void>((resolve) => {
-    asyncRoutes.forEach(item => {
+    if (isBackMenu) {
+      getMenu()
+      .then((data) => {
+        data.forEach(item => {
+          modules.push(item)
+          router.addRoute(item)
+        })
+        resolve()
+      })
+      return
+    }    
+    FrontRoutes.forEach(item => {
       modules.push(item)
       router.addRoute(item)
     })

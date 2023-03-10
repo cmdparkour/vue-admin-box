@@ -1,16 +1,17 @@
 <template>
   <div class="tags-view-item" :class="active? 'active' : ''">
     <router-link :to="menu.path" v-if="menu.meta.title">
-      {{ $t(menu.meta.title) }}
+      {{ isBackMenu ? menu.meta.title : $t(menu.meta.title) }}
     </router-link>
     <el-icon @click.stop="reload" v-if="active"><refresh-right /></el-icon>
     <el-icon @click.stop="closeTab" v-if="!menu.meta.hideClose" :alt="$t('message.common.del')"><close /></el-icon>
   </div>
 </template>
 
-<script>
+<script lang="ts">
 import { defineComponent } from 'vue'
 import { RefreshRight, Close } from '@element-plus/icons'
+import { isBackMenu } from '@/config'
 export default defineComponent({
   props: {
     menu: {
@@ -45,7 +46,8 @@ export default defineComponent({
     }
     return {
       closeTab,
-      reload
+      reload,
+      isBackMenu
     }
   }
 })
