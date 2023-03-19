@@ -72,52 +72,48 @@ const pages = {
 
 /** 多级嵌套菜单 */
 const menu = {
-  /** 二级菜单1 */
-  menu1: createNameComponent(() => import('@/views/main/menu/menu1/index.vue')),
   /** 二级菜单2 */
-  menu2: createNameComponent(() => import('@/views/main/menu/menu2/index.vue')),
+  menu2: createNameComponent(() => import('@/views/main/menu/menu-2.vue')),
   /** 二级菜单3 */
-  menu3: createNameComponent(() => import('@/views/main/menu/menu3/index.vue')),
+  menu3: createNameComponent(() => import('@/views/main/menu/menu-3.vue')),
   /** 三级菜单1 */
-  menu1_1: createNameComponent(() => import('@/views/main/menu/menu1/menu1_1/index.vue')),
+  menu1_1: createNameComponent(() => import('@/views/main/menu/menu-1/menu-1-1/menu-1-1-1.vue')),
+  /** 三级菜单1 */
+  menu1_2: createNameComponent(() => import('@/views/main/menu/menu-1/menu-1-1/menu-1-1-2.vue')),
   /** 三级菜单2 */
-  menu1_2: createNameComponent(() => import('@/views/main/menu/menu1/menu1_2/index.vue')),
-  /** 四级菜单1 */
-  menu1_2_1: createNameComponent(() => import('@/views/main/menu/menu1/menu1_2/menu1_2_1/index.vue')),
-  /** 四级菜单2 */
-  menu1_2_2: createNameComponent(() => import('@/views/main/menu/menu1/menu1_2/menu1_2_2/index.vue')),
+  menu1_3: createNameComponent(() => import('@/views/main/menu/menu-1/menu-1-2.vue')),
 }
 
 /** 自定义指令 */
 const directive = {
   /** 拖拽指令：v-dragable */
-  dragable: createNameComponent(() => import('@/views/main/directive/dragable/index.vue')),
+  dragable: createNameComponent(() => import('@/views/main/directive/dragable.vue')),
   /** 复制指令：v-copy */
-  copy: createNameComponent(() => import('@/views/main/directive/permission/index.vue')),
+  copy: createNameComponent(() => import('@/views/main/directive/copy.vue')),
   /** 水印指令：v-waterMarker */
-  waterMarker: createNameComponent(() => import('@/views/main/directive/waterMarker/index.vue')),
+  waterMarker: createNameComponent(() => import('@/views/main/directive/waterMarker.vue')),
   /** 长按指令：v-longpress */
-  longpress: createNameComponent(() => import('@/views/main/directive/longpress/index.vue')),
+  longpress: createNameComponent(() => import('@/views/main/directive/longpress.vue')),
   /** 按钮防抖指令：v-debounce */
-  debounce: createNameComponent(() => import('@/views/main/directive/debounce/index.vue')),
+  debounce: createNameComponent(() => import('@/views/main/directive/debounce.vue')),
   /** 下拉加载指令：v-infinite-scroll */
-  scroll: createNameComponent(() => import('@/views/main/directive/scroll/index.vue')),
+  scroll: createNameComponent(() => import('@/views/main/directive/infiniteScroll.vue')),
   /** 点击外部区域：v-click-outside */
-  clickOutside: createNameComponent(() => import('@/views/main/directive/clickOutside/index.vue')),
+  clickOutside: createNameComponent(() => import('@/views/main/directive/clickOutside.vue')),
 }
 
 /** echarts图表 */
 const echarts = {
   /** 柱状图 */
-  bar: createNameComponent(() => import('@/views/main/echarts/bar/index.vue')),
+  bar: createNameComponent(() => import('@/views/main/echarts/bar.vue')),
   /** 折线图 */
-  line: createNameComponent(() => import('@/views/main/echarts/line/index.vue')),
+  line: createNameComponent(() => import('@/views/main/echarts/line.vue')),
   /** 饼图 */
-  pie: createNameComponent(() => import('@/views/main/echarts/pie/index.vue')),
+  pie: createNameComponent(() => import('@/views/main/echarts/pie.vue')),
   /** 雷达图 */
-  radar: createNameComponent(() => import('@/views/main/echarts/radar/index.vue')),
+  radar: createNameComponent(() => import('@/views/main/echarts/radar.vue')),
   /** 地图 */
-  map: createNameComponent(() => import('@/views/main/echarts/map/index.vue')),
+  map: createNameComponent(() => import('@/views/main/echarts/map.vue')),
 }
 
 /** 系统管理 */
@@ -127,21 +123,21 @@ const systemManage = {
   /** 角色 */
   role: createNameComponent(() => import('@/views/main/systemManage/role/index.vue')),
   /** 用户 */
-  user: createNameComponent(() => import('@/views/main/systemManage/user/index.vue')),
+  user: createNameComponent(() => import('@/views/main/systemManage/users/index.vue')),
 }
 
 /** JS打印事件 */
 const print = {
   /** 打印 */
-  print: createNameComponent(() => import('@/views/main/print/print/index.vue')),
+  print: createNameComponent(() => import('@/views/main/print/index.vue')),
 }
 
 /** 社区的力量 */
 const community = {
   /** QQ交流群 */
-  qq: createNameComponent(() => import('@/views/main/community/qq/index.vue')),
+  qq: createNameComponent(() => import('@/views/main/community/qq.vue')),
   /** vue3最新资源库 */
-  site: createNameComponent(() => import('@/views/main/community/site/index.vue')),
+  site: createNameComponent(() => import('@/views/main/community/site.vue')),
 }
 
 /** tab事件公用 */
