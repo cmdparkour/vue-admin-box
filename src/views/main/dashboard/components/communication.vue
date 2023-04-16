@@ -17,8 +17,8 @@
         </div>
         <div class="my-item">
           <p style="padding-left: 20px;">1. 有偿提供前端技术开发支持，可支持：中后台、网站、APP、小程序等开发工作，按项目收费</p>
-          <p style="padding-left: 20px;">2. 有偿提供技术咨询服务，按小时付费，50元/小时</p>
-          <p style="padding-left: 20px;">3. 有偿提供前端疑难杂症解决服务，按小时付费，50元/小时</p>
+          <p style="padding-left: 20px;">2. 有偿提供技术咨询服务，按小时付费，100元/小时</p>
+          <p style="padding-left: 20px;">3. 有偿提供前端疑难杂症解决服务，按小时付费，100元/小时</p>
           <p style="padding-left: 20px;">4. 联系方式：1031596654(QQ), cmdparkour(微信), 大家加好友时备注一下：vue-admin-box</p>
         </div>
       </div>
