@@ -46,7 +46,7 @@ export default defineComponent({
   name: 'card',
   setup() {
     let loading = ref(true)
-    let list = ref([])
+    let list: Ref<{ id: string, image: string, title: string, time: string }[]> = ref([])
     let box: Ref<HTMLDivElement> = ref() as any
     let page: Page = reactive({
       index: 1,
