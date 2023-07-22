@@ -30,6 +30,12 @@ const route: Route[] = [
         meta: { title: 'message.menu.page.card', cache: true }
       },
       {
+        path: 'cardDetail',
+        hideMenu: true,
+        component: createNameComponent(() => import('@/views/main/pages/card/detail/index.vue')),
+        meta: { title: 'message.menu.page.card', cache: false },
+      },
+      {
         path: 'work',
         component: createNameComponent(() => import('@/views/main/pages/work/index.vue')),
         meta: { title: 'message.menu.page.work' }
