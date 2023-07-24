@@ -1,7 +1,7 @@
-import enLocale from 'element-plus/dist/locale/en.mjs'
+import locale from 'element-plus/dist/locale/en.mjs'
 
 const lang = {
-  el: enLocale.el, // element-plus i18 setting
+  el: locale.el, // element-plus i18 setting
   message: {
     language: 'English',
     common: {

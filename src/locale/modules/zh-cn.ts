@@ -1,6 +1,6 @@
-import zhLocale from 'element-plus/dist/locale/zh-cn.mjs'
+import locale from 'element-plus/dist/locale/zh-cn.mjs'
 const lang = {
-  el: zhLocale.el, // element内部国际化
+  el: locale.el, // element内部国际化
   message: {
     language: '中文',
     common: {
