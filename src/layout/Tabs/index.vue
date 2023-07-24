@@ -172,9 +172,9 @@ export default defineComponent({
     function setPosition() {
       if (scrollbarDom.value) {
         const domBox = {
-          scrollbar: scrollbarDom.value.scrollbar$.querySelector('.el-scrollbar__wrap ') as HTMLDivElement,
-          activeDom: scrollbarDom.value.scrollbar$.querySelector('.active') as HTMLDivElement,
-          activeFather: scrollbarDom.value.scrollbar$.querySelector('.el-scrollbar__view') as HTMLDivElement
+          scrollbar: scrollbarDom.value.wrapRef as HTMLDivElement,
+          activeDom: scrollbarDom.value.wrapRef.querySelector('.active') as HTMLDivElement,
+          activeFather: scrollbarDom.value.wrapRef.querySelector('.el-scrollbar__view') as HTMLDivElement
         }
         let hasDoms = true
         Object.keys(domBox).forEach((dom) => {
