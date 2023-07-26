@@ -1,6 +1,6 @@
 <template>
   <div class="tags-view-item" :class="active? 'active' : ''">
-    <router-link :to="menu.path" v-if="menu.meta.title">
+    <router-link :to="{ path: menu.path, query: menu.query }" v-if="menu.meta.title">
       {{ isBackMenu ? menu.meta.title : $t(menu.meta.title) }}
     </router-link>
     <el-icon @click.stop="reload" v-if="active"><refresh-right /></el-icon>
