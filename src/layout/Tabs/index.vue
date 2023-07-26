@@ -126,7 +126,7 @@ export default defineComponent({
 
     // 添加新的菜单项
     function addMenu(menu: any) {
-      let { path, meta, name } = menu
+      let { path, meta, name, query } = menu
       if (meta.hideTabs) {
         return
       }
@@ -137,7 +137,8 @@ export default defineComponent({
         menuList.value.push({
           path,
           meta,
-          name
+          name,
+          query
         })
       }
     }
@@ -156,8 +157,10 @@ export default defineComponent({
         router.push(nextPath)
         return
       }
+      // 若删除的是当前页面，回到前一页，若为最后一页，则回到默认的首页
       if (menu.path === activeMenu.path) {
-        index - 1 > 0 ? router.push(menuList.value[index - 1].path) : router.push(defaultMenu.path)
+        const prePage = index - 1 > 0 ? menuList.value[index - 1] : { path: defaultMenu.path }
+        router.push({ path: prePage.path, query: prePage.query || {} })
       }
     }
 
