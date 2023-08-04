@@ -51,7 +51,7 @@
   </el-drawer>
 </template>
 
-<script lang="ts">
+<script lang="js">
 import { defineComponent, ref, reactive, computed, watch } from 'vue'
 import { useStore } from 'vuex'
 import { useI18n } from 'vue-i18n'

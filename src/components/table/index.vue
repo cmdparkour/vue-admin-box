@@ -33,7 +33,7 @@
   </div>
 </template>
 
-<script lang="ts">
+<script lang="js">
 import { defineComponent, reactive, ref, onActivated, onMounted } from 'vue'
 import { Page } from '@/components/table/type'
 export default defineComponent({

@@ -40,7 +40,7 @@
   </div>
 </template>
 
-<script lang="ts">
+<script lang="js">
 /** 类型引用 */
 import type { Ref } from 'vue'
 import type { ElScrollbar } from 'element-plus'

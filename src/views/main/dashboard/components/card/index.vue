@@ -4,7 +4,7 @@
   </div>
 </template>
 
-<script lang="ts">
+<script lang="js">
 import { defineComponent } from 'vue'
 import Row from './row.vue'
 export default defineComponent({

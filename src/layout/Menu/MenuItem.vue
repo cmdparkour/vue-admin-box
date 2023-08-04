@@ -29,7 +29,7 @@
   </template>
 </template>
 
-<script lang="ts">
+<script lang="js">
 import { defineComponent, computed } from 'vue'
 import appLink from './Link.vue'
 import { isBackMenu } from '@/config'

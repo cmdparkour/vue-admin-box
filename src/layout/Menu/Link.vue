@@ -4,7 +4,7 @@
   </component>
 </template>
 
-<script lang="ts">
+<script lang="js">
 import { defineComponent, computed } from 'vue'
 import { useStore } from "vuex";
 export default defineComponent({

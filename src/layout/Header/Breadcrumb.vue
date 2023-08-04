@@ -14,7 +14,7 @@
   </el-breadcrumb>
 </template>
 
-<script lang="ts">
+<script lang="js">
 import { ref, defineComponent, watch, Ref } from "vue";
 import { useRoute, useRouter, RouteLocationMatched } from "vue-router";
 import { isBackMenu } from '@/config'

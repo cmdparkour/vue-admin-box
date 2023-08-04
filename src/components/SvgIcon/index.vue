@@ -2,7 +2,7 @@
   <svg class="SvgIcon" aria-hidden="true"><use :xlink:href="symbolId" /></svg>
 </template>
 
-<script lang="ts">
+<script lang="js">
 /** 使用参照文档：https://gitee.com/webxrd/vite-plugin-svg?_from=gitee_search */
 import { defineComponent, computed } from 'vue'
 export default defineComponent({

@@ -14,7 +14,7 @@
   </Layer>
 </template>
 
-<script lang="ts">
+<script lang="js">
 import type { LayerType } from '@/components/layer/index.vue'
 import type { Ref } from 'vue'
 import type { ElFormItemContext } from 'element-plus/lib/el-form/src/token'

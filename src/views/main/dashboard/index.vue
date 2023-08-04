@@ -5,7 +5,7 @@
   </div>
 </template>
 
-<script lang="ts">
+<script lang="js">
 import { defineComponent } from 'vue'
 import Card from './components/card/index.vue'
 import Charts from './components/charts/index.vue'

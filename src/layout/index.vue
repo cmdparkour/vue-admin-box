@@ -38,7 +38,7 @@
   </el-container>
 </template>
 
-<script lang="ts">
+<script lang="js">
 import { defineComponent, computed, onBeforeMount } from "vue";
 import { useStore } from "vuex";
 import { useRouter } from "vue-router";

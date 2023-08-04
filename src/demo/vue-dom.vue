@@ -3,7 +3,7 @@
   </div>
 </template>
 
-<script lang="ts">
+<script lang="js">
 import { Ref } from 'vue'
 import { defineComponent, ref, onMounted } from 'vue'
 export default defineComponent({

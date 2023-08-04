@@ -36,7 +36,7 @@
   </header>
 </template>
 
-<script lang="ts">
+<script lang="js">
 import { defineComponent, computed, reactive } from 'vue'
 import { useStore } from 'vuex'
 import { useRouter, useRoute } from 'vue-router'

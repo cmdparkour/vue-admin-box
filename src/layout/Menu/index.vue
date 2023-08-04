@@ -16,7 +16,7 @@
   </el-scrollbar>
 </template>
 
-<script lang="ts">
+<script lang="js">
 import { defineComponent, computed, onMounted } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
 import { useStore } from 'vuex'

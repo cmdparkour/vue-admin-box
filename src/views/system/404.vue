@@ -18,7 +18,7 @@
   </div>
 </template>
 
-<script lang="ts">
+<script lang="js">
 import { defineComponent } from 'vue'
 import four from "@/assets/images/404.png"
 import four_cloud from "@/assets/images/404_cloud.png"

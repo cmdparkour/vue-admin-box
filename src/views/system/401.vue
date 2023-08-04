@@ -15,7 +15,7 @@
   </div>
 </template>
 
-<script lang="ts">
+<script lang="js">
 import { defineComponent } from 'vue'
 import first from "@/assets/images/401.gif"
 export default defineComponent({

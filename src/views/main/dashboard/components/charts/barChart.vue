@@ -4,7 +4,7 @@
   </div>
 </template>
 
-<script lang="ts">
+<script lang="js">
 import { defineComponent, onBeforeUnmount, reactive } from 'vue'
 import Chart from '@/components/charts/index.vue'
 import option from './modules/bar'

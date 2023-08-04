@@ -4,7 +4,7 @@
   </div>
 </template>
 
-<script lang="ts">
+<script lang="js">
 import { defineComponent, reactive } from 'vue'
 import Chart from '@/components/charts/index.vue'
 import option from './modules/circle'
