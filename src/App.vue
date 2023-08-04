@@ -14,7 +14,7 @@ export default defineComponent({
     const store = useStore()
     const i18n = useI18n()
     const size = computed(() => store.state.app.elementSize)
-    const messages: any = i18n.messages.value
+    const messages = i18n.messages.value
     const locale = computed(() => {
       return {
         name: i18n.locale.value,
