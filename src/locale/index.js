@@ -1,10 +1,10 @@
 // 提示信息仅在开发环境生效
-import { createI18n, LocaleMessages, VueMessageType } from 'vue-i18n'
+import { createI18n } from 'vue-i18n'
 import store from '@/store'
 
 const files= import.meta.globEager('./modules/*.ts')
 
-let messages: LocaleMessages<VueMessageType> = {}
+let messages = {}
 Object.keys(files).forEach((c) => {
   const module = files[c].default
   const moduleName = c.replace(/^\.\/(.*)\/(.*)\.\w+$/, '$2')
