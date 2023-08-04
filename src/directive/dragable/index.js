@@ -8,41 +8,25 @@
  * 5. v-dragable="'.list'" // 使用class名作为父级
  * 3-5代表所有可被document.querySelector()解析的参数值
  **/
-import type { Directive, DirectiveBinding } from 'vue'
-interface Position {
-  x: number,
-  y: number
-}
-interface Mouse {
-  down: Position,
-  move: Position
-}
-interface ElType extends HTMLElement {
-  __mouseDown__: any,
-  __mouseUp__: any,
-  __mouseMove__: any,
-  __parentDom__: HTMLElement,
-  __position__: Position
-}
-const directive: Directive = {
-  mounted: (el: ElType, binding: DirectiveBinding) => {
+const directive = {
+  mounted: (el, binding) => {
     setParentDom(el, binding, false)
     // 子级元素位置处理
     // 1. 获取父子元素当前位置
-    let parentDomRect: DOMRect
-    let elDomRect: DOMRect
-    let mouseData: Mouse = {
+    let parentDomRect
+    let elDomRect
+    let mouseData = {
       down: { x: 0, y: 0},
       move: { x: 0, y: 0 }
     }
-    let mouseDown: boolean = false
+    let mouseDown = false
     el.__position__ = {
       x: 0,
       y: 0
     }
-    let bodyUserSelect: string = 'text'
+    let bodyUserSelect = 'text'
     
-    function handleMouseDown(e: MouseEvent) {
+    function handleMouseDown(e) {
       if (e.button !== 0) {
         return
       }
@@ -53,10 +37,10 @@ const directive: Directive = {
       mouseDown = true
       parentDomRect = el.__parentDom__.getBoundingClientRect()
       elDomRect = el.getBoundingClientRect()
-      bodyUserSelect = document.querySelector('body')!.style.userSelect
-      document.querySelector('body')!.style.userSelect = "none"
+      bodyUserSelect = document.querySelector('body').style.userSelect
+      document.querySelector('body').style.userSelect = "none"
     }
-    function handleMouseMove(e: MouseEvent) {
+    function handleMouseMove(e) {
       if (!mouseDown) {
         return
       }
@@ -66,10 +50,10 @@ const directive: Directive = {
       }
       setPosition()
     }
-    function handleMouseUp(e: MouseEvent) {
+    function handleMouseUp(e) {
       if (mouseDown) {
         mouseDown = false
-        document.querySelector('body')!.style.userSelect = bodyUserSelect
+        document.querySelector('body').style.userSelect = bodyUserSelect
       }
     }
     // 用于设置el元素的Position位置
@@ -111,7 +95,7 @@ const directive: Directive = {
   updated(el, binding) {
     setParentDom(el, binding, true)
   },
-  beforeUnmount(el: ElType) {
+  beforeUnmount(el) {
     // 避免重复开销，卸载所有的监听
     // 解决问题：多次创建新的实例 =》 监听不取消 =》 同时存在多个无用的监听，导致页面性能变差
     document.removeEventListener('mousedown', el.__mouseDown__)
@@ -120,14 +104,14 @@ const directive: Directive = {
   }
 }
 // 设置parentDom，供mounted和update使用
-function setParentDom(el: ElType, binding: DirectiveBinding, updated: boolean) {
+function setParentDom(el, binding, updated) {
   
   const array = [
     { name: 'father', dom: el.parentElement }
   ]
   
   // 获取父级元素
-  let parentDom: HTMLElement | HTMLBodyElement
+  let parentDom
   // 以下if操作用于确保一定有一个parentDom
   if (binding.value) {
     const findArr = array.find((arr) => {
@@ -136,10 +120,10 @@ function setParentDom(el: ElType, binding: DirectiveBinding, updated: boolean) {
     if (findArr && findArr.dom) {
       parentDom = findArr.dom
     } else {
-      parentDom = document.querySelector(binding.value) || array[0].dom as HTMLElement || array[1].dom
+      parentDom = document.querySelector(binding.value) || array[0].dom || array[1].dom
     }
   } else {
-    parentDom = array[0].dom as HTMLElement || array[1].dom
+    parentDom = array[0].dom || array[1].dom
   }
   const parentDomRect = parentDom.getBoundingClientRect()
   const elDomRect = el.getBoundingClientRect()

@@ -2,26 +2,8 @@
  * 指令，仅用于element-plus 中的 dialog 使用
  * 可基于窗口各种拖拽使用
  */
-import type { Directive } from 'vue'
-interface ElType extends HTMLDivElement {
-  __mouseDown__: any,
-  __mouseUp__: any,
-  __mouseMove__: any,
-  __sizeChange__: any
-}
-interface DataDialog {
-  x: number
-  y: number
-  width: number
-  height: number
-  marginTop?: string|number
-  top?: number
-  bottom?: number
-  left?: number
-  right?: number
-}
-const drag: Directive = {
-  mounted(el: ElType, binding) {
+const drag = {
+  mounted(el, binding) {
     if (binding.value) {
       handleElShow(el)
     }
@@ -33,20 +15,20 @@ const drag: Directive = {
       handleElHide(el)
     }
   },
-  beforeUnmount(el: ElType) {
+  beforeUnmount(el) {
     handleElHide(el)
   }
 }
 
-async function handleElShow(el: ElType) {
+async function handleElShow(el) {
   // 防止时间太快，拿不到dom
   await myPromise()
-  const dialog = el.querySelector('.el-dialog') as HTMLElement
+  const dialog = el.querySelector('.el-dialog')
   if (!dialog) {
     return
   }
-  const header = el.querySelector('.el-dialog__header') as HTMLElement
-  const dialogMask = el.querySelector('.el-overlay') as HTMLElement
+  const header = el.querySelector('.el-dialog__header')
+  const dialogMask = el.querySelector('.el-overlay')
   dialogMask.style.cssText += "overflow: hidden;"
   header.style.cursor = 'move'
   let dragStatus = false
@@ -61,7 +43,7 @@ async function handleElShow(el: ElType) {
       width: 0,
       height: 0,
       marginTop: ""
-    } as DataDialog, // dialog信息
+    }, // dialog信息
     mouse: { // 鼠标初始信息
       x: 0,
       y: 0
@@ -98,7 +80,7 @@ async function handleElShow(el: ElType) {
     let left = data.drag.x - data.mouse.x + data.dialog.x
     dialog.style.cssText += `position: absolute; top: calc(${top}px - ${data.dialog.marginTop}); left: ${left}px;`
   }
-  function mouseDown(e: any) {
+  function mouseDown(e) {
     // 获取dialog目前的位置，坐标, 以及屏幕当前的宽高
     // 一切初始数据的获取应该放置于此，避免其他如：宽度修改等一系列的影响
     if (e.button !== 0) {
@@ -116,7 +98,7 @@ async function handleElShow(el: ElType) {
     }
     dragStatus = true
   }
-  function mouseMove(e: any) {
+  function mouseMove(e) {
     if (dragStatus) {
       data.drag = {
         x: e.clientX,
@@ -126,15 +108,15 @@ async function handleElShow(el: ElType) {
       handlePosition()
     }  
   }
-  function mouseUp(e: any) {
+  function mouseUp(e) {
     dialogMask.style.userSelect = "auto"
     dragStatus = false
   }
-  function sizeChange(e: any) {
+  function sizeChange(e) {
     // dialog.style.cssText += 'position: static';
   }
   function myPromise() {
-    return new Promise((resolve: any, reject: any) => {
+    return new Promise((resolve, reject) => {
       setTimeout(() => {
         resolve()
       }, 500)
@@ -147,7 +129,7 @@ async function handleElShow(el: ElType) {
   el.__sizeChange__ = sizeChange
 }
 
-function handleElHide(el: ElType) {
+function handleElHide(el) {
   // 避免重复开销，卸载所有的监听
   // 解决问题：多次创建新的实例 =》 监听不取消 =》 同时存在多个无用的监听，导致页面卡顿
   document.removeEventListener('mousedown', el.__mouseDown__)
