@@ -13,7 +13,7 @@ export default defineComponent({
     Chart
   },
   setup() {
-    let timer:any = null;
+    let timer = null;
     const datar = [100,200,300,400,500,600,700,800,900,1000,1100,1200]
     const options = reactive(option)
     // 模拟异步请求

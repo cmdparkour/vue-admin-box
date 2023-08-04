@@ -58,7 +58,6 @@ import { systemTitle, systemSubTitle } from '@/config'
 import { defineComponent, ref, reactive } from 'vue'
 import { useStore } from 'vuex'
 import { useRouter, useRoute } from 'vue-router'
-import type { RouteLocationRaw  } from 'vue-router'
 import { getAuthRoutes } from '@/router/permission'
 import { ElMessage } from 'element-plus'
 import selectLang from '@/layout/Header/functionList/word.vue'
@@ -118,7 +117,7 @@ export default defineComponent({
           })
           location.reload()
           // await getAuthRoutes()
-          // await router.push(route.query.redirect as RouteLocationRaw || '/')
+          // await router.push(route.query.redirect || '/')
         }).finally(() => {
           form.loading = false
         })

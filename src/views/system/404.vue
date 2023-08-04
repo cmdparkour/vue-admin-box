@@ -38,9 +38,6 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
-  .wscn-http404-container {
-    
-  }
   .wscn-http404 {
     position: relative;
     overflow: hidden;
