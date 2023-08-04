@@ -7,7 +7,7 @@
   <div ref="chart" class="chart" />
 </template>
 
-<script lang="js" setup>
+<script setup>
 import { ref, onMounted, watch } from 'vue'
 import * as echarts from 'echarts'
 import { useEventListener } from '@vueuse/core'
