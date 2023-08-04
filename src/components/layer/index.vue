@@ -20,16 +20,6 @@
 <script lang="js">
 import { defineComponent } from 'vue'
 import drag from '@/directive/drag/index'
-export interface LayerInterface {
-  show: boolean;
-  title: string;
-  showButton?: boolean;
-  width?: string;
-  [propName: string]: any;
-}
-export interface LayerType {
-  close: Function
-}
 export default defineComponent({
   props: {
     layer: {

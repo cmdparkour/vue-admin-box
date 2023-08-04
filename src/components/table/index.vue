@@ -34,8 +34,7 @@
 </template>
 
 <script lang="js">
-import { defineComponent, reactive, ref, onActivated, onMounted } from 'vue'
-import { Page } from '@/components/table/type'
+import { defineComponent, ref, onActivated } from 'vue'
 export default defineComponent({
   props: {
     data: { type: Array, default: () => [] }, // 数据源
@@ -53,10 +52,10 @@ export default defineComponent({
     pageSizes: { type: Array, default: [10, 20, 50, 100] }
   },
   setup(props, context) {
-    const table: any = ref(null)
-    let timer: any = null
+    const table = ref(null)
+    let timer = null
     // 分页相关：监听页码切换事件
-    const handleCurrentChange = (val: Number) => {
+    const handleCurrentChange = (val) => {
       if (timer) {
         props.page.index = 1
       } else {
@@ -65,7 +64,7 @@ export default defineComponent({
       }
     }
     // 分页相关：监听单页显示数量切换事件
-    const handleSizeChange = (val: Number) => {
+    const handleSizeChange = (val) => {
       timer = 'work'
       setTimeout(() => {
         timer = null
@@ -74,7 +73,7 @@ export default defineComponent({
       context.emit("getTableData", true)
     }
     // 选择监听器
-    const handleSelectionChange = (val: []) =>{
+    const handleSelectionChange = (val) =>{
       context.emit("selection-change", val)
     }
     // 解决BUG：keep-alive组件使用时，表格浮层高度不对的问题
