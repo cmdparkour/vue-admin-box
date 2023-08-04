@@ -2,7 +2,7 @@
 import { createI18n } from 'vue-i18n'
 import store from '@/store'
 
-const files= import.meta.globEager('./modules/*.ts')
+const files= import.meta.globEager('./modules/*.js')
 
 let messages = {}
 Object.keys(files).forEach((c) => {
