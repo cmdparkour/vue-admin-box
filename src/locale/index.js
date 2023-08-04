@@ -5,9 +5,9 @@ import store from '@/store'
 const files= import.meta.globEager('./modules/*.ts')
 
 let messages: LocaleMessages<VueMessageType> = {}
-Object.keys(files).forEach((c: string) => {
+Object.keys(files).forEach((c) => {
   const module = files[c].default
-  const moduleName: string = c.replace(/^\.\/(.*)\/(.*)\.\w+$/, '$2')
+  const moduleName = c.replace(/^\.\/(.*)\/(.*)\.\w+$/, '$2')
   messages[moduleName] = module
 })
 
