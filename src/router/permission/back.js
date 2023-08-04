@@ -17,8 +17,8 @@ const getMenu = async () => {
 }
 
 /** 循环取出component */
-const getComponents = (data: any[], level = 1) => {
-  const newData: any[] = data.map((item) => {
+const getComponents = (data, level = 1) => {
+  const newData = data.map((item) => {
     if (item.children) {
       if (level == 1) {
         return {

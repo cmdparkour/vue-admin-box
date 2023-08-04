@@ -1,7 +1,7 @@
 import type { Route } from '../index.type'
 import Layout from '@/layout/index.vue'
 import { createNameComponent } from '../createNode'
-const route: Route[] = [
+const route = [
   {
     path: '/system',
     component: Layout,

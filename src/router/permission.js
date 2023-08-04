@@ -24,7 +24,7 @@ async function addRoutes() {
   // 已验证完成，下面代码添加的可以实时同步至菜单中去，可以添加setTimeout(() => {}) 模拟异步代码的操作
   // 利用前端路由表模拟后端数据问题
   // 等待后端接口返回数据后再回调出去，防止刷新跳转404
-  return new Promise<void>((resolve) => {
+  return new Promise((resolve) => {
     if (isBackMenu) {
       getMenu()
       .then((data) => {
