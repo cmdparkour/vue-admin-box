@@ -1,5 +1,3 @@
-import { MockMethod } from 'vite-plugin-mock'
-
 /** 给接口使用 */
 const menu = [
   {

@@ -1,4 +1,3 @@
-import { MockMethod } from 'vite-plugin-mock'
 const users = [
   { name: 'admin', password: '123456', token: 'admin', info: {
     name: '系统管理员'

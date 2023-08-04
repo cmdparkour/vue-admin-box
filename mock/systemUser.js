@@ -1,4 +1,3 @@
-import { MockMethod } from 'vite-plugin-mock'
 const roles = ['系统管理员', '平台管理员', '数据统计人员', '信息录入人员', '普通人员']
 export default [
   {

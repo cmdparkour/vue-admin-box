@@ -1,5 +1,3 @@
-import { MockMethod } from 'vite-plugin-mock'
-
 export default [
   {
     url: `/mock/work/list`,
