@@ -8,7 +8,7 @@ import { Ref } from 'vue'
 import { defineComponent, ref, onMounted } from 'vue'
 export default defineComponent({
   setup() {
-    const dom: Ref<HTMLElement> = ref(null) as any
+    const dom = ref(null)
     onMounted(() => {
       console.log(dom.value)
       const data = dom.value.getBoundingClientRect()
