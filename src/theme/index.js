@@ -1,6 +1,6 @@
 export const style = {
   'default': {
-    name: 'message.system.setting.style.default',
+    name: '默认菜单风格',
     menu: {
       textColor: '#bfcbd9',
       background: '#181f31',
@@ -32,7 +32,7 @@ export const style = {
     }
   },
   'light': {
-    name: 'message.system.setting.style.light',
+    name: '亮色菜单风格',
     menu: {
       textColor: '#272727',
       background: '#fff',
@@ -64,7 +64,7 @@ export const style = {
     }
   },
   'chinese': {
-    name: 'message.system.setting.style.chinese',
+    name: '中国水墨风',
     menu: {
       textColor: '#c7c7c7',
       background: '#232323',
@@ -96,7 +96,7 @@ export const style = {
     }
   },
   'dark': {
-    name: 'message.system.setting.style.dark',
+    name: '暗色菜单风格',
     menu: {
       textColor: '#bbb',
       background: '#18181c',

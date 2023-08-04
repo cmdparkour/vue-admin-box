@@ -2,11 +2,11 @@
 const menu = [
   {
     path: '/',
-    meta: { title: 'message.menu.dashboard.name', icon: 'sfont system-home' },
+    meta: { title: 'dashboard', icon: 'sfont system-home' },
     children: [
       {
         path: 'dashboard',
-        meta: { title: 'message.menu.dashboard.index', icon: 'sfont system-home', hideClose: true }
+        meta: { title: '首页', icon: 'sfont system-home', hideClose: true }
       }
     ]
   }

@@ -1,21 +1,21 @@
 <template>
-  <div :title="$t('message.system.setting.name')" @click="drawerChange(true)">
+  <div title="系统设置" @click="drawerChange(true)">
     <i class="sfont system-shezhi"></i>
   </div>
   <el-drawer
-    :title="$t('message.system.setting.name')"
+    title="系统设置"
     v-model="drawer"
     size="300px"
     :show-close="false"
     direction="rtl">
-      <h3>{{ $t('message.system.setting.style.name') }}</h3>
+      <h3>整体风格设置</h3>
       <div class="theme-box">
         <theme-icon
           v-model:active="state.style"
           v-for="(row, index) in style"
           :key="index"
           :name="index"
-          :tip="$t(row.name)"
+          :tip="row.name"
           :logo="row.logo.background"
           :menu="row.menu.background"
           :header="row.header.background"
@@ -23,7 +23,7 @@
           :activeColor="row.page.color"
         ></theme-icon>
       </div>
-      <h3>{{ $t('message.system.setting.primaryColor.name') }}</h3>
+      <h3>主题色</h3>
       <div class="theme-box">
         <theme-color
           v-for="(item, key) in themeColorArr"
@@ -35,10 +35,10 @@
           :tip="item.tip"
         ></theme-color>
       </div>
-      <h3>{{ $t('message.system.setting.other.name') }}</h3>
+      <h3>其他设置</h3>
       <div class="list">
         <div class="list-item" v-for="option in options" :key="option.name">
-          <span>{{ $t(option.name) }}</span>
+          <span>{{ option.name }}</span>
           <el-switch
             v-model="option.value"
             active-color="#13ce66"
@@ -54,7 +54,6 @@
 <script lang="js">
 import { defineComponent, ref, reactive, computed, watch } from 'vue'
 import { useStore } from 'vuex'
-import { useI18n } from 'vue-i18n'
 import themeIcon from './theme/theme-icon.vue'
 import themeColor from './theme/theme-color.vue'
 import { style } from '@/theme/index'
@@ -66,7 +65,6 @@ export default defineComponent({
   },
   setup() {
     const store = useStore()
-    const { t } = useI18n()
     // 只取值，不做computed
     const state = reactive({
       style: store.state.app.theme.state.style,
@@ -75,12 +73,12 @@ export default defineComponent({
       menuType: store.state.app.theme.state.menuType
     })
     const themeColorArr = [
-      { color: '#409eff', textColor: '#fff', tip: 'message.system.setting.primaryColor.blue' },
-      { color: '#d60f20', textColor: '#fff', tip: 'message.system.setting.primaryColor.red' },
-      { color: '#ac25e6', textColor: '#fff', tip: 'message.system.setting.primaryColor.violet' },
-      { color: '#4dc86f', textColor: '#fff', tip: 'message.system.setting.primaryColor.green' },
-      { color: '#13c2c2', textColor: '#fff', tip: 'message.system.setting.primaryColor.cyan' },
-      { color: '#333', textColor: '#fff', tip: 'message.system.setting.primaryColor.black' }
+      { color: '#409eff', textColor: '#fff', tip: '默认蓝' },
+      { color: '#d60f20', textColor: '#fff', tip: '玫瑰红' },
+      { color: '#ac25e6', textColor: '#fff', tip: '优雅紫' },
+      { color: '#4dc86f', textColor: '#fff', tip: '故事绿' },
+      { color: '#13c2c2', textColor: '#fff', tip: '明青' },
+      { color: '#333', textColor: '#fff', tip: '极客黑' }
     ]
     const setTheme = () => {
       const userTheme = style[state.style]
@@ -116,9 +114,9 @@ export default defineComponent({
     })
     let drawer = ref(false)
     const options = reactive([
-      { name: 'message.system.setting.other.showLogo', value: store.state.app.showLogo, store: 'showLogo' },
-      { name: 'message.system.setting.other.showBreadcrumb', value: store.state.app.showTabs, store: 'showTabs' },
-      { name: 'message.system.setting.other.keepOnlyOneMenu', value: store.state.app.expandOneMenu, store: 'expandOneMenu' }
+      { name: '显示logo', value: store.state.app.showLogo, store: 'showLogo' },
+      { name: '显示面包屑导航', value: store.state.app.showTabs, store: 'showTabs' },
+      { name: '保持一个菜单展开', value: store.state.app.expandOneMenu, store: 'expandOneMenu' }
     ])
     const drawerChange = (value) => {
       drawer.value = value
