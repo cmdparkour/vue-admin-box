@@ -1,7 +1,7 @@
 import request from '@/utils/system/request'
 
 /** 登录api */
-export function loginApi(data: object) {
+export function loginApi(data) {
   return request({
     url: '/user/login',
     method: 'post',
@@ -11,7 +11,7 @@ export function loginApi(data: object) {
 }
 
 /** 获取用户信息Api */
-export function getInfoApi(data: object) {
+export function getInfoApi(data) {
   return request({
     url: '/user/info',
     method: 'post',
@@ -30,7 +30,7 @@ export function loginOutApi() {
 }
 
 /** 获取用户信息Api */
-export function passwordChange(data: object) {
+export function passwordChange(data) {
   return request({
     url: '/user/passwordChange',
     method: 'post',
