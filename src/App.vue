@@ -12,7 +12,6 @@ export default defineComponent({
   setup() {
     const store = useStore()
     const size = computed(() => store.state.app.elementSize)
-    const messages = i18n.messages.value
     return {
       size,
     }

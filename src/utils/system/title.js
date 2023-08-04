@@ -1,5 +1,5 @@
-import { isBackMenu, systemTitle } from '@/config'
+import { systemTitle } from '@/config'
 
 export function changeTitle(name) {
-  document.title = isBackMenu ? `${name}-${systemTitle}` : `${t(name)}-${t(systemTitle)}`
+  document.title = `${name}-${systemTitle}`
 }
