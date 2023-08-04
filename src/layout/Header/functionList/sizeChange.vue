@@ -11,7 +11,7 @@
           :command="d.size"
           :disabled=" elementSize === d.size "
         >
-          {{ $t(d.name) }}
+          {{ d.name }}
         </el-dropdown-item>
       </el-dropdown-menu>
     </template>
@@ -28,9 +28,9 @@ export default defineComponent({
     const route = useRoute()
     const elementSize = computed(() => store.state.app.elementSize)
     const list = [
-      { size: 'large', name: 'message.system.size.large' },
-      { size: 'default', name: 'message.system.size.default' },
-      { size: 'small', name: 'message.system.size.small' },
+      { size: 'large', name: '大' },
+      { size: 'default', name: '默认' },
+      { size: 'small', name: '小' },
     ]
     const { fullPath } = unref(route)
     return {

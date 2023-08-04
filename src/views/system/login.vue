@@ -4,18 +4,18 @@
       <div class="login-content-left">
         <img :src="loginLeftPng"/>
         <div class="login-content-left-mask">
-          <div>{{ $t(systemTitle) }}</div>
-          <div>{{ $t(systemSubTitle) }}</div>
+          <div>{{ systemTitle }}</div>
+          <div>{{ systemSubTitle }}</div>
         </div>
       </div>
 
       <div class="box-inner">
-        <h1>{{ $t('message.system.welcome') }}</h1>
+        <h1>欢迎登录</h1>
         <el-form class="form">
           <el-input
               size="large"
               v-model="form.name"
-              :placeholder="$t('message.system.userName')"
+              placeholder="用户名"
               type="text"
               maxlength="50"
           >
@@ -28,7 +28,7 @@
               ref="password"
               v-model="form.password"
               :type="passwordType"
-              :placeholder="$t('message.system.password')"
+              placeholder="密码"
               name="password"
               maxlength="50"
           >
@@ -42,7 +42,7 @@
           </el-input>
 
           <el-button type="primary" :loading="form.loading" @click="submit" style="width: 100%;" size="medium">
-            {{ $t('message.system.login') }}
+            登录
           </el-button>
         </el-form>
         <div class="fixed-top-right">

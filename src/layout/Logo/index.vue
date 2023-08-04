@@ -1,7 +1,7 @@
 <template>
   <div class="logo-container">
     <!-- <img src="@/assets/logo.png" alt=""> -->
-    <h1 v-if="!isCollapse">{{ $t(systemTitle) }}</h1>
+    <h1 v-if="!isCollapse">{{ systemTitle }}</h1>
   </div>
 </template>
 

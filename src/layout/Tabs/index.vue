@@ -26,14 +26,14 @@
         </div>
         <template #dropdown>
           <el-dropdown-menu>
-            <el-dropdown-item class="tab-ddropdown-item" :icon="RefreshLeft" @click="pageReload">{{ $t('message.system.tab.reload') }}</el-dropdown-item>
-            <el-dropdown-item class="tab-ddropdown-item" :icon="CircleClose" :disabled="currentDisabled" @click="closeCurrentRoute">{{ $t('message.system.tab.closeCurrent') }}</el-dropdown-item>
-            <el-dropdown-item class="tab-ddropdown-item" :icon="CircleClose" :disabled="menuList.length < 3" @click="closeOtherRoute">{{ $t('message.system.tab.closeOther') }}</el-dropdown-item>
-            <el-dropdown-item class="tab-ddropdown-item" :icon="CircleClose" :disabled="menuList.length <= 1" @click="closeAllRoute">{{ $t('message.system.tab.closeAll') }}</el-dropdown-item>
+            <el-dropdown-item class="tab-ddropdown-item" :icon="RefreshLeft" @click="pageReload">重新加载</el-dropdown-item>
+            <el-dropdown-item class="tab-ddropdown-item" :icon="CircleClose" :disabled="currentDisabled" @click="closeCurrentRoute">关闭当前标签</el-dropdown-item>
+            <el-dropdown-item class="tab-ddropdown-item" :icon="CircleClose" :disabled="menuList.length < 3" @click="closeOtherRoute">关闭其他标签</el-dropdown-item>
+            <el-dropdown-item class="tab-ddropdown-item" :icon="CircleClose" :disabled="menuList.length <= 1" @click="closeAllRoute">关闭所有标签</el-dropdown-item>
           </el-dropdown-menu>
         </template>
       </el-dropdown>
-      <el-tooltip class="item" effect="dark" :content="contentFullScreen ? $t('message.system.fullScreenBack'):$t('message.system.fullScreen')" placement="bottom">
+      <el-tooltip class="item" effect="dark" :content="contentFullScreen ? '退出全屏' : '全屏'" placement="bottom">
         <el-icon @click="onFullscreen"><FullScreen /></el-icon>
       </el-tooltip>
     </div>
@@ -68,7 +68,7 @@ export default defineComponent({
     const scrollLeft = ref(0)
     const defaultMenu = {
       path: '/dashboard',
-      meta: { title: 'message.menu.dashboard.index', hideClose: true }
+      meta: { title: '首页', hideClose: true }
     }
     const contentFullScreen = computed(() => store.state.app.contentFullScreen)
     const currentDisabled = computed(() => route.path === defaultMenu.path)
