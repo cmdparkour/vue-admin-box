@@ -14,7 +14,6 @@
 import { reactive } from 'vue'
 import { createRouter, createWebHashHistory } from 'vue-router'
 import store from '@/store'
-import i18n from '@/locale'
 import NProgress from '@/utils/system/nprogress'
 import { changeTitle } from '@/utils/system/title'
 
@@ -31,8 +30,6 @@ import System from './modules/system'
 let modules = reactive([
   ...System
 ])
-
-const { t } = i18n.global
 
 const router = createRouter({
   history: createWebHashHistory(),

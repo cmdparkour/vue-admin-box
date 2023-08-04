@@ -14,7 +14,6 @@ import App from './App.vue'
 import store from './store'
 import router from './router'
 import { getAuthRoutes } from './router/permission'
-import i18n from './locale'
 if (import.meta.env.MODE !== 'development') { // 非开发环境调用百度统计
   baidu()
 }
@@ -25,7 +24,6 @@ getAuthRoutes().then(() => {
   app.use(ElementPlus, { size: store.state.app.elementSize })
   app.use(store)
   app.use(router)
-  app.use(i18n)
   // app.config.performance = true
   app.mount('#app')
 })

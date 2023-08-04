@@ -1,7 +1,5 @@
-import i18n from '@/locale'
-import { isBackMenu, systemTitle } from '@/config'
-const { t } = i18n.global
+import { systemTitle } from '@/config'
 
 export function changeTitle(name: any) {
-  document.title = isBackMenu ? `${name}-${systemTitle}` : `${t(name)}-${t(systemTitle)}`
+  document.title = `${name}-${systemTitle}`
 }
