@@ -45,9 +45,6 @@
             登录
           </el-button>
         </el-form>
-        <div class="fixed-top-right">
-          <select-lang/>
-        </div>
       </div>
     </div>
   </div>
@@ -61,13 +58,9 @@ import { useRouter, useRoute } from 'vue-router'
 import type { RouteLocationRaw  } from 'vue-router'
 import { getAuthRoutes } from '@/router/permission'
 import { ElMessage } from 'element-plus'
-import selectLang from '@/layout/Header/functionList/word.vue'
 import loginLeftPng from '@/assets/login/left.jpg';
 
 export default defineComponent({
-  components: {
-    selectLang
-  },
   setup() {
     const store = useStore()
     const router = useRouter()
