@@ -15,9 +15,6 @@
 </template>
 
 <script lang="js">
-import type { LayerType } from '@/components/layer/index.vue'
-import type { Ref } from 'vue'
-import type { ElFormItemContext } from 'element-plus/lib/el-form/src/token'
 import { defineComponent, ref } from 'vue'
 import { ElMessage } from 'element-plus'
 import { useStore } from 'vuex'
@@ -40,8 +37,8 @@ export default defineComponent({
     }
   },
   setup(props, ctx) {
-    const ruleForm: Ref<ElFormItemContext|null> = ref(null)
-    const layerDom: Ref<LayerType|null> = ref(null)
+    const ruleForm = ref(null)
+    const layerDom = ref(null)
     const store = useStore()
     let form = ref({
       userId: '123465',

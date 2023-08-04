@@ -30,11 +30,11 @@ export default defineComponent({
     const route = useRoute()
     const store = useStore()
     // 国际化语言切换
-    const handleCommand = (command: string) => {
+    const handleCommand = (command) => {
       locale.value = command
       store.commit('app/stateChange', { name: 'lang', value: command })
       changeTitle(route.meta.title)
-      document.querySelector('html')!.setAttribute('lang', command)
+      document.querySelector('html') && document.querySelector('html').setAttribute('lang', command)
     }
     return {
       handleCommand,

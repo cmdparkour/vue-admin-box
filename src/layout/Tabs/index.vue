@@ -41,10 +41,6 @@
 </template>
 
 <script lang="js">
-/** 类型引用 */
-import type { Ref } from 'vue'
-import type { ElScrollbar } from 'element-plus'
-
 /** 引用vue系列函数 */
 import { defineComponent, computed, unref, watch, reactive, ref, nextTick } from 'vue'
 import { useStore } from 'vuex'
@@ -64,7 +60,7 @@ export default defineComponent({
     const store = useStore()
     const route = useRoute()
     const router = useRouter()
-    const scrollbarDom: Ref<typeof ElScrollbar|null> = ref(null)
+    const scrollbarDom = ref(null)
     const scrollLeft = ref(0)
     const defaultMenu = {
       path: '/dashboard',
@@ -73,15 +69,15 @@ export default defineComponent({
     const contentFullScreen = computed(() => store.state.app.contentFullScreen)
     const currentDisabled = computed(() => route.path === defaultMenu.path)
 
-    let activeMenu: any = reactive({ path: '' })
+    let activeMenu = reactive({ path: '' })
     let menuList = ref(tabsHook.getItem())
     if (menuList.value.length === 0) { // 判断之前有没有调用过
       addMenu(defaultMenu)
     }
-    watch(menuList.value, (newVal: []) => {
+    watch(menuList.value, (newVal) => {
       tabsHook.setItem(newVal)
     })
-    watch(menuList, (newVal: []) => {
+    watch(menuList, (newVal) => {
       tabsHook.setItem(newVal)
     })
     router.afterEach(() => {
@@ -95,7 +91,7 @@ export default defineComponent({
     }
     // 当前页面组件重新加载
     function pageReload() {
-      const self: any = route.matched[route.matched.length-1].instances.default
+      const self = route.matched[route.matched.length-1].instances.default
 
       self.handleReload();
     }
@@ -125,12 +121,12 @@ export default defineComponent({
     }
 
     // 添加新的菜单项
-    function addMenu(menu: any) {
+    function addMenu(menu) {
       let { path, meta, name, query } = menu
       if (meta.hideTabs) {
         return
       }
-      let hasMenu = menuList.value.some((obj: any) => {
+      let hasMenu = menuList.value.some((obj) => {
         return obj.path === path
       })
       if (!hasMenu) {
@@ -144,13 +140,13 @@ export default defineComponent({
     }
 
     // 删除菜单项
-    function delMenu(menu: any, nextPath?: string) {
+    function delMenu(menu, nextPath) {
       let index = 0
       if (!menu.meta.hideClose) {
         if (menu.meta.cache && menu.name) {
           store.commit('keepAlive/delKeepAliveComponentsName', menu.name)
         }
-        index = menuList.value.findIndex((item: any) => item.path === menu.path)
+        index = menuList.value.findIndex((item) => item.path === menu.path)
         menuList.value.splice(index, 1)
       }
       if (nextPath) {
@@ -165,7 +161,7 @@ export default defineComponent({
     }
 
     // 初始化activeMenu
-    function initMenu(menu: object) {
+    function initMenu(menu) {
       activeMenu = menu
       nextTick(() => {
         setPosition()
@@ -175,9 +171,9 @@ export default defineComponent({
     function setPosition() {
       if (scrollbarDom.value) {
         const domBox = {
-          scrollbar: scrollbarDom.value.wrapRef as HTMLDivElement,
-          activeDom: scrollbarDom.value.wrapRef.querySelector('.active') as HTMLDivElement,
-          activeFather: scrollbarDom.value.wrapRef.querySelector('.el-scrollbar__view') as HTMLDivElement
+          scrollbar: scrollbarDom.value.wrapRef,
+          activeDom: scrollbarDom.value.wrapRef.querySelector('.active'),
+          activeFather: scrollbarDom.value.wrapRef.querySelector('.el-scrollbar__view')
         }
         let hasDoms = true
         Object.keys(domBox).forEach((dom) => {
@@ -200,15 +196,15 @@ export default defineComponent({
 
     // 配置需要缓存的数据
     function setKeepAliveData() {
-      let keepAliveNames: any[] = []
-      menuList.value.forEach((menu: any) => {
+      let keepAliveNames = []
+      menuList.value.forEach((menu) => {
         menu.meta && menu.meta.cache && menu.name && keepAliveNames.push(menu.name)
       })
       store.commit('keepAlive/setKeepAliveComponentsName', keepAliveNames)
     }
 
     /** 监听鼠标滚动事件 */
-    function handleWhellScroll(e: any) {
+    function handleWhellScroll(e) {
       let distance = 0
       let speed = 5
       if (e.wheelDelta > 30) {
@@ -221,7 +217,7 @@ export default defineComponent({
     }
 
     /** 监听滚动事件 */
-    function handleScroll({ scrollLeft: left }: { scrollLeft: number }) {
+    function handleScroll({ scrollLeft: left }) {
       scrollLeft.value = left
     }
 

@@ -40,7 +40,7 @@ export default defineComponent({
     }
   },
   methods: {
-    handleCommand(command: string) {
+    handleCommand(command) {
       this.$store.commit('app/stateChange', {
         name: 'elementSize',
         value: command

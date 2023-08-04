@@ -31,7 +31,7 @@ export default defineComponent({
     const expandOneMenu = computed(() => store.state.app.expandOneMenu)
     const allRoutes = useRouter().options.routes
     const route = useRoute()
-    const activeMenu: any = computed(() => {
+    const activeMenu = computed(() => {
       const { meta, path } = route;
       if (meta.activeMenu) {
         return meta.activeMenu;

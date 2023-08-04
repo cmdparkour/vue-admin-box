@@ -57,19 +57,8 @@ import { useStore } from 'vuex'
 import { useI18n } from 'vue-i18n'
 import themeIcon from './theme/theme-icon.vue'
 import themeColor from './theme/theme-color.vue'
-import type { Style, Colors } from '@/theme/index'
 import { style } from '@/theme/index'
 
-interface Option {
-  name: string,
-  value: boolean,
-  store: string
-}
-interface State {
-  style: string,
-  primaryColor: string,
-  menuType: string
-}
 export default defineComponent({
   components: {
     themeIcon,
@@ -79,7 +68,7 @@ export default defineComponent({
     const store = useStore()
     const { t } = useI18n()
     // 只取值，不做computed
-    const state: State = reactive({
+    const state = reactive({
       style: store.state.app.theme.state.style,
       primaryColor: store.state.app.theme.state.primaryColor,
       primaryTextColor: store.state.app.theme.state.primaryTextColor,
@@ -105,7 +94,7 @@ export default defineComponent({
         if (i === 'name') {
           continue;
         }
-        const item: any = userTheme[i as keyof Colors]
+        const item = userTheme[i]
         for (let y in item) {
           let cssVarName = '--system-' + i + '-' + y.replace(/([A-Z])/g, "-$1").toLowerCase()
           body.style.setProperty(cssVarName, item[y])
@@ -131,10 +120,10 @@ export default defineComponent({
       { name: 'message.system.setting.other.showBreadcrumb', value: store.state.app.showTabs, store: 'showTabs' },
       { name: 'message.system.setting.other.keepOnlyOneMenu', value: store.state.app.expandOneMenu, store: 'expandOneMenu' }
     ])
-    const drawerChange = (value: boolean) => {
+    const drawerChange = (value) => {
       drawer.value = value
     }
-    const change = (option: Option) => {
+    const change = (option) => {
       store.commit(`app/stateChange`, { name: option.store, value: option.value })
     }
     setTheme()

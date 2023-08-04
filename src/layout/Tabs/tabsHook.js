@@ -1,7 +1,7 @@
 
 /** 设置和拉取tab数据的主方法 */
 const tabsHook = {
-  setItem: function(arr: object[]) {
+  setItem: function(arr) {
     localStorage.setItem('tabs', JSON.stringify(arr))
   },
   getItem: function() {
