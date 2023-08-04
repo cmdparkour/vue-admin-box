@@ -36,7 +36,7 @@
 - 国内推荐使用yarn或者cnpm进行安装，npm安装容易产生问题
 
 ## 基础模板
-共四个基础模板，均适合从零研发使用，可在[github](https://github.com/cmdparkour/vue-admin-box-template)、[码云](https://gitee.com/cmdparkour/vue-admin-box-template)仓库中直接查看，模板如下所示
+共四个基础模板，均适合从零研发使用，可在[github](https://github.com/cmdparkour/vue-admin-box)、[码云](https://gitee.com/cmdparkour/vue-admin-box)仓库中直接查看，模板如下所示
 1. template-ts-i18n 基础模板，内含ts语法+国际化配置 [github](https://github.com/cmdparkour/vue-admin-box/tree/template-ts-i18n) [gitee](https://gitee.com/cmdparkour/vue-admin-box/tree/template-ts-i18n/) [demo](http://vue-admin-box-template.51weblove.com/ts-i18n/)
 2. template-ts 基础模板，只含ts语法，国际化已去除 [github](https://github.com/cmdparkour/vue-admin-box/tree/template-ts) [gitee](https://gitee.com/cmdparkour/vue-admin-box/tree/template-ts/) [demo](http://vue-admin-box-template.51weblove.com/ts)
 3. template-js-i18n 基础模板，js语法 + 国际化配置 [github](https://github.com/cmdparkour/vue-admin-box/tree/template-js-i18n) [gitee](https://gitee.com/cmdparkour/vue-admin-box/tree/template-js-i18n/) [demo](http://vue-admin-box-template.51weblove.com/js-i18n)
