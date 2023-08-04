@@ -4,7 +4,7 @@
  */
 
 /** 关闭当前标签 */
-export const closeCurrentTab = (nextPath?: string) => {
+export const closeCurrentTab = (nextPath) => {
   /** 拿到tab组件 */
   const tab = document.getElementById('vueAdminBoxTabCloseSelf')
   if (nextPath) {
