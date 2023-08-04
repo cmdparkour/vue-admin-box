@@ -15,8 +15,8 @@
 </template>
 
 <script lang="js">
-import { ref, defineComponent, watch, Ref } from "vue";
-import { useRoute, useRouter, RouteLocationMatched } from "vue-router";
+import { ref, defineComponent, watch } from "vue";
+import { useRoute, useRouter } from "vue-router";
 import { isBackMenu } from '@/config'
 export default defineComponent({
   name: "BreadCrumb",
