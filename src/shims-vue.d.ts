@@ -4,5 +4,4 @@ declare module '*.vue' {
   export default component
 }
 // 国际化声明
-declare module 'element-plus/lib/packages/locale/lang/zh-cn';
-declare module 'element-plus/lib/packages/locale/lang/en';
+declare module 'element-plus/dist/locale/*.mjs';
