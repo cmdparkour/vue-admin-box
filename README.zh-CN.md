@@ -37,10 +37,10 @@
 
 ## 基础模板
 共四个基础模板，均适合从零研发使用，可在[github](https://github.com/cmdparkour/vue-admin-box-template)、[码云](https://gitee.com/cmdparkour/vue-admin-box-template)仓库中直接查看，模板如下所示
-1. template-ts-i18n 基础模板，内含ts语法+国际化配置 [demo](http://vue-admin-box-template.51weblove.com/ts-i18n/)
-2. template-ts 基础模板，只含ts语法，国际化已去除 [demo](http://vue-admin-box-template.51weblove.com/ts)
-3. template-js-i18n 基础模板，js语法 + 国际化配置 [demo](http://vue-admin-box-template.51weblove.com/js-i18n)
-4. template-js 基础模板，js语法，国际化已去除 [demo](http://vue-admin-box-template.51weblove.com/js)
+1. template-ts-i18n 基础模板，内含ts语法+国际化配置 [github](https://github.com/cmdparkour/vue-admin-box/tree/template-ts-i18n) [gitee](https://gitee.com/cmdparkour/vue-admin-box/tree/template-ts-i18n/) [demo](http://vue-admin-box-template.51weblove.com/ts-i18n/)
+2. template-ts 基础模板，只含ts语法，国际化已去除 [github](https://github.com/cmdparkour/vue-admin-box/tree/template-ts) [gitee](https://gitee.com/cmdparkour/vue-admin-box/tree/template-ts/) [demo](http://vue-admin-box-template.51weblove.com/ts)
+3. template-js-i18n 基础模板，js语法 + 国际化配置 [github](https://github.com/cmdparkour/vue-admin-box/tree/template-js-i18n) [gitee](https://gitee.com/cmdparkour/vue-admin-box/tree/template-js-i18n/) [demo](http://vue-admin-box-template.51weblove.com/js-i18n)
+4. template-js 基础模板，js语法，国际化已去除 [github](https://github.com/cmdparkour/vue-admin-box/tree/template-js) [gitee](https://gitee.com/cmdparkour/vue-admin-box/tree/template-js/) [demo](http://vue-admin-box-template.51weblove.com/js)
 
 ## 介绍
 

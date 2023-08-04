@@ -37,10 +37,10 @@ if you are not in China, maybe you should download the project to show the demo 
 
 ## Basic Template
 There are four basic templates, which are suitable for zero development and use, and can be found in [github](https://github.com/cmdparkour/vue-admin-box-template)、[gitee ](https://gitee.com/cmdparkour/vue-admin-box-template)View directly in the warehouse，The template is shown below:
-1. template-ts-i18n template，container ts and internationalization [demo](http://vue-admin-box-template.51weblove.com/ts-i18n/)
-2. template-ts template，container ts，internationalization is not container [demo](http://vue-admin-box-template.51weblove.com/ts)
-3. template-js-i18n template，container js and internationalization [demo](http://vue-admin-box-template.51weblove.com/js-i18n)
-4. template-js template，container js，internationalization is not container [demo](http://vue-admin-box-template.51weblove.com/js)
+1. template-ts-i18n template，container ts and internationalization [github](https://github.com/cmdparkour/vue-admin-box/tree/template-ts-i18n) [gitee](https://gitee.com/cmdparkour/vue-admin-box/tree/template-ts-i18n/) [demo](http://vue-admin-box-template.51weblove.com/ts-i18n/)
+2. template-ts template，container ts，internationalization is not container [github](https://github.com/cmdparkour/vue-admin-box/tree/template-ts) [gitee](https://gitee.com/cmdparkour/vue-admin-box/tree/template-ts/) [demo](http://vue-admin-box-template.51weblove.com/ts)
+3. template-js-i18n template，container js and internationalization [github](https://github.com/cmdparkour/vue-admin-box/tree/template-js-i18n) [gitee](https://gitee.com/cmdparkour/vue-admin-box/tree/template-js-i18n/) [demo](http://vue-admin-box-template.51weblove.com/js-i18n)
+4. template-js template，container js，internationalization is not container [github](https://github.com/cmdparkour/vue-admin-box/tree/template-js) [gitee](https://gitee.com/cmdparkour/vue-admin-box/tree/template-js/) [demo](http://vue-admin-box-template.51weblove.com/js)
 
 ## Introduction
 
