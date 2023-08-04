@@ -1,21 +1,12 @@
 import { createStore, createLogger } from 'vuex'
 import Persistent from './plugins/persistent'
-import {userState} from "@/store/modules/user";
-import {keepAliveState} from "@/store/modules/keepAlive";
-import {appState} from "@/store/modules/app";
 const debug = import.meta.env.MODE !== 'production'
 const files= import.meta.globEager('./modules/*.ts')
 
-export interface RootState {
-  user: userState,
-  keepAlive: keepAliveState,
-  app: appState
-}
-
-let modules: any = {}
-Object.keys(files).forEach((c: string) => {
+let modules = {}
+Object.keys(files).forEach((c) => {
   const module = files[c].default
-  const moduleName: string = c.replace(/^\.\/(.*)\/(.*)\.\w+$/, '$2')
+  const moduleName = c.replace(/^\.\/(.*)\/(.*)\.\w+$/, '$2')
   modules[moduleName] = module
 })
 
@@ -29,7 +20,7 @@ const persistent = Persistent({ key: 'vuex', modules, modulesKeys: {
   session: []
 } })
 
-export default createStore<RootState>({
+export default createStore({
   modules: {
     ...modules
   },

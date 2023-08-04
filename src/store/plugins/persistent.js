@@ -1,28 +1,9 @@
-interface Socket {
-  key: string,
-  modules: Modules,
-  modulesKeys: ModulesKeys
-}
-
-interface Modules {
-  [propName: string]: any
-}
-
-interface ModulesKeys {
-  local: string[],
-  session: string[]
-}
-
-interface Mutation {
-  type: any,
-  payload: any
-}
 const exclude = ['actions', 'getters', 'mutations', 'namespaced']
-export default function Persistent({ key, modules, modulesKeys }: Socket) {
-  return (store: any) => {
+export default function Persistent({ key, modules, modulesKeys }) {
+  return (store) => {
     const localOldState = JSON.parse(localStorage.getItem(key) || '{}')
     const sessionOldState = JSON.parse(sessionStorage.getItem(key) || '{}')
-    let oldState: Modules = {}
+    let oldState = {}
     Object.assign(oldState, localOldState, sessionOldState)
     if (Object.keys(oldState).length > 0) {
       for (const oldKey in oldState) {
@@ -30,7 +11,7 @@ export default function Persistent({ key, modules, modulesKeys }: Socket) {
       }
       store.replaceState(modules)
     }
-    store.subscribe((mutation: Mutation, state: any) => {
+    store.subscribe((mutation, state) => {
       // 判断是否需要缓存数据至localStorage
       if (modulesKeys.local.length > 0) {
         const localData = setData(store.state, modulesKeys.local)
@@ -49,8 +30,8 @@ export default function Persistent({ key, modules, modulesKeys }: Socket) {
   }
 }
 
-function setData(state: any, module: string[]) {
-  let data: Modules = {}
+function setData(state, module) {
+  let data = {}
   for (const i of module) {
     data[i] = state[i]
   }

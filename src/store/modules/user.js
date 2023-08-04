@@ -1,28 +1,23 @@
 import { loginApi, getInfoApi, loginOutApi } from '@/api/user'
 import { ActionContext } from 'vuex'
-
-export interface userState {
-  token: string,
-  info: object
-}
-const state = (): userState => ({
+const state = () => ({
   token: '', // 登录token
   info: {},  // 用户信息
 })
 
 // getters
 const getters = {
-  token(state: userState) {
+  token(state) {
     return state.token
   }
 }
 
 // mutations
 const mutations = {
-  tokenChange(state: userState, token: string) {
+  tokenChange(state, token) {
     state.token = token
   },
-  infoChange(state: userState, info: object) {
+  infoChange(state, info) {
     state.info = info
   }
 }

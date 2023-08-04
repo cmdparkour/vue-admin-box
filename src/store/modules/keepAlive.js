@@ -1,13 +1,3 @@
-
-interface Option {
-  name: string,
-  value: any
-}
-
-export interface keepAliveState {
-  keepAliveComponentsName: string[]
-}
-
 const state = () => ({
   keepAliveComponentsName: [] // 需要缓存的组件名称
 })
@@ -15,13 +5,13 @@ const state = () => ({
 // mutations
 const mutations = {
   // 重置，Push, splice keep-alive对象
-  setKeepAliveComponentsName(state: keepAliveState, nameArr: []) {
+  setKeepAliveComponentsName(state, nameArr) {
     state.keepAliveComponentsName = nameArr
   },
-  addKeepAliveComponentsName(state: keepAliveState, name: string) {
+  addKeepAliveComponentsName(state, name) {
     state.keepAliveComponentsName.push(name)
   },
-  delKeepAliveComponentsName(state: keepAliveState, name: string) {
+  delKeepAliveComponentsName(state, name) {
     const key = state.keepAliveComponentsName.indexOf(name)
     if (key !== -1) {
       state.keepAliveComponentsName.splice(key, 1)
@@ -31,7 +21,7 @@ const mutations = {
 }
 
 const getters = {
-  keepAliveComponentsName(state: keepAliveState) {
+  keepAliveComponentsName(state) {
     return state.keepAliveComponentsName
   }
 }
