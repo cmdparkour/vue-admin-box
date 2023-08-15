@@ -20,7 +20,7 @@
     <el-pagination
       v-if="showPage"
       v-model:current-page="page.index"
-      class="system-page"
+      class="system-page-table"
       background
       :layout="pageLayout"
       :total="page.total"
@@ -103,7 +103,7 @@ export default defineComponent({
       height: 100%;
     }
     
-    .system-page {
+    .system-page-table {
       margin-top: 20px;
     }
   }
