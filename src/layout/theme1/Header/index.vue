@@ -40,13 +40,13 @@
 import { defineComponent, computed, reactive } from 'vue'
 import { useStore } from 'vuex'
 import { useRouter, useRoute } from 'vue-router'
-import FullScreen from './functionList/fullscreen.vue'
-import Word from './functionList/word.vue'
-import SizeChange from './functionList/sizeChange.vue'
-import Github from './functionList/github.vue'
-import Theme from './functionList/theme.vue'
+import FullScreen from '../../components/functionList/fullscreen.vue'
+import Word from '../../components/functionList/word.vue'
+import SizeChange from '../../components/functionList/sizeChange.vue'
+import Github from '../../components/functionList/github.vue'
+import Theme from '../../components/functionList/theme.vue'
 import Breadcrumb from './Breadcrumb.vue'
-import PasswordLayer from './passwordLayer.vue'
+import PasswordLayer from '../../components/passwordLayer.vue'
 export default defineComponent({
   components: {
     FullScreen,

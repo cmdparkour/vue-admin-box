@@ -5,6 +5,7 @@
       background-color="var(--system-menu-background)"
       text-color="var(--system-menu-text-color)"
       active-text-color="var(--system-primary-color)"
+      :mode="mode"
       :default-active="activeMenu"
       :class="isCollapse? 'collapse': ''"
       :collapse="isCollapse"
@@ -22,10 +23,17 @@ import { useRouter, useRoute } from 'vue-router'
 import { useStore } from 'vuex'
 import MenuItem from './MenuItem.vue'
 export default defineComponent({
+  props: {
+    mode: {
+      type: String,
+      default: "vertical"
+    }
+  },
   components: {
     MenuItem
   },
-  setup() {
+  setup(props) {
+    const { mode } = props
     const store = useStore()
     const isCollapse = computed(() => store.state.app.isCollapse)
     const expandOneMenu = computed(() => store.state.app.expandOneMenu)
@@ -46,6 +54,7 @@ export default defineComponent({
       expandOneMenu,
       allRoutes,
       activeMenu,
+      mode,
     }
   }
 })
@@ -54,6 +63,7 @@ export default defineComponent({
 <style lang="scss" scoped>
   .el-scrollbar {
     background-color: var(--system-menu-background);
+    flex: 1;
   }
   .layout-menu {
     width: 100%;
