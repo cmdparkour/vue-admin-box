@@ -23,7 +23,7 @@ export default defineComponent({
   },
   setup() {
     const data = [
-      { id: 1, name: 'vue-admin-box技术共享', des: '群号：735838842', link: 'https://qm.qq.com/cgi-bin/qm/qr?k=6fxlga2ADcC28IUNJgn9QybExG3BdRTl&jump_from=webapi' },
+      { id: 1, name: 'vue-admin-box技术共享', des: '群号：912804007', link: 'https://qm.qq.com/cgi-bin/qm/qr?k=6fxlga2ADcC28IUNJgn9QybExG3BdRTl&jump_from=webapi' },
       { id: 2, name: 'Vue3技术交流组', des: '群号：1059695979', link: 'https://qm.qq.com/cgi-bin/qm/qr?k=pY8PpZi1JnTQLvvsaI4fQFaBE1dxBYrC&jump_from=webapi' },
       { id: 3, name: 'Vue前端技术栈', des: '群号：685641057', link: 'https://qm.qq.com/cgi-bin/qm/qr?k=gd3t8OYL2T5oO8mZr8fyIS26LWdSmjH2&jump_from=webapi' }
     ]

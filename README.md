@@ -25,7 +25,7 @@ English | [简体中文](./README.zh-CN.md)
 - After more than three months of iteration, version 1.0 was officially released on August 10, 2021, with four basic templates attached for everyone to use
 - This open source project is developed by individuals and does not restrict any commercial use or personal research. Please click star to encourage me before using it
 - All illegal and pornographic activities involved in this open source project have nothing to do with this source code. Please do not show yourself
-- QQ communication group：735838842，Problems are raised in the group and can be solved in time
+- QQ communication group：912804007，Problems are raised in the group and can be solved in time
 
 ## Preview
 if you are not in China, maybe you should download the project to show the demo or use a vpn to visit the online demo.
