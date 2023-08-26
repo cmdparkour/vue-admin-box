@@ -61,7 +61,7 @@ import { useRouter, useRoute } from 'vue-router'
 import type { RouteLocationRaw  } from 'vue-router'
 import { getAuthRoutes } from '@/router/permission'
 import { ElMessage } from 'element-plus'
-import selectLang from '@/layout/coponents/functionList/word.vue'
+import selectLang from '@/layout/components/functionList/word.vue'
 import loginLeftPng from '@/assets/login/left.jpg';
 
 export default defineComponent({
