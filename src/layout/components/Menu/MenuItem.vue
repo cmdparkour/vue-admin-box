@@ -20,6 +20,12 @@
         <menu-item v-for="(item, key) in menu.children[0].children" :key="key" :menu="item" :basePath="pathResolve" />
       </el-sub-menu>
     </app-link>
+    <a v-else-if="showMenuType === 3" :href="menu.meta.jumpUrl" target="_blank" >
+      <el-menu-item :index="pathResolve" class="menu-out-link" :disabled="true">
+      <i :class="menu.meta.icon" v-if="menu.meta.icon"></i>
+      <template #title>{{ isBackMenu ? menu.meta.title : $t(menu.meta.title) }}</template>
+      </el-menu-item>
+    </a>
     <app-link v-else :to="pathResolve">
       <el-menu-item :index="pathResolve">
       <i :class="menu.meta.icon" v-if="menu.meta.icon"></i>
@@ -56,6 +62,8 @@ export default defineComponent({
         return 2
       } else if (menu.children && menu.children.length === 1 && !menu.alwayShow) {
         return 1
+      } else if (menu.meta && menu.meta.jumpUrl) {
+        return 3
       } else {
         return 0
       }
@@ -97,5 +105,9 @@ export default defineComponent({
   }
   .el-menu-item i, .el-sub-menu__title i {
     padding-right: 8px;
+  }
+  .menu-out-link {
+    cursor: pointer;
+    opacity: 1;
   }
 </style>

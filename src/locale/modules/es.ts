@@ -47,7 +47,8 @@ const lang = {
         treeTable: 'tabla jerárquica',
         card: 'tarjeta',
         work: 'trabajo',
-        baidu: 'caso de iframe'
+        baidu: 'caso de iframe',
+        jump: 'abrir en nueva ventana'
       },
       menu: {
         name: 'menú',

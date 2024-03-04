@@ -47,7 +47,8 @@ const lang = {
         treeTable: 'деревянная таблица',
         card: 'карточка',
         work: 'работа',
-        baidu: 'iframe случай'
+        baidu: 'iframe случай',
+        jump: 'переход в новое окно'
       },
       menu: {
         name: 'меню',

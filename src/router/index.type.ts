@@ -34,6 +34,8 @@ export interface Meta {
     hideTabs?: boolean
     /** @name 左侧菜单强制聚焦时的路由，比如新增、编辑一类页面，可能需要使用 */
     activeMenu?: string
+    /** @name 外部跳转链接 */
+    jumpUrl?: string
     /** @name 任意值 @description 供自行扩展使用，但推荐在上面自己定义好 */
     [key: string]: any
 }

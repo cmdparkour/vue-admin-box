@@ -48,6 +48,7 @@ const lang = {
         card: 'カード',
         work: '作業',
         baidu: 'iframeケース',
+        jump: '新しいウィンドウで開く'
       },
       menu: {
         name: 'メニュー',

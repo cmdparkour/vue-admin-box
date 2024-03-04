@@ -45,6 +45,11 @@ const route: Route[] = [
         component: createNameComponent(() => import('@/views/main/pages/baidu/index.vue')),
         meta: { title: 'message.menu.page.baidu' }
       },
+      {
+        path: 'jump',
+        component: createNameComponent(() => import('@/views/main/pages/baidu/index.vue')),
+        meta: { title: 'message.menu.page.jump', jumpUrl: 'https://blog.51weblove.com' }
+      },
     ]
   }
 ]

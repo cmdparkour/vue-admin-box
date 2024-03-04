@@ -46,8 +46,9 @@ const lang = {
         treeTable: '树联动表格',
         card: '卡片列表',
         work: '工作进度',
-        baidu: '外部链接',
-      },   
+        baidu: '嵌套链接',
+        jump: '新窗口跳转',
+      },
       menu: {
         name: '多级嵌套菜单',
         menu_1: '二级菜单1',
