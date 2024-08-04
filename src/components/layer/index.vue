@@ -5,6 +5,7 @@
       :title="layer.title"
       :width="layer.width"
       center
+      :draggable="draggable"
     >
       <slot></slot>
       <template #footer v-if="layer.showButton">
@@ -19,7 +20,6 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import drag from '@/directive/drag/index'
 export interface LayerInterface {
   show: boolean;
   title: string;
@@ -42,10 +42,11 @@ export default defineComponent({
         }
       },
       required: true
+    },
+    draggable: {
+      type: Boolean,
+      default: true
     }
-  },
-  directives: {
-    drag
   },
   setup(props, ctx) {
     function confirm() {
