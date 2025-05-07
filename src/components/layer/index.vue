@@ -1,21 +1,13 @@
 <template>
-  <div v-drag="layer.show">
-    <el-dialog
-      v-model="layer.show"
-      :title="layer.title"
-      :width="layer.width"
-      center
-      :draggable="draggable"
-    >
-      <slot></slot>
-      <template #footer v-if="layer.showButton">
-        <div>
-          <el-button type="primary" @click="confirm">确认</el-button>
-          <el-button @click="close">取消</el-button>
-        </div>
-      </template>
-    </el-dialog>
-  </div>
+  <el-dialog v-model="layer.show" :title="layer.title" :width="layer.width" center :draggable="draggable">
+    <slot></slot>
+    <template #footer v-if="layer.showButton">
+      <div>
+        <el-button type="primary" @click="confirm">确认</el-button>
+        <el-button @click="close">取消</el-button>
+      </div>
+    </template>
+  </el-dialog>
 </template>
 
 <script lang="ts">
@@ -65,6 +57,4 @@ export default defineComponent({
 })
 </script>
 
-<style lang="scss" scoped>
-  
-</style>
+<style lang="scss" scoped></style>
