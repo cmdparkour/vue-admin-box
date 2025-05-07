@@ -57,6 +57,9 @@ vue-admin-box是一个免费并且开源的中后台管理系统模板。使用�
 - 手写版本的各类自定义指令
 - 已经过多个中后台业务检验过的表格公用组件及弹窗公用组件，详情请查看“页面栏目”内的“业务表格”、“分类联动表格”、“树联动表格”
 
+#### 国际化功能联动
+Vscode中安装插件：i18n Ally(https://marketplace.visualstudio.com/items/?itemName=Lokalise.i18n-ally),便于国际化的显示以及快速翻译，促进迭代速度
+
 #### 主要技术栈
 
 - MVVM框架：vue v3

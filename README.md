@@ -57,6 +57,9 @@ There are four basic templates, which are suitable for zero development and use,
 - Handwritten versions of various custom instructions
 - For table common components and pop-up common components that have been verified by multiple middle and background businesses, please see "crud table", "category table" and "tree table" in the "page column" for details
 
+#### i18n fast
+install extension in vscode: i18n Ally(https://marketplace.visualstudio.com/items/?itemName=Lokalise.i18n-ally) for show real word in codes and translate faster.
+
 #### Main technology
 
 - MVVM framework：vue v3

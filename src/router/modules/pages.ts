@@ -50,6 +50,11 @@ const route: Route[] = [
         component: createNameComponent(() => import('@/views/main/pages/baidu/index.vue')),
         meta: { title: 'message.menu.page.jump', jumpUrl: 'https://blog.51weblove.com' }
       },
+      {
+        path: 'layerTable',
+        component: createNameComponent(() => import('@/views/main/pages/layerTable/index.vue')),
+        meta: { title: 'message.menu.page.layerTable' }
+      }
     ]
   }
 ]
