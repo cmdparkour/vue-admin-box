@@ -1,4 +1,4 @@
-<h1 align="center">vue-admin-box</h1>
+<h1 align="center">vue-admin-box: Vue3、Element Plus、typescript后台管理系统</h1>
 <p align="center">
     <a href="https://github.com/vuejs/vue-next">
         <img src="https://img.shields.io/badge/vue3-3.0.5-brightgreen.svg" alt="vue">
